@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Testing</title>
+    <title>Posts on Thousand words</title>
     <link>https://mespe.github.io/post/</link>
-    <description>Recent content in Posts on Testing</description>
+    <description>Recent content in Posts on Thousand words</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 07 Jun 2017 21:03:33 -0700</lastBuildDate>
@@ -12,12 +12,13 @@
     
     
     <item>
-      <title>intro</title>
+      <title>Welcome</title>
       <link>https://mespe.github.io/post/intro/</link>
       <pubDate>Wed, 07 Jun 2017 21:03:33 -0700</pubDate>
       
       <guid>https://mespe.github.io/post/intro/</guid>
-      <description>Hello World!</description>
+      <description>Hello World!
+This is my first post to test out Hugo. Overall, it was a bit of a pain to set up with github personal pages. Oh well, it seems to be working now.</description>
     </item>
     
   </channel>
