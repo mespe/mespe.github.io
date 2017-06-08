@@ -1,3 +1,6 @@
 baseURL = "https://mespe.github.io/"
 languageCode = "en-us"
-title = "Testing"
+title = "Thousand words"
+
+[Params]
+	Author = "Matt Espe"
