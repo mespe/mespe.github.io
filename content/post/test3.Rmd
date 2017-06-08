@@ -2,7 +2,7 @@
 date = "2017-06-08T09:26:16-07:00"
 draft = true
 title = "Testing out R code"
-image = "img/test-1.png"
+featuredImage = "img/test-1.png"
 
 +++
 

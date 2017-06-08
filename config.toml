@@ -1,6 +1,12 @@
 baseURL = "https://mespe.github.io/"
 languageCode = "en-us"
 title = "Thousand words"
+theme = "minos"
+paginate = 10
+SectionPagesMenu = "main"
 
-[Params]
+[params]
 	Author = "Matt Espe"
+	smartToc = true
+
+	
