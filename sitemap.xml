@@ -3,7 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mespe.github.io/post/intro/</loc>
+    <lastmod>2017-06-07T21:03:33-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mespe.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/post/</loc>
+    <lastmod>2017-06-07T21:03:33-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -14,6 +25,7 @@
   
   <url>
     <loc>https://mespe.github.io/</loc>
+    <lastmod>2017-06-07T21:03:33-07:00</lastmod>
     <priority>0</priority>
   </url>
   
