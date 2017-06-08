@@ -1,0 +1,15 @@
+---
+layout: post
+title: Testing R
+date: `r Sys.time()`
+draft: false
+tags: tests
+---
+
+## Testing this all out. 
+
+```{r fig.path="img/"}
+
+plot(rnorm(100))
+
+```
