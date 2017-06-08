@@ -1,7 +1,8 @@
 +++
-date = "2017-06-08T11:00:27-07:00"
+date = "2017-06-08T11:36:02-07:00"
 draft = false
-title = "test3"
+title = "Testing out R code"
+image = "/img/test-1.png"
 
 +++
 
@@ -12,4 +13,4 @@ title = "test3"
 plot(1)
 ```
 
-![plot of chunk unnamed-chunk-1](/img/unnamed-chunk-1-1.png)
+![plot of chunk test](/img/test-1.png)
