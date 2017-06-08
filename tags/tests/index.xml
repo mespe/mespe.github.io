@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tests on Thousand words</title>
+    <link>https://mespe.github.io/tags/tests/</link>
+    <description>Recent content in Tests on Thousand words</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 08 Jun 2017 09:13:13 +0000</lastBuildDate>
+    
+	<atom:link href="https://mespe.github.io/tags/tests/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Testing R</title>
+      <link>https://mespe.github.io/post/test/</link>
+      <pubDate>Thu, 08 Jun 2017 09:13:13 +0000</pubDate>
+      
+      <guid>https://mespe.github.io/post/test/</guid>
+      <description> Testing this all out. plot(rnorm(100))  </description>
+    </item>
+    
+  </channel>
+</rss>
