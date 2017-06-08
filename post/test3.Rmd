@@ -1,13 +1,14 @@
 +++
 date = "2017-06-08T09:26:16-07:00"
 draft = true
-title = "test3"
+title = "Testing out R code"
+image = "img/test-1.png"
 
 +++
 
 # One more test
 
-```{r fig.path='img/'}
+```{r test, fig.path='img/'}
 plot(1)
 
 ```
