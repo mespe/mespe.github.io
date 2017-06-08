@@ -1,0 +1,13 @@
++++
+date = "2017-06-08T09:26:16-07:00"
+draft = true
+title = "test3"
+
++++
+
+# One more test
+
+```{r fig.path='img/'}
+plot(1)
+
+```
