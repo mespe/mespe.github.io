@@ -4,12 +4,23 @@
   
   <url>
     <loc>https://mespe.github.io/post/test3/</loc>
-    <lastmod>2017-06-08T11:36:02-07:00</lastmod>
+    <lastmod>2017-06-08T12:33:37-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/about/mespe/</loc>
+    <lastmod>2017-06-08T12:13:18-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://mespe.github.io/post/intro/</loc>
     <lastmod>2017-06-07T21:03:33-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/about/</loc>
+    <lastmod>2017-06-08T12:13:18-07:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -19,18 +30,25 @@
   
   <url>
     <loc>https://mespe.github.io/post/</loc>
-    <lastmod>2017-06-08T11:36:02-07:00</lastmod>
+    <lastmod>2017-06-08T12:33:37-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/tags/r/</loc>
+    <lastmod>2017-06-08T12:33:37-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mespe.github.io/tags/</loc>
+    <lastmod>2017-06-08T12:33:37-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mespe.github.io/</loc>
-    <lastmod>2017-06-08T11:36:02-07:00</lastmod>
+    <lastmod>2017-06-08T12:33:37-07:00</lastmod>
     <priority>0</priority>
   </url>
   
