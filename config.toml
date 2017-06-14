@@ -5,8 +5,15 @@ theme = "minos"
 paginate = 10
 SectionPagesMenu = "main"
 
+
+
 [params]
 	Author = "Matt Espe"
 	smartToc = true
+	github = "mespe"
+
+[[menu.main]]
+	name = "About me"
+	url = "/about/"
 
 	
