@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Abouts // Thousand words</title>
+    <title>About me // Thousand words</title>
 
         <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -9,14 +9,14 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="Matt Espe">
-        <meta property="og:title" content="Abouts" />
+        <meta property="og:title" content="About me" />
     <meta property="og:description" content="" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://mespe.github.io/about/" />
     
 
-    <link href="https://mespe.github.io/about/index.xml" rel="alternate" type="application/rss+xml" title="Thousand words" />
+    <link href="" rel="alternate" type="application/rss+xml" title="Thousand words" />
     <link rel="shortcut icon" href="/favicon.png">
 
     <link href="https://mespe.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
@@ -29,6 +29,7 @@
     <meta name="generator" content="Hugo 0.22-DEV" />
 </head>
 
+
 <body>
 <div id="container">
     <header id="header">
@@ -38,7 +39,7 @@
             <a id="logo" class="logo-text" href="https://mespe.github.io/">Thousand words</a>
             <nav id="main-nav">
                 
-                <a class="main-nav-link" href="/about/">Abouts</a>
+                <a class="main-nav-link" href="/about/">About me</a>
                 
                 <a class="main-nav-link" href="/post/">Posts</a>
                 
@@ -51,28 +52,92 @@
     </div>
 </header>
     <section id="main" class="outer">
-        <section class="archives-wrap">
-            <div class="archive-category-wrap">
-                <span class="archive-category">Abouts</span>
-            </div>
-            <div class="archives">
-                
-                    <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a href="/about/mespe/" class="archive-article-date">
-                <time datetime='2017-06-08T12:13:18.000-07:00' itemprop="datePublished">2017 Jun 8</time>
-            </a>
-            <h1 itemprop="name">
-                <a class="archive-article-title" href="/about/mespe/">About me</a>
-            </h1>
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">About me</h1>
         </header>
-    </div>
-</article>
-                
-        </div></section>
+        
+        <div class="article-meta">
+            <a href="/about/" class="article-date">
+                <time datetime='2017-06-08T12:13:18.000-07:00' itemprop="datePublished">2017-06-08</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>I am a Post-doc at UC Davis.</p>
+
+<p><img src="/img/yield_trends.png" alt="Yield map" /></p>
+
+        </div>
+
+        
+        
         
 
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+        <script>
+            (function() {
+                var $toc = $('#TableOfContents');
+                if ($toc.length > 0) {
+                    var $window = $(window);
+
+                    function onScroll(){
+                        var currentScroll = $window.scrollTop();
+                        var h = $('.article-entry h1, .article-entry h2, .article-entry h3, .article-entry h4, .article-entry h5, .article-entry h6');
+                        var id = "";
+                        h.each(function (i, e) {
+                            e = $(e);
+                            if (e.offset().top - 10 <= currentScroll) {
+                                id = e.attr('id');
+                            }
+                        });
+                        var active = $toc.find('a.active');
+                        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+                        active.each(function (i, e) {
+                            $(e).removeClass('active').siblings('ul').hide();
+                        });
+                        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+                            $(e).children('a').addClass('active').siblings('ul').show();
+                        });
+                    }
+
+                    $window.on('scroll', onScroll);
+                    $(document).ready(function() {
+                        $toc.find('a').parent('li').find('ul').hide();
+                        onScroll();
+                        document.getElementsByClassName('article-toc')[0].style.display = '';
+                    });
+                }
+            })();
+        </script>
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/post/start/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Creating an R blog (without using blogdown)
+        </div>
+    </a>
+    
+    
+    <a href="/post/intro/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Welcome&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+</article>
+
+        
     </section>
     <footer id="footer">
     <div class="outer">

@@ -6,17 +6,27 @@
     <description>Recent content on Thousand words</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Jun 2017 12:13:18 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 14 Jun 2017 09:40:09 -0700</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Creating an R blog (without using blogdown)</title>
+      <link>https://mespe.github.io/post/start/</link>
+      <pubDate>Wed, 14 Jun 2017 09:40:09 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/post/start/</guid>
+      <description>I thought I would write up my experiences starting a blog that uses R code but that does not use blogdown. Why do I not use blogdown? The short story is that it does not seem quite ready to use, as it is missing some elements to make publishing a blog easy.
+DISCLAMER: This is a work in progress - I am not big on writing blogs, so please forgive me if this is not helpful.</description>
+    </item>
+    
+    <item>
       <title>About me</title>
-      <link>https://mespe.github.io/about/mespe/</link>
+      <link>https://mespe.github.io/about/</link>
       <pubDate>Thu, 08 Jun 2017 12:13:18 -0700</pubDate>
       
-      <guid>https://mespe.github.io/about/mespe/</guid>
+      <guid>https://mespe.github.io/about/</guid>
       <description>I am a Post-doc at UC Davis.</description>
     </item>
     
