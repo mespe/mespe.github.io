@@ -11,6 +11,7 @@ SectionPagesMenu = "main"
 	Author = "Matt Espe"
 	smartToc = true
 	github = "mespe"
+	googleAnalytics = "UA-101069222-1"
 
 [[menu.main]]
 	name = "About me"
