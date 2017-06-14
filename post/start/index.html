@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Creating an R blog (without using blogdown) // Thousand words</title>
+    <title>Creating an R blog with Hugo (without using blogdown) // Thousand words</title>
 
         <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="Matt Espe">
-        <meta property="og:title" content="Creating an R blog (without using blogdown)" />
+        <meta property="og:title" content="Creating an R blog with Hugo (without using blogdown)" />
     <meta property="og:description" content="" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
@@ -56,7 +56,7 @@
     <div class="article-inner">
         
         <header class="article-header">
-            <h1 class="article-title" itemprop="name">Creating an R blog (without using blogdown)</h1>
+            <h1 class="article-title" itemprop="name">Creating an R blog with Hugo (without using blogdown)</h1>
         </header>
         
         <div class="article-meta">
@@ -121,13 +121,13 @@ everything around. We need to do two things to prepare our R plots and
  move them there after knitting the <code>.Rmd</code></p></li>
 
 <li><p>We need to make the file path in the <code>.md</code> file point to where
- hugo will place the figures, not where they exist now.</p></li>
+ hugo will place the figures in the built website, not where they exist now.</p></li>
 </ol>
 
 <p>I found moving the images easier, though I suspect either will work. The steps are:</p>
 
 <ol>
-<li><p>Create the <code>.Rmd</code> file. Specify the <code>fig.path='img/'</code> (the name of
+<li><p>Create the <code>.Rmd</code> file. Specify <code>fig.path='img/'</code> (the name of
  this folder does not matter as long as it is consistent for each
  step). For example:</p>
 
@@ -171,13 +171,16 @@ clean:
 </code></pre>
 
 <p>This finds all the files with the <code>.Rmd</code> extension, and converts them
-to <code>.md</code> files. It then uses <code>sed</code> to replace <code>img/</code> with <code>/img/</code>.</p>
+to <code>.md</code> files. It then uses <code>sed</code> to replace <code>img/</code> with <code>/img/</code>. You
+will need to edit this to reflect your file structure (I have
+my <code>.Rmd</code> files in <code>mespe.github.io/content/post/</code> so I need to
+accend 2 directories to get to <code>static/</code>).</p>
 
 <p>So, what does the resulting workflow look like?</p>
 
 <ol>
 <li>Author a <code>.Rmd</code> file</li>
-<li>Navigate to the content and run <code>make all</code> in the terminal</li>
+<li>Navigate to the correct folder and run <code>make all</code> in the terminal</li>
 </ol>
 
 <p>That&rsquo;s it - no blogdown required.</p>
