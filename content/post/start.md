@@ -85,7 +85,7 @@ all:$(OUTFILES)
 $(OUTFILES):$(OBJS)
 	$(KNIT); \
 	cp -r img/* ../../static/img/; \
-	sed -i 's/img\//\/img\//g' $(OUTFILES); \
+	sed -i 's/img\//\/img\//g' $(OUTFILES)
 
 clean:
 	rm $(OUTFILES)
