@@ -17,8 +17,8 @@
       <pubDate>Wed, 14 Jun 2017 09:40:09 -0700</pubDate>
       
       <guid>https://mespe.github.io/post/start/</guid>
-      <description>I thought I would write up my experiences starting a blog that uses R code but that does not use blogdown. Why do I not use blogdown? The short story is that it does not seem quite ready to use, as it is missing some elements to make publishing a blog easy.
-DISCLAMER: This is a work in progress - I am not big on writing blogs, so please forgive me if this is not helpful.</description>
+      <description>I thought I would write up my experiences starting a blog that uses R code but that does not use blogdown. Why do I not use blogdown? The short story is that blogdown does not seem quite ready to use, as it is missing some elements to make publishing a blog easy.
+The long story is that after spending a good chunk of time helping a student navigate through using blogdown, I found the approach below to be both easier to use and simpler to implement.</description>
     </item>
     
   </channel>

@@ -85,11 +85,19 @@
             
 
 <p>I thought I would write up my experiences starting a blog that uses R
-code but that does not use blogdown. Why do I not use blogdown? The
-short story is that it does not seem quite ready to use, as it is
-missing some elements to make publishing a blog easy.</p>
+code but that does not
+use <a href="https://github.com/rstudio/blogdown">blogdown</a>. Why do I not use
+blogdown? The short story is that blogdown does not seem quite ready to use,
+as it is missing some elements to make publishing a blog easy.</p>
 
-<p><em>DISCLAMER: This is a work in progress - I am not big on writing
+<p>The long story is that after
+spending a good chunk of time helping a student navigate through using
+blogdown, I found the approach below to be both easier to use and
+simpler to implement. The
+disadvantage of this approach is you have to step out of RStudio (which
+I don&rsquo;t use anyway) and into the terminal.</p>
+
+<p><em>DISCLAIMER: This is a work in progress - I am not big on writing
 blogs, so please forgive me if this is not helpful.</em></p>
 
 <h1 id="setup">Setup</h1>
@@ -101,8 +109,8 @@ blogs, so please forgive me if this is not helpful.</em></p>
 
 <h1 id="using-r-code">Using R code</h1>
 
-<p>This is where things get a little tricky. The biggest obsticle is that
-when you knitr or Sweave a <code>*.Rmd</code> to a <code>*.md</code> file, the
+<p>This is where things get a little tricky. The biggest obstacle is that
+when you knitr or Sweave a <code>.Rmd</code> to a <code>.md</code> file, the
 figures (by default) are put in a folder in the working
 directory. However, when hugo builds the static website, it moves
 everything around. We need to do two things to prepare our R plots and
@@ -110,7 +118,7 @@ everything around. We need to do two things to prepare our R plots and
 
 <ol>
 <li><p>We need to either create the plots in the <code>/static/</code> folder, or
- move them there after kniting the <code>.Rmd</code></p></li>
+ move them there after knitting the <code>.Rmd</code></p></li>
 
 <li><p>We need to make the file path in the <code>.md</code> file point to where
  hugo will place the figures, not where they exist now.</p></li>
@@ -121,21 +129,32 @@ everything around. We need to do two things to prepare our R plots and
 <ol>
 <li><p>Create the <code>.Rmd</code> file. Specify the <code>fig.path='img/'</code> (the name of
  this folder does not matter as long as it is consistent for each
- step.</p></li>
+ step). For example:</p>
 
-<li><p>knit the <code>.Rmd</code> file. Any figures will end up in a folder &lsquo;img/&rsquo;</p></li>
+<pre><code class="language-R"> ```{r fig.path = &quot;img/&quot;}
+plot(rnorm(100))
+```
+</code></pre></li>
+
+<li><p>knit the <code>.Rmd</code> file. Any figures will end up in a folder named
+ <code>img/</code> in the current working directory.</p></li>
 
 <li><p>Copy or move all the contents of <code>img/</code> to <code>{main
- website}/static/img</code></p></li>
+ website}/static/img</code>, where <code>{main website}</code> is the top-most
+ directory of your website.</p></li>
 
 <li><p>Change all references in the <code>.md</code> file from <code>img/*</code> to
- <code>/img/*</code>.</p></li>
+ <code>/img/*</code>. The tricky thing is you want to do this <strong>after</strong> the
+ <code>.md</code> file has been programmatically created, not in the <code>.Rmd</code>
+ source file.</p></li>
 </ol>
 
 <p>Easy, right? I did not want to do this for every single file I might produce, so I
-put the whole thing under gnumake using some makefile magic.</p>
+put the whole thing under gnu make using some makefile magic.</p>
 
-<pre><code class="language-bash">POSTDIR := content/post
+<p><code>Makefile</code></p>
+
+<pre><code class="language-Makefile">POSTDIR := content/post
 OBJS := $(shell find -name '*.Rmd')
 OUTFILES := $(patsubst %.Rmd,%.md,$(OBJS))
 KNIT = Rscript -e &quot;library(knitr); knit('$&lt;')&quot;
@@ -146,11 +165,22 @@ $(OUTFILES):$(OBJS)
 	$(KNIT); \
 	cp -r img/* ../../static/img/; \
 	sed -i 's/img\//\/img\//g' $(OUTFILES); \
-	cd ../../ &amp;&amp; hugo undraft $(POSTDIR)/$(OUTFILES)
 
 clean:
 	rm $(OUTFILES)
 </code></pre>
+
+<p>This finds all the files with the <code>.Rmd</code> extension, and converts them
+to <code>.md</code> files. It then uses <code>sed</code> to replace <code>img/</code> with <code>/img/</code>.</p>
+
+<p>So, what does the resulting workflow look like?</p>
+
+<ol>
+<li>Author a <code>.Rmd</code> file</li>
+<li>Navigate to the content and run <code>make all</code> in the terminal</li>
+</ol>
+
+<p>That&rsquo;s it - no blogdown required.</p>
 
         </div>
 
