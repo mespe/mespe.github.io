@@ -4,7 +4,7 @@ Description = ""
 Tags = ["blogging", "hugo"]
 date = "2017-06-14T09:40:09-07:00"
 menu = ""
-title = "Creating an R blog (without using blogdown)"
+title = "Creating an R blog with Hugo (without using blogdown)"
 
 +++
 
@@ -44,11 +44,11 @@ everything around. We need to do two things to prepare our R plots and
      move them there after knitting the `.Rmd`
   
   2. We need to make the file path in the `.md` file point to where
-     hugo will place the figures, not where they exist now.
+     hugo will place the figures in the built website, not where they exist now.
 	 
 I found moving the images easier, though I suspect either will work. The steps are:
 
-  1. Create the `.Rmd` file. Specify the `fig.path='img/'` (the name of
+  1. Create the `.Rmd` file. Specify `fig.path='img/'` (the name of
      this folder does not matter as long as it is consistent for each
      step). For example:
 	 
@@ -92,11 +92,14 @@ clean:
 ~~~
 
 This finds all the files with the `.Rmd` extension, and converts them
-to `.md` files. It then uses `sed` to replace `img/` with `/img/`.
+to `.md` files. It then uses `sed` to replace `img/` with `/img/`. You
+will need to edit this to reflect your file structure (I have
+my `.Rmd` files in `mespe.github.io/content/post/` so I need to
+accend 2 directories to get to `static/`).
 
 So, what does the resulting workflow look like?
 
   1. Author a `.Rmd` file
-  2. Navigate to the content and run `make all` in the terminal
+  2. Navigate to the correct folder and run `make all` in the terminal
 
 That's it - no blogdown required.
