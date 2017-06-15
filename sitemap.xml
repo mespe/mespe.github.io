@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mespe.github.io/research/</loc>
+    <lastmod>2017-06-14T18:17:59-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mespe.github.io/post/start/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
   </url>
@@ -15,6 +20,12 @@
   <url>
     <loc>https://mespe.github.io/post/intro/</loc>
     <lastmod>2017-06-07T21:03:33-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/tags/agriculture/</loc>
+    <lastmod>2017-06-14T18:17:59-07:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -32,6 +43,12 @@
   <url>
     <loc>https://mespe.github.io/categories/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/tags/data-science/</loc>
+    <lastmod>2017-06-14T18:17:59-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -54,14 +71,20 @@
   </url>
   
   <url>
+    <loc>https://mespe.github.io/tags/research/</loc>
+    <lastmod>2017-06-14T18:17:59-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mespe.github.io/tags/</loc>
-    <lastmod>2017-06-14T09:40:09-07:00</lastmod>
+    <lastmod>2017-06-14T18:17:59-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mespe.github.io/</loc>
-    <lastmod>2017-06-14T09:40:09-07:00</lastmod>
+    <lastmod>2017-06-14T18:17:59-07:00</lastmod>
     <priority>0</priority>
   </url>
   

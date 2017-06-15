@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Agriculture on Thousand words</title>
+    <link>https://mespe.github.io/tags/agriculture/</link>
+    <description>Recent content in Agriculture on Thousand words</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Jun 2017 18:17:59 -0700</lastBuildDate>
+    
+	<atom:link href="https://mespe.github.io/tags/agriculture/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What I study</title>
+      <link>https://mespe.github.io/research/</link>
+      <pubDate>Wed, 14 Jun 2017 18:17:59 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/research/</guid>
+      <description>Here is a collection of my published and unpublished work.
+Agriculture Espe MB, Hill JE, Hijmans RJ, et al. Point stresses during reproductive stage rather than warming seasonal temperature determine yield in temperate rice. Glob Change Biol. 2017;00:1–10.
+Aifen Tao, Reza Keshavarz Afshar, Matthew B. Espe, and Chengci Chen. Variation in yield, starch, and protein of dry peas grown across Montana. Agronomy Journal, In Press, 2017
+Matthew B. Espe, Haishun Yang, Kenneth G.</description>
+    </item>
+    
+  </channel>
+</rss>

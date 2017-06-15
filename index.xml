@@ -6,10 +6,22 @@
     <description>Recent content on Thousand words</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Jun 2017 09:40:09 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 14 Jun 2017 18:17:59 -0700</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What I study</title>
+      <link>https://mespe.github.io/research/</link>
+      <pubDate>Wed, 14 Jun 2017 18:17:59 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/research/</guid>
+      <description>Here is a collection of my published and unpublished work.
+Agriculture Espe MB, Hill JE, Hijmans RJ, et al. Point stresses during reproductive stage rather than warming seasonal temperature determine yield in temperate rice. Glob Change Biol. 2017;00:1–10.
+Aifen Tao, Reza Keshavarz Afshar, Matthew B. Espe, and Chengci Chen. Variation in yield, starch, and protein of dry peas grown across Montana. Agronomy Journal, In Press, 2017
+Matthew B. Espe, Haishun Yang, Kenneth G.</description>
+    </item>
     
     <item>
       <title>Creating an R blog with Hugo (without using blogdown)</title>
@@ -27,7 +39,8 @@ The long story is that after spending a good chunk of time helping a student nav
       <pubDate>Thu, 08 Jun 2017 12:13:18 -0700</pubDate>
       
       <guid>https://mespe.github.io/about/</guid>
-      <description>I am a Post-doc at UC Davis.</description>
+      <description>I am an agronomist by training (dealing with all things agriculture), with an emphasis in the yield of major crops. I am particularly interested in the historic causes of yield variability to inform efforts to feed our growing population with increasingly limited resources.
+But I wear many hats. I am also a data scientist, with a focus on increasing capability of researchers to expand their capabilities. In this role, I develop new tools and teach people existing tools and data skillsets.</description>
     </item>
     
     <item>

@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Thousand words</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Jun 2017 09:40:09 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 14 Jun 2017 18:17:59 -0700</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Agriculture</title>
+      <link>https://mespe.github.io/tags/agriculture/</link>
+      <pubDate>Wed, 14 Jun 2017 18:17:59 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/tags/agriculture/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Blogging</title>
@@ -21,11 +30,29 @@
     </item>
     
     <item>
+      <title>Data Science</title>
+      <link>https://mespe.github.io/tags/data-science/</link>
+      <pubDate>Wed, 14 Jun 2017 18:17:59 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/tags/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Hugo</title>
       <link>https://mespe.github.io/tags/hugo/</link>
       <pubDate>Wed, 14 Jun 2017 09:40:09 -0700</pubDate>
       
       <guid>https://mespe.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>https://mespe.github.io/tags/research/</link>
+      <pubDate>Wed, 14 Jun 2017 18:17:59 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/tags/research/</guid>
       <description></description>
     </item>
     
