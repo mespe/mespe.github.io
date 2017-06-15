@@ -17,4 +17,7 @@ SectionPagesMenu = "main"
 	name = "About me"
 	url = "/about/"
 
+[[menu.main]]
+	name = "Research"
+	url = "/research/"
 	
