@@ -5,8 +5,11 @@ Tags = ["research", "agriculture", "data science"]
 date = "2017-06-14T18:17:59-07:00"
 menu = ""
 title = "What I study"
+featuredImage = "/img/yield_trends.png"
 
 +++
+
+Here is a collection of my published and unpublished work. 
 
 # Agriculture
 

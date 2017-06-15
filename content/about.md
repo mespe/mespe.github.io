@@ -19,7 +19,7 @@ this role, I develop new tools and teach people existing tools and
 data skillsets.
 
 Currently, I am a Post-doc at UC Davis in the Dept. of Plant
-Sciences and with the [Data Science Initiative](dsi.ucdavis.edu).
+Sciences and with the [Data Science Initiative](http://dsi.ucdavis.edu).
 
 ![Yield map](/img/yield_trends.png)
 
