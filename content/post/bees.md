@@ -5,7 +5,7 @@ Tags = ["development", "golang"]
 date = "2017-07-03T22:15:36-07:00"
 menu = ""
 title = "bees"
-
+draft = true
 +++
 
 Blog about this:
