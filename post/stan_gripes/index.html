@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A few things I don&#39;t love about Stan // Thousand words</title>
+
+        <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Matt Espe">
+        <meta property="og:title" content="A few things I don&#39;t love about Stan" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://mespe.github.io/post/stan_gripes/" />
+    
+
+    <link href="" rel="alternate" type="application/rss+xml" title="Thousand words" />
+    <link rel="shortcut icon" href="/favicon.png">
+
+    <link href="https://mespe.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://mespe.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://mespe.github.io/css/style.css">
+
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    
+    <meta name="generator" content="Hugo 0.27-DEV" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://mespe.github.io/">Thousand words</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About me</a>
+                
+                <a class="main-nav-link" href="/post/">Posts</a>
+                
+                <a class="main-nav-link" href="/research/">Research</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">A few things I don&#39;t love about Stan</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/post/stan_gripes/" class="article-date">
+                <time datetime='2017-08-24T20:51:22.000-07:00' itemprop="datePublished">2017-08-24</time>
+            </a>
+            
+            
+            <div class="post-categories">
+                <div class="article-category">
+                    
+                    
+                    <a class="article-category-link" href="https://mespe.github.io//categories/"></a>
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            
+
+<p>First off, I love <a href="mcstan.org">Stan</a>. If you have not heard of Stan, I
+highly recommend you check it out. I use Stan for almost all of my
+statistics these days, and have published several papers using it.</p>
+
+<p>That said, there are a fair number of things I don&rsquo;t like about it:</p>
+
+<h1 id="the-model-trade-offs">The model trade-offs</h1>
+
+<p>In my experience, when you are developing a model in Stan, you are
+often faced with trade-offs between 1) flexibility, 2) readability,
+and 3) development time.</p>
+
+<p>To illustrate with a silly example, say I had a basic model:</p>
+
+<pre><code class="language-stan">data{
+	int N;
+	vector[N] y;
+}
+parameters{
+	real mu;
+}
+model{
+	target += normal_lpdf(y | mu, 1);
+}
+</code></pre>
+
+<p>This model is simple and easy to read, but it is not flexible. To make
+this model take a number of predictors, I have to modify the code:</p>
+
+<pre><code class="language-Stan">data{
+	int N;
+	vector[N] predictor;
+	vector[N] y;
+}
+parameters{
+	real beta;
+	real mu;
+}
+model{
+	target += normal_lpdf(y | mu + beta * predictor, 1);
+}
+</code></pre>
+
+<p>Creating this little change would mean sitting through compiling the
+model again. Doing this once or twice is not so bad, but when I am
+working with a model this could be up to 20 or 30 times. That really
+adds up.</p>
+
+<p>Second, each time I edit the model, there is the potential to
+introduce errors. Therefore, in addition to the compiling time, there
+is time spent debugging, etc.</p>
+
+<p>So, instead of all of this, I could have coded the model as:</p>
+
+<pre><code class="language-Stan">data{
+	int N;
+	int num_pred; //number of predictors
+	matrix[N, num_pred] X; //model matrix
+	vector[N]y;
+}
+parameters{
+	vector[num_pred] beta;
+}
+model{
+	target += normal_lpdf(y | beta * X, 1);
+}
+</code></pre>
+
+<p>This model is actually the same as both of the models above. Compared
+to those, it is much more flexible. This model can accept countless
+number of predictors without changing the Stan code at all. All that
+compiler time is gone, as is the time spent debugging and checking the
+model.</p>
+
+<p>So, you might say this is clearly the winner, right?</p>
+
+<p>Well, I actually prefer the first way because:</p>
+
+<ol>
+<li><p>The model code is expressive of what happening in the analysis. Though it
+is more inefficient on several fronts, this code allows someone to see
+exactly what is happening. Looking at the more efficient model, a
+reader will not have a clue how many predictors were used, what
+their types were, etc. An extreme example of this is the model code
+for
+the
+<a href="https://github.com/stan-dev/rstanarm/tree/master/inst/chunks">rstanarm package</a> for
+R. These models are extremely flexible and highly efficient, but
+almost impossible to tell on first glance what is going on.</p></li>
+
+<li><p>The inefficiency can be a feature. More than once I have been
+forced to actually spell out the math in the models I am creating,
+rather than just relying on the &ldquo;throw it in a model matrix and it just
+runs&rdquo; approach. For me, forcing me to slow down and think
+deliberately about my model is helpful.</p></li>
+
+<li><p>Verbose models are often easier for people with little statistics
+experience to approach. As I think more and more about reproducible
+research, the more I think I would happily trade some wall time for
+a model that more readers can understand and even potentially
+modify.</p></li>
+</ol>
+
+<h1 id="so-what-s-the-issue">So what&rsquo;s the issue?</h1>
+
+<p>Those compile and testing times are killing me. Developing models as
+part of my analysis is slow. When a project comes up that needs an
+answer ASAP, I will often resort to rstanarm or even lme4. But for
+something I am going to publish alongside a manuscript, I prefer the
+slower approach.</p>
+
+<p>My wish list then is:</p>
+
+<ol>
+<li><p>A testing framework that will work for custom written models to
+quickly evaluate that they are performing as intended.</p></li>
+
+<li><p>Custom Bayesian models that have the speed of compiled code, but without
+the lengthy compile times. I would trade a little wall time for
+reduced compile times.</p></li>
+</ol>
+
+<p>Which makes me wonder what potential exists in 1) Nimble compiled with
+LLVM, 2) Julia, or 3) Go. Go is the most intriguing to me - it is
+almost as fast as C++, but compiles ridiculously quickly. Hmmm&hellip;</p>
+
+        </div>
+
+        
+        
+        <div class="article-toc" style="display:none;">
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+<ul>
+<li><a href="#the-model-trade-offs">The model trade-offs</a></li>
+<li><a href="#so-what-s-the-issue">So what&rsquo;s the issue?</a></li>
+</ul>
+</nav>
+        </div>
+        
+        
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+        <script>
+            (function() {
+                var $toc = $('#TableOfContents');
+                if ($toc.length > 0) {
+                    var $window = $(window);
+
+                    function onScroll(){
+                        var currentScroll = $window.scrollTop();
+                        var h = $('.article-entry h1, .article-entry h2, .article-entry h3, .article-entry h4, .article-entry h5, .article-entry h6');
+                        var id = "";
+                        h.each(function (i, e) {
+                            e = $(e);
+                            if (e.offset().top - 10 <= currentScroll) {
+                                id = e.attr('id');
+                            }
+                        });
+                        var active = $toc.find('a.active');
+                        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+                        active.each(function (i, e) {
+                            $(e).removeClass('active').siblings('ul').hide();
+                        });
+                        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+                            $(e).children('a').addClass('active').siblings('ul').show();
+                        });
+                    }
+
+                    $window.on('scroll', onScroll);
+                    $(document).ready(function() {
+                        $toc.find('a').parent('li').find('ul').hide();
+                        onScroll();
+                        document.getElementsByClassName('article-toc')[0].style.display = '';
+                    });
+                }
+            })();
+        </script>
+        
+
+
+        
+        <footer class="article-footer">
+            <ul class="article-tag-list">
+                
+                <li class="article-tag-list-item">
+                    <a class="article-tag-list-link" href="https://mespe.github.io//tags/stan">Stan
+                    </a>
+                </li>
+                
+                <li class="article-tag-list-item">
+                    <a class="article-tag-list-link" href="https://mespe.github.io//tags/stats">stats
+                    </a>
+                </li>
+                
+            </ul>
+        </footer>
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/post/new_v_old/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Moving past p-values&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 Thousand words&nbsp;
+            Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/carsonip/hugo-theme-minos">Minos</a>
+        </div>
+    </div>
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-101069222-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+</div>
+</body>
+</html>

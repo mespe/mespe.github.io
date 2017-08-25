@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Thousand words</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Jun 2017 09:40:09 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 24 Aug 2017 20:51:22 -0700</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title></title>
+      <link>https://mespe.github.io/categories/</link>
+      <pubDate>Thu, 24 Aug 2017 20:51:22 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/categories/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Blogging</title>
@@ -17,6 +26,24 @@
       <pubDate>Wed, 14 Jun 2017 09:40:09 -0700</pubDate>
       
       <guid>https://mespe.github.io/categories/blogging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://mespe.github.io/categories/development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mespe.github.io/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>https://mespe.github.io/categories/golang/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mespe.github.io/categories/golang/</guid>
       <description></description>
     </item>
     
