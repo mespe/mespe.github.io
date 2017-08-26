@@ -2,92 +2,92 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Thousand words...</title>
-    <link>mespe.github.io/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 14 Jun 2017 18:17:59 -0700</lastBuildDate>
     
-	<atom:link href="mespe.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Agriculture</title>
-      <link>mespe.github.io/tags/agriculture/</link>
+      <link>/tags/agriculture/</link>
       <pubDate>Wed, 14 Jun 2017 18:17:59 -0700</pubDate>
       
-      <guid>mespe.github.io/tags/agriculture/</guid>
+      <guid>/tags/agriculture/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Blogging</title>
-      <link>mespe.github.io/tags/blogging/</link>
+      <link>/tags/blogging/</link>
       <pubDate>Wed, 14 Jun 2017 09:40:09 -0700</pubDate>
       
-      <guid>mespe.github.io/tags/blogging/</guid>
+      <guid>/tags/blogging/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data science</title>
-      <link>mespe.github.io/tags/data-science/</link>
+      <link>/tags/data-science/</link>
       <pubDate>Wed, 14 Jun 2017 18:17:59 -0700</pubDate>
       
-      <guid>mespe.github.io/tags/data-science/</guid>
+      <guid>/tags/data-science/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Development</title>
-      <link>mespe.github.io/tags/development/</link>
+      <link>/tags/development/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>mespe.github.io/tags/development/</guid>
+      <guid>/tags/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>mespe.github.io/tags/golang/</link>
+      <link>/tags/golang/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>mespe.github.io/tags/golang/</guid>
+      <guid>/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hugo</title>
-      <link>mespe.github.io/tags/hugo/</link>
+      <link>/tags/hugo/</link>
       <pubDate>Wed, 14 Jun 2017 09:40:09 -0700</pubDate>
       
-      <guid>mespe.github.io/tags/hugo/</guid>
+      <guid>/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Research</title>
-      <link>mespe.github.io/tags/research/</link>
+      <link>/tags/research/</link>
       <pubDate>Fri, 30 Jun 2017 19:35:44 -0700</pubDate>
       
-      <guid>mespe.github.io/tags/research/</guid>
+      <guid>/tags/research/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Stan</title>
-      <link>mespe.github.io/tags/stan/</link>
+      <link>/tags/stan/</link>
       <pubDate>Thu, 24 Aug 2017 20:51:22 -0700</pubDate>
       
-      <guid>mespe.github.io/tags/stan/</guid>
+      <guid>/tags/stan/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Stats</title>
-      <link>mespe.github.io/tags/stats/</link>
+      <link>/tags/stats/</link>
       <pubDate>Thu, 24 Aug 2017 20:51:22 -0700</pubDate>
       
-      <guid>mespe.github.io/tags/stats/</guid>
+      <guid>/tags/stats/</guid>
       <description></description>
     </item>
     

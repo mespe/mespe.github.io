@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Agriculture on Thousand words...</title>
-    <link>mespe.github.io/tags/agriculture/</link>
+    <link>/tags/agriculture/</link>
     <description>Recent content in Agriculture on Thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 14 Jun 2017 18:17:59 -0700</lastBuildDate>
     
-	<atom:link href="mespe.github.io/tags/agriculture/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/agriculture/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>What I study</title>
-      <link>mespe.github.io/research/</link>
+      <link>/research/</link>
       <pubDate>Wed, 14 Jun 2017 18:17:59 -0700</pubDate>
       
-      <guid>mespe.github.io/research/</guid>
+      <guid>/research/</guid>
       <description>Here is a collection of my published and unpublished work.
 Publications Agriculture Rice yield improvements by through plant breeding are offset by inherent yield decreases declines over time. In prep. 2017.
 Point stresses during reproductive stage rather than warming seasonal temperature determine yield in temperate rice. Glob Change Biol. 2017;00:1–10.
