@@ -50,7 +50,7 @@ preserveTaxonomyNames = true
 #  facebook = "bob"
   github = "mespe"
 #  instagram = "bob"
-  twitter = "mespe"
+  twitter = "MatthewEspe"
 
 [permalinks]
   page = "/:slug/"
