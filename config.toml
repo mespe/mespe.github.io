@@ -52,11 +52,6 @@ preserveTaxonomyNames = true
 [permalinks]
   page = "/:slug/"
 
-[[menu.main]]
-  name = "Repos"
-  weight = 4
-  identifier = "repository"
-  url = "https://github.com/mespe"
 
 [[menu.main]]
 	name = "Blog"
@@ -73,7 +68,17 @@ preserveTaxonomyNames = true
 	url = "/research/"
 	weight = 3
 
+[[menu.main]]
+	name = "Repos"
+	weight = 4
+	identifier = "repository"
+	url = "https://github.com/mespe"
 
+[[menu.main]]
+	name = "CV"
+	weight = 5
+	url = "/docs/espe_cv.pdf"
+	
 # Language Configuration
 defaultContentLanguage = "en"
 
