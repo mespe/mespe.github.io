@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Thousand words</title>
-    <link>https://mespe.github.io/</link>
-    <description>Recent content on Thousand words</description>
+    <title>Home on Thousand words...</title>
+    <link>mespe.github.io/</link>
+    <description>Recent content in Home on Thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
     <lastBuildDate>Thu, 24 Aug 2017 20:51:22 -0700</lastBuildDate>
     
-	<atom:link href="https://mespe.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="mespe.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A few things I don&#39;t love about Stan</title>
-      <link>https://mespe.github.io/post/stan_gripes/</link>
+      <link>mespe.github.io/post/stan_gripes/</link>
       <pubDate>Thu, 24 Aug 2017 20:51:22 -0700</pubDate>
       
-      <guid>https://mespe.github.io/post/stan_gripes/</guid>
+      <guid>mespe.github.io/post/stan_gripes/</guid>
       <description>First off, I love Stan. If you have not heard of Stan, I highly recommend you check it out. I use Stan for almost all of my statistics these days, and have published several papers using it.
 That said, there are a fair number of things I don&amp;rsquo;t like about it:
 The model trade-offs In my experience, when you are developing a model in Stan, you are often faced with trade-offs between 1) flexibility, 2) readability, and 3) development time.</description>
@@ -24,62 +23,63 @@ The model trade-offs In my experience, when you are developing a model in Stan, 
     
     <item>
       <title>Moving past p-values</title>
-      <link>https://mespe.github.io/post/new_v_old/</link>
+      <link>mespe.github.io/post/new_v_old/</link>
       <pubDate>Fri, 30 Jun 2017 19:35:44 -0700</pubDate>
       
-      <guid>https://mespe.github.io/post/new_v_old/</guid>
+      <guid>mespe.github.io/post/new_v_old/</guid>
       <description>I had a marathon review/revision session with my adviser last week regarding a manuscript I am working on - overall took 2 hours!
 We were going round and round in circles, and finally 1.25 hours in we got to the piece of my paper that was really bugging my advisor: I did not have a single p-value in the entire paper. What followed was a really interesting exchange that I think highlights some of the issues that are behind scientific research, especially in agriculture, using out-of-date statistics.</description>
     </item>
     
     <item>
       <title>What I study</title>
-      <link>https://mespe.github.io/research/</link>
+      <link>mespe.github.io/research/</link>
       <pubDate>Wed, 14 Jun 2017 18:17:59 -0700</pubDate>
       
-      <guid>https://mespe.github.io/research/</guid>
+      <guid>mespe.github.io/research/</guid>
       <description>Here is a collection of my published and unpublished work.
-Agriculture Espe MB, Hill JE, Hijmans RJ, et al. Point stresses during reproductive stage rather than warming seasonal temperature determine yield in temperate rice. Glob Change Biol. 2017;00:1–10.
-Aifen Tao, Reza Keshavarz Afshar, Matthew B. Espe, and Chengci Chen. Variation in yield, starch, and protein of dry peas grown across Montana. Agronomy Journal, In Press, 2017
-Matthew B. Espe, Haishun Yang, Kenneth G.</description>
+Publications Agriculture Rice yield improvements by through plant breeding are offset by inherent yield decreases declines over time. In prep. 2017.
+Point stresses during reproductive stage rather than warming seasonal temperature determine yield in temperate rice. Glob Change Biol. 2017;00:1–10.
+Variation in yield, starch, and protein of dry peas grown across Montana. Agronomy Journal, In Press, 2017
+Yield gap analysis of US rice production systems shows opportunities for improvement.</description>
     </item>
     
     <item>
       <title>Creating an R blog with Hugo (without using blogdown)</title>
-      <link>https://mespe.github.io/post/start/</link>
+      <link>mespe.github.io/post/start/</link>
       <pubDate>Wed, 14 Jun 2017 09:40:09 -0700</pubDate>
       
-      <guid>https://mespe.github.io/post/start/</guid>
+      <guid>mespe.github.io/post/start/</guid>
       <description>I thought I would write up my experiences starting a blog that uses R code but that does not use blogdown. Why do I not use blogdown? The short story is that blogdown does not seem quite ready to use, as it is missing some elements to make publishing a blog easy.
 The long story is that after spending a good chunk of time helping a student navigate through using blogdown, I found the approach below to be both easier to use and simpler to implement.</description>
     </item>
     
     <item>
       <title>About me</title>
-      <link>https://mespe.github.io/about/</link>
+      <link>mespe.github.io/about/</link>
       <pubDate>Thu, 08 Jun 2017 12:13:18 -0700</pubDate>
       
-      <guid>https://mespe.github.io/about/</guid>
+      <guid>mespe.github.io/about/</guid>
       <description>I am an agronomist by training (dealing with all things agriculture), with an emphasis in the yield of major crops. I am particularly interested in the historic causes of yield variability to inform efforts to feed our growing population with increasingly limited resources.
 But I wear many hats. I am also a data scientist, with a focus on increasing capability of researchers to expand their capabilities. In this role, I develop new tools and teach people existing tools and data skillsets.</description>
     </item>
     
     <item>
       <title>Welcome</title>
-      <link>https://mespe.github.io/post/intro/</link>
+      <link>mespe.github.io/post/intro/</link>
       <pubDate>Wed, 07 Jun 2017 21:03:33 -0700</pubDate>
       
-      <guid>https://mespe.github.io/post/intro/</guid>
+      <guid>mespe.github.io/post/intro/</guid>
       <description>Hello World!
 This is my first post to test out Hugo. Overall, it was a bit of a pain to set up with github personal pages. Oh well, it seems to be working now.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://mespe.github.io/post/new_v_old2/</link>
+      <link>mespe.github.io/post/new_v_old2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mespe.github.io/post/new_v_old2/</guid>
+      <guid>mespe.github.io/post/new_v_old2/</guid>
       <description></description>
     </item>
     

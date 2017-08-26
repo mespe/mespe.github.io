@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Stan on Thousand words</title>
-    <link>https://mespe.github.io/tags/stan/</link>
-    <description>Recent content in Stan on Thousand words</description>
+    <title>Stan on Thousand words...</title>
+    <link>mespe.github.io/tags/stan/</link>
+    <description>Recent content in Stan on Thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
     <lastBuildDate>Thu, 24 Aug 2017 20:51:22 -0700</lastBuildDate>
     
-	<atom:link href="https://mespe.github.io/tags/stan/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="mespe.github.io/tags/stan/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A few things I don&#39;t love about Stan</title>
-      <link>https://mespe.github.io/post/stan_gripes/</link>
+      <link>mespe.github.io/post/stan_gripes/</link>
       <pubDate>Thu, 24 Aug 2017 20:51:22 -0700</pubDate>
       
-      <guid>https://mespe.github.io/post/stan_gripes/</guid>
+      <guid>mespe.github.io/post/stan_gripes/</guid>
       <description>First off, I love Stan. If you have not heard of Stan, I highly recommend you check it out. I use Stan for almost all of my statistics these days, and have published several papers using it.
 That said, there are a fair number of things I don&amp;rsquo;t like about it:
 The model trade-offs In my experience, when you are developing a model in Stan, you are often faced with trade-offs between 1) flexibility, 2) readability, and 3) development time.</description>

@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data Science on Thousand words</title>
-    <link>https://mespe.github.io/tags/data-science/</link>
-    <description>Recent content in Data Science on Thousand words</description>
+    <title>Data science on Thousand words...</title>
+    <link>mespe.github.io/tags/data-science/</link>
+    <description>Recent content in Data science on Thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
     <lastBuildDate>Wed, 14 Jun 2017 18:17:59 -0700</lastBuildDate>
     
-	<atom:link href="https://mespe.github.io/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="mespe.github.io/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>What I study</title>
-      <link>https://mespe.github.io/research/</link>
+      <link>mespe.github.io/research/</link>
       <pubDate>Wed, 14 Jun 2017 18:17:59 -0700</pubDate>
       
-      <guid>https://mespe.github.io/research/</guid>
+      <guid>mespe.github.io/research/</guid>
       <description>Here is a collection of my published and unpublished work.
-Agriculture Espe MB, Hill JE, Hijmans RJ, et al. Point stresses during reproductive stage rather than warming seasonal temperature determine yield in temperate rice. Glob Change Biol. 2017;00:1–10.
-Aifen Tao, Reza Keshavarz Afshar, Matthew B. Espe, and Chengci Chen. Variation in yield, starch, and protein of dry peas grown across Montana. Agronomy Journal, In Press, 2017
-Matthew B. Espe, Haishun Yang, Kenneth G.</description>
+Publications Agriculture Rice yield improvements by through plant breeding are offset by inherent yield decreases declines over time. In prep. 2017.
+Point stresses during reproductive stage rather than warming seasonal temperature determine yield in temperate rice. Glob Change Biol. 2017;00:1–10.
+Variation in yield, starch, and protein of dry peas grown across Montana. Agronomy Journal, In Press, 2017
+Yield gap analysis of US rice production systems shows opportunities for improvement.</description>
     </item>
     
   </channel>
