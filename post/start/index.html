@@ -191,11 +191,10 @@ everything around. We need to do two things to prepare our R plots and
 <li><p>Create the <code>.Rmd</code> file. Specify <code>fig.path='img/'</code> (the name of
  this folder does not matter as long as it is consistent for each
  step). For example:</p>
-
-<pre><code class="language-R"> ```{r fig.path = &quot;img/&quot;}
-plot(rnorm(100))
-```
-</code></pre></li>
+<div class="highlight" style="background: #2f1e2e"><pre style="line-height: 125%"><span></span> <span style="color: #48b685">``</span>`<span style="color: #e7e9db">{</span>r fig.path <span style="color: #5bc4bf">=</span> <span style="color: #48b685">&quot;img/&quot;</span><span style="color: #e7e9db">}</span>
+plot<span style="color: #e7e9db">(</span>rnorm<span style="color: #e7e9db">(</span><span style="color: #f99b15">100</span><span style="color: #e7e9db">))</span>
+<span style="color: #48b685">``</span>`
+</pre></div></li>
 
 <li><p>knit the <code>.Rmd</code> file. Any figures will end up in a folder named
  <code>img/</code> in the current working directory.</p></li>
@@ -214,22 +213,21 @@ plot(rnorm(100))
 put the whole thing under gnu make using some makefile magic.</p>
 
 <p><code>Makefile</code></p>
+<div class="highlight" style="background: #2f1e2e"><pre style="line-height: 125%"><span></span><span style="color: #ef6155">POSTDIR</span> <span style="color: #5bc4bf">:=</span> content/post
+<span style="color: #ef6155">OBJS</span> <span style="color: #5bc4bf">:=</span> <span style="color: #815ba4">$(</span>shell find -name <span style="color: #48b685">&#39;*.Rmd&#39;</span><span style="color: #815ba4">)</span>
+<span style="color: #ef6155">OUTFILES</span> <span style="color: #5bc4bf">:=</span> <span style="color: #815ba4">$(</span>patsubst %.Rmd,%.md,<span style="color: #815ba4">$(</span>OBJS<span style="color: #815ba4">))</span>
+<span style="color: #ef6155">KNIT</span> <span style="color: #5bc4bf">=</span> Rscript -e <span style="color: #48b685">&quot;library(knitr); knit(&#39;</span>$<span style="color: #48b685">&lt;&#39;)&quot;</span>
 
-<pre><code class="language-Makefile">POSTDIR := content/post
-OBJS := $(shell find -name '*.Rmd')
-OUTFILES := $(patsubst %.Rmd,%.md,$(OBJS))
-KNIT = Rscript -e &quot;library(knitr); knit('$&lt;')&quot;
+<span style="color: #06b6ef">all</span><span style="color: #5bc4bf">:</span><span style="color: #815ba4">$(</span><span style="color: #ef6155">OUTFILES</span><span style="color: #815ba4">)</span>
 
-all:$(OUTFILES)
+<span style="color: #06b6ef">$(OUTFILES)</span><span style="color: #5bc4bf">:</span><span style="color: #815ba4">$(</span><span style="color: #ef6155">OBJS</span><span style="color: #815ba4">)</span>
+	<span style="color: #815ba4">$(</span>KNIT<span style="color: #815ba4">)</span><span style="color: #e7e9db">;</span> <span style="color: #f99b15">\</span>
+	cp -r img/* ../../static/img/<span style="color: #e7e9db">;</span> <span style="color: #f99b15">\</span>
+	sed -i <span style="color: #48b685">&#39;s/img\//\/img\//g&#39;</span> <span style="color: #815ba4">$(</span>OUTFILES<span style="color: #815ba4">)</span>
 
-$(OUTFILES):$(OBJS)
-	$(KNIT); \
-	cp -r img/* ../../static/img/; \
-	sed -i 's/img\//\/img\//g' $(OUTFILES)
-
-clean:
-	rm $(OUTFILES)
-</code></pre>
+<span style="color: #06b6ef">clean</span><span style="color: #5bc4bf">:</span>
+	rm <span style="color: #815ba4">$(</span>OUTFILES<span style="color: #815ba4">)</span>
+</pre></div>
 
 <p>This finds all the files with the <code>.Rmd</code> extension, and converts them
 to <code>.md</code> files. It then uses <code>sed</code> to replace <code>img/</code> with <code>/img/</code>. You

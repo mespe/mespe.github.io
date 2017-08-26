@@ -160,35 +160,33 @@ often faced with trade-offs between 1) flexibility, 2) readability,
 and 3) development time.</p>
 
 <p>To illustrate with a silly example, say I had a basic model:</p>
-
-<pre><code class="language-Stan">data{
-	int N;
-	vector[N] y;
-}
-parameters{
-	real mu;
-}
-model{
-	target += normal_lpdf(y | mu, 1);
-}
-</code></pre>
+<div class="highlight" style="background: #2f1e2e"><pre style="line-height: 125%"><span></span><span style="color: #5bc4bf">data</span><span style="color: #e7e9db">{</span>
+  <span style="color: #fec418">int</span> <span style="color: #e7e9db">N;</span>
+  <span style="color: #fec418">vector</span><span style="color: #e7e9db">[N]</span> <span style="color: #e7e9db">y;</span>
+<span style="color: #e7e9db">}</span>
+<span style="color: #5bc4bf">parameters</span><span style="color: #e7e9db">{</span>
+  <span style="color: #fec418">real</span> <span style="color: #e7e9db">mu;</span>
+<span style="color: #e7e9db">}</span>
+<span style="color: #5bc4bf">model</span><span style="color: #e7e9db">{</span>
+  <span style="color: #e7e9db">target</span> <span style="color: #5bc4bf">+=</span> <span style="color: #e7e9db">normal_lpdf(y</span> <span style="color: #ef6155">|</span> <span style="color: #e7e9db">mu,</span> <span style="color: #f99b15">1</span><span style="color: #e7e9db">);</span>
+<span style="color: #e7e9db">}</span>
+</pre></div>
 
 <p>This model is simple and easy to read, but it is not flexible. To make
 this model take a number of predictors, I have to modify the code:</p>
-
-<pre><code class="language-Stan">data{
-	int N;
-	vector[N] predictor;
-	vector[N] y;
-}
-parameters{
-	real beta;
-	real mu;
-}
-model{
-	target += normal_lpdf(y | mu + beta * predictor, 1);
-}
-</code></pre>
+<div class="highlight" style="background: #2f1e2e"><pre style="line-height: 125%"><span></span><span style="color: #5bc4bf">data</span><span style="color: #e7e9db">{</span>
+  <span style="color: #fec418">int</span> <span style="color: #e7e9db">N;</span>
+  <span style="color: #fec418">vector</span><span style="color: #e7e9db">[N]</span> <span style="color: #e7e9db">predictor;</span>
+  <span style="color: #fec418">vector</span><span style="color: #e7e9db">[N]</span> <span style="color: #e7e9db">y;</span>
+<span style="color: #e7e9db">}</span>
+<span style="color: #5bc4bf">parameters</span><span style="color: #e7e9db">{</span>
+  <span style="color: #fec418">real</span> <span style="color: #e7e9db">beta;</span>
+  <span style="color: #fec418">real</span> <span style="color: #e7e9db">mu;</span>
+<span style="color: #e7e9db">}</span>
+<span style="color: #5bc4bf">model</span><span style="color: #e7e9db">{</span>
+  <span style="color: #e7e9db">target</span> <span style="color: #5bc4bf">+=</span> <span style="color: #e7e9db">normal_lpdf(y</span> <span style="color: #ef6155">|</span> <span style="color: #e7e9db">mu</span> <span style="color: #5bc4bf">+</span> <span style="color: #e7e9db">beta</span> <span style="color: #5bc4bf">*</span> <span style="color: #e7e9db">predictor,</span> <span style="color: #f99b15">1</span><span style="color: #e7e9db">);</span>
+<span style="color: #e7e9db">}</span>
+</pre></div>
 
 <p>Creating this little change would mean sitting through compiling the
 model again. Doing this once or twice is not so bad, but when I am
@@ -200,20 +198,19 @@ introduce errors. Therefore, in addition to the compiling time, there
 is time spent debugging, etc.</p>
 
 <p>So, instead of all of this, I could have coded the model as:</p>
-
-<pre><code class="language-Stan">data{
-	int N;
-	int num_pred; //number of predictors
-	matrix[N, num_pred] X; //model matrix
-	vector[N]y;
-}
-parameters{
-	vector[num_pred] beta;
-}
-model{
-	target += normal_lpdf(y | beta * X, 1);
-}
-</code></pre>
+<div class="highlight" style="background: #2f1e2e"><pre style="line-height: 125%"><span></span><span style="color: #5bc4bf">data</span><span style="color: #e7e9db">{</span>
+  <span style="color: #fec418">int</span> <span style="color: #e7e9db">N;</span>
+  <span style="color: #fec418">int</span> <span style="color: #e7e9db">num_pred;</span> <span style="color: #776e71">//number of predictors</span>
+  <span style="color: #fec418">matrix</span><span style="color: #e7e9db">[N,</span> <span style="color: #e7e9db">num_pred]</span> <span style="color: #e7e9db">X;</span> <span style="color: #776e71">//model matrix</span>
+  <span style="color: #fec418">vector</span><span style="color: #e7e9db">[N]y;</span>
+<span style="color: #e7e9db">}</span>
+<span style="color: #5bc4bf">parameters</span><span style="color: #e7e9db">{</span>
+  <span style="color: #fec418">vector</span><span style="color: #e7e9db">[num_pred]</span> <span style="color: #e7e9db">beta;</span>
+<span style="color: #e7e9db">}</span>
+<span style="color: #5bc4bf">model</span><span style="color: #e7e9db">{</span>
+  <span style="color: #e7e9db">target</span> <span style="color: #5bc4bf">+=</span> <span style="color: #e7e9db">normal_lpdf(y</span> <span style="color: #ef6155">|</span> <span style="color: #e7e9db">beta</span> <span style="color: #5bc4bf">*</span> <span style="color: #e7e9db">X,</span> <span style="color: #f99b15">1</span><span style="color: #e7e9db">);</span>
+<span style="color: #e7e9db">}</span>
+</pre></div>
 
 <p>This model is actually the same as both of the models above. Compared
 to those, it is much more flexible. This model can accept countless
