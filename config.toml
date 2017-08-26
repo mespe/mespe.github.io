@@ -1,4 +1,4 @@
-baseURL = ""
+#baseURL = ""
 title = "Thousand words..."
 copyright = ""
 
@@ -7,6 +7,9 @@ theme = "minimo"
 disqusShortname = ""
 googleAnalytics = ""
 Paginate = 5
+
+PygmentsCodeFences = true
+pygmentsstyle = "paraiso-dark"
 
 preserveTaxonomyNames = true
 

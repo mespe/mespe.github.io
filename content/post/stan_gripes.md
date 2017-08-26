@@ -5,6 +5,7 @@ Description = "My gripes with my favorite stats program"
 Tags = ["Stan", "stats"]
 Categories = [""]
 menu = ""
+toc = true
 +++
 
 First off, I love [Stan](mcstan.org). If you have not heard of Stan, I
@@ -21,36 +22,38 @@ and 3) development time.
 
 To illustrate with a silly example, say I had a basic model:
 
-~~~Stan
+
+```stan
 data{
-	int N;
-	vector[N] y;
+  int N;
+  vector[N] y;
 }
 parameters{
-	real mu;
+  real mu;
 }
 model{
-	target += normal_lpdf(y | mu, 1);
+  target += normal_lpdf(y | mu, 1);
 }
-~~~
+```
+
 
 This model is simple and easy to read, but it is not flexible. To make
 this model take a number of predictors, I have to modify the code:
 
-~~~Stan
+```stan
 data{
-	int N;
-	vector[N] predictor;
-	vector[N] y;
+  int N;
+  vector[N] predictor;
+  vector[N] y;
 }
 parameters{
-	real beta;
-	real mu;
+  real beta;
+  real mu;
 }
 model{
-	target += normal_lpdf(y | mu + beta * predictor, 1);
+  target += normal_lpdf(y | mu + beta * predictor, 1);
 }
-~~~
+```
 
 Creating this little change would mean sitting through compiling the
 model again. Doing this once or twice is not so bad, but when I am
@@ -63,20 +66,20 @@ is time spent debugging, etc.
 
 So, instead of all of this, I could have coded the model as:
 
-~~~Stan
+```stan
 data{
-	int N;
-	int num_pred; //number of predictors
-	matrix[N, num_pred] X; //model matrix
-	vector[N]y;
+  int N;
+  int num_pred; //number of predictors
+  matrix[N, num_pred] X; //model matrix
+  vector[N]y;
 }
 parameters{
-	vector[num_pred] beta;
+  vector[num_pred] beta;
 }
 model{
-	target += normal_lpdf(y | beta * X, 1);
+  target += normal_lpdf(y | beta * X, 1);
 }
-~~~
+```
 
 This model is actually the same as both of the models above. Compared
 to those, it is much more flexible. This model can accept countless
