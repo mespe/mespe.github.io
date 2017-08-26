@@ -20,7 +20,8 @@ often faced with trade-offs between 1) flexibility, 2) readability,
 and 3) development time.
 
 To illustrate with a silly example, say I had a basic model:
-~~~stan
+
+~~~Stan
 data{
 	int N;
 	vector[N] y;

@@ -1,23 +1,85 @@
-baseURL = "https://mespe.github.io/"
-languageCode = "en-us"
-title = "Thousand words"
-theme = "minos"
-paginate = 10
-SectionPagesMenu = "main"
+baseURL = "mespe.github.io"
+title = "Thousand words..."
+copyright = ""
 
+theme = "minimo"
 
+disqusShortname = ""
+googleAnalytics = ""
+Paginate = 5
+
+preserveTaxonomyNames = true
 
 [params]
-	Author = "Matt Espe"
-	smartToc = true
-	github = "mespe"
-	googleAnalytics = "UA-101069222-1"
+  description = "Thoughts on agriculture, data science, and academia"
+  dateFormat = "2006, Jan 2"
+  copyrightOwner = "Matt Espe"
+  copyrightStartYear = "2017"
+  favicon = "favicon.ico"
+  hideEntryNavigation = false
+  customCSS = ["css/custom.css"]
+  customJS = ["js/custom.js"]
+  hideSocialMenu = false
+  showReadTime = true
 
+[params.seo]
+  # Title Separator: - – — · • * ⋆ | ~ « » < >
+  titleSeparator = "•"
+
+[params.opengraph]
+  [params.opengraph.facebook]
+    admins = ""
+    appid = ""
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[social]
+  facebook = "bob"
+
+[author]
+  name = "Matt Espe"
+
+[author.social]
+#  codepen = "bob"
+  email = "mespe@ucdavis.edu"
+#  facebook = "bob"
+  github = "mespe"
+#  instagram = "bob"
+  twitter = "mespe"
+
+[permalinks]
+  page = "/:slug/"
+
+[[menu.main]]
+  name = "Repos"
+  weight = 4
+  identifier = "repository"
+  url = "https://github.com/mespe"
+
+[[menu.main]]
+	name = "Blog"
+	url = "/post/"
+	weight = 1
+	
 [[menu.main]]
 	name = "About me"
 	url = "/about/"
-
+	weight = 2
+	
 [[menu.main]]
 	name = "Research"
 	url = "/research/"
-	
+	weight = 3
+
+
+# Language Configuration
+defaultContentLanguage = "en"
+
+[languages]
+  # edit this block for your own language
+  [languages.en]
+    lang = "en"
+    languageName = "English"
+    weight = 1
