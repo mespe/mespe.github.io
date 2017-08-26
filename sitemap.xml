@@ -54,13 +54,13 @@
   </url>
   
   <url>
-    <loc>/categories/blogging/</loc>
+    <loc>/tags/blogging/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/blogging/</loc>
+    <loc>/categories/blogging/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
     <priority>0</priority>
   </url>
@@ -78,17 +78,12 @@
   </url>
   
   <url>
-    <loc>/categories/development/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/development/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/golang/</loc>
+    <loc>/categories/development/</loc>
     <priority>0</priority>
   </url>
   
@@ -98,13 +93,18 @@
   </url>
   
   <url>
-    <loc>/categories/hugo/</loc>
-    <lastmod>2017-06-14T09:40:09-07:00</lastmod>
+    <loc>/categories/golang/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/hugo/</loc>
+    <lastmod>2017-06-14T09:40:09-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/hugo/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
     <priority>0</priority>
   </url>
@@ -116,13 +116,13 @@
   </url>
   
   <url>
-    <loc>/categories/research/</loc>
+    <loc>/tags/research/</loc>
     <lastmod>2017-06-30T19:35:44-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/research/</loc>
+    <loc>/categories/research/</loc>
     <lastmod>2017-06-30T19:35:44-07:00</lastmod>
     <priority>0</priority>
   </url>
@@ -134,14 +134,14 @@
   </url>
   
   <url>
-    <loc>/categories/stats/</loc>
-    <lastmod>2017-06-30T19:35:44-07:00</lastmod>
+    <loc>/tags/stats/</loc>
+    <lastmod>2017-08-24T20:51:22-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/stats/</loc>
-    <lastmod>2017-08-24T20:51:22-07:00</lastmod>
+    <loc>/categories/stats/</loc>
+    <lastmod>2017-06-30T19:35:44-07:00</lastmod>
     <priority>0</priority>
   </url>
   
