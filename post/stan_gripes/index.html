@@ -12,14 +12,14 @@
 
 <meta property='og:title' content='A few things I don&#39;t love about Stan • Matt Espe'>
 <meta property='og:description' content='My gripes with my favorite stats program'>
-<meta property='og:url' content='/post/stan_gripes/'>
+<meta property='og:url' content='https://mespe.github.io/post/stan_gripes/'>
 <meta property='og:site_name' content='Thousand words...'>
 <meta property='og:type' content='article'><meta property='article:publisher' content='https://facebook.com/bob'><meta property='article:section' content='Post'><meta property='article:tag' content='Stan'><meta property='article:tag' content='stats'><meta property='article:published_time' content='2017-08-24T20:51:22-07:00'/><meta property='article:modified_time' content='2017-08-24T20:51:22-07:00'/>
 
-<meta name="generator" content="Hugo 0.27-DEV" />
+<meta name="generator" content="Hugo 0.30-DEV" />
 
   <title>A few things I don&#39;t love about Stan • Matt Espe</title>
-  <link rel='canonical' href='/post/stan_gripes/'>
+  <link rel='canonical' href='https://mespe.github.io/post/stan_gripes/'>
   
   <link rel='icon' href='/favicon.ico'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
@@ -160,34 +160,32 @@ often faced with trade-offs between 1) flexibility, 2) readability,
 and 3) development time.</p>
 
 <p>To illustrate with a silly example, say I had a basic model:</p>
-<div class="highlight" style="background: #2f1e2e"><pre style="line-height: 125%"><span></span><span style="color: #5bc4bf">data</span><span style="color: #e7e9db">{</span>
-  <span style="color: #fec418">int</span> <span style="color: #e7e9db">N;</span>
-  <span style="color: #fec418">vector</span><span style="color: #e7e9db">[N]</span> <span style="color: #e7e9db">y;</span>
-<span style="color: #e7e9db">}</span>
-<span style="color: #5bc4bf">parameters</span><span style="color: #e7e9db">{</span>
-  <span style="color: #fec418">real</span> <span style="color: #e7e9db">mu;</span>
-<span style="color: #e7e9db">}</span>
-<span style="color: #5bc4bf">model</span><span style="color: #e7e9db">{</span>
-  <span style="color: #e7e9db">target</span> <span style="color: #5bc4bf">+=</span> <span style="color: #e7e9db">normal_lpdf(y</span> <span style="color: #ef6155">|</span> <span style="color: #e7e9db">mu,</span> <span style="color: #f99b15">1</span><span style="color: #e7e9db">);</span>
-<span style="color: #e7e9db">}</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-stan" data-lang="stan">data{
+  int N;
+  vector[N] y;
+}
+parameters{
+  real mu;
+}
+model{
+  target += normal_lpdf(y | mu, 1);
+}</code></pre>
+</div>
 <p>This model is simple and easy to read, but it is not flexible. To make
 this model take a number of predictors, I have to modify the code:</p>
-<div class="highlight" style="background: #2f1e2e"><pre style="line-height: 125%"><span></span><span style="color: #5bc4bf">data</span><span style="color: #e7e9db">{</span>
-  <span style="color: #fec418">int</span> <span style="color: #e7e9db">N;</span>
-  <span style="color: #fec418">vector</span><span style="color: #e7e9db">[N]</span> <span style="color: #e7e9db">predictor;</span>
-  <span style="color: #fec418">vector</span><span style="color: #e7e9db">[N]</span> <span style="color: #e7e9db">y;</span>
-<span style="color: #e7e9db">}</span>
-<span style="color: #5bc4bf">parameters</span><span style="color: #e7e9db">{</span>
-  <span style="color: #fec418">real</span> <span style="color: #e7e9db">beta;</span>
-  <span style="color: #fec418">real</span> <span style="color: #e7e9db">mu;</span>
-<span style="color: #e7e9db">}</span>
-<span style="color: #5bc4bf">model</span><span style="color: #e7e9db">{</span>
-  <span style="color: #e7e9db">target</span> <span style="color: #5bc4bf">+=</span> <span style="color: #e7e9db">normal_lpdf(y</span> <span style="color: #ef6155">|</span> <span style="color: #e7e9db">mu</span> <span style="color: #5bc4bf">+</span> <span style="color: #e7e9db">beta</span> <span style="color: #5bc4bf">*</span> <span style="color: #e7e9db">predictor,</span> <span style="color: #f99b15">1</span><span style="color: #e7e9db">);</span>
-<span style="color: #e7e9db">}</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-stan" data-lang="stan">data{
+  int N;
+  vector[N] predictor;
+  vector[N] y;
+}
+parameters{
+  real beta;
+  real mu;
+}
+model{
+  target += normal_lpdf(y | mu + beta * predictor, 1);
+}</code></pre>
+</div>
 <p>Creating this little change would mean sitting through compiling the
 model again. Doing this once or twice is not so bad, but when I am
 working with a model this could be up to 20 or 30 times. That really
@@ -198,20 +196,19 @@ introduce errors. Therefore, in addition to the compiling time, there
 is time spent debugging, etc.</p>
 
 <p>So, instead of all of this, I could have coded the model as:</p>
-<div class="highlight" style="background: #2f1e2e"><pre style="line-height: 125%"><span></span><span style="color: #5bc4bf">data</span><span style="color: #e7e9db">{</span>
-  <span style="color: #fec418">int</span> <span style="color: #e7e9db">N;</span>
-  <span style="color: #fec418">int</span> <span style="color: #e7e9db">num_pred;</span> <span style="color: #776e71">//number of predictors</span>
-  <span style="color: #fec418">matrix</span><span style="color: #e7e9db">[N,</span> <span style="color: #e7e9db">num_pred]</span> <span style="color: #e7e9db">X;</span> <span style="color: #776e71">//model matrix</span>
-  <span style="color: #fec418">vector</span><span style="color: #e7e9db">[N]y;</span>
-<span style="color: #e7e9db">}</span>
-<span style="color: #5bc4bf">parameters</span><span style="color: #e7e9db">{</span>
-  <span style="color: #fec418">vector</span><span style="color: #e7e9db">[num_pred]</span> <span style="color: #e7e9db">beta;</span>
-<span style="color: #e7e9db">}</span>
-<span style="color: #5bc4bf">model</span><span style="color: #e7e9db">{</span>
-  <span style="color: #e7e9db">target</span> <span style="color: #5bc4bf">+=</span> <span style="color: #e7e9db">normal_lpdf(y</span> <span style="color: #ef6155">|</span> <span style="color: #e7e9db">beta</span> <span style="color: #5bc4bf">*</span> <span style="color: #e7e9db">X,</span> <span style="color: #f99b15">1</span><span style="color: #e7e9db">);</span>
-<span style="color: #e7e9db">}</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-stan" data-lang="stan">data{
+  int N;
+  int num_pred; //number of predictors
+  matrix[N, num_pred] X; //model matrix
+  vector[N]y;
+}
+parameters{
+  vector[num_pred] beta;
+}
+model{
+  target += normal_lpdf(y | beta * X, 1);
+}</code></pre>
+</div>
 <p>This model is actually the same as both of the models above. Compared
 to those, it is much more flexible. This model can accept countless
 number of predictors without changing the Stan code at all. All that
@@ -288,7 +285,7 @@ almost as fast as C++, but compiles ridiculously quickly. Hmmm&hellip;</p>
 </svg>
 
   </span>
-  <span class='screen-reader'>Categories: </span><a class='category' href='/categories/'></a></div>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/categories/data-science'>data science</a></div>
 
     
   
@@ -319,7 +316,7 @@ almost as fast as C++, but compiles ridiculously quickly. Hmmm&hellip;</p>
     
 <nav class='entry-nav'>
   <div class='entry-nav-links'><div class='prev-entry'>
-      <a href='/post/new_v_old/'>
+      <a href='https://mespe.github.io/post/new_v_old/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -328,6 +325,16 @@ almost as fast as C++, but compiles ridiculously quickly. Hmmm&hellip;</p>
 </svg>
  Previous</span>
         <span class='screen-reader'>Previous post: </span>Moving past p-values</a>
+    </div><div class='next-entry'>
+      <a href='https://mespe.github.io/post/cheap_datasci/'>
+        <span class='screen-reader'>Next post: </span>Data science on the cheap<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
     </div></div>
 </nav>
 

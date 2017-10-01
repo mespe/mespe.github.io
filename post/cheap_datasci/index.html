@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang='en'>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/stan.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Can you be a data scientist without dropping $$$ on a computer?'>
+
+<meta property='og:title' content='Data science on the cheap • Matt Espe'>
+<meta property='og:description' content='Can you be a data scientist without dropping $$$ on a computer?'>
+<meta property='og:url' content='https://mespe.github.io/post/cheap_datasci/'>
+<meta property='og:site_name' content='Thousand words...'>
+<meta property='og:type' content='article'><meta property='article:publisher' content='https://facebook.com/bob'><meta property='article:section' content='Post'><meta property='article:tag' content='data science'><meta property='article:published_time' content='2017-09-12T19:46:04-07:00'/><meta property='article:modified_time' content='2017-09-12T19:46:04-07:00'/>
+
+<meta name="generator" content="Hugo 0.30-DEV" />
+
+  <title>Data science on the cheap • Matt Espe</title>
+  <link rel='canonical' href='https://mespe.github.io/post/cheap_datasci/'>
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/css/custom.css'>
+
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/' 
+        
+      >Home</a>
+    </li>
+    
+    <li>
+      <a href='/post/' 
+        
+      >Blog</a>
+    </li>
+    
+    <li>
+      <a href='/about/' 
+        
+      >About me</a>
+    </li>
+    
+    <li>
+      <a href='/research/' 
+        
+      >Research</a>
+    </li>
+    
+    <li>
+      <a href='https://github.com/mespe' 
+        
+      >Repos</a>
+    </li>
+    
+    <li>
+      <a href='/docs/espe_cv.pdf' 
+        
+      >CV</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Thousand words...</p>
+          
+          <p class='site-description'>Thoughts on agriculture, data science, and academia</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <h1 class='entry-title title'>Data science on the cheap</h1>
+    
+    <p class='entry-subtitle'>
+      Can you be a data scientist without dropping $$$ on a computer?
+    </p>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2017-09-12T19:46:04-07:00'>2017, Sep 12</time>
+  </span>
+  
+  <span class='byline'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+  
+</svg>
+
+    <span class='screen-reader'> by </span>
+    Matt Espe
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    5 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  
+
+<p>One thing you will notice pretty quick if you hang around data-sci
+folks is they tend to pack pretty spendy hardware. During workshops,
+it is not uncommon for our classroom at the <a href="dsi.ucdavis.edu">UC Davis Data Science
+Initiative</a> to be packed full of Macbook Pros and
+other $1K+ laptops.</p>
+
+<p>Recently my daily driver (<a href="https://www.notebookcheck.net/Lenovo-ThinkPad-T460s-Core-i7-WQHD-Ultrabook-Review.161028.0.html">Lenovo
+T460s</a>)
+needed to go into the shop for a little work, which gave me a chance
+to play with my backup - a <a href="https://www.notebookcheck.net/Lenovo-ThinkPad-Yoga-11e-Chromebook-Review.124664.0.html">Lenovo Yoga 11e
+Chromebook</a>,
+which I picked up for $160 shipped. This little guy is (in my opinion)
+one of the better chromebooks out there - nice bright screen, good
+keyboard, great battery life, folds to tablet-mode, etc. It&rsquo;s not
+perfect (BayTrail cpu, a bit heavy), but I have been happy with it as
+something to cruise the web around the house.</p>
+
+<p>But with the daily-driver away, the question was: Would I be able to
+use it for my day to day data-sci work, or do you need to drop some $$
+to play the data-sci game?</p>
+
+<h1 id="background">Background</h1>
+
+<p>Growing up, my mom always told me we didn&rsquo;t have much, but we always
+had enough. Not much meant we never had fancy computers or other
+electronics. Our first family computer was a big deal, and we used
+that same computer for 9 years.</p>
+
+<p>One of the things I love the most about data science is that it is
+empowering - most tools and knowledge are open source, and there is a
+strong ethos of tackling problems using whatever is at your disposal.</p>
+
+<p>However, you need a computer of some sort for data science.</p>
+
+<p>There is a second concern - I have been traveling a lot lately, and
+traveling with an more expensive machine makes me nervous. There is
+something attractive about traveling only with things you can easily
+replace (that was my rule in China and NZ). Hence, the Chromebook
+default of strong disk encryption and the ability to remote wipe the
+disk is an additional bonus.</p>
+
+<h1 id="my-requirements">My requirements</h1>
+
+<p>My day to day work is primarily done in R via Emacs-ESS, so at a bare
+minimum I needed access to these. Additionally, the data sets I am
+currently working with are all &gt;1.5GB, so I needed some space, both in
+memory and disk. The more &ldquo;exotic&rdquo; work I do involves spatial data sets
+often tens of GB large, and these are out of reach for the Chromebook
+for sure.</p>
+
+<p>All my work is hosted on Gtihub/Bitbucket, and some depends on forked
+C/C++ libraries, so some basic build tools (gcc, git, autconf, make,
+etc.) will be needed.</p>
+
+<h1 id="the-setup">The setup</h1>
+
+<p>There are a few routes commonly recommended for programming on a
+Chromebook:</p>
+
+<ul>
+<li><p><a href="https://github.com/dnschneid/crouton">crouton</a>: a tool that
+allows you to run Linux in a chroot environment alongside the
+normal Chrome browser.</p>
+
+<p>This works (mostly), and has the advantage of giving you access to
+a full Linux desktop experience and the repos. But it also is a
+bit more resource intensive (not good with limited resources), and
+can be pretty buggy when switching between windows. Due to the
+limited resources of the 11e, I had to run the XFCE desktop, and
+even then had issues.</p></li>
+
+<li><p>Native development: This involves running everything inside the
+Chrome shell and building tools in Chrome. For this,
+<a href="https://github.com/skycocker/chromebrew">Chromebrew</a> allows easy
+setup of the basic build tools, and then everything else can be
+built from source (more on this later).</p>
+
+<p>This actually worked pretty well. Instead of switching from Chrome
+to Linux, you switch between tabs in Chrome. All the tools work as
+expected.</p>
+
+<p>The disadvantages, though started to pill up early&hellip; Not having
+access to repositories means manually dealing with dependencies
+for every build. Some pieces ended up being a huge pain (e.g., X11
+and plotting capabilities for R). Emacs was fairly easy to setup,
+but then some key-binds were masked by ChromeOS (C-w was the most
+annoying). The Chromebook feels snappy
+cruising the web, but compiling software takes ages.</p></li>
+
+<li><p>SSH terminal: This path involved only setting up SSH for Chrome,
+which is <a href="https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcldabbghjo?hl=en">incredibility
+easy</a>,
+and then having another machine to SSH into (e.g., personal
+workstation, AWS, Google Cloud Compute). While not necessarily
+&ldquo;cheap&rdquo;, it might be more cost efficient than buying and
+maintaining your own machine.</p>
+
+<p>This might be the easiest and best case for working on a
+Chromebook - it leverages the strengths of the Chromebook (strong
+network, good battery life, etc.) while not trying to push it into
+a full development machine. Some annoyances persist (keybindings
+from ChromeOS), but it is by far the least painful (if you are
+comfortable working over SSH).</p></li>
+</ul>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>All in all, the Chromebook is a great machine to use solely as
+terminal to SSH into a bigger machine. If you are working over SSH
+anyway, you get some added benefits of security. However, without
+internet, you are dead in the water - but this is not always a bad
+thing (I am using flights to catch up on reading). This will probably
+be my traveling setup going forward.</p>
+
+<p>However, I was frustrated early and often when trying to use it as a
+stand-alone development machine. It constantly felt like I was trying
+to push the Chromebook into being something it was not. If I needed a
+stand-alone machine, I would not go this route. Instead, picking up a
+used X220 or X230 and running coreboot and Linux would give a far more
+usable machine for about the same money.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/categories/data-science'>data science</a></div>
+
+    
+  
+    
+      
+      
+
+<div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/data-science'>data science</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='https://mespe.github.io/post/stan_gripes/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>A few things I don&#39;t love about Stan</a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'><li>
+        <a href='mailto:mespe@ucdavis.edu' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Email account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://github.com/mespe' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Github account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://twitter.com/MatthewEspe' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Twitter account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+
+        </a>
+      </li></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>
+    
+  
+  &copy; 2017 Matt Espe</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/js/main.af838dd5.js'></script>
+  
+    <script src='/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

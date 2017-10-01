@@ -14,14 +14,14 @@ The long story is that after spending a good chunk of time helping a student nav
 <meta property='og:title' content='Creating an R blog with Hugo (without using blogdown) • Matt Espe'>
 <meta property='og:description' content='I thought I would write up my experiences starting a blog that uses R code but that does not use blogdown. Why do I not use blogdown? The short story is that blogdown does not seem quite ready to use, as it is missing some elements to make publishing a blog easy.
 The long story is that after spending a good chunk of time helping a student navigate through using blogdown, I found the approach below to be both easier to use and simpler to implement.'>
-<meta property='og:url' content='/post/start/'>
+<meta property='og:url' content='https://mespe.github.io/post/start/'>
 <meta property='og:site_name' content='Thousand words...'>
 <meta property='og:type' content='article'><meta property='article:publisher' content='https://facebook.com/bob'><meta property='article:section' content='Post'><meta property='article:tag' content='blogging'><meta property='article:tag' content='hugo'><meta property='article:published_time' content='2017-06-14T09:40:09-07:00'/><meta property='article:modified_time' content='2017-06-14T09:40:09-07:00'/>
 
-<meta name="generator" content="Hugo 0.27-DEV" />
+<meta name="generator" content="Hugo 0.30-DEV" />
 
   <title>Creating an R blog with Hugo (without using blogdown) • Matt Espe</title>
-  <link rel='canonical' href='/post/start/'>
+  <link rel='canonical' href='https://mespe.github.io/post/start/'>
   
   <link rel='icon' href='/favicon.ico'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
@@ -191,10 +191,10 @@ everything around. We need to do two things to prepare our R plots and
 <li><p>Create the <code>.Rmd</code> file. Specify <code>fig.path='img/'</code> (the name of
  this folder does not matter as long as it is consistent for each
  step). For example:</p>
-<div class="highlight" style="background: #2f1e2e"><pre style="line-height: 125%"><span></span> <span style="color: #48b685">``</span>`<span style="color: #e7e9db">{</span>r fig.path <span style="color: #5bc4bf">=</span> <span style="color: #48b685">&quot;img/&quot;</span><span style="color: #e7e9db">}</span>
-plot<span style="color: #e7e9db">(</span>rnorm<span style="color: #e7e9db">(</span><span style="color: #f99b15">100</span><span style="color: #e7e9db">))</span>
-<span style="color: #48b685">``</span>`
-</pre></div></li>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"> <span style="color:#48b685">``</span>`{r fig.path <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;img/&#34;</span>}
+plot(rnorm(<span style="color:#f99b15">100</span>))
+<span style="color:#48b685">``</span>`</code></pre>
+</div></li>
 
 <li><p>knit the <code>.Rmd</code> file. Any figures will end up in a folder named
  <code>img/</code> in the current working directory.</p></li>
@@ -213,22 +213,21 @@ plot<span style="color: #e7e9db">(</span>rnorm<span style="color: #e7e9db">(</sp
 put the whole thing under gnu make using some makefile magic.</p>
 
 <p><code>Makefile</code></p>
-<div class="highlight" style="background: #2f1e2e"><pre style="line-height: 125%"><span></span><span style="color: #ef6155">POSTDIR</span> <span style="color: #5bc4bf">:=</span> content/post
-<span style="color: #ef6155">OBJS</span> <span style="color: #5bc4bf">:=</span> <span style="color: #815ba4">$(</span>shell find -name <span style="color: #48b685">&#39;*.Rmd&#39;</span><span style="color: #815ba4">)</span>
-<span style="color: #ef6155">OUTFILES</span> <span style="color: #5bc4bf">:=</span> <span style="color: #815ba4">$(</span>patsubst %.Rmd,%.md,<span style="color: #815ba4">$(</span>OBJS<span style="color: #815ba4">))</span>
-<span style="color: #ef6155">KNIT</span> <span style="color: #5bc4bf">=</span> Rscript -e <span style="color: #48b685">&quot;library(knitr); knit(&#39;</span>$<span style="color: #48b685">&lt;&#39;)&quot;</span>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Makefile" data-lang="Makefile">POSTDIR := content/post
+OBJS := $(shell find -name &#39;*.Rmd&#39;)
+OUTFILES := $(patsubst %.Rmd,%.md,$(OBJS))
+KNIT = Rscript -e &#34;library(knitr); knit(&#39;$&lt;&#39;)&#34;
 
-<span style="color: #06b6ef">all</span><span style="color: #5bc4bf">:</span><span style="color: #815ba4">$(</span><span style="color: #ef6155">OUTFILES</span><span style="color: #815ba4">)</span>
+all:$(OUTFILES)
 
-<span style="color: #06b6ef">$(OUTFILES)</span><span style="color: #5bc4bf">:</span><span style="color: #815ba4">$(</span><span style="color: #ef6155">OBJS</span><span style="color: #815ba4">)</span>
-	<span style="color: #815ba4">$(</span>KNIT<span style="color: #815ba4">)</span><span style="color: #e7e9db">;</span> <span style="color: #f99b15">\</span>
-	cp -r img/* ../../static/img/<span style="color: #e7e9db">;</span> <span style="color: #f99b15">\</span>
-	sed -i <span style="color: #48b685">&#39;s/img\//\/img\//g&#39;</span> <span style="color: #815ba4">$(</span>OUTFILES<span style="color: #815ba4">)</span>
+$(OUTFILES):$(OBJS)
+	$(KNIT); \
+	cp -r img/* ../../static/img/; \
+	sed -i &#39;s/img\//\/img\//g&#39; $(OUTFILES)
 
-<span style="color: #06b6ef">clean</span><span style="color: #5bc4bf">:</span>
-	rm <span style="color: #815ba4">$(</span>OUTFILES<span style="color: #815ba4">)</span>
-</pre></div>
-
+clean:
+	rm $(OUTFILES)</code></pre>
+</div>
 <p>This finds all the files with the <code>.Rmd</code> extension, and converts them
 to <code>.md</code> files. It then uses <code>sed</code> to replace <code>img/</code> with <code>/img/</code>. You
 will need to edit this to reflect your file structure (I have
@@ -293,7 +292,7 @@ accend 2 directories to get to <code>static/</code>).</p>
     
 <nav class='entry-nav'>
   <div class='entry-nav-links'><div class='prev-entry'>
-      <a href='/post/intro/'>
+      <a href='https://mespe.github.io/post/intro/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -303,7 +302,7 @@ accend 2 directories to get to <code>static/</code>).</p>
  Previous</span>
         <span class='screen-reader'>Previous post: </span>Welcome</a>
     </div><div class='next-entry'>
-      <a href='/post/new_v_old/'>
+      <a href='https://mespe.github.io/post/new_v_old/'>
         <span class='screen-reader'>Next post: </span>Moving past p-values<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="4" y1="12" x2="20" y2="12"/>
