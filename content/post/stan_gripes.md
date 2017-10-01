@@ -3,7 +3,7 @@ title= "A few things I don't love about Stan"
 date= "2017-08-24T20:51:22-07:00"
 Description = "My gripes with my favorite stats program"
 Tags = ["Stan", "stats"]
-Categories = [""]
+Categories = ["data science"]
 menu = ""
 toc = true
 +++
