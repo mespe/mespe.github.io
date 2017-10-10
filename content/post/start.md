@@ -74,7 +74,7 @@ Easy, right? I did not want to do this for every single file I might produce, so
 put the whole thing under gnu make using some makefile magic.
 
  `Makefile`
-~~~Makefile
+~~~makefile
 POSTDIR := content/post
 OBJS := $(shell find -name '*.Rmd')
 OUTFILES := $(patsubst %.Rmd,%.md,$(OBJS))
