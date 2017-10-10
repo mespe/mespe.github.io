@@ -1,60 +1,76 @@
-baseURL = "https://mespe.github.io/"
-title = "Thousand words..."
+baseURL = "https://mespe.github.io"
+title = "Ten thousand words..."
+# for smart copyright line, leave this blank and check [params.copyright]
 copyright = ""
 
 theme = "minimo"
 
 disqusShortname = ""
 googleAnalytics = ""
+
 Paginate = 5
-
-PygmentsCodeFences = true
-pygmentsstyle = "paraiso-dark"
-
 preserveTaxonomyNames = true
 
-[params]
-  description = "Thoughts on agriculture, data science, and academia"
-  dateFormat = "2006, Jan 2"
-  copyrightOwner = "Matt Espe"
-  copyrightStartYear = "2017"
-  favicon = "favicon.ico"
-  hideEntryNavigation = false
-  customCSS = ["css/custom.css"]
-  customJS = ["js/custom.js"]
-  hideSocialMenu = false
-  showReadTime = true
+# Syntax Highlighting ( https://gohugo.io/content-management/syntax-highlighting/ )
+pygmentsCodefences = true
+pygmentsstyle = "paraiso-dark"
+
+
+# Language Configuration
+defaultContentLanguage = "en"
+
+[params.info]
+description = "Thoughts on agriculture, data science, and academia"
+title404 = "Nothing's here!"
+
+[params.assets]
+favicon = "favicon.ico"
+customCSS = ["css/custom.css"]
+customJS = ["js/custom.js"]
+gopher = "" # used in 404 template ( Generator: https://gopherize.me )
+
+[params.copyright]
+prefix = ""
+holder = "Matt Espe"
+startYear = "2017"
+suffix = ""
+
+[params.settings]
+# date & time format: https://golang.org/pkg/time/
+dateFormat = "2006, Jan 02"
+listDateFormat = "2006, Jan 02"
+#hideEntryNavigation = false
+hideSocialMenu = false
+showReadingTime = true
+
+[params.opengraph.facebook]
+admins = [] # array of Facebook IDs
+appID = ""
+pageID = ""
 
 [params.seo]
-  # Title Separator: - – — · • * ⋆ | ~ « » < >
-  titleSeparator = "•"
+# Title Separator: - – — · • * ⋆ | ~ « » < >
+titleSeparator = "•"
 
-[params.opengraph]
-  [params.opengraph.facebook]
-    admins = ""
-    appid = ""
+[params.social]
+# codepen = "MunifTanjim"
+email = "mespe@ucdavis.edu"
+# facebook = "MunifTanjim"
+github = "mespe"
+# instagram = "MunifTanjim"
+linkedin = "matthew-espe-a93a33149"
+twitter = "MatthewEspe"
+
+[params.social.config]
+platforms = ["github","twitter","email","linkedin"]
 
 [taxonomies]
-  category = "categories"
-  tag = "tags"
-
-[social]
-  facebook = "bob"
-
-[author]
-  name = "Matt Espe"
-
-[author.social]
-#  codepen = "bob"
-  email = "mespe@ucdavis.edu"
-#  facebook = "bob"
-  github = "mespe"
-#  instagram = "bob"
-  twitter = "MatthewEspe"
+author = "authors"
+category = "categories"
+tag = "tags"
 
 [permalinks]
-  page = "/:slug/"
-
+page = "/:slug/"
 
 [[menu.main]]
 	name = "Blog"
@@ -81,13 +97,13 @@ preserveTaxonomyNames = true
 	name = "CV"
 	weight = 5
 	url = "/docs/espe_cv.pdf"
-	
-# Language Configuration
-defaultContentLanguage = "en"
+
+[blackfriday]
+hrefTargetBlank = true
 
 [languages]
-  # edit this block for your own language
-  [languages.en]
-    lang = "en"
-    languageName = "English"
-    weight = 1
+# edit this block for your own language
+[languages.en]
+lang = "en"
+languageName = "English"
+weight = 1
