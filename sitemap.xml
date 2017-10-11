@@ -3,7 +3,12 @@
   
   <url>
     <loc>https://mespe.github.io/</loc>
-    <lastmod>2017-09-12T19:46:04-07:00</lastmod>
+    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/post/food_glut/</loc>
+    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
   </url>
   
   <url>
@@ -52,6 +57,12 @@
   </url>
   
   <url>
+    <loc>https://mespe.github.io/categories/agriculture/</loc>
+    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mespe.github.io/authors/</loc>
     <priority>0</priority>
   </url>
@@ -70,7 +81,7 @@
   
   <url>
     <loc>https://mespe.github.io/categories/</loc>
-    <lastmod>2017-06-14T09:40:09-07:00</lastmod>
+    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -120,7 +131,7 @@
   
   <url>
     <loc>https://mespe.github.io/post/</loc>
-    <lastmod>2017-09-12T19:46:04-07:00</lastmod>
+    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
     <priority>0</priority>
   </url>
   

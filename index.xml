@@ -5,10 +5,19 @@
     <link>https://mespe.github.io/</link>
     <description>Recent content in Home on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 12 Sep 2017 19:46:04 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 27 Sep 2017 21:00:27 -0700</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Forecasting famine during a food glut</title>
+      <link>https://mespe.github.io/post/food_glut/</link>
+      <pubDate>Wed, 27 Sep 2017 21:00:27 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/post/food_glut/</guid>
+      <description>Reuters just released a special story about the historic levels of food stocks, and the associated drop in agricultural profits, both at the farm and the farm services level. This is interesting to me because almost all of the papers I have written and the research I have done has been motivated by the need to produce more food to feed the growing population. Many influential papers in agriculture have highlighted the coming food shortages, the need to double food production by 2050, etc.</description>
+    </item>
     
     <item>
       <title>Data science on the cheap</title>
