@@ -7,16 +7,16 @@ featuredImage = "/img/yield_trends.png"
 +++
 
 
-I am an agronomist by training (dealing with all things agriculture),
-with an emphasis in the yield of major crops. I am particularly
-interested in the historic causes of yield variability to inform
-efforts to feed our growing population with increasingly limited
-resources.
+I am an agronomist (dealing with all things agriculture) by training,
+with an emphasis on the drivers of the yield of major crops. I am
+particularly interested in using the historic causes of yield
+variability to inform efforts to provide food, fuel, and fiber for our
+growing population sustainably. 
 
 But I wear many hats. I am also a data scientist, with a focus on
-increasing capability of researchers to expand their capabilities. In
-this role, I develop new tools and teach people existing tools and
-data skillsets.
+increasing capability of researchers to expand what they can study. In
+this role, I develop new tools (R packages, libraries, models) and
+teach people how to effectively use existing tools and hone their data skills.
 
 Currently, I am a Post-doc at UC Davis in the Dept. of Plant
 Sciences and with the [Data Science Initiative](http://dsi.ucdavis.edu).
