@@ -18,8 +18,7 @@ increasing capability of researchers to expand what they can study. In
 this role, I develop new tools (R packages, libraries, models) and
 teach people how to effectively use existing tools and hone their data skills.
 
-Currently, I am a Post-doc at UC Davis in the Dept. of Plant
-Sciences and with the [Data Science Initiative](http://dsi.ucdavis.edu).
+Currently, I am a Post-doc at the [UC Davis Data Science Initiative](http://dsi.ucdavis.edu).
 
 ![Yield map](/img/yield_trends.png)
 
