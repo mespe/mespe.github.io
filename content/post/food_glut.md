@@ -6,6 +6,9 @@ date: 2017-09-27T21:00:27-07:00
 draft: false
 ---
 
+
+![World Population](/img/world-pop.png)
+
 Reuters just released a special story about the [historic levels of
 food
 stocks](https://www.reuters.com/article/us-grains-supply-special-report/special-report-drowning-in-grain-how-big-ag-sowed-seeds-of-a-profit-slashing-glut-idUSKCN1C21AR?),
