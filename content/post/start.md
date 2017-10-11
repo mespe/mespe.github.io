@@ -8,6 +8,9 @@ title = "Creating an R blog with Hugo (without using blogdown)"
 
 +++
 
+*UPDATE: The fine folks behind Hugo put together a [nice guild that
+covers the steps involved in getting github pages and Hugo setup.](https://gohugo.io/hosting-and-deployment/hosting-on-github/)*
+
 I thought I would write up my experiences starting a blog that uses R
 code but that does not
 use [blogdown](https://github.com/rstudio/blogdown). Why do I not use
