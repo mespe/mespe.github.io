@@ -5,10 +5,19 @@
     <link>https://mespe.github.io/categories/data-science/</link>
     <description>Recent content in Data science on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 12 Sep 2017 19:46:04 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 22 Oct 2017 17:09:12 -0700</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data science on the cheap - pt. 2</title>
+      <link>https://mespe.github.io/post/cheap2/</link>
+      <pubDate>Sun, 22 Oct 2017 17:09:12 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/post/cheap2/</guid>
+      <description>This is the continuation of Data Science on the Cheap, where I discussed the potential to use a Chromebook as a cheap entry to data science. After trying the main configurations, I concluded that the easiest use case was to use the Chromebook as a cheap and portable terminal to access a bigger machine elsewhere. But that leaves you with only half of the equation - you still need the other machine.</description>
+    </item>
     
     <item>
       <title>Data science on the cheap</title>

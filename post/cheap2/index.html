@@ -4,18 +4,18 @@
 <head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Reuters just released a special story about the historic levels of food stocks, and the associated drop in agricultural profits, both at the farm and the farm services level. This is interesting to me because almost all of the papers I have written and the research I have done has been motivated by the need to produce more food to feed the growing population. Many influential papers in agriculture have highlighted the coming food shortages, the need to double food production by 2050, etc.'>
+<meta name='description' content='Can you be a data scientist without dropping $$$ on a computer?'>
 
-<meta property='og:title' content='Forecasting famine during a food glut • Ten thousand words...'>
-<meta property='og:description' content='Reuters just released a special story about the historic levels of food stocks, and the associated drop in agricultural profits, both at the farm and the farm services level. This is interesting to me because almost all of the papers I have written and the research I have done has been motivated by the need to produce more food to feed the growing population. Many influential papers in agriculture have highlighted the coming food shortages, the need to double food production by 2050, etc.'>
-<meta property='og:url' content='https://mespe.github.io/post/food_glut/'>
+<meta property='og:title' content='Data science on the cheap - pt. 2 • Ten thousand words...'>
+<meta property='og:description' content='Can you be a data scientist without dropping $$$ on a computer?'>
+<meta property='og:url' content='https://mespe.github.io/post/cheap2/'>
 <meta property='og:site_name' content='Ten thousand words...'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:published_time' content='2017-09-27T21:00:27-07:00'/><meta property='article:modified_time' content='2017-09-27T21:00:27-07:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='data science'><meta property='article:published_time' content='2017-10-22T17:09:12-07:00'/><meta property='article:modified_time' content='2017-10-22T17:09:12-07:00'/>
 
 <meta name="generator" content="Hugo 0.31-DEV" />
 
-  <title>Forecasting famine during a food glut • Ten thousand words...</title>
-  <link rel='canonical' href='https://mespe.github.io/post/food_glut/'>
+  <title>Data science on the cheap - pt. 2 • Ten thousand words...</title>
+  <link rel='canonical' href='https://mespe.github.io/post/cheap2/'>
   
   
   <link rel='icon' href='/favicon.ico'>
@@ -77,8 +77,10 @@ ga('send', 'pageview');
     <header class='header-container'>
   <div class='header entry-header'>
     <div class='header-info'>
-      <h1 class='title'>Forecasting famine during a food glut</h1>
+      <h1 class='title'>Data science on the cheap - pt. 2</h1>
       
+<p class='subtitle'>Can you be a data scientist without dropping $$$ on a computer?</p>
+
 
     </div>
     
@@ -92,7 +94,7 @@ ga('send', 'pageview');
   
 </svg>
 <span class='screen-reader'>Posted on </span>
-  <time class='date' datetime='2017-09-27T21:00:27-07:00'>2017, Sep 27</time>
+  <time class='date' datetime='2017-10-22T17:09:12-07:00'>2017, Oct 22</time>
 </span>
 
   
@@ -103,7 +105,7 @@ ga('send', 'pageview');
   <polyline points="12 6 12 12 15 15"/> 
   
 </svg>
-2 mins read
+3 mins read
 </span>
 
 
@@ -115,74 +117,120 @@ ga('send', 'pageview');
 
     
     
+<details class='entry-toc'>
+  <summary class='toc-title'>
+    <span>Table of Contents</span>
+  </summary>
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#cloud-services">Cloud services</a></li>
+<li><a href="#diy-workstation">DIY Workstation</a></li>
+</ul>
+</nav>
+</details>
+
 
     <div class='entry-content'>
   
 
-<p><img src="/img/world-pop.png" alt="World Population" /></p>
+<p>This is the continuation of <a href="/post/cheap_datasci.html">Data Science on the
+Cheap</a>, where I discussed the potential to
+use a Chromebook as a cheap entry to data science. After trying the
+main configurations, I concluded that the easiest use case was to use
+the Chromebook as a cheap and portable terminal to access a bigger
+machine elsewhere. But that leaves you with only half of the
+equation - you still need the other machine.</p>
 
-<p>Reuters just released a special story about the <a href="https://www.reuters.com/article/us-grains-supply-special-report/special-report-drowning-in-grain-how-big-ag-sowed-seeds-of-a-profit-slashing-glut-idUSKCN1C21AR?" target="_blank">historic levels of
-food
-stocks</a>,
-and the associated drop in agricultural profits, both at the farm and
-the farm services level. This is interesting to me because almost all
-of the papers I have written and the research I have done has been
-motivated by the need to produce more food to feed the growing
-population. Many influential papers in agriculture have highlighted
-the coming food shortages, the need to double food production by 2050,
-etc. Almost every presentation, every correspondence, every poster in
-agricultural science at least mentions the coming challenges.</p>
-
-<p>So were we wrong?</p>
-
-<h1 id="land-sparing-vs-land-sharing">Land-sparing vs. Land-sharing</h1>
-
-<p>There has long been a debate in Ag science if we should focus on
-harvesting more food, fuel, and fiber from lands currently under
-cultivation so that less land needs to be cultivated (land-sparing),
-or if we should make our practices less impactful, even if that means
-more land needs to be cultivated (land-sharing).</p>
-
-<p>The debate has not been resolved in academia, but
-Monsanto/Syngenta/Pioneer-DuPont aren&rsquo;t waiting around. The story
-makes it clear they are pushing the limits of growing season length,
-which enables the successful cultivation of maize in short-season
-environments. We might soon be farming maize inside the Arctic Circle.</p>
-
-<p>So, crisis averted, right?</p>
-
-<h1 id="the-issues-with-land-sharing">The issues with land-sharing</h1>
-
-<p>Despite our best efforts, some impacts of cultivating the land seem
-unavoidable. Concerns such as:</p>
+<p>There are two main options here:</p>
 
 <ul>
-<li>Loss of soil organic carbon</li>
-<li>Loss of biodiversity</li>
-<li>Reduced functional diversity</li>
-<li>Altered hydrology</li>
-<li>etc.
-<br /></li>
+<li>Cloud service</li>
+<li>DIY(ish) Workstation</li>
 </ul>
 
-<p>have all been observed when natural areas are brought into
-cultivation. But as highly intensified systems approach their limit,
-we might not have a choice. The theory has been that food shortages
-will drive up prices, which in turn will incentivize the expansion of
-land under cultivation. The expansion of maize towards the Arctic
-Circle follows the expected path. Almost&hellip;</p>
+<h1 id="cloud-services">Cloud services</h1>
 
-<h1 id="the-unexpected-at-least-to-me">The unexpected (at least to me)</h1>
+<p>Cloud services have several advantages:</p>
 
-<p>What surprised me was that hold-over policy and technological
-improvements have driven farm-profits down even as land expansion is
-continuing. Research is a slow moving ship, and efforts started during
-food shortages are coming to fruition only recently. Agronomists
-generally believe in the wisdom of the crowd - each farmer is acting
-rationally, and therefore the system largely follows a rational path.</p>
+<ol>
+<li><p>Pay for what you need/use: Most of these services have a pricing
+ structure where you are billed by the hour, minute, or (thanks to
+ price wars) the second.</p></li>
 
-<p>But now I am reconsidering - how can the system collectively move
-counter to the interest of most of the actors involved?</p>
+<li><p>Reduced management, administration, and setup: Most services have
+ some ready-made images to deploy that include basic data science
+ tools pre-installed. Someone else worries about updating the
+ images. An added bonus here is you get the advantage of starting
+ with a reproducible computing environment (until you start
+ messing with things).</p></li>
+
+<li><p>Hardware upgrades are made by requesting a different machine:
+ Related to the above, you don&rsquo;t have to worry about upgrading
+ aging hardware.</p></li>
+</ol>
+
+<p>There are many of these out there, but the most popular are Amazon Web
+Services and the Google Cloud Compute Engine. Of the two, I like
+Google Cloud a bit more do to their command-line tools, but really
+either will work just fine.</p>
+
+<p>So, what are the disadvantages of these?</p>
+
+<ol>
+<li><p>You have no control over what the rest of the machine is doing:
+ On these services, other jobs on the same physical server can
+ impact performance. I learned this the hard way re-running memory
+ intensive models on Google Cloud - the same model with the same
+ data had massive variance in timing, from 24 hours to 3+ days.</p></li>
+
+<li><p>You do not have complete control over the machine: While you have
+ a lot of control, it is not complete. While I have never had
+ issues with a Cloud service not allowing the setup I wanted, I
+ have heard of cases.</p></li>
+
+<li><p>The costs add up: If you are just running small analyses
+ occasionally, the cost of renting time on a machine will be much
+ lower. However, once you are running an analysis around the
+ clock, the costs add up. Most services has a &ldquo;sustained use&rdquo;
+ discount, but even with these it can sometimes be cheaper to have
+ your own. Which leads to&hellip;</p></li>
+</ol>
+
+<h1 id="diy-workstation">DIY Workstation</h1>
+
+<p>Thanks to largely stagnant advances in computing technology over the
+last 10 or so years, older generation chips often give decent
+performance. Additionally, as large tech companies replace aging
+components, older tech can be had for 1c on the $.</p>
+
+<p>The advantages of going this route are you:</p>
+
+<ol>
+<li><p>have full control over the system, from OS to hardware
+ configuration.</p></li>
+
+<li><p>will learn about setting up a compute environment, which is a
+ handy skill.</p></li>
+
+<li><p>never have to share resources.</p></li>
+</ol>
+
+<p>The disadvantages are you:</p>
+
+<ol>
+<li><p>are responsible for a lot more than just data science. System&rsquo;s
+ administration can be a pain, and hardware upgrades can be a
+ cascade that leads to replacing a entire system because the
+ standards/interfaces change.</p></li>
+
+<li><p>never will work with cutting edge tech.</p></li>
+
+<li><p>shoulder more cost, which may or may not work to your advantage
+ vs. renting time.</p></li>
+</ol>
+
+<p>So, what did I do? I built a workstation, and I am happy I did. Next,
+I will explain my setup and share what I learned along the way.</p>
 
 </div>
 
@@ -196,7 +244,16 @@ counter to the interest of most of the actors involved?</p>
   
 </svg>
 </span>
-  <span class='screen-reader'>Categories: </span><a class='category' href='/categories/agriculture'>Agriculture</a></div>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/categories/data-science'>data science</a></div>
+<div class='tags'>
+  <span class='taxonomyTerm-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+</span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/data-science'>data science</a></div>
 
   </div>
 </footer>
@@ -206,7 +263,7 @@ counter to the interest of most of the actors involved?</p>
   
 <nav class='entry-nav-container'>
   <div class='entry-nav'><div class='prev-entry'>
-      <a href='/post/cheap_datasci/'>
+      <a href='/post/food_glut/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -214,17 +271,7 @@ counter to the interest of most of the actors involved?</p>
   
 </svg>
  Previous</span>
-        <span class='screen-reader'>Previous post: </span>Data science on the cheap</a>
-    </div><div class='next-entry'>
-      <a href='/post/cheap2/'>
-        <span class='screen-reader'>Next post: </span>Data science on the cheap - pt. 2<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
-  
-</svg>
-</span>
-      </a>
+        <span class='screen-reader'>Previous post: </span>Forecasting famine during a food glut</a>
     </div></div>
 </nav>
 
