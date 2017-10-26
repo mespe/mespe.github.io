@@ -12,7 +12,7 @@ tags:
 ---
 
 This is the continuation of [Data Science on the
-Cheap](/post/cheap_datasci.html), where I discussed the potential to
+Cheap](/post/cheap_datasci/), where I discussed the potential to
 use a Chromebook as a cheap entry to data science. After trying the
 main configurations, I concluded that the easiest use case was to use
 the Chromebook as a cheap and portable terminal to access a bigger
