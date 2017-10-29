@@ -14,7 +14,7 @@ preserveTaxonomyNames = true
 # Syntax Highlighting ( https://gohugo.io/content-management/syntax-highlighting/ )
 pygmentsCodefences = true
 pygmentsstyle = "paraiso-dark"
-
+pygmentsUseClasses=true
 
 # Language Configuration
 defaultContentLanguage = "en"
