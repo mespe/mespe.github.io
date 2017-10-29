@@ -5,10 +5,21 @@
     <link>https://mespe.github.io/post/</link>
     <description>Recent content in Posts on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 22 Oct 2017 17:09:12 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 28 Oct 2017 16:33:23 -0700</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data science on the cheap - pt. 3</title>
+      <link>https://mespe.github.io/post/cheap3/</link>
+      <pubDate>Sat, 28 Oct 2017 16:33:23 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/post/cheap3/</guid>
+      <description>This is the last part of the series, and if you have not read the other two parts(pt. 1,pt. 2), it might be helpful to glance back to see how I got here.
+In the last part, I explained the thinking that led me to build my own workstation using reclaimed parts. Here is brief overview of what I did:
+Note: this is not intended to be a build guide.</description>
+    </item>
     
     <item>
       <title>Data science on the cheap - pt. 2</title>

@@ -146,7 +146,7 @@ often faced with trade-offs between 1) flexibility, 2) readability,
 and 3) development time.</p>
 
 <p>To illustrate with a silly example, say I had a basic model:</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-stan" data-lang="stan">data{
+<div class="highlight"><pre class="chroma"><code class="language-stan" data-lang="stan">data{
   int N;
   vector[N] y;
 }
@@ -158,7 +158,7 @@ model{
 }</code></pre></div>
 <p>This model is simple and easy to read, but it is not flexible. To make
 this model take a number of predictors, I have to modify the code:</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-stan" data-lang="stan">data{
+<div class="highlight"><pre class="chroma"><code class="language-stan" data-lang="stan">data{
   int N;
   vector[N] predictor;
   vector[N] y;
@@ -180,7 +180,7 @@ introduce errors. Therefore, in addition to the compiling time, there
 is time spent debugging, etc.</p>
 
 <p>So, instead of all of this, I could have coded the model as:</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-stan" data-lang="stan">data{
+<div class="highlight"><pre class="chroma"><code class="language-stan" data-lang="stan">data{
   int N;
   int num_pred; //number of predictors
   matrix[N, num_pred] X; //model matrix

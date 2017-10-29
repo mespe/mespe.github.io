@@ -170,9 +170,9 @@ everything around. We need to do two things to prepare our R plots and
 <li><p>Create the <code>.Rmd</code> file. Specify <code>fig.path='img/'</code> (the name of
  this folder does not matter as long as it is consistent for each
  step). For example:</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"> <span style="color:#48b685">``</span>`{r fig.path <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;img/&#34;</span>}
-plot(rnorm(<span style="color:#f99b15">100</span>))
-<span style="color:#48b685">``</span>`</code></pre></div></li>
+<div class="highlight"><pre class="chroma"><code class="language-R" data-lang="R"> <span class="sb">``</span>`<span class="p">{</span>r fig.path <span class="o">=</span> <span class="s">&#34;img/&#34;</span><span class="p">}</span>
+plot<span class="p">(</span>rnorm<span class="p">(</span><span class="m">100</span><span class="p">))</span>
+<span class="sb">``</span>`</code></pre></div></li>
 
 <li><p>knit the <code>.Rmd</code> file. Any figures will end up in a folder named
  <code>img/</code> in the current working directory.</p></li>
@@ -191,20 +191,20 @@ plot(rnorm(<span style="color:#f99b15">100</span>))
 put the whole thing under gnu make using some makefile magic.</p>
 
 <p><code>Makefile</code></p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#ef6155">POSTDIR</span> <span style="color:#5bc4bf">:=</span> content/post
-<span style="color:#ef6155">OBJS</span> <span style="color:#5bc4bf">:=</span> <span style="color:#815ba4">$(</span>shell find -name <span style="color:#48b685">&#39;*.Rmd&#39;</span><span style="color:#815ba4">)</span>
-<span style="color:#ef6155">OUTFILES</span> <span style="color:#5bc4bf">:=</span> <span style="color:#815ba4">$(</span>patsubst %.Rmd,%.md,<span style="color:#815ba4">$(</span>OBJS<span style="color:#815ba4">))</span>
-<span style="color:#ef6155">KNIT</span> <span style="color:#5bc4bf">=</span> Rscript -e <span style="color:#48b685">&#34;library(knitr); knit(&#39;</span>$<span style="color:#48b685">&lt;&#39;)&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nv">POSTDIR</span> <span class="o">:=</span> content/post
+<span class="nv">OBJS</span> <span class="o">:=</span> <span class="k">$(</span>shell find -name <span class="s1">&#39;*.Rmd&#39;</span><span class="k">)</span>
+<span class="nv">OUTFILES</span> <span class="o">:=</span> <span class="k">$(</span>patsubst %.Rmd,%.md,<span class="k">$(</span>OBJS<span class="k">))</span>
+<span class="nv">KNIT</span> <span class="o">=</span> Rscript -e <span class="s2">&#34;library(knitr); knit(&#39;</span>$<span class="s2">&lt;&#39;)&#34;</span>
 
-<span style="color:#06b6ef">all</span><span style="color:#5bc4bf">:</span><span style="color:#815ba4">$(</span><span style="color:#ef6155">OUTFILES</span><span style="color:#815ba4">)</span>
+<span class="nf">all</span><span class="o">:</span><span class="k">$(</span><span class="nv">OUTFILES</span><span class="k">)</span>
 
-<span style="color:#06b6ef">$(OUTFILES)</span><span style="color:#5bc4bf">:</span><span style="color:#815ba4">$(</span><span style="color:#ef6155">OBJS</span><span style="color:#815ba4">)</span>
-	<span style="color:#815ba4">$(</span>KNIT<span style="color:#815ba4">)</span>; <span style="color:#f99b15">\
-</span><span style="color:#f99b15"></span>	cp -r img/* ../../static/img/; <span style="color:#f99b15">\
-</span><span style="color:#f99b15"></span>	sed -i <span style="color:#48b685">&#39;s/img\//\/img\//g&#39;</span> <span style="color:#815ba4">$(</span>OUTFILES<span style="color:#815ba4">)</span>
+<span class="nf">$(OUTFILES)</span><span class="o">:</span><span class="k">$(</span><span class="nv">OBJS</span><span class="k">)</span>
+	<span class="k">$(</span>KNIT<span class="k">)</span><span class="p">;</span> <span class="se">\
+</span><span class="se"></span>	cp -r img/* ../../static/img/<span class="p">;</span> <span class="se">\
+</span><span class="se"></span>	sed -i <span class="s1">&#39;s/img\//\/img\//g&#39;</span> <span class="k">$(</span>OUTFILES<span class="k">)</span>
 
-<span style="color:#06b6ef">clean</span><span style="color:#5bc4bf">:</span>
-	rm <span style="color:#815ba4">$(</span>OUTFILES<span style="color:#815ba4">)</span>
+<span class="nf">clean</span><span class="o">:</span>
+	rm <span class="k">$(</span>OUTFILES<span class="k">)</span>
 </code></pre></div>
 <p>This finds all the files with the <code>.Rmd</code> extension, and converts them
 to <code>.md</code> files. It then uses <code>sed</code> to replace <code>img/</code> with <code>/img/</code>. You
