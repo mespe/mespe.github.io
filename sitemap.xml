@@ -73,20 +73,20 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/agriculture/</loc>
-    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/categories/agriculture/</loc>
-    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mespe.github.io/tags/agriculture/</loc>
     <lastmod>2017-06-14T18:17:59-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/agriculture/</loc>
+    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/agriculture/</loc>
+    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -96,13 +96,13 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/blogging/</loc>
+    <loc>https://mespe.github.io/tags/blogging/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/tags/blogging/</loc>
+    <loc>https://mespe.github.io/categories/blogging/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
     <priority>0</priority>
   </url>
@@ -114,19 +114,14 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/data-science/</loc>
-    <lastmod>2017-11-30T21:39:27-08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mespe.github.io/tags/data-science/</loc>
     <lastmod>2017-10-22T17:09:12-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/development/</loc>
+    <loc>https://mespe.github.io/categories/data-science/</loc>
+    <lastmod>2017-11-30T21:39:27-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -136,7 +131,7 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/golang/</loc>
+    <loc>https://mespe.github.io/categories/development/</loc>
     <priority>0</priority>
   </url>
   
@@ -146,13 +141,18 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/hugo/</loc>
-    <lastmod>2017-06-14T09:40:09-07:00</lastmod>
+    <loc>https://mespe.github.io/categories/golang/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mespe.github.io/tags/hugo/</loc>
+    <lastmod>2017-06-14T09:40:09-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/hugo/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
     <priority>0</priority>
   </url>
@@ -164,13 +164,13 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/research/</loc>
+    <loc>https://mespe.github.io/tags/research/</loc>
     <lastmod>2017-06-30T19:35:44-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/tags/research/</loc>
+    <loc>https://mespe.github.io/categories/research/</loc>
     <lastmod>2017-06-30T19:35:44-07:00</lastmod>
     <priority>0</priority>
   </url>
@@ -182,14 +182,14 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/stats/</loc>
-    <lastmod>2017-06-30T19:35:44-07:00</lastmod>
+    <loc>https://mespe.github.io/tags/stats/</loc>
+    <lastmod>2017-08-24T20:51:22-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/tags/stats/</loc>
-    <lastmod>2017-08-24T20:51:22-07:00</lastmod>
+    <loc>https://mespe.github.io/categories/stats/</loc>
+    <lastmod>2017-06-30T19:35:44-07:00</lastmod>
     <priority>0</priority>
   </url>
   
