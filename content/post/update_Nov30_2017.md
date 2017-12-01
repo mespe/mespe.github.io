@@ -47,8 +47,12 @@ cool visualizations using tools such as
 [plotly](https://plot.ly/r/), but I always run into the limitations
 of these tools. I am much more comfortable working with more basic
 building blocks.
+
+**3. Some webscraping and an analytics dashboard**
    
-**3. Beyond that, I am writing writing writing...**
+Top secret. :P
+
+**4. Beyond that, I am writing writing writing...**
 
 I have 3 papers in the works that need to go out yesterday.
    
