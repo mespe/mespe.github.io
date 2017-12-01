@@ -4,20 +4,22 @@
 <head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='I am an agronomist (dealing with all things agriculture) by training, with an emphasis on the drivers of the yield of major crops. I am particularly interested in using the historic causes of yield variability to inform efforts to provide food, fuel, and fiber for our growing population sustainably.
-But I wear many hats. I am also a data scientist, with a focus on increasing capability of researchers to expand what they can study.'>
+<meta name='description' content='I have been a bit quiet, mostly due to the holidays and general busyness. While I don&rsquo;t have anything ready to go, there are some fun things coming down the line:
+1. I have been converting the CA-Rice physiological model to Go.
+Why this model? I reached out to Bard Miller, and he was kind enough to send the source code. I was pleasantly surprised to find that the code was simple, well-organized, and generally easy to make sense of.'>
 
-<meta property='og:title' content='About me • Ten thousand words...'>
-<meta property='og:description' content='I am an agronomist (dealing with all things agriculture) by training, with an emphasis on the drivers of the yield of major crops. I am particularly interested in using the historic causes of yield variability to inform efforts to provide food, fuel, and fiber for our growing population sustainably.
-But I wear many hats. I am also a data scientist, with a focus on increasing capability of researchers to expand what they can study.'>
-<meta property='og:url' content='https://mespe.github.io/about/'>
+<meta property='og:title' content='What I&#39;m up to • Ten thousand words...'>
+<meta property='og:description' content='I have been a bit quiet, mostly due to the holidays and general busyness. While I don&rsquo;t have anything ready to go, there are some fun things coming down the line:
+1. I have been converting the CA-Rice physiological model to Go.
+Why this model? I reached out to Bard Miller, and he was kind enough to send the source code. I was pleasantly surprised to find that the code was simple, well-organized, and generally easy to make sense of.'>
+<meta property='og:url' content='https://mespe.github.io/post/update_nov30_2017/'>
 <meta property='og:site_name' content='Ten thousand words...'>
-<meta property='og:type' content='article'><meta property='article:section' content=''><meta property='article:published_time' content='2017-06-08T12:13:18-07:00'/><meta property='article:modified_time' content='2017-06-08T12:13:18-07:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content=''><meta property='article:published_time' content='2017-11-30T21:39:27-08:00'/><meta property='article:modified_time' content='2017-11-30T21:39:27-08:00'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.32-DEV" />
 
-  <title>About me • Ten thousand words...</title>
-  <link rel='canonical' href='https://mespe.github.io/about/'>
+  <title>What I&#39;m up to • Ten thousand words...</title>
+  <link rel='canonical' href='https://mespe.github.io/post/update_nov30_2017/'>
   
   
   <link rel='icon' href='/favicon.ico'>
@@ -33,7 +35,7 @@ ga('send', 'pageview');
 </head>
 
 
-<body class='page type-page'>
+<body class='page type-post'>
   <div class='site'>
 
     <a class='screen-reader' href='#main'>Skip to Content</a>
@@ -79,7 +81,7 @@ ga('send', 'pageview');
     <header class='header-container'>
   <div class='header entry-header'>
     <div class='header-info'>
-      <h1 class='title'>About me</h1>
+      <h1 class='title'>What I&#39;m up to</h1>
       
 
     </div>
@@ -94,7 +96,7 @@ ga('send', 'pageview');
   
 </svg>
 <span class='screen-reader'>Posted on </span>
-  <time class='date' datetime='2017-06-08T12:13:18-07:00'>2017, Jun 08</time>
+  <time class='date' datetime='2017-11-30T21:39:27-08:00'>2017, Nov 30</time>
 </span>
 
   
@@ -105,7 +107,7 @@ ga('send', 'pageview');
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-One min read
+2 mins read
 </span>
 
 
@@ -119,27 +121,73 @@ One min read
     
 
     <div class='entry-content'>
-  <p>I am an agronomist (dealing with all things agriculture) by training,
-with an emphasis on the drivers of the yield of major crops. I am
-particularly interested in using the historic causes of yield
-variability to inform efforts to provide food, fuel, and fiber for our
-growing population sustainably.</p>
+  <p>I have been a bit quiet, mostly due to the holidays and general
+busyness. While I don&rsquo;t have anything ready to go, there are some fun
+things coming down the line:</p>
 
-<p>But I wear many hats. I am also a data scientist, with a focus on
-increasing capability of researchers to expand what they can study. In
-this role, I develop new tools (R packages, libraries, models) and
-teach people how to effectively use existing tools and hone their data skills.</p>
+<p><strong>1. I have been converting the <a href="https://dl.sciencesocieties.org/publications/aj/abstracts/85/4/AJ0850040938?access=0&amp;view=pdf" target="_blank">CA-Rice physiological model</a>
+   to <a href="golang.org" target="_blank">Go</a>.</strong></p>
 
-<p>Currently, I am a Post-doc at the <a href="http://dsi.ucdavis.edu" target="_blank">UC Davis Data Science Initiative</a>.</p>
+<p>Why this model? I reached out to Bard Miller,
+and he was kind enough to send the source code. I was
+pleasantly surprised to find that the code was simple,
+well-organized, and generally easy to make sense of. In the world
+of researcher created code, this is pretty rare. Second, it was
+created for CA rice, so there is a very good chance that it will
+handle conditions here better than the models written for tropical
+conditions (e.g., ORYZA). It would be a waste for all the original
+work to rot away on a floppy disk (yes, a 5&rdquo; floppy).</p>
 
-<p><img src="/img/yield_trends.png" alt="Yield map" /></p>
+<p>Why Go? It is a fun language that I have been wanting to learn
+better. As I often tell my students, you cannot learn a programming
+language by listening/reading about it. You actually need to work
+through a real problem. I have ambitious plans for this model, ones
+that Go is well suited for.</p>
+
+<p>Where is it? Currently on a private repo. The model runs perfectly,
+but I have big plans - retrieving data from remote sources,
+forecasting with uncertainty, etc. Before I make it public, I want
+to make sure the original authors are OK with this use.</p>
+
+<p><strong>2. I also have been making dynamic data visualizations using
+<a href="d3js.org" target="_blank">D3</a>.</strong></p>
+
+<p>Why? Cause they are cool, and while I love R, the
+rest of the world is working off a web browser. You can make some
+cool visualizations using tools such as
+<a href="https://plot.ly/r/" target="_blank">plotly</a>, but I always run into the limitations
+of these tools. I am much more comfortable working with more basic
+building blocks.</p>
+
+<p><strong>3. Beyond that, I am writing writing writing&hellip;</strong></p>
+
+<p>I have 3 papers in the works that need to go out yesterday.</p>
+
+<p>Stay tuned. Some cool stuff is in the works.</p>
 
 </div>
 
     
 <footer class='entry-footer-container'>
   <div class='entry-footer'>
+  <div class='categories'>
+  <span class='taxonomyTerm-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+</span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/categories/data-science'>data science</a>, <a class='category' href='/categories/agriculture'>Agriculture</a></div>
+<div class='tags'>
+  <span class='taxonomyTerm-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+</span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/'>Tags</a></div>
+
   </div>
 </footer>
 
@@ -147,7 +195,17 @@ teach people how to effectively use existing tools and hone their data skills.</
   </article>
   
 <nav class='entry-nav-container'>
-  <div class='entry-nav'></div>
+  <div class='entry-nav'><div class='prev-entry'>
+      <a href='/post/cheap3/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Data science on the cheap - pt. 3</a>
+    </div></div>
 </nav>
 
   

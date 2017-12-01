@@ -5,10 +5,21 @@
     <link>https://mespe.github.io/categories/data-science/</link>
     <description>Recent content in Data science on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 28 Oct 2017 16:33:23 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 30 Nov 2017 21:39:27 -0800</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What I&#39;m up to</title>
+      <link>https://mespe.github.io/post/update_nov30_2017/</link>
+      <pubDate>Thu, 30 Nov 2017 21:39:27 -0800</pubDate>
+      
+      <guid>https://mespe.github.io/post/update_nov30_2017/</guid>
+      <description>I have been a bit quiet, mostly due to the holidays and general busyness. While I don&amp;rsquo;t have anything ready to go, there are some fun things coming down the line:
+1. I have been converting the CA-Rice physiological model to Go.
+Why this model? I reached out to Bard Miller, and he was kind enough to send the source code. I was pleasantly surprised to find that the code was simple, well-organized, and generally easy to make sense of.</description>
+    </item>
     
     <item>
       <title>Data science on the cheap - pt. 3</title>
