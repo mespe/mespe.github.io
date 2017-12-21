@@ -16,13 +16,13 @@ I am a bit particular about keyboards. I find the keyboards on most
 computers to be trash, whether it's a laptop or desktop. This has lead
 to our house having 3 quality mechanical keyboards, despite having only one desktop
 and one docking station (the odd one out, a classic 90's "clicky" keyboard, was politely banned from our
-work space). This has also a reason I enjoy Lenovo laptops,
+work space). This is also a reason I enjoy Lenovo laptops,
 as they tend to have better keyboards than most.
 
 However, the trend is ever continuing towards crappier and crappier
 input devices in the name of thin, light, and stylish designs. The worst
-offender has been the newer Apple products. After borrowing a new model
-Macbook for 15 min, I was ready to throw the damn thing out the
+offender has been the newer Apple products. After 15 minutes of borrowing a new model
+Macbook, I was ready to throw the damn thing out the
 window. 
 
 So, when I started exploring my options to replacing my T460s (whose
