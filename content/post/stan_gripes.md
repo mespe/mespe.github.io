@@ -36,7 +36,6 @@ model{
 }
 ```
 
-
 This model is simple and easy to read, but it is not flexible. To make
 this model take a number of predictors, I have to modify the code:
 

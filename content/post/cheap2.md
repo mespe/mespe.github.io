@@ -8,7 +8,7 @@ draft: false
 Tags: ["data science"]
 <!-- toc: true -->
 tags:
-  -
+  - data science
 ---
 
 This is the continuation of [Data Science on the

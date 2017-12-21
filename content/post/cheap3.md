@@ -1,11 +1,10 @@
 ---
 date: "2017-10-28T16:33:23-07:00"
 title: "Data science on the cheap - pt. 3"
-authors: []
 categories:
   - data science
 tags:
-  -
+  - data science
 draft: false
 ---
 

@@ -3,7 +3,6 @@ Categories = ["Stats", "Research"]
 Description = ""
 Tags = ["stats", "research"]
 date = "2017-06-30T19:35:44-07:00"
-menu = ""
 title = "Moving past p-values"
 
 +++

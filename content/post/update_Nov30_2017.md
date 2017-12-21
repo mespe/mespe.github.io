@@ -1,7 +1,6 @@
 ---
 date: "2017-11-30T21:39:27-08:00"
 title: "What I'm up to"
-authors: []
 categories:
   - data science
   - agriculture

@@ -39,14 +39,18 @@ suffix = ""
 # date & time format: https://golang.org/pkg/time/
 dateFormat = "2006, Jan 02"
 listDateFormat = "2006, Jan 02"
-#hideEntryNavigation = false
+hideEntryNavigation = ["page"]
 hideSocialMenu = false
 showReadingTime = true
+recentPostsLength = 5
 
 [params.opengraph.facebook]
 admins = [] # array of Facebook IDs
 appID = ""
 pageID = ""
+
+[params.opengraph.twitter]
+page = "" # Twitter page username
 
 [params.seo]
 # Title Separator: - – — · • * ⋆ | ~ « » < >
@@ -73,30 +77,30 @@ tag = "tags"
 page = "/:slug/"
 
 [[menu.main]]
-	name = "Blog"
-	url = "/post/"
-	weight = 1
+name = "Blog"		
+url = "/post/"
+weight = 1
 	
 [[menu.main]]
-	name = "About me"
-	url = "/about/"
-	weight = 2
+name = "About me"
+url = "/about/"
+weight = 2
 	
 [[menu.main]]
-	name = "Research"
-	url = "/research/"
-	weight = 3
+name = "Research"
+url = "/research/"
+weight = 3
 
 [[menu.main]]
-	name = "Repos"
-	weight = 4
-	identifier = "repository"
-	url = "https://github.com/mespe"
+name = "Repos"
+weight = 4
+identifier = "repository"
+url = "https://github.com/mespe"
 
 [[menu.main]]
-	name = "CV"
-	weight = 5
-	url = "/docs/espe_cv.pdf"
+name = "CV"
+weight = 5
+url = "/docs/espe_cv.pdf"
 
 [blackfriday]
 hrefTargetBlank = true
