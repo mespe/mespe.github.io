@@ -8,6 +8,9 @@ theme = "minimo"
 disqusShortname = ""
 googleAnalytics = "UA-101069222-1"
 
+enableRobotsTXT = true # generate robots.txt
+enableEmoji = true
+
 Paginate = 5
 preserveTaxonomyNames = true
 
@@ -43,6 +46,16 @@ hideEntryNavigation = ["page"]
 hideSocialMenu = false
 showReadingTime = true
 recentPostsLength = 5
+taxonomyCloudShuffle = true
+
+[params.sidebar]
+enable = true
+sticky = true
+
+[params.widgets]
+homepage = ["recent_posts"]
+sidebar = ["about","taxonomy_cloud"]
+
 
 [params.opengraph.facebook]
 admins = [] # array of Facebook IDs

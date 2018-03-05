@@ -5,7 +5,7 @@ authors: []
 categories:
   - computers
 tags:
-  -
+  - computers
 draft: false
 ---
 

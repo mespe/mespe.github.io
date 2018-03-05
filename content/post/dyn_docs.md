@@ -4,6 +4,9 @@ authors: []
 categories:
   - R
   - data science
+tags:
+  - data science
+  - R
 date: 2018-03-05T11:14:04-07:00
 draft: false
 ---

@@ -2,13 +2,14 @@
 date: "2017-10-22T17:09:12-07:00"
 categories:
   - data science
+  - computers
 title: "Data science on the cheap - pt. 2"
 Description: "Can you be a data scientist without dropping $$$ on a computer?"
 draft: false
-Tags: ["data science"]
-<!-- toc: true -->
+toc: true
 tags:
   - data science
+  - computers
 ---
 
 This is the continuation of [Data Science on the

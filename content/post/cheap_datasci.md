@@ -5,7 +5,7 @@ title: "Data science on the cheap"
 Description: "Can you be a data scientist without dropping $$$ on a computer?"
 date: 2017-09-12T19:46:04-07:00
 draft: false
-Tags: ["data science"]
+Tags: ["data science", "computers"]
 toc: true
 ---
 

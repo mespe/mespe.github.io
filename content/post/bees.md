@@ -1,9 +1,8 @@
 +++
-Categories = ["Development", "Golang"]
+Categories = ["Agriculture"]
 Description = ""
-Tags = ["development", "golang"]
+Tags = ["agriculture"]
 date = "2017-07-03T22:15:36-07:00"
-menu = ""
 title = "bees"
 draft = true
 +++

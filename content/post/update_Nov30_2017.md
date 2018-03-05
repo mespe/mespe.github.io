@@ -5,7 +5,9 @@ categories:
   - data science
   - agriculture
 tags:
-  -
+  - data science
+  - agriculture
+  - Golang
 draft: false
 ---
 

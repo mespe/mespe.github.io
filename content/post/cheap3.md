@@ -5,6 +5,7 @@ categories:
   - data science
 tags:
   - data science
+  - computers
 draft: false
 ---
 
