@@ -26,7 +26,7 @@ content. Pretty cool, huh?
 
 In R, a dynamic document is a document which contains code to generate
 tables, figures, and in-text content. Dynamic documents have a few
-benefits by provide a means to:
+benefits by providing a means to:
 
 - Document the process behind the content: the code itself shows how
   the content was generated
