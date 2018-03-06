@@ -5,10 +5,20 @@
     <link>https://mespe.github.io/post/</link>
     <description>Recent content in Posts on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 20 Dec 2017 20:37:46 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 05 Mar 2018 11:14:04 -0700</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dynamic Docs in R (part 1)</title>
+      <link>https://mespe.github.io/post/dyn_docs/</link>
+      <pubDate>Mon, 05 Mar 2018 11:14:04 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/post/dyn_docs/</guid>
+      <description>A brief intro to dynamic documents in R I was asked to give a short overview of dynamic documents in R during Dr. Cini Brown&amp;rsquo;s lab meeting at Colorado State University last week, and I thought I bring some of the material as well.
+What is a dynamic document? Dynamic documents, or living documents, are documents which can be continuously updated, and are often self-contained. This means that the document itself contains the framework to generate and update its content.</description>
+    </item>
     
     <item>
       <title>I blame Apple</title>
@@ -108,15 +118,6 @@ I thought I would write up my experiences starting a blog that uses R code but t
       <guid>https://mespe.github.io/post/intro/</guid>
       <description>Hello World!
 This is my first post to test out Hugo. Overall, it was a bit of a pain to set up with github personal pages. Oh well, it seems to be working now.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://mespe.github.io/post/new_v_old2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mespe.github.io/post/new_v_old2/</guid>
-      <description></description>
     </item>
     
   </channel>
