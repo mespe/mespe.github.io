@@ -67,14 +67,17 @@ otherwise be a day's work turns into minutes with a dynamic document.
   users are working in. Additionally, once converted to plain Markdown
   files, multiple formats can be created (e.g., HTML, PDF, MS Word, etc.)
   from the same file. The biggest benefits of Rmarkdown are this
-  support, adaptibility and simplicity in use. 
-- Sweave/R-no-web: Older technology for dynamic documents, Sweave
+  support, adaptibility, and simplicity in use. 
+- Sweave/R-no-web: An older technology for dynamic documents, Sweave
   allows embedding R code into LaTeX documents. The syntax is more
   complicated than Rmarkdown, but in return you gain additional
-  control and fuller range of customization options.\*
+  control and fuller range of customization options.\* Sweave was
+  originally used for the creation of R documentation.
 - Org-mode: Similar to Rmarkdown, this is a simple syntax, but has the
-  added benefit of being in Org-mode, and supporting almost any
-  language you can think of. 
+  added benefit of being in [Org-mode](https://orgmode.org/), and supporting almost any
+  language you can think of. Org-mode is a special beast of plain-text
+  systems, where you can create a TODO list and write an academic
+  paper using the same technology.
 - XML: For those crazy enough (DTL), you can also write in XML. This
   allows even more control compared to Sweave, with the added benefit
   of being about to query the document using XPath.
