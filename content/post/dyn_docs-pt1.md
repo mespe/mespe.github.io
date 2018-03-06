@@ -15,7 +15,7 @@ draft: false
 
 I was asked to give a short overview of dynamic documents in R during
 Dr. Cini Brown's lab meeting at Colorado State University last week,
-and I thought I bring some of the material as well.
+and I thought I would post some of the material here as well.
 
 ## What is a dynamic document?
 
@@ -34,7 +34,7 @@ benefits by provide a means to:
   re-created with the original data, which allows an explicit means
   to reproduce not only the analysis but also the document itself.
 - Update the document based on new analysis or data: revisions are
-  relatively easy because one change propegates through the entire
+  relatively easy because one change propagates through the entire
   document.
 - Typically easy to version control: most dynamic documents are
   simple text files, which can be put under version control using
@@ -43,7 +43,7 @@ benefits by provide a means to:
 That said, there are also some drawbacks:
 
 - More complicated to collaborate: Unless your collaborators are
-  comfortable with working outside of MS Word, it can be a real hassle
+  comfortable working outside of MS Word, it can be a real hassle
   to collaborate. There will always be a disconnect between a revised
   or edited version in Word and the original dynamic document.
 - Added complexity: Dynamic documents require additional pieces of
@@ -62,12 +62,12 @@ otherwise be a day's work turns into minutes with a dynamic document.
 - Rmarkdown: In general, when the R community talks about dynamic documents, they
   are primarily talking about Rmarkdown. Rmarkdown is an extension of
   Markdown, a simple syntax for marking up documents with basic
-  formatting (headings, bold font, etc.). Rmarkdown is so prominant
-  because it is well supported by Rstudio, the environment that most R
+  formatting (headings, bold font, etc.). Rmarkdown is so prominent
+  because it is well-supported by Rstudio, the environment that most R
   users are working in. Additionally, once converted to plain Markdown
-  files, multiple formats can be created (HTML, PDF, MS Word, etc.)
+  files, multiple formats can be created (e.g., HTML, PDF, MS Word, etc.)
   from the same file. The biggest benefits of Rmarkdown are this
-  support and simplicity in use. 
+  support, adaptibility and simplicity in use. 
 - Sweave/R-no-web: Older technology for dynamic documents, Sweave
   allows embedding R code into LaTeX documents. The syntax is more
   complicated than Rmarkdown, but in return you gain additional
