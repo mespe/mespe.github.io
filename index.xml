@@ -12,11 +12,11 @@
     
     <item>
       <title>Dynamic Docs in R (part 1)</title>
-      <link>https://mespe.github.io/post/dyn_docs/</link>
+      <link>https://mespe.github.io/post/dyn_docs-pt1/</link>
       <pubDate>Mon, 05 Mar 2018 11:14:04 -0700</pubDate>
       
-      <guid>https://mespe.github.io/post/dyn_docs/</guid>
-      <description>A brief intro to dynamic documents in R I was asked to give a short overview of dynamic documents in R during Dr. Cini Brown&amp;rsquo;s lab meeting at Colorado State University last week, and I thought I bring some of the material as well.
+      <guid>https://mespe.github.io/post/dyn_docs-pt1/</guid>
+      <description>A brief intro to dynamic documents in R I was asked to give a short overview of dynamic documents in R during Dr. Cini Brown&amp;rsquo;s lab meeting at Colorado State University last week, and I thought I would post some of the material here as well.
 What is a dynamic document? Dynamic documents, or living documents, are documents which can be continuously updated, and are often self-contained. This means that the document itself contains the framework to generate and update its content.</description>
     </item>
     

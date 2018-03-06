@@ -4,18 +4,20 @@
 <head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='I am a bit particular about keyboards. I find the keyboards on most computers to be trash, whether it&rsquo;s a laptop or desktop. This has lead to our house having 3 quality mechanical keyboards, despite having only one desktop and one docking station (the odd one out, a classic 90&rsquo;s &ldquo;clicky&rdquo; keyboard, was politely banned from our work space). This is also a reason I enjoy Lenovo laptops, as they tend to have better keyboards than most.'>
+<meta name='description' content='A brief intro to dynamic documents in R I was asked to give a short overview of dynamic documents in R during Dr. Cini Brown&rsquo;s lab meeting at Colorado State University last week, and I thought I would post some of the material here as well.
+What is a dynamic document? Dynamic documents, or living documents, are documents which can be continuously updated, and are often self-contained. This means that the document itself contains the framework to generate and update its content.'>
 
-<meta property='og:title' content='I blame Apple • Ten thousand words...'>
-<meta property='og:description' content='I am a bit particular about keyboards. I find the keyboards on most computers to be trash, whether it&rsquo;s a laptop or desktop. This has lead to our house having 3 quality mechanical keyboards, despite having only one desktop and one docking station (the odd one out, a classic 90&rsquo;s &ldquo;clicky&rdquo; keyboard, was politely banned from our work space). This is also a reason I enjoy Lenovo laptops, as they tend to have better keyboards than most.'>
-<meta property='og:url' content='https://mespe.github.io/post/keyboards/'>
+<meta property='og:title' content='Dynamic Docs in R (part 1) • Ten thousand words...'>
+<meta property='og:description' content='A brief intro to dynamic documents in R I was asked to give a short overview of dynamic documents in R during Dr. Cini Brown&rsquo;s lab meeting at Colorado State University last week, and I thought I would post some of the material here as well.
+What is a dynamic document? Dynamic documents, or living documents, are documents which can be continuously updated, and are often self-contained. This means that the document itself contains the framework to generate and update its content.'>
+<meta property='og:url' content='https://mespe.github.io/post/dyn_docs-pt1/'>
 <meta property='og:site_name' content='Ten thousand words...'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='computers'><meta property='article:published_time' content='2017-12-20T20:37:46-08:00'/><meta property='article:modified_time' content='2017-12-20T20:37:46-08:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='data science'><meta property='article:tag' content='R'><meta property='article:published_time' content='2018-03-05T11:14:04-07:00'/><meta property='article:modified_time' content='2018-03-05T11:14:04-07:00'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.37" />
 
-  <title>I blame Apple • Ten thousand words...</title>
-  <link rel='canonical' href='https://mespe.github.io/post/keyboards/'>
+  <title>Dynamic Docs in R (part 1) • Ten thousand words...</title>
+  <link rel='canonical' href='https://mespe.github.io/post/dyn_docs-pt1/'>
   
   
   <link rel='icon' href='/favicon.ico'>
@@ -126,7 +128,7 @@ ga('send', 'pageview');
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>I blame Apple</h1>
+      <h1 class='title'>Dynamic Docs in R (part 1)</h1>
       
 
     </div>
@@ -141,7 +143,7 @@ ga('send', 'pageview');
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2017-12-20T20:37:46-08:00'>2017, Dec 20</time>
+  <time class='entry-date' datetime='2018-03-05T11:14:04-07:00'>2018, Mar 05</time>
 </span>
 
   
@@ -152,7 +154,7 @@ ga('send', 'pageview');
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-2 mins read
+3 mins read
 </span>
 
 
@@ -166,35 +168,88 @@ ga('send', 'pageview');
   
 
   <div class='container entry-content'>
-  <p><img src="https://upload.wikimedia.org/wikipedia/commons/4/48/IBM_Model_M.png" alt="IBM Model
-M" /></p>
+  
 
-<p>I am a bit particular about keyboards. I find the keyboards on most
-computers to be trash, whether it&rsquo;s a laptop or desktop. This has lead
-to our house having 3 quality mechanical keyboards, despite having only one desktop
-and one docking station (the odd one out, a classic 90&rsquo;s &ldquo;clicky&rdquo; keyboard, was politely banned from our
-work space). This is also a reason I enjoy Lenovo laptops,
-as they tend to have better keyboards than most.</p>
+<h1 id="a-brief-intro-to-dynamic-documents-in-r">A brief intro to dynamic documents in R</h1>
 
-<p>However, the trend is ever continuing towards crappier and crappier
-input devices in the name of thin, light, and stylish designs. The worst
-offender has been the newer Apple products. After 15 minutes of borrowing a new model
-Macbook, I was ready to throw the damn thing out the
-window.</p>
+<p>I was asked to give a short overview of dynamic documents in R during
+Dr. Cini Brown&rsquo;s lab meeting at Colorado State University last week,
+and I thought I would post some of the material here as well.</p>
 
-<p>So, when I started exploring my options to replacing my T460s (whose
-keyboard I have never been wild about), I happened across many reviews
-which raved about the keyboard of the T470. But phrases such as <a href="http://www.notebookreview.com/notebookreview/lenovo-thinkpad-t470-review-business/" target="_blank">&ldquo;the 2mm
-travel is satisfyingly
-deep&hellip;&rdquo;</a>
-stood out to me. Am I crazy, or is that
-not actually much travel?</p>
+<h2 id="what-is-a-dynamic-document">What is a dynamic document?</h2>
 
-<p>A quick search on that same site shows that the standard has shifted
-rapidly: &ldquo;<a href="http://www.notebookreview.com/notebookreview/lenovo-thinkpad-t460s-review/" target="_blank">the depth of key travel is pretty shallow at only about 2mm</a>&ldquo;</p>
+<p>Dynamic documents, or living documents, are documents which can be
+continuously updated, and are often self-contained. This means that
+the document itself contains the framework to generate and update its
+content. Pretty cool, huh?</p>
 
-<p>At most data science gatherings, you always see that one person
-rocking a X200 or T60. I am starting to get it.</p>
+<p>In R, a dynamic document is a document which contains code to generate
+tables, figures, and in-text content. Dynamic documents have a few
+benefits by provide a means to:</p>
+
+<ul>
+<li>Document the process behind the content: the code itself shows how
+the content was generated</li>
+<li>Reproduce the results: related to the above, the document can be
+re-created with the original data, which allows an explicit means
+to reproduce not only the analysis but also the document itself.</li>
+<li>Update the document based on new analysis or data: revisions are
+relatively easy because one change propagates through the entire
+document.</li>
+<li>Typically easy to version control: most dynamic documents are
+simple text files, which can be put under version control using
+git, svn, etc.
+<br /></li>
+</ul>
+
+<p>That said, there are also some drawbacks:</p>
+
+<ul>
+<li>More complicated to collaborate: Unless your collaborators are
+comfortable working outside of MS Word, it can be a real hassle
+to collaborate. There will always be a disconnect between a revised
+or edited version in Word and the original dynamic document.</li>
+<li>Added complexity: Dynamic documents require additional pieces of
+software which creates additional stages where things can (and
+will) go wrong.</li>
+<li>Require investment to learn: time spent learning
+Rmarkdown/Sweave/etc. is time not spent writing or researching.
+<br /></li>
+</ul>
+
+<p>So is it worth it? I generally think it is. The little bit of time
+invested in learning these technologies pays off when you need to make
+just a small change to a research paper&rsquo;s methods or data. What would
+otherwise be a day&rsquo;s work turns into minutes with a dynamic document.</p>
+
+<h2 id="types-of-dynamic-documents">Types of dynamic documents</h2>
+
+<ul>
+<li>Rmarkdown: In general, when the R community talks about dynamic documents, they
+are primarily talking about Rmarkdown. Rmarkdown is an extension of
+Markdown, a simple syntax for marking up documents with basic
+formatting (headings, bold font, etc.). Rmarkdown is so prominent
+because it is well-supported by Rstudio, the environment that most R
+users are working in. Additionally, once converted to plain Markdown
+files, multiple formats can be created (e.g., HTML, PDF, MS Word, etc.)
+from the same file. The biggest benefits of Rmarkdown are this
+support, adaptibility and simplicity in use.</li>
+<li>Sweave/R-no-web: Older technology for dynamic documents, Sweave
+allows embedding R code into LaTeX documents. The syntax is more
+complicated than Rmarkdown, but in return you gain additional
+control and fuller range of customization options.*</li>
+<li>Org-mode: Similar to Rmarkdown, this is a simple syntax, but has the
+added benefit of being in Org-mode, and supporting almost any
+language you can think of.</li>
+<li>XML: For those crazy enough (DTL), you can also write in XML. This
+allows even more control compared to Sweave, with the added benefit
+of being about to query the document using XPath.</li>
+</ul>
+
+<p>* <em>Some people will point out that you can use LaTeX commands in
+Rmarkdown documents, and while this is true, in my experience it is
+quite clunky and prone to errors. This is because the LaTeX commands
+do not always play nice with the LaTeX template used by knitr/pandoc.</em></p>
 
 </div>
 
@@ -208,7 +263,7 @@ rocking a X200 or T60. I am starting to get it.</p>
   
 </svg>
 </span>
-  <span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/computers'>Computers</a></div>
+  <span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/r'>R</a>, <a class='category' href='/categories/data-science'>data science</a></div>
 <div class='tags'>
   <span class='taxonomy-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
@@ -217,7 +272,7 @@ rocking a X200 or T60. I am starting to get it.</p>
   
 </svg>
 </span>
-  <span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/computers'>Computers</a></div>
+  <span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/data-science'>data science</a>, <a class='tag' href='/tags/r'>R</a></div>
 
   </div>
 </footer>
@@ -227,7 +282,7 @@ rocking a X200 or T60. I am starting to get it.</p>
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/post/update_nov30_2017/'>
+      <a href='/post/keyboards/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -235,17 +290,7 @@ rocking a X200 or T60. I am starting to get it.</p>
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>What I&#39;m up to</a>
-    </div><div class='next-entry sep-before'>
-      <a href='/post/dyn_docs-pt1/'>
-        <span class='screen-reader-text'>Next post: </span>Dynamic Docs in R (part 1)<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
-  
-</svg>
-</span>
-      </a>
+        <span class='screen-reader-text'>Previous post: </span>I blame Apple</a>
     </div></div>
 </nav>
 
