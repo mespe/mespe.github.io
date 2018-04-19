@@ -1,6 +1,6 @@
 ---
 date: "2018-04-19T11:47:40-06:00"
-title: "Dynamic documents - Part 2"
+title: "Dynamic documents (part 2)"
 authors: []
 categories:
   - R
