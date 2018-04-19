@@ -5,10 +5,20 @@
     <link>https://mespe.github.io/tags/data-science/</link>
     <description>Recent content in Data science on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 05 Mar 2018 11:14:04 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 19 Apr 2018 11:47:40 -0600</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dynamic documents - Part 2</title>
+      <link>https://mespe.github.io/post/dyn_docs-pt2/</link>
+      <pubDate>Thu, 19 Apr 2018 11:47:40 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/dyn_docs-pt2/</guid>
+      <description>Wow - long delay on this one. There are good reasons, which will be explained in coming posts. Stay tuned.
+A brief intro to dynamic documents in R (cont.) Last time I outlined why you might want to use a dynamic document, and some of the popular formates that are commonly used. There are many great resources for the syntax used to actually create dynamic documents (e.g., for Rmarkdown: Rstudio, R-bloggers, etc.</description>
+    </item>
     
     <item>
       <title>Dynamic Docs in R (part 1)</title>
