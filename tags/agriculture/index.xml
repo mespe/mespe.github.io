@@ -5,18 +5,12 @@
     <link>https://mespe.github.io/tags/agriculture/</link>
     <description>Recent content in Agriculture on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-<<<<<<< HEAD
-    <lastBuildDate>Thu, 30 Nov 2017 21:39:27 -0800</lastBuildDate>
-=======
     <lastBuildDate>Wed, 27 Jun 2018 16:16:50 -0600</lastBuildDate>
->>>>>>> temp
     
 	<atom:link href="https://mespe.github.io/tags/agriculture/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-<<<<<<< HEAD
-=======
       <title>Retrospective Power Analysis</title>
       <link>https://mespe.github.io/post/power/</link>
       <pubDate>Wed, 27 Jun 2018 16:16:50 -0600</pubDate>
@@ -26,7 +20,6 @@
     </item>
     
     <item>
->>>>>>> temp
       <title>What I&#39;m up to</title>
       <link>https://mespe.github.io/post/update_nov30_2017/</link>
       <pubDate>Thu, 30 Nov 2017 21:39:27 -0800</pubDate>
