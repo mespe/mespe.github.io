@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Ten thousand words...</title>
+    <link>https://mespe.github.io/categories/r/</link>
+    <description>Recent content in R on Ten thousand words...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 27 Jun 2018 16:16:50 -0600</lastBuildDate>
+    
+	<atom:link href="https://mespe.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Retrospective Power Analysis</title>
+      <link>https://mespe.github.io/post/power/</link>
+      <pubDate>Wed, 27 Jun 2018 16:16:50 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/power/</guid>
+      <description>&amp;hellip;Or, can we trust these estimates? One of the most common questions that comes up in scientific publications is &amp;ldquo;Can I trust these conclusions?&amp;rdquo; Statistics is supposed to help us decide the weight of evidence for or against a certain conclusion, but there have been issues. We are realizing that the standard paradim is not holding up, and there are many more false positives in the literature than the p &amp;lt; 0.</description>
+    </item>
+    
+    <item>
+      <title>Dynamic documents (part 2)</title>
+      <link>https://mespe.github.io/post/dyn_docs-pt2/</link>
+      <pubDate>Thu, 19 Apr 2018 11:47:40 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/dyn_docs-pt2/</guid>
+      <description>Wow - long delay on this one. There are good reasons, which will be explained in coming posts. Stay tuned.
+A brief intro to dynamic documents in R (cont.) Last time I outlined why you might want to use a dynamic document, and some of the popular formates that are commonly used. There are many great resources for the syntax used to actually create dynamic documents (e.g., for Rmarkdown: Rstudio, R-bloggers, etc.</description>
+    </item>
+    
+    <item>
+      <title>Dynamic Docs in R (part 1)</title>
+      <link>https://mespe.github.io/post/dyn_docs-pt1/</link>
+      <pubDate>Mon, 05 Mar 2018 11:14:04 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/post/dyn_docs-pt1/</guid>
+      <description>A brief intro to dynamic documents in R I was asked to give a short overview of dynamic documents in R during Dr. Cini Brown&amp;rsquo;s lab meeting at Colorado State University last week, and I thought I would post some of the material here as well.
+What is a dynamic document? Dynamic documents, or living documents, are documents which can be continuously updated, and are often self-contained. This means that the document itself contains the framework to generate and update its content.</description>
+    </item>
+    
+  </channel>
+</rss>
