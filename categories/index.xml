@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Ten thousand words...</title>
+    <link>https://mespe.github.io/categories/</link>
+    <description>Recent content in Categories on Ten thousand words...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 27 Sep 2017 21:00:27 -0700</lastBuildDate>
+    
+	<atom:link href="https://mespe.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Agriculture</title>
+      <link>https://mespe.github.io/categories/agriculture/</link>
+      <pubDate>Wed, 27 Sep 2017 21:00:27 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/categories/agriculture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Agriculture</title>
+      <link>https://mespe.github.io/categories/agriculture/</link>
+      <pubDate>Wed, 27 Sep 2017 21:00:27 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/categories/agriculture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blogging</title>
+      <link>https://mespe.github.io/categories/blogging/</link>
+      <pubDate>Wed, 14 Jun 2017 09:40:09 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/categories/blogging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Computers</title>
+      <link>https://mespe.github.io/categories/computers/</link>
+      <pubDate>Wed, 20 Dec 2017 20:37:46 -0800</pubDate>
+      
+      <guid>https://mespe.github.io/categories/computers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data science</title>
+      <link>https://mespe.github.io/categories/data-science/</link>
+      <pubDate>Thu, 19 Apr 2018 11:47:40 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/categories/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://mespe.github.io/categories/hugo/</link>
+      <pubDate>Wed, 14 Jun 2017 09:40:09 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://mespe.github.io/categories/r/</link>
+      <pubDate>Thu, 19 Apr 2018 11:47:40 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>https://mespe.github.io/categories/research/</link>
+      <pubDate>Fri, 30 Jun 2017 19:35:44 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/categories/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stats</title>
+      <link>https://mespe.github.io/categories/stats/</link>
+      <pubDate>Fri, 30 Jun 2017 19:35:44 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/categories/stats/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

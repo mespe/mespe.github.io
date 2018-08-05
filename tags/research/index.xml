@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Research on Ten thousand words...</title>
+    <link>https://mespe.github.io/tags/research/</link>
+    <description>Recent content in Research on Ten thousand words...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 30 Jun 2017 19:35:44 -0700</lastBuildDate>
+    
+	<atom:link href="https://mespe.github.io/tags/research/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Moving past p-values</title>
+      <link>https://mespe.github.io/post/new_v_old/</link>
+      <pubDate>Fri, 30 Jun 2017 19:35:44 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/post/new_v_old/</guid>
+      <description>I had a marathon review/revision session with my adviser last week regarding a manuscript I am working on - overall took 2 hours!
+We were going round and round in circles, and finally 1.25 hours in we got to the piece of my paper that was really bugging my advisor: I did not have a single p-value in the entire paper. What followed was a really interesting exchange that I think highlights some of the issues that are behind scientific research, especially in agriculture, using out-of-date statistics.</description>
+    </item>
+    
+    <item>
+      <title>What I study</title>
+      <link>https://mespe.github.io/research/</link>
+      <pubDate>Wed, 14 Jun 2017 18:17:59 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/research/</guid>
+      <description>Here is a collection of my published and unpublished work.
+Publications Agriculture Rice yield improvements by through plant breeding are offset by inherent yield decreases declines over time. In prep. 2017.
+Point stresses during reproductive stage rather than warming seasonal temperature determine yield in temperate rice. Glob Change Biol. 2017;00:1–10.
+Variation in yield, starch, and protein of dry peas grown across Montana. Agronomy Journal, In Press, 2017
+Yield gap analysis of US rice production systems shows opportunities for improvement.</description>
+    </item>
+    
+  </channel>
+</rss>
