@@ -5,17 +5,20 @@
     <link>https://mespe.github.io/tags/golang/</link>
     <description>Recent content in Golang on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 30 Nov 2017 21:39:27 -0800</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title></title>
-      <link>https://mespe.github.io/post/new_v_old2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>What I&#39;m up to</title>
+      <link>https://mespe.github.io/post/update_nov30_2017/</link>
+      <pubDate>Thu, 30 Nov 2017 21:39:27 -0800</pubDate>
       
-      <guid>https://mespe.github.io/post/new_v_old2/</guid>
-      <description></description>
+      <guid>https://mespe.github.io/post/update_nov30_2017/</guid>
+      <description>I have been a bit quiet, mostly due to the holidays and general busyness. While I don&amp;rsquo;t have anything ready to go, there are some fun things coming down the line:
+1. I have been converting the CA-Rice physiological model to Go.
+Why this model? I reached out to Bard Miller, and he was kind enough to send the source code. I was pleasantly surprised to find that the code was simple, well-organized, and generally easy to make sense of.</description>
     </item>
     
   </channel>
