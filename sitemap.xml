@@ -83,20 +83,20 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/agriculture/</loc>
-    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/categories/agriculture/</loc>
-    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mespe.github.io/tags/agriculture/</loc>
     <lastmod>2018-06-27T16:16:50-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/agriculture/</loc>
+    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/agriculture/</loc>
+    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -106,13 +106,13 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/blogging/</loc>
+    <loc>https://mespe.github.io/tags/blogging/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/tags/blogging/</loc>
+    <loc>https://mespe.github.io/categories/blogging/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
     <priority>0</priority>
   </url>
@@ -124,25 +124,25 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/computers/</loc>
-    <lastmod>2017-12-20T20:37:46-08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mespe.github.io/tags/computers/</loc>
     <lastmod>2017-12-20T20:37:46-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/data-science/</loc>
-    <lastmod>2018-04-19T11:47:40-06:00</lastmod>
+    <loc>https://mespe.github.io/categories/computers/</loc>
+    <lastmod>2017-12-20T20:37:46-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mespe.github.io/tags/data-science/</loc>
+    <lastmod>2018-04-19T11:47:40-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/data-science/</loc>
     <lastmod>2018-04-19T11:47:40-06:00</lastmod>
     <priority>0</priority>
   </url>
@@ -154,13 +154,13 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/hugo/</loc>
+    <loc>https://mespe.github.io/tags/hugo/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/tags/hugo/</loc>
+    <loc>https://mespe.github.io/categories/hugo/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
     <priority>0</priority>
   </url>
@@ -172,25 +172,25 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/r/</loc>
-    <lastmod>2018-06-27T16:16:50-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mespe.github.io/tags/r/</loc>
     <lastmod>2018-06-27T16:16:50-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/research/</loc>
-    <lastmod>2017-06-30T19:35:44-07:00</lastmod>
+    <loc>https://mespe.github.io/categories/r/</loc>
+    <lastmod>2018-06-27T16:16:50-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mespe.github.io/tags/research/</loc>
+    <lastmod>2017-06-30T19:35:44-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/research/</loc>
     <lastmod>2017-06-30T19:35:44-07:00</lastmod>
     <priority>0</priority>
   </url>
@@ -202,20 +202,20 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/stats/</loc>
-    <lastmod>2017-06-30T19:35:44-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/categories/stats/</loc>
-    <lastmod>2017-06-30T19:35:44-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mespe.github.io/tags/stats/</loc>
     <lastmod>2017-08-24T20:51:22-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/stats/</loc>
+    <lastmod>2017-06-30T19:35:44-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/stats/</loc>
+    <lastmod>2017-06-30T19:35:44-07:00</lastmod>
     <priority>0</priority>
   </url>
   
