@@ -7,9 +7,9 @@ all:$(OUTFILES)
 
 $(OUTFILES):$(OBJS)
 	$(KNIT); \
-	cp -r img/* ../../static/img/; \
-	sed -i 's/img\//\/img\//g' $(OUTFILES); \
-	cd ../../ && hugo undraft $(POSTDIR)/$(OUTFILES)
+	cp -r figure/* ../../static/img/; \
+	sed -i 's/figure\//\/img\//g' $(OUTFILES); \
+	#cd ../../ && hugo undraft $(POSTDIR)/$(OUTFILES)
 
 clean:
 	rm $(OUTFILES)

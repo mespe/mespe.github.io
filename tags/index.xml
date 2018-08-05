@@ -5,7 +5,11 @@
     <link>https://mespe.github.io/tags/</link>
     <description>Recent content in Tags on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
+<<<<<<< HEAD
     <lastBuildDate>Thu, 30 Nov 2017 21:39:27 -0800</lastBuildDate>
+=======
+    <lastBuildDate>Wed, 27 Jun 2018 16:16:50 -0600</lastBuildDate>
+>>>>>>> temp
     
 	<atom:link href="https://mespe.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +17,11 @@
     <item>
       <title>Agriculture</title>
       <link>https://mespe.github.io/tags/agriculture/</link>
+<<<<<<< HEAD
       <pubDate>Thu, 30 Nov 2017 21:39:27 -0800</pubDate>
+=======
+      <pubDate>Wed, 27 Jun 2018 16:16:50 -0600</pubDate>
+>>>>>>> temp
       
       <guid>https://mespe.github.io/tags/agriculture/</guid>
       <description></description>
@@ -67,7 +75,11 @@
     <item>
       <title>R</title>
       <link>https://mespe.github.io/tags/r/</link>
+<<<<<<< HEAD
       <pubDate>Thu, 19 Apr 2018 11:47:40 -0600</pubDate>
+=======
+      <pubDate>Wed, 27 Jun 2018 16:16:50 -0600</pubDate>
+>>>>>>> temp
       
       <guid>https://mespe.github.io/tags/r/</guid>
       <description></description>

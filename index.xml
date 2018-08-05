@@ -5,12 +5,28 @@
     <link>https://mespe.github.io/</link>
     <description>Recent content in Home on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
+<<<<<<< HEAD
     <lastBuildDate>Thu, 19 Apr 2018 11:47:40 -0600</lastBuildDate>
+=======
+    <lastBuildDate>Wed, 27 Jun 2018 16:16:50 -0600</lastBuildDate>
+>>>>>>> temp
     
 	<atom:link href="https://mespe.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+<<<<<<< HEAD
+=======
+      <title>Retrospective Power Analysis</title>
+      <link>https://mespe.github.io/post/power/</link>
+      <pubDate>Wed, 27 Jun 2018 16:16:50 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/power/</guid>
+      <description>&amp;hellip;Or, can we trust these estimates? One of the most common questions that comes up in scientific publications is &amp;ldquo;Can I trust these conclusions?&amp;rdquo; Statistics is supposed to help us decide the weight of evidence for or against a certain conclusion, but there have been issues. We are realizing that the standard paradim is not holding up, and there are many more false positives in the literature than the p &amp;lt; 0.</description>
+    </item>
+    
+    <item>
+>>>>>>> temp
       <title>Dynamic documents (part 2)</title>
       <link>https://mespe.github.io/post/dyn_docs-pt2/</link>
       <pubDate>Thu, 19 Apr 2018 11:47:40 -0600</pubDate>
