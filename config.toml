@@ -47,6 +47,7 @@ hideSocialMenu = false
 showReadingTime = true
 recentPostsLength = 5
 taxonomyCloudShuffle = true
+showLastmod = true
 
 [params.sidebar]
 enable = true
@@ -105,14 +106,19 @@ url = "/research/"
 weight = 3
 
 [[menu.main]]
-name = "Repos"
+name = "Consulting"
+url = "/consulting/"
 weight = 4
+
+[[menu.main]]
+name = "Repos"
+weight = 5
 identifier = "repository"
 url = "https://github.com/mespe"
 
 [[menu.main]]
 name = "CV"
-weight = 5
+weight = 6
 url = "/docs/espe_cv.pdf"
 
 [blackfriday]
