@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Ten thousand words...</title>
+    <link>https://mespe.github.io/tags/</link>
+    <description>Recent content in Tags on Ten thousand words...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 27 Jun 2018 16:16:50 -0600</lastBuildDate>
+    
+	<atom:link href="https://mespe.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Agriculture</title>
+      <link>https://mespe.github.io/tags/agriculture/</link>
+      <pubDate>Wed, 27 Jun 2018 16:16:50 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/tags/agriculture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blogging</title>
+      <link>https://mespe.github.io/tags/blogging/</link>
+      <pubDate>Wed, 14 Jun 2017 09:40:09 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/tags/blogging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Computers</title>
+      <link>https://mespe.github.io/tags/computers/</link>
+      <pubDate>Wed, 20 Dec 2017 20:37:46 -0800</pubDate>
+      
+      <guid>https://mespe.github.io/tags/computers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data science</title>
+      <link>https://mespe.github.io/tags/data-science/</link>
+      <pubDate>Thu, 19 Apr 2018 11:47:40 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/tags/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>https://mespe.github.io/tags/golang/</link>
+      <pubDate>Thu, 30 Nov 2017 21:39:27 -0800</pubDate>
+      
+      <guid>https://mespe.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://mespe.github.io/tags/hugo/</link>
+      <pubDate>Wed, 14 Jun 2017 09:40:09 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://mespe.github.io/tags/r/</link>
+      <pubDate>Wed, 27 Jun 2018 16:16:50 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>https://mespe.github.io/tags/research/</link>
+      <pubDate>Fri, 30 Jun 2017 19:35:44 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/tags/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stan</title>
+      <link>https://mespe.github.io/tags/stan/</link>
+      <pubDate>Thu, 24 Aug 2017 20:51:22 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/tags/stan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stats</title>
+      <link>https://mespe.github.io/tags/stats/</link>
+      <pubDate>Thu, 24 Aug 2017 20:51:22 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/tags/stats/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
