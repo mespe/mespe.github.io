@@ -2,6 +2,3 @@
 	path = public
 	url = git@github.com:mespe/mespe.github.io.git
 	branch = master
-[submodule "themes/minimo"]
-	path = themes/minimo
-	url = https://github.com/MunifTanjim/minimo
