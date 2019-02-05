@@ -5,10 +5,20 @@
     <link>https://mespe.github.io/tags/r/</link>
     <description>Recent content in R on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 27 Jun 2018 16:16:50 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 04 Feb 2019 16:16:50 -0600</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Good practices for working in R</title>
+      <link>https://mespe.github.io/post/r_best_practice/</link>
+      <pubDate>Mon, 04 Feb 2019 16:16:50 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/r_best_practice/</guid>
+      <description>These are the slides from my presentation at the Colorado State University R Users Group on 4 Feb 2019
+Good practices for working in R  Guidelines, not rules  Try to understand why you do each recommendation Know that you can break the rules  Good, not best  Best can be difficult to nail down Best depends on situation Obsession with &amp;ldquo;best&amp;rdquo; can interfere with the good    Should you listen to me?</description>
+    </item>
     
     <item>
       <title>Retrospective Power Analysis</title>
