@@ -15,9 +15,9 @@ Paginate = 5
 preserveTaxonomyNames = true
 
 # Syntax Highlighting ( https://gohugo.io/content-management/syntax-highlighting/ )
-pygmentsCodefences = true
+pygmentsCodeFences = true
 pygmentsstyle = "paraiso-dark"
-pygmentsUseClasses=true
+#pygmentsUseClasses=true
 
 # Language Configuration
 defaultContentLanguage = "en"
