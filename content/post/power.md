@@ -173,7 +173,7 @@ table(replicate(1000,
 ```
 ## 
 ## FALSE  TRUE 
-##   359   641
+##   331   669
 ```
 
 You can see, this study has much lower then the standard 80% power, even with very optimistic assumptions about the measurement error. What if we use a still optimistic but more realistic measurement error of 0.5 Mg/ha?
@@ -189,7 +189,7 @@ table(replicate(1000,
 ```
 ## 
 ## FALSE  TRUE 
-##   644   356
+##   641   359
 ```
 
 It becomes appearant that this study did not have good chances of detecting an effect in this system. Hence, the conclusion of "no difference" is suspect.
