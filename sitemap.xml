@@ -4,7 +4,12 @@
   
   <url>
     <loc>https://mespe.github.io/</loc>
-    <lastmod>2019-02-04T16:16:50-06:00</lastmod>
+    <lastmod>2019-03-19T09:39:47-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/post/workshops/</loc>
+    <lastmod>2019-03-19T09:39:47-06:00</lastmod>
   </url>
   
   <url>
@@ -127,19 +132,19 @@
   
   <url>
     <loc>https://mespe.github.io/post/</loc>
-    <lastmod>2019-02-04T16:16:50-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/categories/r/</loc>
-    <lastmod>2019-02-04T16:16:50-06:00</lastmod>
+    <lastmod>2019-03-19T09:39:47-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mespe.github.io/tags/r/</loc>
-    <lastmod>2019-02-04T16:16:50-06:00</lastmod>
+    <lastmod>2019-03-19T09:39:47-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/r/</loc>
+    <lastmod>2019-03-19T09:39:47-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -168,14 +173,14 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/agriculture/</loc>
-    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
+    <loc>https://mespe.github.io/tags/agriculture/</loc>
+    <lastmod>2018-09-04T16:43:02-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/tags/agriculture/</loc>
-    <lastmod>2018-09-04T16:43:02-06:00</lastmod>
+    <loc>https://mespe.github.io/categories/agriculture/</loc>
+    <lastmod>2017-09-27T21:00:27-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -186,37 +191,37 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/computers/</loc>
-    <lastmod>2017-12-20T20:37:46-08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mespe.github.io/tags/computers/</loc>
     <lastmod>2017-12-20T20:37:46-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/data-science/</loc>
-    <lastmod>2018-04-19T11:47:40-06:00</lastmod>
+    <loc>https://mespe.github.io/categories/computers/</loc>
+    <lastmod>2017-12-20T20:37:46-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mespe.github.io/tags/data-science/</loc>
-    <lastmod>2018-09-04T16:43:02-06:00</lastmod>
+    <lastmod>2019-03-19T09:39:47-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/hugo/</loc>
-    <lastmod>2017-06-14T09:40:09-07:00</lastmod>
+    <loc>https://mespe.github.io/categories/data-science/</loc>
+    <lastmod>2019-03-19T09:39:47-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mespe.github.io/tags/hugo/</loc>
+    <lastmod>2017-06-14T09:40:09-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/hugo/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
     <priority>0</priority>
   </url>
@@ -228,14 +233,14 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/stats/</loc>
-    <lastmod>2017-06-30T19:35:44-07:00</lastmod>
+    <loc>https://mespe.github.io/tags/stats/</loc>
+    <lastmod>2017-08-24T20:51:22-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/tags/stats/</loc>
-    <lastmod>2017-08-24T20:51:22-07:00</lastmod>
+    <loc>https://mespe.github.io/categories/stats/</loc>
+    <lastmod>2017-06-30T19:35:44-07:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -5,10 +5,21 @@
     <link>https://mespe.github.io/categories/data-science/</link>
     <description>Recent content in data science on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 19 Apr 2018 11:47:40 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 19 Mar 2019 09:39:47 -0600</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Why workshops are tough to teach</title>
+      <link>https://mespe.github.io/post/workshops/</link>
+      <pubDate>Tue, 19 Mar 2019 09:39:47 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/workshops/</guid>
+      <description>A couple of weeks ago, I taught a one-hour workshop on the basics of writing functions in R. Overall, it went as well as I would expect an hour introduction workshop to go, which is to say OK but not great. Why not great? It turns out teaching skills in workshops is really difficult. But why?
+I think it boils down to a couple of aspects of workshops:
+Workshops:</description>
+    </item>
     
     <item>
       <title>Dynamic documents (part 2)</title>
