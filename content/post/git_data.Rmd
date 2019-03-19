@@ -1,0 +1,61 @@
+---
+title: "Git_data"
+date: 2019-02-18T21:29:19-07:00
+categories: "data science"
+tags: "data science"
+draft: true
+---
+
+One piece of advice I give regularly is for people to use a version control system.
+However, I always want to add an asterisk when it comes to version controlling data.
+Git was designed to version control code, not data, and hence git is not always the best solution when it comes to data.
+
+To understand why, we need to explore git's method of recording differences in a file.
+
+## How git diffs
+
+A version control system has have a scheme to record differences in versions of a file.
+This scheme has to balance the cost of recording too fine of changes verses the costs of too coarse of changes. 
+For example, a coarse version control system would save an entire file whenever any piece of it changes. 
+This would result in inefficiencies in storage (storing lots of files).
+On the other hand, we could imagine a version control system that records changes on the per character level.
+While we would avoid saving an entire file each time there was a change, we rarely change a single character at a time. 
+There would be large overhead in finding and recording each change.
+
+Git is designed to recognize differences in lines in plain text documents, which is perfectly sensible for code.
+It is a good balance between the two extremes above.
+For well formatted code, lines should not be too long (e.g., over 80 characters long), 
+which means that recording the difference in a line gives good balance between too coarse or too fine scale. 
+
+## Why this doesn't always work for data
+
+Data files tend to be in one of two different groups; text files or binary files.
+Text files can be tabular, like CSV, or non-tabular, like XML.
+It is the tabular text files that cause the most issues with git.
+Since tabular data is organized by row and columns, simple changes can trigger git to re-write then entire file.
+For example, say we add a column to a CSV file.
+From git's point of view, we just altered every line of the file.
+It does not care that the other columns were not altered, and will happily re-write the entire file.
+This is an issue when the CSV is large, or when we want to diff a file, only to find that every line is different. 
+A little dilagence to commit after every change can help a bit with this, but the base problem still exists.
+
+There is even more trouble with binary files (e.g., RDS, docx, xlsx) -
+for these files, git often treats any change as a change to the entire file.
+
+
+
+
+
+We will make a 
+
+```{r}
+make_rds = function(size = 1e5, file = "tmp.rds")
+{
+    tmp = matrix(rnorm(size))
+    saveRDS(tmp, file = file)
+    system(paste0("git add ", file))
+    current_size = gsub("\t.*$", "", system("du -sh .git/", intern = TRUE))
+    system(paste0("git commit -m ", "'current size: '", current_size))
+}
+
+```
