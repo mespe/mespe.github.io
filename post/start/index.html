@@ -13,7 +13,7 @@ I thought I would write up my experiences starting a blog that uses R code but t
 <meta property='og:site_name' content='Ten thousand words...'>
 <meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='blogging'><meta property='article:tag' content='hugo'><meta property='article:published_time' content='2017-06-14T09:40:09-07:00'/><meta property='article:modified_time' content='2017-06-14T09:40:09-07:00'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.6" />
 
   <title>Creating an R blog with Hugo (without using blogdown) • Ten thousand words...</title>
   <link rel='canonical' href='https://mespe.github.io/post/start/'>
@@ -62,25 +62,25 @@ if (!doNotTrack) {
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
-        <a href='/tags/golang/' style='font-size:1em'>Golang</a>
-      </li><li>
-        <a href='/tags/r/' style='font-size:1.5em'>R</a>
-      </li><li>
-        <a href='/tags/stan/' style='font-size:1em'>Stan</a>
-      </li><li>
-        <a href='/tags/agriculture/' style='font-size:1.375em'>agriculture</a>
+        <a href='/tags/agriculture/' style='font-size:1.3333333333333333em'>agriculture</a>
       </li><li>
         <a href='/tags/blogging/' style='font-size:1em'>blogging</a>
       </li><li>
-        <a href='/tags/computers/' style='font-size:1.375em'>computers</a>
+        <a href='/tags/computers/' style='font-size:1.3333333333333333em'>computers</a>
       </li><li>
         <a href='/tags/data-science/' style='font-size:2em'>data science</a>
       </li><li>
+        <a href='/tags/golang/' style='font-size:1em'>Golang</a>
+      </li><li>
         <a href='/tags/hugo/' style='font-size:1em'>hugo</a>
       </li><li>
-        <a href='/tags/research/' style='font-size:1.125em'>research</a>
+        <a href='/tags/r/' style='font-size:1.5555555555555556em'>R</a>
       </li><li>
-        <a href='/tags/stats/' style='font-size:1.125em'>stats</a>
+        <a href='/tags/research/' style='font-size:1.1111111111111112em'>research</a>
+      </li><li>
+        <a href='/tags/stan/' style='font-size:1em'>Stan</a>
+      </li><li>
+        <a href='/tags/stats/' style='font-size:1.1111111111111112em'>stats</a>
       </li></ul>
 </div>
 
@@ -237,19 +237,19 @@ everything around. We need to do two things to prepare our R plots and
  step). For example:</p>
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"> <span style="color:#48b685">``</span>`{r fig.path <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;img/&#34;</span>}
 plot(rnorm(<span style="color:#f99b15">100</span>))
-<span style="color:#48b685">``</span>`</code></pre></div></li>
-
+<span style="color:#48b685">``</span>`</code></pre></div>
+<ol>
 <li><p>knit the <code>.Rmd</code> file. Any figures will end up in a folder named
- <code>img/</code> in the current working directory.</p></li>
+<code>img/</code> in the current working directory.</p></li>
 
 <li><p>Copy or move all the contents of <code>img/</code> to <code>{main
- website}/static/img</code>, where <code>{main website}</code> is the top-most
- directory of your website.</p></li>
+website}/static/img</code>, where <code>{main website}</code> is the top-most
+directory of your website.</p></li>
 
 <li><p>Change all references in the <code>.md</code> file from <code>img/*</code> to
- <code>/img/*</code>. The tricky thing is you want to do this <strong>after</strong> the
- <code>.md</code> file has been programmatically created, not in the <code>.Rmd</code>
- source file.</p></li>
+<code>/img/*</code>. The tricky thing is you want to do this <strong>after</strong> the
+<code>.md</code> file has been programmatically created, not in the <code>.Rmd</code>
+source file.</p></li>
 </ol>
 
 <p>Easy, right? I did not want to do this for every single file I might produce, so I
@@ -284,7 +284,8 @@ accend 2 directories to get to <code>static/</code>).</p>
 <li>Navigate to the correct folder and run <code>make all</code> in the terminal</li>
 </ol>
 
-<p>That&rsquo;s it - no blogdown required.</p>
+<p>That&rsquo;s it - no blogdown required.</p></li>
+</ol>
 
 </div>
 

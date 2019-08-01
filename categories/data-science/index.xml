@@ -5,10 +5,19 @@
     <link>https://mespe.github.io/categories/data-science/</link>
     <description>Recent content in data science on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 19 Mar 2019 09:39:47 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2019 11:42:51 -0600</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data Science Minimalism</title>
+      <link>https://mespe.github.io/post/datasci_minimalism/</link>
+      <pubDate>Mon, 03 Jun 2019 11:42:51 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/datasci_minimalism/</guid>
+      <description>When I got my first taste of data science, it was intoxicating. With a few lines of code, I could visualize and explore data and make some inferences. I was drawn to data science by the possibilities it represented. The data science toolbox represented a key to unraveling the data I found all around me. Learning how to use these tools was exciting and made me feel powerful and capable.</description>
+    </item>
     
     <item>
       <title>Why workshops are tough to teach</title>

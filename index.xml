@@ -5,10 +5,30 @@
     <link>https://mespe.github.io/</link>
     <description>Recent content in Home on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 19 Mar 2019 09:39:47 -0600</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jul 2019 15:38:18 -0600</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Quick tidyverse thoughts</title>
+      <link>https://mespe.github.io/post/quick_tidy_thoughts/</link>
+      <pubDate>Wed, 24 Jul 2019 15:38:18 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/quick_tidy_thoughts/</guid>
+      <description>There has been a lot of chatter about R and the tidyverse as of late - some of it prompted by Norm Matloff&amp;rsquo;s posts here and here.
+Below you will find some quick thoughts on the topic. These are half-baked at best, and probably not fit for general consumption. This is mostly a way for me to get my thoughts down on the page.
+ The tidyverse has increased the approachability and accessibility of R to a large audience.</description>
+    </item>
+    
+    <item>
+      <title>Data Science Minimalism</title>
+      <link>https://mespe.github.io/post/datasci_minimalism/</link>
+      <pubDate>Mon, 03 Jun 2019 11:42:51 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/datasci_minimalism/</guid>
+      <description>When I got my first taste of data science, it was intoxicating. With a few lines of code, I could visualize and explore data and make some inferences. I was drawn to data science by the possibilities it represented. The data science toolbox represented a key to unraveling the data I found all around me. Learning how to use these tools was exciting and made me feel powerful and capable.</description>
+    </item>
     
     <item>
       <title>Why workshops are tough to teach</title>
