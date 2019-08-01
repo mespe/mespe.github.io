@@ -1,7 +1,7 @@
 ---
 date: "2019-01-21T13:53:34-07:00"
 title: "My Goals for 2019"
-authors: []
+authors: ["mespe"]
 categories:
   - datasci
 tags:

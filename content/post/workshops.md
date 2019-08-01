@@ -1,7 +1,7 @@
 ---
 date: "2019-03-19T09:39:47-06:00"
 title: "Why workshops are tough to teach"
-authors: []
+authors: ["mespe"]
 categories:
 - data science
 - R

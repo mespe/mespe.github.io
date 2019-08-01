@@ -1,7 +1,7 @@
 ---
 date: "2018-09-04T16:43:02-06:00"
 title: "Consulting"
-authors: []
+authors: ["mespe"]
 tags:
   - data science
   - agriculture
