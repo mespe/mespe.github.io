@@ -5,10 +5,20 @@
     <link>https://mespe.github.io/tags/r/</link>
     <description>Recent content in R on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 24 Jul 2019 15:38:18 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2019 10:03:30 -0600</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Future of R (per Hadley)</title>
+      <link>https://mespe.github.io/post/future_of_r/</link>
+      <pubDate>Mon, 19 Aug 2019 10:03:30 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/future_of_r/</guid>
+      <description>Quartz had a pretty interesting interview with Hadley Wickham on the Future of R. While the interview was pretty short, it has many interesting tidbits about how Hadley thinks about R.
+The problem with the future of R according to the tidyverse and RStudio Many of the tidyverse developers are employed by RStudio, a commercial company. It is, in many ways, strange to be asking an employee of a commercial company about the future of an open source software.</description>
+    </item>
     
     <item>
       <title>Quick tidyverse thoughts</title>
@@ -40,6 +50,25 @@ Workshops:</description>
       <guid>https://mespe.github.io/post/r_best_practice/</guid>
       <description>These are the slides from my presentation at the Colorado State University R Users Group on 4 Feb 2019
 Good practices for working in R  Guidelines, not rules  Try to understand why you do each recommendation Know that you can break the rules  Good, not best  Best can be difficult to nail down Best depends on situation Obsession with &amp;ldquo;best&amp;rdquo; can interfere with the good    Should you listen to me?</description>
+    </item>
+    
+    <item>
+      <title>Consulting</title>
+      <link>https://mespe.github.io/consulting/</link>
+      <pubDate>Tue, 04 Sep 2018 16:43:02 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/consulting/</guid>
+      <description>Need help with something?
+I currently consult on:
+ R
+ creating packages
+ data munging
+ profiling and optimizing code
+  Statistics
+ Bayesian analyses
+ Animal movement models: CSS, HMM, latent-state
+  Data Science
+  </description>
     </item>
     
     <item>

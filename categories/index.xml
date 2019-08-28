@@ -5,33 +5,33 @@
     <link>https://mespe.github.io/categories/</link>
     <description>Recent content in Categories on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 24 Jul 2019 15:38:18 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2019 10:03:30 -0600</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>R</title>
-      <link>https://mespe.github.io/categories/r/</link>
-      <pubDate>Wed, 24 Jul 2019 15:38:18 -0600</pubDate>
-      
-      <guid>https://mespe.github.io/categories/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>data science</title>
       <link>https://mespe.github.io/categories/data-science/</link>
-      <pubDate>Mon, 03 Jun 2019 11:42:51 -0600</pubDate>
+      <pubDate>Mon, 19 Aug 2019 10:03:30 -0600</pubDate>
       
       <guid>https://mespe.github.io/categories/data-science/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Agriculture</title>
+      <title>R</title>
+      <link>https://mespe.github.io/categories/r/</link>
+      <pubDate>Mon, 19 Aug 2019 10:03:30 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>agriculture</title>
       <link>https://mespe.github.io/categories/agriculture/</link>
-      <pubDate>Wed, 27 Jun 2018 16:16:50 -0600</pubDate>
+      <pubDate>Tue, 04 Sep 2018 16:43:02 -0600</pubDate>
       
       <guid>https://mespe.github.io/categories/agriculture/</guid>
       <description></description>

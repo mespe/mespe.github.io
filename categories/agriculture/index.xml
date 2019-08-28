@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Agriculture on Ten thousand words...</title>
+    <title>agriculture on Ten thousand words...</title>
     <link>https://mespe.github.io/categories/agriculture/</link>
-    <description>Recent content in Agriculture on Ten thousand words...</description>
+    <description>Recent content in agriculture on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 27 Jun 2018 16:16:50 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 04 Sep 2018 16:43:02 -0600</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/categories/agriculture/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Consulting</title>
+      <link>https://mespe.github.io/consulting/</link>
+      <pubDate>Tue, 04 Sep 2018 16:43:02 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/consulting/</guid>
+      <description>Need help with something?
+I currently consult on:
+ R
+ creating packages
+ data munging
+ profiling and optimizing code
+  Statistics
+ Bayesian analyses
+ Animal movement models: CSS, HMM, latent-state
+  Data Science
+  </description>
+    </item>
     
     <item>
       <title>Retrospective Power Analysis</title>

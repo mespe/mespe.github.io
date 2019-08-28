@@ -5,10 +5,20 @@
     <link>https://mespe.github.io/</link>
     <description>Recent content in Home on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 24 Jul 2019 15:38:18 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2019 10:03:30 -0600</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Future of R (per Hadley)</title>
+      <link>https://mespe.github.io/post/future_of_r/</link>
+      <pubDate>Mon, 19 Aug 2019 10:03:30 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/future_of_r/</guid>
+      <description>Quartz had a pretty interesting interview with Hadley Wickham on the Future of R. While the interview was pretty short, it has many interesting tidbits about how Hadley thinks about R.
+The problem with the future of R according to the tidyverse and RStudio Many of the tidyverse developers are employed by RStudio, a commercial company. It is, in many ways, strange to be asking an employee of a commercial company about the future of an open source software.</description>
+    </item>
     
     <item>
       <title>Quick tidyverse thoughts</title>
@@ -57,11 +67,16 @@ Good practices for working in R  Guidelines, not rules  Try to understand why yo
       <pubDate>Tue, 04 Sep 2018 16:43:02 -0600</pubDate>
       
       <guid>https://mespe.github.io/consulting/</guid>
-      <description>Need some help with something?
+      <description>Need help with something?
 I currently consult on:
  R
- creating packages data munging profiling and optimizing code   Statistics
- Bayesian analyses Animal movement models: CSS, HMM, latent-state   Data Science
+ creating packages
+ data munging
+ profiling and optimizing code
+  Statistics
+ Bayesian analyses
+ Animal movement models: CSS, HMM, latent-state
+  Data Science
   </description>
     </item>
     
@@ -215,15 +230,6 @@ But I wear many hats. I am also a data scientist, with a focus on increasing cap
       <guid>https://mespe.github.io/post/intro/</guid>
       <description>Hello World!
 This is my first post to test out Hugo. Overall, it was a bit of a pain to set up with github personal pages. Oh well, it seems to be working now.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://mespe.github.io/post/power/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mespe.github.io/post/power/</guid>
-      <description>Retrospective Power Analysis • Ten thousand words...  :root{--color-accent:#ffcd00;}  var doNotTrack = false; if (!doNotTrack) { window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date; ga(&#39;create&#39;, &#39;UA-101069222-1&#39;, &#39;auto&#39;); ga(&#39;send&#39;, &#39;pageview&#39;); }    Skip to Main Menu  Ten thousand words...  Thoughts on agriculture, data science, and academia     Tags   Golang  R  Stan  Agriculture  Blogging  Computers  Data science  Hugo  Research  Stats       Skip to Content Toggle Sidebar      Home Blog About me Research Consulting Repos CV    Ten thousand words.</description>
     </item>
     
   </channel>

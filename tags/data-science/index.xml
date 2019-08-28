@@ -5,10 +5,20 @@
     <link>https://mespe.github.io/tags/data-science/</link>
     <description>Recent content in data science on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 03 Jun 2019 11:42:51 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2019 10:03:30 -0600</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Future of R (per Hadley)</title>
+      <link>https://mespe.github.io/post/future_of_r/</link>
+      <pubDate>Mon, 19 Aug 2019 10:03:30 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/future_of_r/</guid>
+      <description>Quartz had a pretty interesting interview with Hadley Wickham on the Future of R. While the interview was pretty short, it has many interesting tidbits about how Hadley thinks about R.
+The problem with the future of R according to the tidyverse and RStudio Many of the tidyverse developers are employed by RStudio, a commercial company. It is, in many ways, strange to be asking an employee of a commercial company about the future of an open source software.</description>
+    </item>
     
     <item>
       <title>Data Science Minimalism</title>
@@ -36,11 +46,16 @@ Workshops:</description>
       <pubDate>Tue, 04 Sep 2018 16:43:02 -0600</pubDate>
       
       <guid>https://mespe.github.io/consulting/</guid>
-      <description>Need some help with something?
+      <description>Need help with something?
 I currently consult on:
  R
- creating packages data munging profiling and optimizing code   Statistics
- Bayesian analyses Animal movement models: CSS, HMM, latent-state   Data Science
+ creating packages
+ data munging
+ profiling and optimizing code
+  Statistics
+ Bayesian analyses
+ Animal movement models: CSS, HMM, latent-state
+  Data Science
   </description>
     </item>
     

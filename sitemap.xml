@@ -4,25 +4,57 @@
   
   <url>
     <loc>https://mespe.github.io/</loc>
-    <lastmod>2019-07-24T15:38:18-06:00</lastmod>
+    <lastmod>2019-08-19T10:03:30-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/</loc>
+    <lastmod>2019-08-19T10:03:30-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/tags/data-science/</loc>
+    <lastmod>2019-08-19T10:03:30-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/data-science/</loc>
+    <lastmod>2019-08-19T10:03:30-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/post/future_of_r/</loc>
+    <lastmod>2019-08-19T10:03:30-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/post/</loc>
+    <lastmod>2019-08-19T10:03:30-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/tags/r/</loc>
+    <lastmod>2019-08-19T10:03:30-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/r/</loc>
+    <lastmod>2019-08-19T10:03:30-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/tags/</loc>
+    <lastmod>2019-08-19T10:03:30-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://mespe.github.io/authors/</loc>
     <lastmod>2019-07-24T15:38:18-06:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/</loc>
+    <loc>https://mespe.github.io/authors/mespe/</loc>
     <lastmod>2019-07-24T15:38:18-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/post/</loc>
-    <lastmod>2019-07-24T15:38:18-06:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -31,44 +63,8 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/tags/r/</loc>
-    <lastmod>2019-07-24T15:38:18-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/categories/r/</loc>
-    <lastmod>2019-07-24T15:38:18-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/tags/</loc>
-    <lastmod>2019-07-24T15:38:18-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/authors/mespe/</loc>
-    <lastmod>2019-07-24T15:38:18-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mespe.github.io/post/datasci_minimalism/</loc>
     <lastmod>2019-06-03T11:42:51-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/tags/data-science/</loc>
-    <lastmod>2019-06-03T11:42:51-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/categories/data-science/</loc>
-    <lastmod>2019-06-03T11:42:51-06:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -82,20 +78,18 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/consulting/</loc>
-    <lastmod>2018-09-04T16:43:02-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://mespe.github.io/tags/agriculture/</loc>
     <lastmod>2018-09-04T16:43:02-06:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mespe.github.io/categories/agriculture/</loc>
-    <lastmod>2018-06-27T16:16:50-06:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2018-09-04T16:43:02-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/consulting/</loc>
+    <lastmod>2018-09-04T16:43:02-06:00</lastmod>
   </url>
   
   <url>
@@ -106,7 +100,6 @@
   <url>
     <loc>https://mespe.github.io/categories/stats/</loc>
     <lastmod>2018-06-27T16:16:50-06:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -120,26 +113,23 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/post/keyboards/</loc>
+    <loc>https://mespe.github.io/categories/computers/</loc>
     <lastmod>2017-12-20T20:37:46-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://mespe.github.io/tags/computers/</loc>
     <lastmod>2017-12-20T20:37:46-08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/computers/</loc>
+    <loc>https://mespe.github.io/post/keyboards/</loc>
     <lastmod>2017-12-20T20:37:46-08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mespe.github.io/tags/golang/</loc>
     <lastmod>2017-11-30T21:39:27-08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -175,13 +165,11 @@
   <url>
     <loc>https://mespe.github.io/tags/stan/</loc>
     <lastmod>2017-08-24T20:51:22-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mespe.github.io/tags/stats/</loc>
     <lastmod>2017-08-24T20:51:22-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -192,13 +180,11 @@
   <url>
     <loc>https://mespe.github.io/categories/research/</loc>
     <lastmod>2017-06-30T19:35:44-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mespe.github.io/tags/research/</loc>
     <lastmod>2017-06-30T19:35:44-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -209,7 +195,11 @@
   <url>
     <loc>https://mespe.github.io/categories/blogging/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/tags/blogging/</loc>
+    <lastmod>2017-06-14T09:40:09-07:00</lastmod>
   </url>
   
   <url>
@@ -218,21 +208,13 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/tags/blogging/</loc>
-    <lastmod>2017-06-14T09:40:09-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mespe.github.io/tags/hugo/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mespe.github.io/categories/hugo/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -243,11 +225,6 @@
   <url>
     <loc>https://mespe.github.io/post/intro/</loc>
     <lastmod>2017-06-07T21:03:33-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/post/power/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
