@@ -76,7 +76,7 @@ This is a very strange question to ask. R is a tool, and it is either
 suited to a task or not. Asking what is good for R is akin to asking
 what is good for a hammer. What is good for a chisel? 
 
-Although this seems like a silly comparison, it is actually quite
+Although this seems like a silly comparison, it might actually be quite
 useful. There are bins of neglected and abandoned tools in every
 thrift store and flea market. How did they get there? Typically, a
 handful of factors contributed make them no longer useful and left
@@ -116,7 +116,7 @@ factors.
    move slower. The most famous example of this is the changes to the
    ggplot2 package. 2) Non-standard evaluation relies on non-standard
    behavior, some of which is not well documented and can behave in
-   unexpected ways.
+   unexpected ways. 
 
 2. Many argue that the tidyverse represents better technology compared
    to base R. But what about the tidyverse vs. Julia or Python. Here
@@ -127,7 +127,7 @@ factors.
    might be an issue where R is being replaced by better tools which
    are faster and scale better. Technical people are needed to push
    technology forward, but what happens when the user-base is
-   encouraged to be less technical?
+   encouraged to be less technical? 
    
 3. Related to #1, tidyverse code can be less reliable because it has
    increased complexity. There are a lot more operations happening in
@@ -142,22 +142,27 @@ factors.
    data.frame. The art of programming in R is being replaced with
    learning the tidyverse patterns for R.  
    
-5. It could be argued that by increasing the audience and diversity of
-   the R community, the tidyverse has ensured that it will remain
-   relevant because there are just so many more people using R. Hadley
-   makes this point, and I agree - the increase in both the size and
-   the diversity of the R community has been incredible. R being the
+5. By increasing the audience and diversity of the R community, the
+   tidyverse has ensured that it will remain relevant because there
+   are just so many more people using R. Hadley makes this point in
+   the interview, and I agree - the increase in both the size and the
+   diversity of the R community has been incredible. R being the
    domain language of only statisticians and "serious" programmers was
-   not good for R's long-term future. 
+   not good for R's long-term future. This relates to my [previous
+   thoughts on the tidyverse](/post/quick_tidy_thoughts/) - namely
+   that the community expansion has been an unqualified and immense
+   success, and has happened in large part because of the work of
+   Hadley, R Ladies, etc.
    
 Like much of the world, it is hardly clear cut. Undoubtedly, there
 have been massive benefits to R and the community from the
 tidyverse. Many people are using R that would not otherwise, and the
-world is better off having more people embrass a code-based,
-reproducible system. But have these benefits come at a cost? Is
-RStudio and the tidyverse eroding R's long-term prospects, or have
-they saved R from obscurity? Unfortunately, I think only time will
-tell.
+world is better off having more people embrace a code-based,
+reproducible system. 
+
+But have these benefits come at a cost? Is RStudio and the tidyverse
+eroding R's long-term prospects, or have they saved R from obscurity?
+Unfortunately, I think only time will tell.
 
 
   
