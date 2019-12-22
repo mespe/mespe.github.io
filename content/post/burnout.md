@@ -88,7 +88,7 @@ It is almost always "good enough" but never great.
 
 ### Execution trumps good ideas
 
-Thing PhDs almost universily learn is the ability to sit in a room and come up with brilliant ideas. 
+The second thing PhDs almost universily learn is the ability to sit in a room and come up with brilliant ideas. 
 I have sat in "brainstorming" sessions for hours which resulted in tons of great ideas, only to witness not a single one be implemented. 
 The truth is that it is difficult to do things, especially great or brilliant things.
 It takes time, resources, and commitment.
@@ -96,9 +96,11 @@ Unfortunately, as we piled up projects driven by the potential we saw in them, w
 
 ### Confusing quantity with quality
 
-Academia rewards people for doing a lot of things. 
+Academia rewards people for doing a plethora of things. 
 I learned this firsthand when I sat on a hiring committee as the graduate student rep.
-The first stage consisted of ranking the candidates according to publication quantity, and those below a threshold were disqualified.
+The first stage consisted of ranking the candidates according to
+publication quantity, and those below a threshold were disqualified.
+Below 2 publications per year? You're out.
 The quality of those publications was not considered until much later. 
 Some candidates with poor quality work made it further in the process than those with better work.
 
