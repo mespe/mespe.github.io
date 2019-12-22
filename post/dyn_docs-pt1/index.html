@@ -2,18 +2,18 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='A brief intro to dynamic documents in R I was asked to give a short overview of dynamic documents in R during Dr. Cini Brown&rsquo;s lab meeting at Colorado State University last week, and I thought I would post some of the material here as well.
+<meta name='description' content='A brief intro to dynamic documents in R I was asked to give a short overview of dynamic documents in R during Dr. Cini Brown&#39;s lab meeting at Colorado State University last week, and I thought I would post some of the material here as well.
 What is a dynamic document? Dynamic documents, or living documents, are documents which can be continuously updated, and are often self-contained. This means that the document itself contains the framework to generate and update its content.'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='Dynamic Docs in R (part 1) • Ten thousand words...'>
-<meta property='og:description' content='A brief intro to dynamic documents in R I was asked to give a short overview of dynamic documents in R during Dr. Cini Brown&rsquo;s lab meeting at Colorado State University last week, and I thought I would post some of the material here as well.
+<meta property='og:description' content='A brief intro to dynamic documents in R I was asked to give a short overview of dynamic documents in R during Dr. Cini Brown&#39;s lab meeting at Colorado State University last week, and I thought I would post some of the material here as well.
 What is a dynamic document? Dynamic documents, or living documents, are documents which can be continuously updated, and are often self-contained. This means that the document itself contains the framework to generate and update its content.'>
 <meta property='og:url' content='https://mespe.github.io/post/dyn_docs-pt1/'>
 <meta property='og:site_name' content='Ten thousand words...'>
 <meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='data science'><meta property='article:tag' content='R'><meta property='article:published_time' content='2018-03-05T11:14:04-07:00'/><meta property='article:modified_time' content='2018-03-05T11:14:04-07:00'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.61.0" />
 
   <title>Dynamic Docs in R (part 1) • Ten thousand words...</title>
   <link rel='canonical' href='https://mespe.github.io/post/dyn_docs-pt1/'>
@@ -74,7 +74,7 @@ if (!doNotTrack) {
       </li><li>
         <a href='/tags/hugo/' style='font-size:1em'>hugo</a>
       </li><li>
-        <a href='/tags/r/' style='font-size:1.7000000000000002em'>R</a>
+        <a href='/tags/r/' style='font-size:1.8em'>R</a>
       </li><li>
         <a href='/tags/research/' style='font-size:1.1em'>research</a>
       </li><li>
@@ -184,25 +184,18 @@ if (!doNotTrack) {
   
 
   <div class='container entry-content'>
-  
-
-<h1 id="a-brief-intro-to-dynamic-documents-in-r">A brief intro to dynamic documents in R</h1>
-
+  <h1 id="a-brief-intro-to-dynamic-documents-in-r">A brief intro to dynamic documents in R</h1>
 <p>I was asked to give a short overview of dynamic documents in R during
-Dr. Cini Brown&rsquo;s lab meeting at Colorado State University last week,
+Dr. Cini Brown's lab meeting at Colorado State University last week,
 and I thought I would post some of the material here as well.</p>
-
 <h2 id="what-is-a-dynamic-document">What is a dynamic document?</h2>
-
 <p>Dynamic documents, or living documents, are documents which can be
 continuously updated, and are often self-contained. This means that
 the document itself contains the framework to generate and update its
 content. Pretty cool, huh?</p>
-
 <p>In R, a dynamic document is a document which contains code to generate
 tables, figures, and in-text content. Dynamic documents have a few
 benefits by providing a means to:</p>
-
 <ul>
 <li>Document the process behind the content: the code itself shows how
 the content was generated</li>
@@ -214,12 +207,9 @@ relatively easy because one change propagates through the entire
 document.</li>
 <li>Typically easy to version control: most dynamic documents are
 simple text files, which can be put under version control using
-git, svn, etc.
-<br /></li>
+git, svn, etc.</li>
 </ul>
-
 <p>That said, there are also some drawbacks:</p>
-
 <ul>
 <li>More complicated to collaborate: Unless your collaborators are
 comfortable working outside of MS Word, it can be a real hassle
@@ -229,17 +219,13 @@ or edited version in Word and the original dynamic document.</li>
 software which creates additional stages where things can (and
 will) go wrong.</li>
 <li>Require investment to learn: time spent learning
-Rmarkdown/Sweave/etc. is time not spent writing or researching.
-<br /></li>
+Rmarkdown/Sweave/etc. is time not spent writing or researching.</li>
 </ul>
-
 <p>So is it worth it? I generally think it is. The little bit of time
 invested in learning these technologies pays off when you need to make
-just a small change to a research paper&rsquo;s methods or data. What would
-otherwise be a day&rsquo;s work turns into minutes with a dynamic document.</p>
-
+just a small change to a research paper's methods or data. What would
+otherwise be a day's work turns into minutes with a dynamic document.</p>
 <h2 id="types-of-dynamic-documents">Types of dynamic documents</h2>
-
 <ul>
 <li>Rmarkdown: In general, when the R community talks about dynamic documents, they
 are primarily talking about Rmarkdown. Rmarkdown is an extension of
@@ -256,7 +242,7 @@ complicated than Rmarkdown, but in return you gain additional
 control and fuller range of customization options.* Sweave was
 originally used for the creation of R documentation.</li>
 <li>Org-mode: Similar to Rmarkdown, this is a simple syntax, but has the
-added benefit of being in <a href="https://orgmode.org/" target="_blank">Org-mode</a>, and supporting almost any
+added benefit of being in <a href="https://orgmode.org/">Org-mode</a>, and supporting almost any
 language you can think of. Org-mode is a special beast of plain-text
 systems, where you can create a TODO list and write an academic
 paper using the same technology.</li>
@@ -264,7 +250,6 @@ paper using the same technology.</li>
 allows even more control compared to Sweave, with the added benefit
 of being about to query the document using XPath.</li>
 </ul>
-
 <p>* <em>Some people will point out that you can use LaTeX commands in
 Rmarkdown documents, and while this is true, in my experience it is
 quite clunky and prone to errors. This is because the LaTeX commands

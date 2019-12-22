@@ -1,14 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Ten thousand words...</title>
     <link>https://mespe.github.io/tags/</link>
     <description>Recent content in Tags on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 19 Aug 2019 10:03:30 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 22 Dec 2019 09:47:01 -0700</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>R</title>
+      <link>https://mespe.github.io/tags/r/</link>
+      <pubDate>Sun, 22 Dec 2019 09:47:01 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/tags/r/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>data science</title>
@@ -16,15 +25,6 @@
       <pubDate>Mon, 19 Aug 2019 10:03:30 -0600</pubDate>
       
       <guid>https://mespe.github.io/tags/data-science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://mespe.github.io/tags/r/</link>
-      <pubDate>Mon, 19 Aug 2019 10:03:30 -0600</pubDate>
-      
-      <guid>https://mespe.github.io/tags/r/</guid>
       <description></description>
     </item>
     

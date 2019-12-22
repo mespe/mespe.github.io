@@ -1,14 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Ten thousand words...</title>
     <link>https://mespe.github.io/categories/r/</link>
     <description>Recent content in R on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 19 Aug 2019 10:03:30 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 22 Dec 2019 09:47:01 -0700</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Xmas Functions, revisited</title>
+      <link>https://mespe.github.io/post/xmas_revisited/</link>
+      <pubDate>Sun, 22 Dec 2019 09:47:01 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/post/xmas_revisited/</guid>
+      <description>Years ago, a friend asked me for help writing a function to do her family&#39;s Xmas gift exchange. You can see her post on a collection of functions for this here. The basic goal here is to have a function that randomizes the names with restriction, to simulate the process of pulling names out of a hat where you draw again if you draw yourself or your partner.
+I literally wrote this two years ago, and very quickly, so I did not expect it to be great.</description>
+    </item>
     
     <item>
       <title>Future of R (per Hadley)</title>
@@ -26,9 +36,9 @@ The problem with the future of R according to the tidyverse and RStudio Many of 
       <pubDate>Wed, 24 Jul 2019 15:38:18 -0600</pubDate>
       
       <guid>https://mespe.github.io/post/quick_tidy_thoughts/</guid>
-      <description>There has been a lot of chatter about R and the tidyverse as of late - some of it prompted by Norm Matloff&amp;rsquo;s posts here and here.
+      <description>There has been a lot of chatter about R and the tidyverse as of late - some of it prompted by Norm Matloff&#39;s posts here and here.
 Below you will find some quick thoughts on the topic. These are half-baked at best, and probably not fit for general consumption. This is mostly a way for me to get my thoughts down on the page.
- The tidyverse has increased the approachability and accessibility of R to a large audience.</description>
+  The tidyverse has increased the approachability and accessibility of R to a large audience.</description>
     </item>
     
     <item>
@@ -39,7 +49,8 @@ Below you will find some quick thoughts on the topic. These are half-baked at be
       <guid>https://mespe.github.io/post/workshops/</guid>
       <description>A couple of weeks ago, I taught a one-hour workshop on the basics of writing functions in R. Overall, it went as well as I would expect an hour introduction workshop to go, which is to say OK but not great. Why not great? It turns out teaching skills in workshops is really difficult. But why?
 I think it boils down to a couple of aspects of workshops:
-Workshops:</description>
+Workshops:
+ are too short teach to the lowest skill level in the room don&#39;t reflect how you actually learn these skill  1.</description>
     </item>
     
     <item>
@@ -49,7 +60,7 @@ Workshops:</description>
       
       <guid>https://mespe.github.io/post/r_best_practice/</guid>
       <description>These are the slides from my presentation at the Colorado State University R Users Group on 4 Feb 2019
-Good practices for working in R  Guidelines, not rules  Try to understand why you do each recommendation Know that you can break the rules  Good, not best  Best can be difficult to nail down Best depends on situation Obsession with &amp;ldquo;best&amp;rdquo; can interfere with the good    Should you listen to me?</description>
+Good practices for working in R  Guidelines, not rules  Try to understand why you do each recommendation Know that you can break the rules   Good, not best  Best can be difficult to nail down Best depends on situation Obsession with &amp;ldquo;best&amp;rdquo; can interfere with the good    Should you listen to me?</description>
     </item>
     
     <item>
@@ -60,14 +71,14 @@ Good practices for working in R  Guidelines, not rules  Try to understand why yo
       <guid>https://mespe.github.io/consulting/</guid>
       <description>Need help with something?
 I currently consult on:
- R
- creating packages
- data munging
- profiling and optimizing code
-  Statistics
- Bayesian analyses
- Animal movement models: CSS, HMM, latent-state
-  Data Science
+  R
+  creating packages
+  data munging
+  profiling and optimizing code
+    Statistics
+  Bayesian analyses
+  Animal movement models: CSS, HMM, latent-state
+    Data Science
   </description>
     </item>
     
@@ -96,7 +107,7 @@ A brief intro to dynamic documents in R (cont.) Last time I outlined why you mig
       <pubDate>Mon, 05 Mar 2018 11:14:04 -0700</pubDate>
       
       <guid>https://mespe.github.io/post/dyn_docs-pt1/</guid>
-      <description>A brief intro to dynamic documents in R I was asked to give a short overview of dynamic documents in R during Dr. Cini Brown&amp;rsquo;s lab meeting at Colorado State University last week, and I thought I would post some of the material here as well.
+      <description>A brief intro to dynamic documents in R I was asked to give a short overview of dynamic documents in R during Dr. Cini Brown&#39;s lab meeting at Colorado State University last week, and I thought I would post some of the material here as well.
 What is a dynamic document? Dynamic documents, or living documents, are documents which can be continuously updated, and are often self-contained. This means that the document itself contains the framework to generate and update its content.</description>
     </item>
     

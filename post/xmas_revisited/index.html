@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Years ago, a friend asked me for help writing a function to do her family&#39;s Xmas gift exchange. You can see her post on a collection of functions for this here. The basic goal here is to have a function that randomizes the names with restriction, to simulate the process of pulling names out of a hat where you draw again if you draw yourself or your partner.
+I literally wrote this two years ago, and very quickly, so I did not expect it to be great.'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Xmas Functions, revisited • Ten thousand words...'>
+<meta property='og:description' content='Years ago, a friend asked me for help writing a function to do her family&#39;s Xmas gift exchange. You can see her post on a collection of functions for this here. The basic goal here is to have a function that randomizes the names with restriction, to simulate the process of pulling names out of a hat where you draw again if you draw yourself or your partner.
+I literally wrote this two years ago, and very quickly, so I did not expect it to be great.'>
+<meta property='og:url' content='https://mespe.github.io/post/xmas_revisited/'>
+<meta property='og:site_name' content='Ten thousand words...'>
+<meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='R'><meta property='article:published_time' content='2019-12-22T09:47:01-07:00'/><meta property='article:modified_time' content='2019-12-22T09:47:01-07:00'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.61.0" />
+
+  <title>Xmas Functions, revisited • Ten thousand words...</title>
+  <link rel='canonical' href='https://mespe.github.io/post/xmas_revisited/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.4a10984a.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-101069222-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+
+</head>
+<body class='page type-post has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <h2 class='title site-title '>
+    Ten thousand words...
+    </h2>
+    <div class='desc'>
+    Thoughts on agriculture, data science, and academia
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/tags/agriculture/' style='font-size:1.3em'>agriculture</a>
+      </li><li>
+        <a href='/tags/blogging/' style='font-size:1em'>blogging</a>
+      </li><li>
+        <a href='/tags/computers/' style='font-size:1.3em'>computers</a>
+      </li><li>
+        <a href='/tags/data-science/' style='font-size:2em'>data science</a>
+      </li><li>
+        <a href='/tags/golang/' style='font-size:1em'>Golang</a>
+      </li><li>
+        <a href='/tags/hugo/' style='font-size:1em'>hugo</a>
+      </li><li>
+        <a href='/tags/r/' style='font-size:1.8em'>R</a>
+      </li><li>
+        <a href='/tags/research/' style='font-size:1.1em'>research</a>
+      </li><li>
+        <a href='/tags/stan/' style='font-size:1em'>Stan</a>
+      </li><li>
+        <a href='/tags/stats/' style='font-size:1.1em'>stats</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='/post/'>Blog</a>
+      </li><li class='item'>
+        <a href='/about/'>About me</a>
+      </li><li class='item'>
+        <a href='/research/'>Research</a>
+      </li><li class='item'>
+        <a href='/consulting/'>Consulting</a>
+      </li><li class='item'>
+        <a href='https://github.com/mespe'>Repos</a>
+      </li><li class='item'>
+        <a href='/docs/espe_cv.pdf'>CV</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Ten thousand words...</p><p class='desc site-desc'>Thoughts on agriculture, data science, and academia</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Xmas Functions, revisited</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2019-12-22T09:47:01-07:00'>2019, Dec 22</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+10 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  <p>Years ago, a friend asked me for help writing a function to do her
+family's Xmas gift exchange. You can see her post on a collection of
+functions for this
+<a href="https://myfanwy.github.io/Blog/2019/12/17/Christmas-Gifting-With-R.html">here</a>. The
+basic goal here is to have a function that randomizes the names with
+restriction, to simulate the process of pulling names out of a hat
+where you draw again if you draw yourself or your partner.</p>
+<p>I literally wrote this two years ago, and very quickly, so I did not
+expect it to be great. Looking at it now, after time and experience, I
+can see many areas to improve it. And I would hate to have a sloppily
+written function be the last for from me.</p>
+<h1 id="the-original-function">The original function</h1>
+<p>Here is what I originally wrote:</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#776e71"># this function requires a column of NAs in the starting dataframe:</span>
+pool <span style="color:#5bc4bf">&lt;-</span> <span style="color:#06b6ef">data.frame</span>(
+    id <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">c</span>(<span style="color:#f99b15">1</span><span style="color:#5bc4bf">:</span><span style="color:#f99b15">7</span>),
+    person <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">c</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Cam&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Mitchell&#34;</span>,
+               <span style="color:#48b685">&#34;</span><span style="color:#48b685">Jay&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Gloria&#34;</span>,
+               <span style="color:#48b685">&#34;</span><span style="color:#48b685">Manny&#34;</span>,
+               <span style="color:#48b685">&#34;</span><span style="color:#48b685">Claire&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Phil&#34;</span>),
+    partner <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">c</span>(<span style="color:#f99b15">2</span>, <span style="color:#f99b15">1</span>, <span style="color:#f99b15">4</span>, <span style="color:#f99b15">3</span>, <span style="color:#f99b15">5</span>, <span style="color:#f99b15">7</span>, <span style="color:#f99b15">6</span>),
+    id2 <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">NA</span>
+)
+
+xmas2 <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(pool_df) {
+    <span style="color:#776e71"># for 1:7, gift draw number is sampled from anyone BUT that person&#39;s spouse:</span>
+    
+    <span style="color:#06b6ef">for </span>(i in <span style="color:#06b6ef">seq</span>(<span style="color:#06b6ef">nrow</span>(pool_df))) {
+        pool_df<span style="color:#5bc4bf">$</span>id2[i] <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">sample</span>(<span style="color:#06b6ef">setdiff</span>(<span style="color:#06b6ef">seq</span>(<span style="color:#06b6ef">nrow</span>(pool_df)), <span style="color:#06b6ef">c</span>(pool_df<span style="color:#5bc4bf">$</span>partner[i], pool_df<span style="color:#5bc4bf">$</span>id2, i)),
+                               <span style="color:#f99b15">1</span>)
+    }
+    
+    pool_df<span style="color:#5bc4bf">$</span>p2 <span style="color:#5bc4bf">=</span> pool_df<span style="color:#5bc4bf">$</span>person[pool_df<span style="color:#5bc4bf">$</span>id2] <span style="color:#776e71"># make a column of who each person drew (p2)</span>
+    
+    ok <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">all</span>(<span style="color:#5bc4bf">!</span><span style="color:#06b6ef">duplicated</span>(pool_df<span style="color:#5bc4bf">$</span>id2) <span style="color:#5bc4bf">&amp;</span>
+                 pool_df<span style="color:#5bc4bf">$</span>partner <span style="color:#5bc4bf">!=</span> pool_df<span style="color:#5bc4bf">$</span>id2) <span style="color:#776e71"># ok is a df where no one drew themselves and no one drew their spouse</span>
+    <span style="color:#06b6ef">if </span>(<span style="color:#5bc4bf">!</span>ok)
+        <span style="color:#776e71"># if the conditions aren&#39;t met, return &#34;somthing went wrong&#34;</span>
+        <span style="color:#06b6ef">stop</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">No good - try again&#34;</span>)
+    <span style="color:#06b6ef">return</span>(pool_df) <span style="color:#776e71"># else, return the finished matches</span>
+}
+
+<span style="color:#06b6ef">xmas2</span>(pool_df <span style="color:#5bc4bf">=</span> pool) <span style="color:#776e71"># call until you get a return</span>
+</code></pre></div><p>Yikes. This is tough to look at.</p>
+<p>So, before we get to improving it, we should take a moment to catalog
+what is not great about it, as well as what might be OK.</p>
+<h2 id="the-bad">The bad</h2>
+<p><em>1. Formatting:</em> I find it very difficult to read the above
+code. Having the comments off the end of each line of code is messy,
+and the spacing is terrible</p>
+<p><em>2. Rigid data structure expectations:</em> The function expects certain
+things to be true about the input data.frame, e.g. having an empty
+column to fill, expecting some data to be indices, etc.</p>
+<p><em>3. No flexibility in calling the function:</em> The function takes a
+single argument, the data.frame. The user can only modify behavior by
+modifying this data.frame.</p>
+<p><em>4. Cannot take multiple restrictions on the draw:</em> For example, to
+prevent drawing people in your immediate family rather than just your
+spouse.</p>
+<p><em>5. Forces the user to re-run on failure:</em> It would be better to keep
+running until there is a valid output, rather than forcing the user to
+re-run the function.</p>
+<h2 id="the-good">The good</h2>
+<p><em>1. It seemed to work:</em></p>
+<p><em>2. for loop is probably appropriate for small lists:</em> If we wanted to
+do this with a large set of inputs, we might want to look at
+vectorizing the code, but for this it is fine.</p>
+<h1 id="improving-the-xmas-function">Improving the xmas function</h1>
+<p>First things first, we are going to get rid of the dependence on
+certain rows being present in the input data.frame. Let's do that by
+creating some variables, which will be automatically populated from
+the data.frame:</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">xmas <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, persons <span style="color:#5bc4bf">=</span> df<span style="color:#5bc4bf">$</span>persons, exclude <span style="color:#5bc4bf">=</span> df<span style="color:#5bc4bf">$</span>partner) {
+    
+    recipient <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">rep</span>(<span style="color:#815ba4">NA</span>, <span style="color:#06b6ef">length</span>(persons)) 
+</code></pre></div><p>This might not be the long term solution, but it will work for the
+time being. It gets us away from needing there to be a column of a
+certain name in the original data.frame.</p>
+<p>Next, let's relax the
+data structure that is acceptable for the function. For example, it
+would be nice if the persons and partners could be either factors,
+characters, or integers. To do this, we need to change this line of
+code:</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">pool_df<span style="color:#5bc4bf">$</span>id2[i] <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">sample</span>(<span style="color:#06b6ef">setdiff</span>(<span style="color:#06b6ef">seq</span>(<span style="color:#06b6ef">nrow</span>(pool_df)), <span style="color:#06b6ef">c</span>(pool_df<span style="color:#5bc4bf">$</span>partner[i], pool_df<span style="color:#5bc4bf">$</span>id
+</code></pre></div><p>Right now, it expects that the partner is an integer. We can replace
+it with:</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">recipient[i] <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">sample</span>(<span style="color:#06b6ef">setdiff</span>(persons[<span style="color:#5bc4bf">-</span>i], <span style="color:#06b6ef">c</span>(exclude[i], recipient)), <span style="color:#f99b15">1</span>) 
+</code></pre></div><p>This does two things - first, we exclude drawing ourselves with
+<code>persons[-i]</code> and second we made code work irrespective of the data type of <code>persons</code> and
+<code>exclude</code> (formally <code>partners</code>). So, what will screw this up? if the
+data types of these two are different from one another - so we should
+add in a test,</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06b6ef">if</span>(<span style="color:#06b6ef">class</span>(persons) <span style="color:#5bc4bf">!=</span> <span style="color:#06b6ef">class</span>(exclude))
+    <span style="color:#06b6ef">stop</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Please provide the same data type for both &#39;persons&#39; and &#39;exclude&#39;&#34;</span>)
+</code></pre></div><p>We might even want to go a step further and tell the user what data
+types they provided,</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">    <span style="color:#06b6ef">stop</span>(<span style="color:#06b6ef">sprintf</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Please provide the same data type for both &#39;persons&#39; and &#39;exclude&#39;\n &#39;persons&#39; is class %s, &#39;exclude is class %s&#34;</span>, <span style="color:#06b6ef">class</span>(persons), <span style="color:#06b6ef">class</span>(exclude)))
+</code></pre></div><p>OK, we have dealt with the &ldquo;bad&rdquo; 1-3 above, but now we want to think
+about how we would dealt with multiple <code>excludes</code> per person. The
+first question is how would a user specify a variable number of people
+to exclude for each <code>person</code>? Since we can have a variable number -
+some people will only have 1 or maybe 0 restrictions, while others
+might have 2 or more. The natural structure to store items of
+different lengths in R is a list. So maybe something like,</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">exclude <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">list</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Mitchell&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Cam&#34;</span>,
+            <span style="color:#06b6ef">c</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Gloria&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Manny&#34;</span>), <span style="color:#06b6ef">c</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Jay&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Manny&#34;</span>),
+               <span style="color:#815ba4">NA</span>,
+               <span style="color:#48b685">&#34;</span><span style="color:#48b685">Phil&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Claire&#34;</span>)
+</code></pre></div><p>So, how would we need to change the code to allow something like this?
+First, we need to index into the list when drawing from <code>exclude</code>,</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">recipient[i] <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">sample</span>(<span style="color:#06b6ef">setdiff</span>(persons[<span style="color:#5bc4bf">-</span>i], <span style="color:#06b6ef">c</span>(exclude[[i]], recipient)), <span style="color:#f99b15">1</span>) 
+</code></pre></div><p>This will still work when we have a simple vector. But out error
+message will not. So, we need to expand this to work when <code>excludes</code>
+is a list,</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06b6ef">if</span>(<span style="color:#06b6ef">class</span>(persons) <span style="color:#5bc4bf">!=</span> <span style="color:#06b6ef">class</span>(exclude) <span style="color:#5bc4bf">|</span>
+   (<span style="color:#06b6ef">class</span>(exclude) <span style="color:#5bc4bf">==</span> <span style="color:#48b685">&#34;</span><span style="color:#48b685">list&#34;</span> <span style="color:#5bc4bf">&amp;</span> <span style="color:#5bc4bf">!</span><span style="color:#06b6ef">all</span>(<span style="color:#06b6ef">class</span>(<span style="color:#06b6ef">unlist</span>(exclude)) <span style="color:#5bc4bf">==</span> <span style="color:#06b6ef">class</span>(persons))))
+    <span style="color:#06b6ef">stop</span>(<span style="color:#06b6ef">sprintf</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Please provide the same data types for both &#39;persons&#39; and &#39;exclude&#39;\n &#39;persons&#39; is class %s, &#39;exclude is class %s&#34;</span>, <span style="color:#06b6ef">class</span>(persons), <span style="color:#06b6ef">unique</span>(<span style="color:#06b6ef">class</span>(<span style="color:#06b6ef">unlist</span>(exclude)))))
+</code></pre></div><p>OK, it doesn't win any points for readability, but it will work.</p>
+<p>Now, for the last bit - only returning a valid result, rather than
+having the user have to call the function again. To fix this, we need
+to know why the function was failing in the first place. Since we are
+using <code>setdiff</code>, we cannot select ourselves or anyone on the <code>exclude</code>
+for that person. But we can end up in a situation where there are no
+valid selections for a person, i.e. the only names in the hat are
+theirs or people on their exclude list. So, we need to handle that
+situation.</p>
+<p>One way to handle it is as you would when drawing names from a hat -
+if you select your own name, you put that draw back and try again. But
+what if there is only one name in the hat? Then you would probably
+switch names with someone else. So, can we turn this in to an
+algorithm?</p>
+<p>Rather than code two different behaviors, to re-draw and trade, we
+will code just one, to trade. And we will only need it in a single
+case - if the number of choices for a person is 0,</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">choices <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">setdiff</span>(persons[<span style="color:#5bc4bf">-</span>i], <span style="color:#06b6ef">c</span>(exclude[[i]], recipient))
+<span style="color:#06b6ef">if</span>(<span style="color:#06b6ef">length</span>(choices) <span style="color:#5bc4bf">==</span> <span style="color:#f99b15">0</span>){
+    <span style="color:#776e71">#trade code</span>
+} else {
+    recipient[i] <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">sample</span>(choices, <span style="color:#f99b15">1</span>)
+}
+</code></pre></div><p>Now, how would we trade? This gets a little tricky - we need to make
+sure the trade does not result in any invalid combinations. So, we
+would need to check that one of the remaining choices is valid for our
+trade. Of course,
+this might not be the right approach - it might be better to just
+restart the entire drawing process and keep trying until we get a
+valid set. What would that look like?</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">i <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span>
+<span style="color:#06b6ef">while</span>(i <span style="color:#5bc4bf">&lt;</span> <span style="color:#06b6ef">length</span>(persons){
+    choices <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">setdiff</span>(persons[<span style="color:#5bc4bf">-</span>i], <span style="color:#06b6ef">c</span>(exclude[[i]], recipient))
+    <span style="color:#06b6ef">if</span>(<span style="color:#06b6ef">length</span>(choices) <span style="color:#5bc4bf">==</span> <span style="color:#f99b15">0</span>){
+        i <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span>
+        choices <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">setdiff</span>(persons[<span style="color:#5bc4bf">-</span>i], <span style="color:#06b6ef">c</span>(exclude[[i]], recipient))
+    }
+    recipient[i] <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">sample</span>(choices, <span style="color:#f99b15">1</span>)
+    
+    i <span style="color:#5bc4bf">=</span> i <span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>
+}
+
+</code></pre></div><p>This works, but there is a risk of it being a infinite loop -
+i.e. there are very few or no valid combos. So, we need some safeguard
+to keep it from running too long.</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">xmas <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, persons <span style="color:#5bc4bf">=</span> df<span style="color:#5bc4bf">$</span>persons, exclude <span style="color:#5bc4bf">=</span> df<span style="color:#5bc4bf">$</span>partner,
+                max_draws <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1000</span>) {
+    draw <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span>
+    <span style="color:#06b6ef">while</span>(i <span style="color:#5bc4bf">&lt;</span> <span style="color:#06b6ef">length</span>(persons)){
+        <span style="color:#06b6ef">if</span>(draw <span style="color:#5bc4bf">&gt;</span> max_draws)
+            <span style="color:#06b6ef">stop</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">No valid combos found in &#34;</span>, draw, <span style="color:#48b685">&#34;</span><span style="color:#48b685"> attempts&#34;</span>)
+
+        }
+
+}
+</code></pre></div><p>Putting it all together, our function look like this:</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">xmas <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, persons <span style="color:#5bc4bf">=</span> df<span style="color:#5bc4bf">$</span>persons, exclude <span style="color:#5bc4bf">=</span> df<span style="color:#5bc4bf">$</span>partner,
+                max_draws <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1000</span>) {
+
+    <span style="color:#06b6ef">if</span>(<span style="color:#5bc4bf">!</span><span style="color:#06b6ef">all</span>(<span style="color:#06b6ef">class</span>(<span style="color:#06b6ef">unlist</span>(exclude)) <span style="color:#5bc4bf">==</span> <span style="color:#06b6ef">class</span>(persons)))
+        <span style="color:#06b6ef">stop</span>(<span style="color:#06b6ef">sprintf</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Please provide the same data types for both &#39;persons&#39; and &#39;exclude&#39;\n &#39;persons&#39; is class %s, &#39;exclude&#39; is class %s&#34;</span>,
+                     <span style="color:#06b6ef">class</span>(persons), <span style="color:#06b6ef">unique</span>(<span style="color:#06b6ef">class</span>(<span style="color:#06b6ef">unlist</span>(exclude)))))
+
+    recipient <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">rep</span>(<span style="color:#815ba4">NA</span>, <span style="color:#06b6ef">length</span>(persons)) 
+    i <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span>
+    draw <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span>
+
+    <span style="color:#06b6ef">while</span>(i <span style="color:#5bc4bf">&lt;</span> (<span style="color:#06b6ef">length</span>(persons) <span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>)){
+        <span style="color:#06b6ef">if</span>(draw <span style="color:#5bc4bf">&gt;</span> max_draws)
+            <span style="color:#06b6ef">stop</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">No valid combos found in &#34;</span>, draw, <span style="color:#48b685">&#34;</span><span style="color:#48b685"> attempts&#34;</span>)
+        
+        choices <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">setdiff</span>(persons[<span style="color:#5bc4bf">-</span>i], <span style="color:#06b6ef">c</span>(exclude[[i]], recipient))
+        <span style="color:#06b6ef">if</span>(<span style="color:#06b6ef">length</span>(choices) <span style="color:#5bc4bf">==</span> <span style="color:#f99b15">0</span>){
+            i <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span>
+            draw <span style="color:#5bc4bf">=</span> draw <span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>
+            choices <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">setdiff</span>(persons[<span style="color:#5bc4bf">-</span>i], <span style="color:#06b6ef">c</span>(exclude[[i]], recipient))
+        }
+        
+        recipient[i] <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">sample</span>(choices, <span style="color:#f99b15">1</span>)
+        
+        i <span style="color:#5bc4bf">=</span> i <span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>
+    }
+    
+    <span style="color:#06b6ef">return</span>(recipient)
+}
+
+</code></pre></div><h1 id="testing-our-function">Testing our function</h1>
+<p>We will grab the data.frames used by one of the other original
+functions to start,</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">d <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">data.frame</span>(
+    persons <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">c</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Cam&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Mitchell&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Jay&#34;</span>,
+                <span style="color:#48b685">&#34;</span><span style="color:#48b685">Gloria&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Manny&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Claire&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Phil&#34;</span>),
+    partner <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">c</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Mitchell&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Cam&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Gloria&#34;</span>,
+                <span style="color:#48b685">&#34;</span><span style="color:#48b685">Jay&#34;</span>, <span style="color:#815ba4">NA</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Phil&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Claire&#34;</span>),
+  stringsAsFactors <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">FALSE</span>)
+
+</code></pre></div><p>and use it as an input for our function,</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06b6ef">replicate</span>(<span style="color:#f99b15">10</span>, <span style="color:#06b6ef">xmas</span>(d))
+</code></pre></div><pre><code>     [,1]       [,2]       [,3]       [,4]       [,5]       [,6]      
+[1,] &quot;Claire&quot;   &quot;Phil&quot;     &quot;Mitchell&quot; &quot;Mitchell&quot; &quot;Mitchell&quot; &quot;Gloria&quot;  
+[2,] &quot;Manny&quot;    &quot;Claire&quot;   &quot;Gloria&quot;   &quot;Jay&quot;      &quot;Claire&quot;   &quot;Claire&quot;  
+[3,] &quot;Gloria&quot;   &quot;Gloria&quot;   &quot;Manny&quot;    &quot;Cam&quot;      &quot;Gloria&quot;   &quot;Cam&quot;     
+[4,] &quot;Phil&quot;     &quot;Cam&quot;      &quot;Phil&quot;     &quot;Claire&quot;   &quot;Cam&quot;      &quot;Jay&quot;     
+[5,] &quot;Mitchell&quot; &quot;Mitchell&quot; &quot;Claire&quot;   &quot;Gloria&quot;   &quot;Phil&quot;     &quot;Phil&quot;    
+[6,] &quot;Jay&quot;      &quot;Jay&quot;      &quot;Jay&quot;      &quot;Phil&quot;     &quot;Jay&quot;      &quot;Mitchell&quot;
+[7,] &quot;Cam&quot;      &quot;Manny&quot;    &quot;Cam&quot;      &quot;Manny&quot;    &quot;Manny&quot;    &quot;Manny&quot;   
+     [,7]       [,8]       [,9]       [,10]     
+[1,] &quot;Phil&quot;     &quot;Phil&quot;     &quot;Mitchell&quot; &quot;Mitchell&quot;
+[2,] &quot;Gloria&quot;   &quot;Claire&quot;   &quot;Manny&quot;    &quot;Phil&quot;    
+[3,] &quot;Cam&quot;      &quot;Manny&quot;    &quot;Phil&quot;     &quot;Gloria&quot;  
+[4,] &quot;Claire&quot;   &quot;Jay&quot;      &quot;Claire&quot;   &quot;Jay&quot;     
+[5,] &quot;Jay&quot;      &quot;Gloria&quot;   &quot;Cam&quot;      &quot;Claire&quot;  
+[6,] &quot;Mitchell&quot; &quot;Cam&quot;      &quot;Gloria&quot;   &quot;Cam&quot;     
+[7,] &quot;Manny&quot;    &quot;Mitchell&quot; &quot;Jay&quot;      &quot;Manny&quot; 
+</code></pre><p>What about when we use a list?</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">exclude <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">list</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Mitchell&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Cam&#34;</span>,
+            <span style="color:#06b6ef">c</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Gloria&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Manny&#34;</span>), <span style="color:#06b6ef">c</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Jay&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Manny&#34;</span>),
+               <span style="color:#815ba4">NA</span>,
+               <span style="color:#48b685">&#34;</span><span style="color:#48b685">Phil&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Claire&#34;</span>)
+<span style="color:#06b6ef">replicate</span>(<span style="color:#f99b15">10</span>, <span style="color:#06b6ef">xmas</span>(d, exclude <span style="color:#5bc4bf">=</span> exclude))
+
+</code></pre></div><pre><code>     [,1]       [,2]       [,3]       [,4]       [,5]       [,6]      
+[1,] &quot;Manny&quot;    &quot;Jay&quot;      &quot;Gloria&quot;   &quot;Phil&quot;     &quot;Claire&quot;   &quot;Gloria&quot;  
+[2,] &quot;Claire&quot;   &quot;Manny&quot;    &quot;Claire&quot;   &quot;Claire&quot;   &quot;Manny&quot;    &quot;Manny&quot;   
+[3,] &quot;Phil&quot;     &quot;Phil&quot;     &quot;Phil&quot;     &quot;Mitchell&quot; &quot;Mitchell&quot; &quot;Claire&quot;  
+[4,] &quot;Cam&quot;      &quot;Cam&quot;      &quot;Mitchell&quot; &quot;Cam&quot;      &quot;Phil&quot;     &quot;Mitchell&quot;
+[5,] &quot;Gloria&quot;   &quot;Claire&quot;   &quot;Cam&quot;      &quot;Jay&quot;      &quot;Gloria&quot;   &quot;Phil&quot;    
+[6,] &quot;Mitchell&quot; &quot;Gloria&quot;   &quot;Manny&quot;    &quot;Gloria&quot;   &quot;Cam&quot;      &quot;Jay&quot;     
+[7,] &quot;Jay&quot;      &quot;Mitchell&quot; &quot;Jay&quot;      &quot;Manny&quot;    &quot;Jay&quot;      &quot;Cam&quot;     
+     [,7]       [,8]       [,9]       [,10]     
+[1,] &quot;Phil&quot;     &quot;Phil&quot;     &quot;Jay&quot;      &quot;Manny&quot;   
+[2,] &quot;Gloria&quot;   &quot;Gloria&quot;   &quot;Phil&quot;     &quot;Claire&quot;  
+[3,] &quot;Claire&quot;   &quot;Claire&quot;   &quot;Claire&quot;   &quot;Phil&quot;    
+[4,] &quot;Mitchell&quot; &quot;Cam&quot;      &quot;Cam&quot;      &quot;Mitchell&quot;
+[5,] &quot;Cam&quot;      &quot;Jay&quot;      &quot;Mitchell&quot; &quot;Jay&quot;     
+[6,] &quot;Jay&quot;      &quot;Mitchell&quot; &quot;Gloria&quot;   &quot;Cam&quot;     
+[7,] &quot;Manny&quot;    &quot;Manny&quot;    &quot;Manny&quot;    &quot;Gloria&quot;  
+</code></pre><p>OK, it all seems to be working well. Let's check our error messages,</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06b6ef">xmas</span>(d, exclude <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span><span style="color:#5bc4bf">:</span><span style="color:#f99b15">7</span>)
+</code></pre></div><pre><code>Error in xmas(d, exclude = 1:7) : 
+  Please provide the same data types for both 'persons' and 'exclude'
+ 'persons' is class factor, 'exclude is class integer
+</code></pre><p>Now that we are thinking of it, it might be good to check for some
+other things, like if the <code>persons</code> and <code>exclude</code> are the same
+length. This was not a concern when we were pulling from a data.frame,
+but when a list is provided, we should check.
+Adding this code to the main function might make sense, but it will
+also make it longer. We could instead make a new function to check the
+inputs,</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">check_input <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(persons, exclude)
+{
+    <span style="color:#06b6ef">if</span>(<span style="color:#5bc4bf">!</span><span style="color:#06b6ef">all</span>(<span style="color:#06b6ef">class</span>(<span style="color:#06b6ef">unlist</span>(exclude)) <span style="color:#5bc4bf">==</span> <span style="color:#06b6ef">class</span>(persons)))
+        <span style="color:#06b6ef">stop</span>(<span style="color:#06b6ef">sprintf</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Please provide the same data types for both &#39;persons&#39; and &#39;exclude&#39;\n &#39;persons&#39; is class %s, &#39;exclude&#39; is class %s&#34;</span>,
+                     <span style="color:#06b6ef">class</span>(persons), <span style="color:#06b6ef">unique</span>(<span style="color:#06b6ef">class</span>(<span style="color:#06b6ef">unlist</span>(exclude)))))
+    <span style="color:#06b6ef">if</span>(<span style="color:#06b6ef">length</span>(persons) <span style="color:#5bc4bf">!=</span> <span style="color:#06b6ef">length</span>(exclude))
+        <span style="color:#06b6ef">stop</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Persons and exclude of different lengths&#34;</span>)
+    <span style="color:#06b6ef">return</span>(<span style="color:#815ba4">NULL</span>)
+}
+   
+</code></pre></div><p>OK, so the final form of the functions is</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">xmas <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, persons <span style="color:#5bc4bf">=</span> df<span style="color:#5bc4bf">$</span>persons, exclude <span style="color:#5bc4bf">=</span> df<span style="color:#5bc4bf">$</span>partner,
+                max_draws <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1000</span>) {
+
+    <span style="color:#06b6ef">check_input</span>(persons, exclude)
+    
+    recipient <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">rep</span>(<span style="color:#815ba4">NA</span>, <span style="color:#06b6ef">length</span>(persons)) 
+    i <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span>
+    draw <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span>
+
+    <span style="color:#06b6ef">while</span>(i <span style="color:#5bc4bf">&lt;</span> (<span style="color:#06b6ef">length</span>(persons) <span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>)){
+        <span style="color:#06b6ef">if</span>(draw <span style="color:#5bc4bf">&gt;</span> max_draws)
+            <span style="color:#06b6ef">stop</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">No valid combos found in &#34;</span>, draw, <span style="color:#48b685">&#34;</span><span style="color:#48b685"> attempts&#34;</span>)
+        
+        choices <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">setdiff</span>(persons[<span style="color:#5bc4bf">-</span>i], <span style="color:#06b6ef">c</span>(exclude[[i]], recipient))
+        <span style="color:#06b6ef">if</span>(<span style="color:#06b6ef">length</span>(choices) <span style="color:#5bc4bf">==</span> <span style="color:#f99b15">0</span>){
+            i <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span>
+            draw <span style="color:#5bc4bf">=</span> draw <span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>
+            choices <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">setdiff</span>(persons[<span style="color:#5bc4bf">-</span>i], <span style="color:#06b6ef">c</span>(exclude[[i]], recipient))
+        }
+        
+        recipient[i] <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">sample</span>(choices, <span style="color:#f99b15">1</span>)
+        
+        i <span style="color:#5bc4bf">=</span> i <span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>
+    }
+    
+    <span style="color:#06b6ef">return</span>(recipient)
+}
+
+</code></pre></div><h1 id="closing-thoughts">Closing thoughts</h1>
+<p>Is this function perfect? Not even close - but it is much better. I am
+sure there are some clever things that can be done to make it more
+efficient.</p>
+<p>I am looking forward to checking it out in another couple years to see
+how I could improve it.</p>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+<span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/r/'>R</a></div>
+<div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/r/'>R</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/post/future_of_r/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Future of R (per Hadley)</a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><div class='copyright'>
+  <p> &copy; 2017-2019 Matt Espe </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__public_path__='\/assets\/js\/'</script>
+
+<script src='/assets/js/main.fae8ed32.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
+</html>
+

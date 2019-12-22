@@ -11,7 +11,7 @@
 <meta property='og:site_name' content='Ten thousand words...'>
 <meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='data science'><meta property='article:published_time' content='2019-06-03T11:42:51-06:00'/><meta property='article:modified_time' content='2019-06-03T11:42:51-06:00'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.61.0" />
 
   <title>Data Science Minimalism • Matt Espe</title>
   <link rel='canonical' href='https://mespe.github.io/post/datasci_minimalism/'>
@@ -72,7 +72,7 @@ if (!doNotTrack) {
       </li><li>
         <a href='/tags/hugo/' style='font-size:1em'>hugo</a>
       </li><li>
-        <a href='/tags/r/' style='font-size:1.7000000000000002em'>R</a>
+        <a href='/tags/r/' style='font-size:1.8em'>R</a>
       </li><li>
         <a href='/tags/research/' style='font-size:1.1em'>research</a>
       </li><li>
@@ -188,62 +188,56 @@ if (!doNotTrack) {
   
 
   <div class='container entry-content'>
-  
-
-<p>When I got my first taste of data science, it was intoxicating. With a
+  <p>When I got my first taste of data science, it was intoxicating. With a
 few lines of code, I could visualize and explore data and make some
 inferences. I was drawn to data science by the possibilities it represented. The
 data science toolbox represented a key to unraveling the data I found
 all around me. Learning how to use these tools was exciting and made
 me feel powerful and capable.</p>
-
 <p>These days, I am much less excited. It has been difficult for me
 to peg down exactly why. This is my feeble attempt to catalog what I
 think is going on - imperfect and bumbling as it may be&hellip;</p>
-
 <h1 id="what-tools-do-you-actually-need">What tools do you actually need?</h1>
-
 <p>In my spare time, I am a woodworker. My workshop is fairly spartan -
 all my tools fit on a wall-mounted peg board and a half-height
 bookshelf. I have no power tools. Most of my tools were manufactured
 long before I was born, and the &ldquo;newer&rdquo; ones are based on old
 designs. There are no pocket jigs, special router tables, or fancy
 hardware.</p>
-
 <p>When people hear this, the most common response is &ldquo;How can you do
 that?&rdquo; or &ldquo;Are you a glutton for difficult work?&rdquo; But the truth is,
 this way of working is in many ways more efficient, safer, and results
 in furnature meant to last a long time and be easy to
 repair.</p>
-
 <p>The merits of my minimalist tooling are many:</p>
-
 <ul>
-<li><p>Give me a saw, a chisel, and a hammer and I can build just about
+<li>
+<p>Give me a saw, a chisel, and a hammer and I can build just about
 anything. Most work can be boiled down to requiring a handful of
-essential skills and knowledge about the mechanics of wood. I don&rsquo;t
+essential skills and knowledge about the mechanics of wood. I don't
 need a special jig or tool for every new piece of furnature I
-build. I don&rsquo;t need the latest, greatest creation of the power tool
+build. I don't need the latest, greatest creation of the power tool
 makers. In my workshop, skill and knowledge take the place
-of complex tooling.</p></li>
-
-<li><p>I have less than $300 in all my essential tools. Contrast this with the X
+of complex tooling.</p>
+</li>
+<li>
+<p>I have less than $300 in all my essential tools. Contrast this with the X
 &ldquo;must have&rdquo; power tools recommended for beginner woodworkers - any one
 of which costs more than my entire collection, plus extra for each
 specialized tool/attachment needed for each new surface, joint, and
 furnature type. It is not uncommon for people to spend thousands on
-woodworking tools.</p></li>
-
-<li><p>By reducing the tools available, I focus more on what is needed
+woodworking tools.</p>
+</li>
+<li>
+<p>By reducing the tools available, I focus more on what is needed
 for each piece and step. With complexity, it is easy to lose sight
 of the goal. Worrying about what tool/bit/fastener I need for a
 project never happens - instead I am concerned with the proportions
 of the piece, the characteristics of the stock I am using,
-etc. Minimal tooling brings the important stuff to the forefront.</p></li>
+etc. Minimal tooling brings the important stuff to the forefront.</p>
+</li>
 </ul>
-
 <h1 id="ok-but-what-does-this-have-to-do-with-data-science">Ok, but what does this have to do with data science?</h1>
-
 <p>In data science, I see many parallels. Data science has become
 dominated by a glut of hype around the latest tools, frameworks, and
 various helpers. Twitter is full of people trying to sell you on the next big
@@ -251,14 +245,12 @@ thing for data science&hellip; the language/library/etc. that is going to
 revolutionize data science as we know it. At least once a week, I get
 asked about some new package which promises to &ldquo;fix&rdquo;, or worse
 &ldquo;transform&rdquo; how I work with data.</p>
-
-<p>People constantly come to me for help with R, but 98\% of the time,
+<p>People constantly come to me for help with R, but 98% of the time,
 they know very little about R. Instead, they are tied in knots over
 the details of some package. However, it is shockingly common for them to
 struggle with the seemingly inocculuous question &ldquo;What are you trying
 to do?&rdquo; It is easy to get so caught up with &ldquo;How does dplyr work?&rdquo;
 that you forget to ask &ldquo;Should I be using dplyr?&rdquo;</p>
-
 <p>Data science in this landscape of hype is an overwhelming, never-ending
 slog. But most importantly, it distracts from learning the key skills
 and foundational knowledge needed to really become proficient. Hence a
@@ -267,26 +259,25 @@ can tell you how to pipe a bunch of functions together, but far fewer
 can tell you general strategies for working with messy data. Many
 people know about package X, but few are experts in working with data
 more generally.</p>
-
 <h1 id="so-what-do-you-need">So, what do you need?</h1>
-
 <p>I will admit that I am somewhat of an outlier. My development environment, is very
-simple. I use R, but I don&rsquo;t use Rstudio, the tidyverse, etc. I work
+simple. I use R, but I don't use Rstudio, the tidyverse, etc. I work
 with R in Emacs, but even there I use a very minimal set of
 packages. And in R, I rarely use more than a handful of packages. My
 day to day work leans hard on the basics of the language.</p>
-
 <p>Most data science, from cleaning to modeling to visualization can be
 broken into three basic tasks:</p>
-
 <ol>
-<li><p>Divide data</p></li>
-
-<li><p>Apply an operation, possibily looping over divisions</p></li>
-
-<li><p>Combine data</p></li>
+<li>
+<p>Divide data</p>
+</li>
+<li>
+<p>Apply an operation, possibily looping over divisions</p>
+</li>
+<li>
+<p>Combine data</p>
+</li>
 </ol>
-
 <p>Of course there are numerious details hidden in each step, but most
 tasks boil down to just that.</p>
 

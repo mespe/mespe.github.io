@@ -13,7 +13,7 @@ I thought I would write up my experiences starting a blog that uses R code but t
 <meta property='og:site_name' content='Ten thousand words...'>
 <meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='blogging'><meta property='article:tag' content='hugo'><meta property='article:published_time' content='2017-06-14T09:40:09-07:00'/><meta property='article:modified_time' content='2017-06-14T09:40:09-07:00'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.61.0" />
 
   <title>Creating an R blog with Hugo (without using blogdown) • Ten thousand words...</title>
   <link rel='canonical' href='https://mespe.github.io/post/start/'>
@@ -74,7 +74,7 @@ if (!doNotTrack) {
       </li><li>
         <a href='/tags/hugo/' style='font-size:1em'>hugo</a>
       </li><li>
-        <a href='/tags/r/' style='font-size:1.7000000000000002em'>R</a>
+        <a href='/tags/r/' style='font-size:1.8em'>R</a>
       </li><li>
         <a href='/tags/research/' style='font-size:1.1em'>research</a>
       </li><li>
@@ -184,108 +184,100 @@ if (!doNotTrack) {
   
 
   <div class='container entry-content'>
-  
-
-<p><em>UPDATE: The fine folks behind Hugo put together a <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/" target="_blank">nice guild that
+  <p><em>UPDATE: The fine folks behind Hugo put together a <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">nice guild that
 covers the steps involved in getting github pages and Hugo setup.</a></em></p>
-
 <p>I thought I would write up my experiences starting a blog that uses R
 code but that does not
-use <a href="https://github.com/rstudio/blogdown" target="_blank">blogdown</a>. Why do I not use
+use <a href="https://github.com/rstudio/blogdown">blogdown</a>. Why do I not use
 blogdown? The short story is that blogdown does not seem quite ready to use,
 as it is missing some elements to make publishing a blog easy.</p>
-
 <p>The long story is that after
 spending a good chunk of time helping a student navigate through using
 blogdown, I found the approach below to be both easier to use and
 simpler to implement. The
 disadvantage of this approach is you have to step out of RStudio (which
-I don&rsquo;t use anyway) and into the terminal.</p>
-
+I don't use anyway) and into the terminal.</p>
 <p><em>DISCLAIMER: This is a work in progress - I am not big on writing
 blogs, so please forgive me if this is not helpful.</em></p>
-
 <h1 id="setup">Setup</h1>
-
 <p>I recommend following the instructions here for simple setup and
- deployment scripts. These have worked well for me.</p>
-
-<p><a href="https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-gh-pages/" target="_blank">UPDATE: DEPLOYING HUGO-GENERATED WEBSITES ON PERSONAL GITHUB PAGES</a></p>
-
+deployment scripts. These have worked well for me.</p>
+<p><a href="https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-gh-pages/">UPDATE: DEPLOYING HUGO-GENERATED WEBSITES ON PERSONAL GITHUB PAGES</a></p>
 <h1 id="using-r-code">Using R code</h1>
-
 <p>This is where things get a little tricky. The biggest obstacle is that
 when you knitr or Sweave a <code>.Rmd</code> to a <code>.md</code> file, the
 figures (by default) are put in a folder in the working
 directory. However, when hugo builds the static website, it moves
 everything around. We need to do two things to prepare our R plots and
 *.md files for hugo:</p>
-
 <ol>
-<li><p>We need to either create the plots in the <code>/static/</code> folder, or
- move them there after knitting the <code>.Rmd</code></p></li>
-
-<li><p>We need to make the file path in the <code>.md</code> file point to where
- hugo will place the figures in the built website, not where they exist now.</p></li>
+<li>
+<p>We need to either create the plots in the <code>/static/</code> folder, or
+move them there after knitting the <code>.Rmd</code></p>
+</li>
+<li>
+<p>We need to make the file path in the <code>.md</code> file point to where
+hugo will place the figures in the built website, not where they exist now.</p>
+</li>
 </ol>
-
 <p>I found moving the images easier, though I suspect either will work. The steps are:</p>
-
 <ol>
-<li><p>Create the <code>.Rmd</code> file. Specify <code>fig.path='img/'</code> (the name of
- this folder does not matter as long as it is consistent for each
- step). For example:</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"> <span style="color:#48b685">``</span>`{r fig.path <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;img/&#34;</span>}
-plot(rnorm(<span style="color:#f99b15">100</span>))
-<span style="color:#48b685">``</span>`</code></pre></div></li>
-
-<li><p>knit the <code>.Rmd</code> file. Any figures will end up in a folder named
- <code>img/</code> in the current working directory.</p></li>
-
-<li><p>Copy or move all the contents of <code>img/</code> to <code>{main
- website}/static/img</code>, where <code>{main website}</code> is the top-most
- directory of your website.</p></li>
-
-<li><p>Change all references in the <code>.md</code> file from <code>img/*</code> to
- <code>/img/*</code>. The tricky thing is you want to do this <strong>after</strong> the
- <code>.md</code> file has been programmatically created, not in the <code>.Rmd</code>
- source file.</p></li>
+<li>
+<p>Create the <code>.Rmd</code> file. Specify <code>fig.path='img/'</code> (the name of
+this folder does not matter as long as it is consistent for each
+step). For example:</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">```{r fig.path <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;</span><span style="color:#48b685">img/&#34;</span>}
+</code></pre></div></li>
 </ol>
+<p>plot(rnorm(100))</p>
+<pre><code>~~~
 
-<p>Easy, right? I did not want to do this for every single file I might produce, so I
-put the whole thing under gnu make using some makefile magic.</p>
+2. knit the `.Rmd` file. Any figures will end up in a folder named
+   `img/` in the current working directory.
 
-<p><code>Makefile</code></p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#ef6155">POSTDIR</span> <span style="color:#5bc4bf">:=</span> content/post
-<span style="color:#ef6155">OBJS</span> <span style="color:#5bc4bf">:=</span> <span style="color:#815ba4">$(</span>shell find -name <span style="color:#48b685">&#39;*.Rmd&#39;</span><span style="color:#815ba4">)</span>
-<span style="color:#ef6155">OUTFILES</span> <span style="color:#5bc4bf">:=</span> <span style="color:#815ba4">$(</span>patsubst %.Rmd,%.md,<span style="color:#815ba4">$(</span>OBJS<span style="color:#815ba4">))</span>
-<span style="color:#ef6155">KNIT</span> <span style="color:#5bc4bf">=</span> Rscript -e <span style="color:#48b685">&#34;library(knitr); knit(&#39;</span>$<span style="color:#48b685">&lt;&#39;)&#34;</span>
+3. Copy or move all the contents of `img/` to `{main
+   website}/static/img`, where `{main website}` is the top-most
+   directory of your website.
 
-<span style="color:#06b6ef">all</span><span style="color:#5bc4bf">:</span><span style="color:#815ba4">$(</span><span style="color:#ef6155">OUTFILES</span><span style="color:#815ba4">)</span>
+4. Change all references in the `.md` file from `img/*` to
+   `/img/*`. The tricky thing is you want to do this **after** the
+   `.md` file has been programmatically created, not in the `.Rmd`
+   source file.
+   
+Easy, right? I did not want to do this for every single file I might produce, so I
+put the whole thing under gnu make using some makefile magic.
 
-<span style="color:#06b6ef">$(OUTFILES)</span><span style="color:#5bc4bf">:</span><span style="color:#815ba4">$(</span><span style="color:#ef6155">OBJS</span><span style="color:#815ba4">)</span>
-    <span style="color:#815ba4">$(</span>KNIT<span style="color:#815ba4">)</span>; <span style="color:#f99b15">\
-</span><span style="color:#f99b15"></span>    cp -r img/* ../../static/img/; <span style="color:#f99b15">\
-</span><span style="color:#f99b15"></span>    sed -i <span style="color:#48b685">&#39;s/img\//\/img\//g&#39;</span> <span style="color:#815ba4">$(</span>OUTFILES<span style="color:#815ba4">)</span>
+`Makefile`
+~~~makefile
+POSTDIR := content/post
+OBJS := $(shell find -name '*.Rmd')
+OUTFILES := $(patsubst %.Rmd,%.md,$(OBJS))
+KNIT = Rscript -e &quot;library(knitr); knit('$&lt;')&quot;
 
-<span style="color:#06b6ef">clean</span><span style="color:#5bc4bf">:</span>
-    rm <span style="color:#815ba4">$(</span>OUTFILES<span style="color:#815ba4">)</span>
-</code></pre></div>
-<p>This finds all the files with the <code>.Rmd</code> extension, and converts them
-to <code>.md</code> files. It then uses <code>sed</code> to replace <code>img/</code> with <code>/img/</code>. You
+all:$(OUTFILES)
+
+$(OUTFILES):$(OBJS)
+  $(KNIT); \
+  cp -r img/* ../../static/img/; \
+  sed -i 's/img\//\/img\//g' $(OUTFILES)
+
+clean:
+  rm $(OUTFILES)
+~~~
+
+This finds all the files with the `.Rmd` extension, and converts them
+to `.md` files. It then uses `sed` to replace `img/` with `/img/`. You
 will need to edit this to reflect your file structure (I have
-my <code>.Rmd</code> files in <code>mespe.github.io/content/post/</code> so I need to
-accend 2 directories to get to <code>static/</code>).</p>
+my `.Rmd` files in `mespe.github.io/content/post/` so I need to
+accend 2 directories to get to `static/`).
 
-<p>So, what does the resulting workflow look like?</p>
+So, what does the resulting workflow look like?
 
-<ol>
-<li>Author a <code>.Rmd</code> file</li>
-<li>Navigate to the correct folder and run <code>make all</code> in the terminal</li>
-</ol>
+1. Author a `.Rmd` file
+2. Navigate to the correct folder and run `make all` in the terminal
 
-<p>That&rsquo;s it - no blogdown required.</p>
-
+That's it - no blogdown required.
+</code></pre>
 </div>
 
   

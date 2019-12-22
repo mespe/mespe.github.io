@@ -11,7 +11,7 @@
 <meta property='og:site_name' content='Ten thousand words...'>
 <meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='Stan'><meta property='article:tag' content='stats'><meta property='article:published_time' content='2017-08-24T20:51:22-07:00'/><meta property='article:modified_time' content='2017-08-24T20:51:22-07:00'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.61.0" />
 
   <title>A few things I don&#39;t love about Stan • Ten thousand words...</title>
   <link rel='canonical' href='https://mespe.github.io/post/stan_gripes/'>
@@ -72,7 +72,7 @@ if (!doNotTrack) {
       </li><li>
         <a href='/tags/hugo/' style='font-size:1em'>hugo</a>
       </li><li>
-        <a href='/tags/r/' style='font-size:1.7000000000000002em'>R</a>
+        <a href='/tags/r/' style='font-size:1.8em'>R</a>
       </li><li>
         <a href='/tags/research/' style='font-size:1.1em'>research</a>
       </li><li>
@@ -186,32 +186,21 @@ if (!doNotTrack) {
   <summary class='title'>
     <span>Table of Contents</span>
   </summary>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#the-model-trade-offs">The model trade-offs</a></li>
-<li><a href="#so-what-s-the-issue">So what&rsquo;s the issue?</a></li>
-</ul>
-</nav>
+  <nav id="TableOfContents"></nav>
 </details>
 
 
   <div class='container entry-content'>
-  
-
-<p>First off, I love <a href="mcstan.org" target="_blank">Stan</a>. If you have not heard of Stan, I
+  <p>First off, I love <a href="mcstan.org">Stan</a>. If you have not heard of Stan, I
 highly recommend you check it out. I use Stan for almost all of my
 statistics these days, and have published several papers using it.</p>
-
-<p>That said, there are a fair number of things I don&rsquo;t like about it:</p>
-
+<p>That said, there are a fair number of things I don't like about it:</p>
 <h1 id="the-model-trade-offs">The model trade-offs</h1>
-
 <p>In my experience, when you are developing a model in Stan, you are
 often faced with trade-offs between 1) flexibility, 2) readability,
 and 3) development time.</p>
-
 <p>To illustrate with a silly example, say I had a basic model:</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-stan" data-lang="stan">data{
+<pre><code class="language-stan" data-lang="stan">data{
   int N;
   vector[N] y;
 }
@@ -220,10 +209,10 @@ parameters{
 }
 model{
   target += normal_lpdf(y | mu, 1);
-}</code></pre></div>
-<p>This model is simple and easy to read, but it is not flexible. To make
+}
+</code></pre><p>This model is simple and easy to read, but it is not flexible. To make
 this model take a number of predictors, I have to modify the code:</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-stan" data-lang="stan">data{
+<pre><code class="language-stan" data-lang="stan">data{
   int N;
   vector[N] predictor;
   vector[N] y;
@@ -234,18 +223,16 @@ parameters{
 }
 model{
   target += normal_lpdf(y | mu + beta * predictor, 1);
-}</code></pre></div>
-<p>Creating this little change would mean sitting through compiling the
+}
+</code></pre><p>Creating this little change would mean sitting through compiling the
 model again. Doing this once or twice is not so bad, but when I am
 working with a model this could be up to 20 or 30 times. That really
 adds up.</p>
-
 <p>Second, each time I edit the model, there is the potential to
 introduce errors. Therefore, in addition to the compiling time, there
 is time spent debugging, etc.</p>
-
 <p>So, instead of all of this, I could have coded the model as:</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-stan" data-lang="stan">data{
+<pre><code class="language-stan" data-lang="stan">data{
   int N;
   int num_pred; //number of predictors
   matrix[N, num_pred] X; //model matrix
@@ -256,61 +243,60 @@ parameters{
 }
 model{
   target += normal_lpdf(y | beta * X, 1);
-}</code></pre></div>
-<p>This model is actually the same as both of the models above. Compared
+}
+</code></pre><p>This model is actually the same as both of the models above. Compared
 to those, it is much more flexible. This model can accept countless
 number of predictors without changing the Stan code at all. All that
 compiler time is gone, as is the time spent debugging and checking the
 model.</p>
-
 <p>So, you might say this is clearly the winner, right?</p>
-
 <p>Well, I actually prefer the first way because:</p>
-
 <ol>
-<li><p>The model code is expressive of what happening in the analysis. Though it
+<li>
+<p>The model code is expressive of what happening in the analysis. Though it
 is more inefficient on several fronts, this code allows someone to see
 exactly what is happening. Looking at the more efficient model, a
 reader will not have a clue how many predictors were used, what
 their types were, etc. An extreme example of this is the model code
 for
 the
-<a href="https://github.com/stan-dev/rstanarm/tree/master/inst/chunks" target="_blank">rstanarm package</a> for
+<a href="https://github.com/stan-dev/rstanarm/tree/master/inst/chunks">rstanarm package</a> for
 R. These models are extremely flexible and highly efficient, but
-almost impossible to tell on first glance what is going on.</p></li>
-
-<li><p>The inefficiency can be a feature. More than once I have been
+almost impossible to tell on first glance what is going on.</p>
+</li>
+<li>
+<p>The inefficiency can be a feature. More than once I have been
 forced to actually spell out the math in the models I am creating,
 rather than just relying on the &ldquo;throw it in a model matrix and it just
 runs&rdquo; approach. For me, forcing me to slow down and think
-deliberately about my model is helpful.</p></li>
-
-<li><p>Verbose models are often easier for people with little statistics
+deliberately about my model is helpful.</p>
+</li>
+<li>
+<p>Verbose models are often easier for people with little statistics
 experience to approach. As I think more and more about reproducible
 research, the more I think I would happily trade some wall time for
 a model that more readers can understand and even potentially
-modify.</p></li>
+modify.</p>
+</li>
 </ol>
-
-<h1 id="so-what-s-the-issue">So what&rsquo;s the issue?</h1>
-
+<h1 id="so-whats-the-issue">So what's the issue?</h1>
 <p>Those compile and testing times are killing me. Developing models as
 part of my analysis is slow. When a project comes up that needs an
 answer ASAP, I will often resort to rstanarm or even lme4. But for
 something I am going to publish alongside a manuscript, I prefer the
 slower approach.</p>
-
 <p>My wish list then is:</p>
-
 <ol>
-<li><p>A testing framework that will work for custom written models to
-quickly evaluate that they are performing as intended.</p></li>
-
-<li><p>Custom Bayesian models that have the speed of compiled code, but without
+<li>
+<p>A testing framework that will work for custom written models to
+quickly evaluate that they are performing as intended.</p>
+</li>
+<li>
+<p>Custom Bayesian models that have the speed of compiled code, but without
 the lengthy compile times. I would trade a little wall time for
-reduced compile times.</p></li>
+reduced compile times.</p>
+</li>
 </ol>
-
 <p>Which makes me wonder what potential exists in 1) Nimble compiled with
 LLVM, 2) Julia, or 3) Go. Go is the most intriguing to me - it is
 almost as fast as C++, but compiles ridiculously quickly. Hmmm&hellip;</p>
