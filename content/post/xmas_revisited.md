@@ -13,14 +13,15 @@ Years ago, a friend asked me for help writing a function to do her
 family's Xmas gift exchange. You can see her post on a collection of
 functions for this
 [here](https://myfanwy.github.io/Blog/2019/12/17/Christmas-Gifting-With-R.html). The
-basic goal here is to have a function that randomizes the names with
-restriction, to simulate the process of pulling names out of a hat
-where you draw again if you draw yourself or your partner.
+basic goal here is to have a function that randomizes the names in the
+hat, but with the restriction that close family members (spouses)
+cannot draw eachother. We want to simulate the process of pulling
+names out of a hat where you cannot draw yourself or your partner.
 
-I literally wrote this two years ago, and very quickly, so I did not
-expect it to be great. Looking at it now, after time and experience, I
+I literally wrote this two years ago, and very quickly. I did not
+expect it to be great. Looking at it now, after some time and experience, I
 can see many areas to improve it. And I would hate to have a sloppily
-written function be the last for from me.
+written function be the last word from me.
 
 # The original function
 
@@ -68,19 +69,19 @@ what is not great about it, as well as what might be OK.
 
 *1. Formatting:* I find it very difficult to read the above
 code. Having the comments off the end of each line of code is messy,
-and the spacing is terrible
+and the spacing is terrible.
 
-*2. Rigid data structure expectations:* The function expects certain
-things to be true about the input data.frame, e.g. having an empty
-column to fill, expecting some data to be indices, etc.
+*2. Expectations for the input data structure:* The function expects very
+specific structure for the input data.frame, e.g. having an empty
+column to fill, expecting the "spouses" column to be indices, etc.
 
 *3. No flexibility in calling the function:* The function takes a
 single argument, the data.frame. The user can only modify behavior by
 modifying this data.frame.
 
-*4. Cannot take multiple restrictions on the draw:* For example, to
-prevent drawing people in your immediate family rather than just your
-spouse. 
+*4. Cannot make multiple restrictions for each person:* For example,
+to prevent someone from "drawing" any of the people in their immediate
+family rather than just your spouse, e.g. children or parents.
 
 *5. Forces the user to re-run on failure:* It would be better to keep
 running until there is a valid output, rather than forcing the user to
@@ -90,16 +91,16 @@ re-run the function.
 
 *1. It seemed to work:* 
 
-*2. for loop is probably appropriate for small lists:* If we wanted to
+*2. `for` loop is probably appropriate for small lists:* If we wanted to
 do this with a large set of inputs, we might want to look at
 vectorizing the code, but for this it is fine.
 
 # Improving the xmas function
 
 First things first, we are going to get rid of the dependence on
-certain rows being present in the input data.frame. Let's do that by
-creating some variables, which will be automatically populated from
-the data.frame:
+certain columns being present in the input data.frame. Let's do that by
+creating some variables. We will automatically populated these from
+the data.frame by default:
 
 ```r
 xmas = function(df, persons = df$persons, exclude = df$partner) {
@@ -109,19 +110,24 @@ xmas = function(df, persons = df$persons, exclude = df$partner) {
 
 This might not be the long term solution, but it will work for the
 time being. It gets us away from needing there to be a column of a
-certain name in the original data.frame. 
+certain name in the original data.frame. The default option does
+expect certain columns, but the user can get around this, e.g.
 
-Next, let's relax the
-data structure that is acceptable for the function. For example, it
-would be nice if the persons and partners could be either factors,
-characters, or integers. To do this, we need to change this line of
-code:
+```r
+xmas( , persons = my_data$a, exclude = my_other_data$b)
+```
+
+Next, let's relax the data types that are acceptable for the
+function. For example, it would be nice if the `persons` and `exclude`
+(formally `partner`)
+could be either factors, characters, or integers. To do this, we need
+to change this line of code:
 
 ```r
 pool_df$id2[i] = sample(setdiff(seq(nrow(pool_df)), c(pool_df$partner[i], pool_df$id
 ```
 
-Right now, it expects that the partner is an integer. We can replace
+Right now, it expects that the `exclude` is an integer. We can replace
 it with:
 
 ```r
@@ -129,10 +135,10 @@ recipient[i] = sample(setdiff(persons[-i], c(exclude[i], recipient)), 1)
 ```
 
 This does two things - first, we exclude drawing ourselves with
-`persons[-i]` and second we made code work irrespective of the data type of `persons` and
-`exclude` (formally `partners`). So, what will screw this up? if the
-data types of these two are different from one another - so we should
-add in a test,
+`persons[-i]`, and second we made the code work irrespective of the
+data type of `persons` and `exclude`. But it is not foolproof. So,
+what will screw this up? It will fail if the data types of these two
+are different from one another - so we should add in a test,
 
 ```r
 if(class(persons) != class(exclude))
@@ -147,8 +153,8 @@ types they provided,
 ```
 
 OK, we have dealt with the "bad" 1-3 above, but now we want to think
-about how we would dealt with multiple `excludes` per person. The
-first question is how would a user specify a variable number of people
+about how we would deal with multiple `excludes` per person. How would
+a user even specify a variable number of people
 to exclude for each `person`? Since we can have a variable number -
 some people will only have 1 or maybe 0 restrictions, while others
 might have 2 or more. The natural structure to store items of
@@ -168,9 +174,10 @@ First, we need to index into the list when drawing from `exclude`,
 recipient[i] = sample(setdiff(persons[-i], c(exclude[[i]], recipient)), 1) 
 ```
 
-This will still work when we have a simple vector. But out error
-message will not. So, we need to expand this to work when `excludes`
-is a list,
+This will still work when we have a simple vector, since `[[` will
+still pull the correct element of a vector. But our error message will
+not work. So, we need to expand this to work when `excludes` is a
+list,
 
 ```r
 if(class(persons) != class(exclude) |
@@ -178,25 +185,26 @@ if(class(persons) != class(exclude) |
     stop(sprintf("Please provide the same data types for both 'persons' and 'exclude'\n 'persons' is class %s, 'exclude is class %s", class(persons), unique(class(unlist(exclude)))))
 ```
 
-OK, it doesn't win any points for readability, but it will work.
+It doesn't win any points for readability, but it will work.
 
 Now, for the last bit - only returning a valid result, rather than
 having the user have to call the function again. To fix this, we need
 to know why the function was failing in the first place. Since we are
 using `setdiff`, we cannot select ourselves or anyone on the `exclude`
-for that person. But we can end up in a situation where there are no
-valid selections for a person, i.e. the only names in the hat are
-theirs or people on their exclude list. So, we need to handle that
-situation. 
+for that person, so that is not a possible reason to fail. But we can
+end up in a situation where there are no valid selections for a
+person, i.e. the only "names in the hat" are their name or people on their
+exclude list. So, we need to handle that situation.
 
-One way to handle it is as you would when drawing names from a hat -
-if you select your own name, you put that draw back and try again. But
-what if there is only one name in the hat? Then you would probably
-switch names with someone else. So, can we turn this in to an
+One way to handle it is as you would when actually drawing names from
+a hat - if you select your own name, you put that draw back and try
+again. But what if there is only one name in the hat? Then you would
+probably switch names with someone else. So, can we turn this in to an
 algorithm?
 
 Rather than code two different behaviors, to re-draw and trade, we
-will code just one, to trade. And we will only need it in a single
+will code just one, to trade. This is because our code makes it
+impossible to draw ourselves. Therefore, we will only need to handle a single
 case - if the number of choices for a person is 0,
 
 ```r
@@ -211,8 +219,8 @@ if(length(choices) == 0){
 Now, how would we trade? This gets a little tricky - we need to make
 sure the trade does not result in any invalid combinations. So, we
 would need to check that one of the remaining choices is valid for our
-trade. Of course,
-this might not be the right approach - it might be better to just
+trade. This might take a little effort to get right. Of course,
+this might not even be the right approach - it might be better to just
 restart the entire drawing process and keep trying until we get a
 valid set. What would that look like?
 
@@ -231,9 +239,10 @@ while(i < length(persons){
 
 ```
 
-This works, but there is a risk of it being a infinite loop -
-i.e. there are very few or no valid combos. So, we need some safeguard
-to keep it from running too long.
+This works, but there is now a risk of it being a infinite loop -
+i.e. if there are very few or no valid combos. So, we need some safeguard
+to keep it from running too long. We can add a `max_draw` parameter to
+get an upper limit on the number of times we try to find a valid set,
 
 ```r
 xmas = function(df, persons = df$persons, exclude = df$partner,
@@ -248,7 +257,7 @@ xmas = function(df, persons = df$persons, exclude = df$partner,
 }
 ```
 
-Putting it all together, our function look like this:
+Putting it all together, our function looks like this:
 
 ```r
 xmas = function(df, persons = df$persons, exclude = df$partner,
@@ -351,7 +360,7 @@ replicate(10, xmas(d, exclude = exclude))
 [7,] "Manny"    "Manny"    "Manny"    "Gloria"  
 ```
 
-OK, it all seems to be working well. Let's check our error messages,
+OK, it all seems to be working OK. Let's check our error messages,
 
 ```r
 xmas(d, exclude = 1:7)
@@ -365,10 +374,11 @@ Error in xmas(d, exclude = 1:7) :
 Now that we are thinking of it, it might be good to check for some
 other things, like if the `persons` and `exclude` are the same
 length. This was not a concern when we were pulling from a data.frame,
-but when a list is provided, we should check.
-Adding this code to the main function might make sense, but it will
-also make it longer. We could instead make a new function to check the
-inputs,
+since columns in a data.frame must be the same length.  But when a
+list or elements from other objects are provided, we should check that
+they have the same length.  Adding this code to the main function
+might make sense, but it will also make it longer and might hurt
+readability. We could instead make a new function to check the inputs,
 
 ```r
 check_input = function(persons, exclude)
@@ -383,7 +393,7 @@ check_input = function(persons, exclude)
    
 ```
 
-OK, so the final form of the functions is
+OK, so the final form of the `xmas` functions is
 
 ```r
 xmas = function(df, persons = df$persons, exclude = df$partner,
