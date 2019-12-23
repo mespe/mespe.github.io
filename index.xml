@@ -16,8 +16,7 @@
       <pubDate>Sun, 22 Dec 2019 09:47:01 -0700</pubDate>
       
       <guid>https://mespe.github.io/post/xmas_revisited/</guid>
-      <description>Years ago, a friend asked me for help writing a function to do her family&#39;s Xmas gift exchange. You can see her post on a collection of functions for this here. The basic goal here is to have a function that randomizes the names with restriction, to simulate the process of pulling names out of a hat where you draw again if you draw yourself or your partner.
-I literally wrote this two years ago, and very quickly, so I did not expect it to be great.</description>
+      <description>Years ago, a friend asked me for help writing a function to do her family&#39;s Xmas gift exchange. You can see her post on a collection of functions for this here. The basic goal here is to have a function that randomizes the names in the hat, but with the restriction that close family members (spouses) cannot draw eachother. We want to simulate the process of pulling names out of a hat where you cannot draw yourself or your partner.</description>
     </item>
     
     <item>
