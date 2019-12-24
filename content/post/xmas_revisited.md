@@ -149,7 +149,8 @@ We might even want to go a step further and tell the user what data
 types they provided,
 
 ```r
-    stop(sprintf("Please provide the same data type for both 'persons' and 'exclude'\n 'persons' is class %s, 'exclude is class %s", class(persons), class(exclude)))
+stop(sprintf("Please provide the same data type for both 'persons' and 'exclude'\n 'persons' is class %s, 'exclude is class %s",
+             class(persons), class(exclude)))
 ```
 
 OK, we have dealt with the "bad" 1-3 above, but now we want to think
@@ -180,9 +181,9 @@ not work. So, we need to expand this to work when `excludes` is a
 list,
 
 ```r
-if(class(persons) != class(exclude) |
-   (class(exclude) == "list" & !all(class(unlist(exclude)) == class(persons))))
-    stop(sprintf("Please provide the same data types for both 'persons' and 'exclude'\n 'persons' is class %s, 'exclude is class %s", class(persons), unique(class(unlist(exclude)))))
+    if(!all(class(unlist(exclude)) == class(persons)))
+        stop(sprintf("Please provide the same data types for both 'persons' and 'exclude'\n 'persons' is class %s, 'exclude' is class %s",
+                     class(persons), unique(class(unlist(exclude)))))
 ```
 
 It doesn't win any points for readability, but it will work.
@@ -226,7 +227,7 @@ valid set. What would that look like?
 
 ```r
 i = 1
-while(i < length(persons){
+while(i < (length(persons) + 1)){
     choices = setdiff(persons[-i], c(exclude[[i]], recipient))
     if(length(choices) == 0){
         i = 1
@@ -368,7 +369,7 @@ xmas(d, exclude = 1:7)
 ```
 Error in xmas(d, exclude = 1:7) : 
   Please provide the same data types for both 'persons' and 'exclude'
- 'persons' is class factor, 'exclude is class integer
+ 'persons' is class factor, 'exclude' is class integer
 ```
 
 Now that we are thinking of it, it might be good to check for some
@@ -426,11 +427,31 @@ xmas = function(df, persons = df$persons, exclude = df$partner,
 
 ```
 
+There is one big thing missing - documentation. All those
+comments were annoying before, but we should add something to document
+how the function works. How we do this might depend on how this gets
+used. If this is a one-off function, we can add a block comment,
+
+```r
+xmas = function(df, persons = df$persons, exclude = df$partner,
+                max_draws = 1000)
+    # Takes a vector of gift givers (persons) and
+    # a vector or list of the people each should not draw (exclude)
+    # and returns a randomized recipient list, with one recipient
+    # per giver
+{
+
+```
+
+However, if this function ends up in a package, we can add R
+documentation, either as roxygen2 or an R man page. Either way, we
+should add something.
+
 # Closing thoughts
 
 Is this function perfect? Not even close - but it is much better. I am
 sure there are some clever things that can be done to make it more
-efficient. 
+efficient.
 
 I am looking forward to checking it out in another couple years to see
 how I could improve it.
