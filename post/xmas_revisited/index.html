@@ -11,7 +11,7 @@
 <meta property='og:site_name' content='Ten thousand words...'>
 <meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='R'><meta property='article:published_time' content='2019-12-22T09:47:01-07:00'/><meta property='article:modified_time' content='2019-12-22T09:47:01-07:00'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.61.0" />
+<meta name="generator" content="Hugo 0.62.0" />
 
   <title>Xmas Functions, revisited • Ten thousand words...</title>
   <link rel='canonical' href='https://mespe.github.io/post/xmas_revisited/'>
@@ -281,7 +281,8 @@ are different from one another - so we should add in a test,</p>
     <span style="color:#06b6ef">stop</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Please provide the same data type for both &#39;persons&#39; and &#39;exclude&#39;&#34;</span>)
 </code></pre></div><p>We might even want to go a step further and tell the user what data
 types they provided,</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">    <span style="color:#06b6ef">stop</span>(<span style="color:#06b6ef">sprintf</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Please provide the same data type for both &#39;persons&#39; and &#39;exclude&#39;\n &#39;persons&#39; is class %s, &#39;exclude is class %s&#34;</span>, <span style="color:#06b6ef">class</span>(persons), <span style="color:#06b6ef">class</span>(exclude)))
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06b6ef">stop</span>(<span style="color:#06b6ef">sprintf</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Please provide the same data type for both &#39;persons&#39; and &#39;exclude&#39;\n &#39;persons&#39; is class %s, &#39;exclude is class %s&#34;</span>,
+             <span style="color:#06b6ef">class</span>(persons), <span style="color:#06b6ef">class</span>(exclude)))
 </code></pre></div><p>OK, we have dealt with the &ldquo;bad&rdquo; 1-3 above, but now we want to think
 about how we would deal with multiple <code>excludes</code> per person. How would
 a user even specify a variable number of people
@@ -300,9 +301,9 @@ First, we need to index into the list when drawing from <code>exclude</code>,</p
 still pull the correct element of a vector. But our error message will
 not work. So, we need to expand this to work when <code>excludes</code> is a
 list,</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06b6ef">if</span>(<span style="color:#06b6ef">class</span>(persons) <span style="color:#5bc4bf">!=</span> <span style="color:#06b6ef">class</span>(exclude) <span style="color:#5bc4bf">|</span>
-   (<span style="color:#06b6ef">class</span>(exclude) <span style="color:#5bc4bf">==</span> <span style="color:#48b685">&#34;</span><span style="color:#48b685">list&#34;</span> <span style="color:#5bc4bf">&amp;</span> <span style="color:#5bc4bf">!</span><span style="color:#06b6ef">all</span>(<span style="color:#06b6ef">class</span>(<span style="color:#06b6ef">unlist</span>(exclude)) <span style="color:#5bc4bf">==</span> <span style="color:#06b6ef">class</span>(persons))))
-    <span style="color:#06b6ef">stop</span>(<span style="color:#06b6ef">sprintf</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Please provide the same data types for both &#39;persons&#39; and &#39;exclude&#39;\n &#39;persons&#39; is class %s, &#39;exclude is class %s&#34;</span>, <span style="color:#06b6ef">class</span>(persons), <span style="color:#06b6ef">unique</span>(<span style="color:#06b6ef">class</span>(<span style="color:#06b6ef">unlist</span>(exclude)))))
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">    <span style="color:#06b6ef">if</span>(<span style="color:#5bc4bf">!</span><span style="color:#06b6ef">all</span>(<span style="color:#06b6ef">class</span>(<span style="color:#06b6ef">unlist</span>(exclude)) <span style="color:#5bc4bf">==</span> <span style="color:#06b6ef">class</span>(persons)))
+        <span style="color:#06b6ef">stop</span>(<span style="color:#06b6ef">sprintf</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">Please provide the same data types for both &#39;persons&#39; and &#39;exclude&#39;\n &#39;persons&#39; is class %s, &#39;exclude&#39; is class %s&#34;</span>,
+                     <span style="color:#06b6ef">class</span>(persons), <span style="color:#06b6ef">unique</span>(<span style="color:#06b6ef">class</span>(<span style="color:#06b6ef">unlist</span>(exclude)))))
 </code></pre></div><p>It doesn't win any points for readability, but it will work.</p>
 <p>Now, for the last bit - only returning a valid result, rather than
 having the user have to call the function again. To fix this, we need
@@ -335,7 +336,7 @@ this might not even be the right approach - it might be better to just
 restart the entire drawing process and keep trying until we get a
 valid set. What would that look like?</p>
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">i <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span>
-<span style="color:#06b6ef">while</span>(i <span style="color:#5bc4bf">&lt;</span> <span style="color:#06b6ef">length</span>(persons){
+<span style="color:#06b6ef">while</span>(i <span style="color:#5bc4bf">&lt;</span> (<span style="color:#06b6ef">length</span>(persons) <span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>)){
     choices <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">setdiff</span>(persons[<span style="color:#5bc4bf">-</span>i], <span style="color:#06b6ef">c</span>(exclude[[i]], recipient))
     <span style="color:#06b6ef">if</span>(<span style="color:#06b6ef">length</span>(choices) <span style="color:#5bc4bf">==</span> <span style="color:#f99b15">0</span>){
         i <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span>
@@ -446,7 +447,7 @@ functions to start,</p>
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06b6ef">xmas</span>(d, exclude <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span><span style="color:#5bc4bf">:</span><span style="color:#f99b15">7</span>)
 </code></pre></div><pre><code>Error in xmas(d, exclude = 1:7) : 
   Please provide the same data types for both 'persons' and 'exclude'
- 'persons' is class factor, 'exclude is class integer
+ 'persons' is class factor, 'exclude' is class integer
 </code></pre><p>Now that we are thinking of it, it might be good to check for some
 other things, like if the <code>persons</code> and <code>exclude</code> are the same
 length. This was not a concern when we were pulling from a data.frame,
@@ -494,7 +495,22 @@ readability. We could instead make a new function to check the inputs,</p>
     <span style="color:#06b6ef">return</span>(recipient)
 }
 
-</code></pre></div><h1 id="closing-thoughts">Closing thoughts</h1>
+</code></pre></div><p>There is one big thing missing - documentation. All those
+comments were annoying before, but we should add something to document
+how the function works. How we do this might depend on how this gets
+used. If this is a one-off function, we can add a block comment,</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">xmas <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, persons <span style="color:#5bc4bf">=</span> df<span style="color:#5bc4bf">$</span>persons, exclude <span style="color:#5bc4bf">=</span> df<span style="color:#5bc4bf">$</span>partner,
+                max_draws <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1000</span>)
+    <span style="color:#776e71"># Takes a vector of gift givers (persons) and</span>
+    <span style="color:#776e71"># a vector or list of the people each should not draw (exclude)</span>
+    <span style="color:#776e71"># and returns a randomized recipient list, with one recipient</span>
+    <span style="color:#776e71"># per giver</span>
+{
+
+</code></pre></div><p>However, if this function ends up in a package, we can add R
+documentation, either as roxygen2 or an R man page. Either way, we
+should add something.</p>
+<h1 id="closing-thoughts">Closing thoughts</h1>
 <p>Is this function perfect? Not even close - but it is much better. I am
 sure there are some clever things that can be done to make it more
 efficient.</p>
