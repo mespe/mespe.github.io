@@ -38,7 +38,7 @@ The problem with the future of R according to the tidyverse and RStudio Many of 
       <description>A couple of weeks ago, I taught a one-hour workshop on the basics of writing functions in R. Overall, it went as well as I would expect an hour introduction workshop to go, which is to say OK but not great. Why not great? It turns out teaching skills in workshops is really difficult. But why?
 I think it boils down to a couple of aspects of workshops:
 Workshops:
- are too short teach to the lowest skill level in the room don&#39;t reflect how you actually learn these skill  1.</description>
+ are too short teach to the lowest skill level in the room don&amp;rsquo;t reflect how you actually learn these skill  1.</description>
     </item>
     
     <item>
@@ -76,7 +76,7 @@ A brief intro to dynamic documents in R (cont.) Last time I outlined why you mig
       <pubDate>Mon, 05 Mar 2018 11:14:04 -0700</pubDate>
       
       <guid>https://mespe.github.io/post/dyn_docs-pt1/</guid>
-      <description>A brief intro to dynamic documents in R I was asked to give a short overview of dynamic documents in R during Dr. Cini Brown&#39;s lab meeting at Colorado State University last week, and I thought I would post some of the material here as well.
+      <description>A brief intro to dynamic documents in R I was asked to give a short overview of dynamic documents in R during Dr. Cini Brown&amp;rsquo;s lab meeting at Colorado State University last week, and I thought I would post some of the material here as well.
 What is a dynamic document? Dynamic documents, or living documents, are documents which can be continuously updated, and are often self-contained. This means that the document itself contains the framework to generate and update its content.</description>
     </item>
     
@@ -86,7 +86,7 @@ What is a dynamic document? Dynamic documents, or living documents, are document
       <pubDate>Thu, 30 Nov 2017 21:39:27 -0800</pubDate>
       
       <guid>https://mespe.github.io/post/update_nov30_2017/</guid>
-      <description>I have been a bit quiet, mostly due to the holidays and general busyness. While I don&#39;t have anything ready to go, there are some fun things coming down the line:
+      <description>I have been a bit quiet, mostly due to the holidays and general busyness. While I don&amp;rsquo;t have anything ready to go, there are some fun things coming down the line:
 1. I have been converting the CA-Rice physiological model to Go.
 Why this model? I reached out to Bard Miller, and he was kind enough to send the source code. I was pleasantly surprised to find that the code was simple, well-organized, and generally easy to make sense of.</description>
     </item>
@@ -99,7 +99,7 @@ Why this model? I reached out to Bard Miller, and he was kind enough to send the
       <guid>https://mespe.github.io/post/cheap3/</guid>
       <description>This is the last part of the series, and if you have not read the other two parts(pt. 1,pt. 2), it might be helpful to glance back to see how I got here.
 In the last part, I explained the thinking that led me to build my own workstation using reclaimed parts. Here is brief overview of what I did:
-Note: this is not intended to be a build guide. If you have no experience assembling a computer system, please find a beginner&#39;s guide for the basics.</description>
+Note: this is not intended to be a build guide. If you have no experience assembling a computer system, please find a beginner&amp;rsquo;s guide for the basics.</description>
     </item>
     
     <item>
@@ -128,7 +128,7 @@ Recently my daily driver (Lenovo T460s) needed to go into the shop for a little 
       
       <guid>https://mespe.github.io/post/stan_gripes/</guid>
       <description>First off, I love Stan. If you have not heard of Stan, I highly recommend you check it out. I use Stan for almost all of my statistics these days, and have published several papers using it.
-That said, there are a fair number of things I don&#39;t like about it:
+That said, there are a fair number of things I don&amp;rsquo;t like about it:
 The model trade-offs In my experience, when you are developing a model in Stan, you are often faced with trade-offs between 1) flexibility, 2) readability, and 3) development time.</description>
     </item>
     

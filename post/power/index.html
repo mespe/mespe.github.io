@@ -11,7 +11,7 @@
 <meta property='og:site_name' content='Ten thousand words...'>
 <meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='R'><meta property='article:tag' content='agriculture'><meta property='article:published_time' content='2018-06-27T16:16:50-06:00'/><meta property='article:modified_time' content='2018-06-27T16:16:50-06:00'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.62.0" />
+<meta name="generator" content="Hugo 0.70.0" />
 
   <title>Retrospective Power Analysis • Ten thousand words...</title>
   <link rel='canonical' href='https://mespe.github.io/post/power/'>
@@ -72,7 +72,7 @@ if (!doNotTrack) {
       </li><li>
         <a href='/tags/hugo/' style='font-size:1em'>hugo</a>
       </li><li>
-        <a href='/tags/r/' style='font-size:1.8em'>R</a>
+        <a href='/tags/r/' style='font-size:1.9em'>R</a>
       </li><li>
         <a href='/tags/research/' style='font-size:1.1em'>research</a>
       </li><li>
@@ -230,7 +230,7 @@ To be clear, this is just one example - similar examples can be found throughout
 We will look at the original analysis and as well as a more robust one in a later post.</em></p>
 <p>The last pieces we need are some estimate of magnitude of variation within treatments. We will use a rough estimate based on the numbers as reported by the authors to start.
 Specifically, we are going to assume the variation between treatments is shared.</p>
-<p>Now, we don't have access to the original data, so we are going to have to do some estimating for the standard deviation within treatments.
+<p>Now, we don&rsquo;t have access to the original data, so we are going to have to do some estimating for the standard deviation within treatments.
 To do this, we are going to change the the standard deviation and will see how different levels of variation affect our power.</p>
 <p>From a previous meta-analysis by these same authors, we expect a roughly 5&ndash;10% effect size.
 Taking yield as an example, based on the tables in the paper, we can estimate that the average yield to be around 11 Mg/ha, which makes the <em>a priori</em> estimate of the effect 0.55 &ndash; 1.1.
@@ -331,15 +331,15 @@ ans <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">lapply</spa
                                    beta_treatment <span style="color:#5bc4bf">=</span> x,
                                    beta_block, sigma <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">0.5</span>))))
 ans <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">as.data.frame</span>(<span style="color:#06b6ef">do.call</span>(rbind, ans)<span style="color:#5bc4bf">/</span><span style="color:#f99b15">10</span>)
-<span style="color:#06b6ef">colnames</span>(ans) <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">c</span>(<span style="color:#48b685">&#34;</span><span style="color:#48b685">No effect&#34;</span>, <span style="color:#48b685">&#34;</span><span style="color:#48b685">Effect&#34;</span>)
+<span style="color:#06b6ef">colnames</span>(ans) <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">c</span>(<span style="color:#48b685">&#34;No effect&#34;</span>, <span style="color:#48b685">&#34;Effect&#34;</span>)
 </code></pre></div><p>and then we can plot the results,</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06b6ef">plot</span>(ans<span style="color:#5bc4bf">$</span>Effect <span style="color:#5bc4bf">~</span> beta_range, type <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;</span><span style="color:#48b685">b&#34;</span>,
-     xlab <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;</span><span style="color:#48b685">Effect size (Mg/ha)&#34;</span>,
-     ylab <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;</span><span style="color:#48b685">Power (%)&#34;</span>)
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06b6ef">plot</span>(ans<span style="color:#5bc4bf">$</span>Effect <span style="color:#5bc4bf">~</span> beta_range, type <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;b&#34;</span>,
+     xlab <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;Effect size (Mg/ha)&#34;</span>,
+     ylab <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;Power (%)&#34;</span>)
 <span style="color:#06b6ef">abline</span>(h <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">80</span>, lty <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">2</span>)
 </code></pre></div><p><img src="/img/unnamed-chunk-9-1.png" alt="The estimated power given a range of effect sizes."></p>
 <p>We can see that for this experiment to detect an effect with 80% power, the effect has to be approximately -2.0 Mg/ha, or 18% of yield &ndash; 3 times the estimated effect size from these authors&rsquo; previous work.</p>
-<p>Now, a &gt;10% drop in yield is sufficient to hurt a farmer's bottom line, but here the authors conclude no effect.
+<p>Now, a &gt;10% drop in yield is sufficient to hurt a farmer&rsquo;s bottom line, but here the authors conclude no effect.
 Knowing that there could have been up to a 18% decrease in yield and this study would not have been likely to detect it, we should recommend caution applying these treatments.</p>
 <h1 id="conclusions">Conclusions</h1>
 <p>Here, with some straightforward R code, we have seen how retroactive power analysis can help us evaluate the support behind conclusions made in a scientific study.
@@ -403,7 +403,7 @@ This paper just happens to be a good example.</em></p>
 
       <footer id='footer' class='footer'>
         <div class='container sep-before'><div class='copyright'>
-  <p> &copy; 2017-2019 Matt Espe </p>
+  <p> &copy; 2017-2020 Matt Espe </p>
 </div>
 
         </div>

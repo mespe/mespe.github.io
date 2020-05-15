@@ -4,32 +4,37 @@
   
   <url>
     <loc>https://mespe.github.io/</loc>
-    <lastmod>2019-12-22T09:47:01-07:00</lastmod>
+    <lastmod>2018-09-04T16:43:02-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://mespe.github.io/categories/</loc>
-    <lastmod>2019-12-22T09:47:01-07:00</lastmod>
+    <lastmod>2020-05-15T12:18:07-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/post/doing/</loc>
+    <lastmod>2020-05-15T12:18:07-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://mespe.github.io/post/</loc>
-    <lastmod>2019-12-22T09:47:01-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/categories/r/</loc>
-    <lastmod>2019-12-22T09:47:01-07:00</lastmod>
+    <lastmod>2020-05-15T12:18:07-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://mespe.github.io/tags/r/</loc>
-    <lastmod>2019-12-22T09:47:01-07:00</lastmod>
+    <lastmod>2020-05-15T12:18:07-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/r/</loc>
+    <lastmod>2020-05-15T12:18:07-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://mespe.github.io/tags/</loc>
-    <lastmod>2019-12-22T09:47:01-07:00</lastmod>
+    <lastmod>2020-05-15T12:18:07-06:00</lastmod>
   </url>
   
   <url>
@@ -83,12 +88,12 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/agriculture/</loc>
+    <loc>https://mespe.github.io/tags/agriculture/</loc>
     <lastmod>2018-09-04T16:43:02-06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/tags/agriculture/</loc>
+    <loc>https://mespe.github.io/categories/agriculture/</loc>
     <lastmod>2018-09-04T16:43:02-06:00</lastmod>
   </url>
   
@@ -118,12 +123,12 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/computers/</loc>
+    <loc>https://mespe.github.io/tags/computers/</loc>
     <lastmod>2017-12-20T20:37:46-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/tags/computers/</loc>
+    <loc>https://mespe.github.io/categories/computers/</loc>
     <lastmod>2017-12-20T20:37:46-08:00</lastmod>
   </url>
   
@@ -213,12 +218,12 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/hugo/</loc>
+    <loc>https://mespe.github.io/tags/hugo/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mespe.github.io/tags/hugo/</loc>
+    <loc>https://mespe.github.io/categories/hugo/</loc>
     <lastmod>2017-06-14T09:40:09-07:00</lastmod>
   </url>
   

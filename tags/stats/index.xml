@@ -17,7 +17,7 @@
       
       <guid>https://mespe.github.io/post/stan_gripes/</guid>
       <description>First off, I love Stan. If you have not heard of Stan, I highly recommend you check it out. I use Stan for almost all of my statistics these days, and have published several papers using it.
-That said, there are a fair number of things I don&#39;t like about it:
+That said, there are a fair number of things I don&amp;rsquo;t like about it:
 The model trade-offs In my experience, when you are developing a model in Stan, you are often faced with trade-offs between 1) flexibility, 2) readability, and 3) development time.</description>
     </item>
     

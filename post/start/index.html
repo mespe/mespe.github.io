@@ -13,7 +13,7 @@ I thought I would write up my experiences starting a blog that uses R code but t
 <meta property='og:site_name' content='Ten thousand words...'>
 <meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='blogging'><meta property='article:tag' content='hugo'><meta property='article:published_time' content='2017-06-14T09:40:09-07:00'/><meta property='article:modified_time' content='2017-06-14T09:40:09-07:00'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.62.0" />
+<meta name="generator" content="Hugo 0.70.0" />
 
   <title>Creating an R blog with Hugo (without using blogdown) • Ten thousand words...</title>
   <link rel='canonical' href='https://mespe.github.io/post/start/'>
@@ -74,7 +74,7 @@ if (!doNotTrack) {
       </li><li>
         <a href='/tags/hugo/' style='font-size:1em'>hugo</a>
       </li><li>
-        <a href='/tags/r/' style='font-size:1.8em'>R</a>
+        <a href='/tags/r/' style='font-size:1.9em'>R</a>
       </li><li>
         <a href='/tags/research/' style='font-size:1.1em'>research</a>
       </li><li>
@@ -196,7 +196,7 @@ spending a good chunk of time helping a student navigate through using
 blogdown, I found the approach below to be both easier to use and
 simpler to implement. The
 disadvantage of this approach is you have to step out of RStudio (which
-I don't use anyway) and into the terminal.</p>
+I don&rsquo;t use anyway) and into the terminal.</p>
 <p><em>DISCLAIMER: This is a work in progress - I am not big on writing
 blogs, so please forgive me if this is not helpful.</em></p>
 <h1 id="setup">Setup</h1>
@@ -226,7 +226,7 @@ hugo will place the figures in the built website, not where they exist now.</p>
 <p>Create the <code>.Rmd</code> file. Specify <code>fig.path='img/'</code> (the name of
 this folder does not matter as long as it is consistent for each
 step). For example:</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">```{r fig.path <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;</span><span style="color:#48b685">img/&#34;</span>}
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">```{r fig.path <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;img/&#34;</span>}
 </code></pre></div></li>
 </ol>
 <p>plot(rnorm(100))</p>
@@ -333,7 +333,7 @@ That's it - no blogdown required.
 
       <footer id='footer' class='footer'>
         <div class='container sep-before'><div class='copyright'>
-  <p> &copy; 2017-2019 Matt Espe </p>
+  <p> &copy; 2017-2020 Matt Espe </p>
 </div>
 
         </div>

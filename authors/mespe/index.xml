@@ -16,7 +16,7 @@
       <pubDate>Wed, 24 Jul 2019 15:38:18 -0600</pubDate>
       
       <guid>https://mespe.github.io/post/quick_tidy_thoughts/</guid>
-      <description>There has been a lot of chatter about R and the tidyverse as of late - some of it prompted by Norm Matloff&#39;s posts here and here.
+      <description>There has been a lot of chatter about R and the tidyverse as of late - some of it prompted by Norm Matloff&amp;rsquo;s posts here and here.
 Below you will find some quick thoughts on the topic. These are half-baked at best, and probably not fit for general consumption. This is mostly a way for me to get my thoughts down on the page.
   The tidyverse has increased the approachability and accessibility of R to a large audience.</description>
     </item>
@@ -39,7 +39,7 @@ Below you will find some quick thoughts on the topic. These are half-baked at be
       <description>A couple of weeks ago, I taught a one-hour workshop on the basics of writing functions in R. Overall, it went as well as I would expect an hour introduction workshop to go, which is to say OK but not great. Why not great? It turns out teaching skills in workshops is really difficult. But why?
 I think it boils down to a couple of aspects of workshops:
 Workshops:
- are too short teach to the lowest skill level in the room don&#39;t reflect how you actually learn these skill  1.</description>
+ are too short teach to the lowest skill level in the room don&amp;rsquo;t reflect how you actually learn these skill  1.</description>
     </item>
     
     <item>
