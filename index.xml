@@ -11,6 +11,17 @@
     
     
     <item>
+      <title>Extract a number from a string with base R</title>
+      <link>https://mespe.github.io/post/num_extract/</link>
+      <pubDate>Wed, 20 May 2020 07:31:15 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/num_extract/</guid>
+      <description>This problem came across my desk yesterday, and I thought it was interesting and straightforward.
+The problem is extracting a &amp;ldquo;group&amp;rdquo; number from the middle of a string. The strings looked like:
+strings = c(&amp;#34;Group_1.Pooled&amp;#34;, &amp;#34;Group_1.Sample_1&amp;#34;, &amp;#34;Group_1.Sample_2&amp;#34;, &amp;#34;Group_1.Sample_3&amp;#34;, &amp;#34;Group_2.Pooled&amp;#34;, &amp;#34;Group_2.Sample_1&amp;#34;, &amp;#34;Group_2.Sample_2&amp;#34;, &amp;#34;Group_2.Sample_3&amp;#34;, &amp;#34;Group_3.Pooled&amp;#34;, &amp;#34;Group_3.Sample_1&amp;#34;, &amp;#34;Group_3.Sample_2&amp;#34;, &amp;#34;Group_3.Sample_3&amp;#34;, &amp;#34;Group_4.Pooled&amp;#34;, &amp;#34;Group_4.Sample_1&amp;#34;, &amp;#34;Group_4.Sample_2&amp;#34;, &amp;#34;Group_4.Sample_3&amp;#34;, &amp;#34;Group_5.Pooled&amp;#34;, &amp;#34;Group_5.Sample_1&amp;#34;, &amp;#34;Group_5.Sample_2&amp;#34;, &amp;#34;Group_5.Sample_3&amp;#34; ) So, what is the &amp;ldquo;base R&amp;rdquo; way to do this? Turns out there are many&amp;hellip;</description>
+    </item>
+    
+    <item>
       <title>Doing things the &#39;hard&#39; way</title>
       <link>https://mespe.github.io/post/doing/</link>
       <pubDate>Fri, 15 May 2020 12:18:07 -0600</pubDate>
