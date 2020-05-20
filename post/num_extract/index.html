@@ -218,6 +218,11 @@ we can use <code>regexpr()</code> to find its position (verses <code>gregexpr()<
 would find all the matches, not just the first one).</p>
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06b6ef">regmatches</span>(strings, <span style="color:#06b6ef">regexpr</span>(<span style="color:#48b685">&#34;[0-9]&#34;</span>, strings))
 </code></pre></div><h1 id="gsub">gsub()</h1>
+<p>We can just gsub away all the parts we are not interested in, i.e.,
+the part before and including the <code>_</code>, and the part after the literal
+<code>.</code> to the end,</p>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06b6ef">gsub</span>(<span style="color:#48b685">&#34;^.+_|\\..+$&#34;</span>, <span style="color:#48b685">&#34;&#34;</span>, strings)
+</code></pre></div><h1 id="gsub-wcapture-group">gsub() w/capture group</h1>
 <p>We can also utilize capture groups in gsub to extract the part that we
 want,</p>
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06b6ef">gsub</span>(<span style="color:#48b685">&#34;.*_([0-9])\\..*$&#34;</span>, <span style="color:#48b685">&#34;\\1&#34;</span>, strings)
