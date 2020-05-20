@@ -65,6 +65,16 @@ regmatches(strings, regexpr("[0-9]", strings))
 
 # gsub()
 
+We can just gsub away all the parts we are not interested in, i.e.,
+the part before and including the `_`, and the part after the literal
+`.` to the end,
+
+```r
+gsub("^.+_|\\..+$", "", strings)
+```
+
+# gsub() w/capture group
+
 We can also utilize capture groups in gsub to extract the part that we
 want,
 
