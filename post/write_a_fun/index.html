@@ -399,7 +399,7 @@ get_hydro_merge <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef"
 }
 
 
-get_hydro_org <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, hydro)
+get_hydro_orig <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, hydro)
 {
     hydro_cols <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">colnm_to_dist</span>(<span style="color:#06b6ef">colnames</span>(hydro))
     cols <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">match</span>(df<span style="color:#5bc4bf">$</span>Distance_m, hydro_cols)
