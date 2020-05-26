@@ -304,7 +304,7 @@ get_hydro_merge = function(df, hydro)
 }
 
 
-get_hydro_org = function(df, hydro)
+get_hydro_orig = function(df, hydro)
 {
     hydro_cols = colnm_to_dist(colnames(hydro))
     cols = match(df$Distance_m, hydro_cols)
