@@ -440,7 +440,7 @@ get_hydro_mapply <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef
 
 }
 
-get_hydro_optimzed <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, hydro)
+get_hydro_optimized <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, hydro)
 {
     hydro_cols <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">colnm_to_dist</span>(<span style="color:#06b6ef">colnames</span>(hydro))
     i <span style="color:#5bc4bf">=</span> hydro_cols <span style="color:#5bc4bf">%in%</span> <span style="color:#06b6ef">unique</span>(df<span style="color:#5bc4bf">$</span>Distance_m)
