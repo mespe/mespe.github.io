@@ -26,7 +26,7 @@ arranged with each row representing a time, and then each column
 representing a different treatment, in this case distance from the
 center point.
 
-Here is what that looks like:
+Here is what the hydro data looks like:
 
 ```
                   Time NEG600 NEG400 NEG200 NEG100 NEG50 NEG1 LC POS1 POS50
@@ -45,11 +45,11 @@ Here is what that looks like:
 6      0      0      0      0      0
 ```
 
-Our data.frame is arranged as a tidy data.frame, with each row
+Our experiment data.frame is arranged as a tidy data.frame, with each row
 representing a single observation at a given treatment at a given
 time. 
 
-Here is what some of those data look like:
+Here is what some of the experiment data look like:
 
 ```
           DateTimePDT Distance_m Experiment
@@ -62,7 +62,7 @@ Here is what some of those data look like:
 ```
 
 So, the goal is for each row of our experimental data.frame, find the
-corresponding cell of the CSV. Then, we need to repeat for 3 more files.
+corresponding cell of the hydro data. Then, we need to repeat for 3 more files.
 
 # The options
 
