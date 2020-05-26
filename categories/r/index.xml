@@ -5,10 +5,20 @@
     <link>https://mespe.github.io/categories/r/</link>
     <description>Recent content in R on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 20 May 2020 07:31:15 -0600</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2020 11:07:58 -0600</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How I write an R function</title>
+      <link>https://mespe.github.io/post/write_a_fun/</link>
+      <pubDate>Fri, 22 May 2020 11:07:58 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/write_a_fun/</guid>
+      <description>One of the things that I was fortunate to learn relatively early in my R career was how to write a function. Functions allow you to avoid duplicating code, and facilitate better readability, maintenance, and testing of your code.
+Over the years, how I write functions has changed. Due to an out-sized influence of one DTL, I now write my functions in a somewhat atypical style, which I thought might be worth showing.</description>
+    </item>
     
     <item>
       <title>Extract a number from a string with base R</title>
