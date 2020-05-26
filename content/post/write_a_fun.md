@@ -345,7 +345,7 @@ get_hydro_mapply = function(df, hydro)
 
 }
 
-get_hydro_optimzed = function(df, hydro)
+get_hydro_optimized = function(df, hydro)
 {
     hydro_cols = colnm_to_dist(colnames(hydro))
     i = hydro_cols %in% unique(df$Distance_m)
