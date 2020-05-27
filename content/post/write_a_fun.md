@@ -281,7 +281,7 @@ get_hydro = function(df, hydro,
 
 ```
 
-We are taking an few additional steps to find the "Time" column and
+We are taking a few additional steps to find the "Time" column and
 then subset it out, but we should gain some speed by avoiding the
 coercion. 
 
@@ -292,7 +292,6 @@ will find all the functions, including a merge approach.
 
 ```r
 # merge approach
-
 get_hydro_merge = function(df, hydro)
 {
     hydro_cols = colnm_to_dist(colnames(hydro))
@@ -303,7 +302,7 @@ get_hydro_merge = function(df, hydro)
     merge(df, hydro_long, all.x = TRUE, all.y = FALSE)$Value
 }
 
-
+# first attempt
 get_hydro_orig = function(df, hydro)
 {
     hydro_cols = colnm_to_dist(colnames(hydro))
@@ -312,6 +311,7 @@ get_hydro_orig = function(df, hydro)
     as.numeric(hydro[cbind(rows,cols)])
 }
 
+# for loop
 get_hydro_for = function(df, hydro)
 {
     hydro_cols = colnm_to_dist(colnames(hydro))
@@ -323,6 +323,8 @@ get_hydro_for = function(df, hydro)
     }
     ans
 }
+
+# sapply
 get_hydro_sapply = function(df, hydro)
 {
     hydro_cols = colnm_to_dist(colnames(hydro))
@@ -333,6 +335,7 @@ get_hydro_sapply = function(df, hydro)
     })
 }
 
+# mapply
 get_hydro_mapply = function(df, hydro)
 {
     hydro_cols = colnm_to_dist(colnames(hydro))
@@ -345,12 +348,16 @@ get_hydro_mapply = function(df, hydro)
 
 }
 
-get_hydro_optimized = function(df, hydro)
+# final version
+get_hydro_optimized = function(df, hydro,
+                     df_var = "Distance_m",
+                     df_time = "DateTimePDT",
+                     hydro_time = "Time")
 {
     hydro_cols = colnm_to_dist(colnames(hydro))
-    i = hydro_cols %in% unique(df$Distance_m)
-    cols = match(df$Distance_m, hydro_cols[i])
-    rows = match(df$DateTimePDT, hydro$Time)
+    i = hydro_cols %in% unique(df[[df_var]])
+    cols = match(df[[df_var]], hydro_cols[i])
+    rows = match(df[[df_time]], hydro[[hydro_time]])
     hydro[,i][cbind(rows,cols)]
 }
 
