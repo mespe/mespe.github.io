@@ -380,14 +380,13 @@ function becomes less flexible.</p>
     hydro[,i]<span style="color:#06b6ef">[cbind</span>(rows,cols)]
 }
 
-</code></pre></div><p>We are taking an few additional steps to find the &ldquo;Time&rdquo; column and
+</code></pre></div><p>We are taking a few additional steps to find the &ldquo;Time&rdquo; column and
 then subset it out, but we should gain some speed by avoiding the
 coercion.</p>
 <h1 id="step-5-compare">Step 5: Compare</h1>
 <p>Lastly, lets compare the speed of the different approaches. Below you
 will find all the functions, including a merge approach.</p>
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#776e71"># merge approach</span>
-
 get_hydro_merge <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, hydro)
 {
     hydro_cols <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">colnm_to_dist</span>(<span style="color:#06b6ef">colnames</span>(hydro))
@@ -398,7 +397,7 @@ get_hydro_merge <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef"
     <span style="color:#06b6ef">merge</span>(df, hydro_long, all.x <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">TRUE</span>, all.y <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">FALSE</span>)<span style="color:#5bc4bf">$</span>Value
 }
 
-
+<span style="color:#776e71"># first attempt</span>
 get_hydro_orig <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, hydro)
 {
     hydro_cols <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">colnm_to_dist</span>(<span style="color:#06b6ef">colnames</span>(hydro))
@@ -407,6 +406,7 @@ get_hydro_orig <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">
     <span style="color:#06b6ef">as.numeric</span>(hydro<span style="color:#06b6ef">[cbind</span>(rows,cols)])
 }
 
+<span style="color:#776e71"># for loop</span>
 get_hydro_for <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, hydro)
 {
     hydro_cols <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">colnm_to_dist</span>(<span style="color:#06b6ef">colnames</span>(hydro))
@@ -418,6 +418,8 @@ get_hydro_for <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">f
     }
     ans
 }
+
+<span style="color:#776e71"># sapply</span>
 get_hydro_sapply <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, hydro)
 {
     hydro_cols <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">colnm_to_dist</span>(<span style="color:#06b6ef">colnames</span>(hydro))
@@ -428,6 +430,7 @@ get_hydro_sapply <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef
     })
 }
 
+<span style="color:#776e71"># mapply</span>
 get_hydro_mapply <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, hydro)
 {
     hydro_cols <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">colnm_to_dist</span>(<span style="color:#06b6ef">colnames</span>(hydro))
@@ -440,12 +443,16 @@ get_hydro_mapply <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef
 
 }
 
-get_hydro_optimized <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, hydro)
+<span style="color:#776e71"># final version</span>
+get_hydro_optimized <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">function</span>(df, hydro,
+                     df_var <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;Distance_m&#34;</span>,
+                     df_time <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;DateTimePDT&#34;</span>,
+                     hydro_time <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;Time&#34;</span>)
 {
     hydro_cols <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">colnm_to_dist</span>(<span style="color:#06b6ef">colnames</span>(hydro))
-    i <span style="color:#5bc4bf">=</span> hydro_cols <span style="color:#5bc4bf">%in%</span> <span style="color:#06b6ef">unique</span>(df<span style="color:#5bc4bf">$</span>Distance_m)
-    cols <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">match</span>(df<span style="color:#5bc4bf">$</span>Distance_m, hydro_cols[i])
-    rows <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">match</span>(df<span style="color:#5bc4bf">$</span>DateTimePDT, hydro<span style="color:#5bc4bf">$</span>Time)
+    i <span style="color:#5bc4bf">=</span> hydro_cols <span style="color:#5bc4bf">%in%</span> <span style="color:#06b6ef">unique</span>(df[[df_var]])
+    cols <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">match</span>(df[[df_var]], hydro_cols[i])
+    rows <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">match</span>(df[[df_time]], hydro[[hydro_time]])
     hydro[,i]<span style="color:#06b6ef">[cbind</span>(rows,cols)]
 }
 
