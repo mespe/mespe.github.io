@@ -1,7 +1,7 @@
 ---
 date: "2019-08-22T10:19:39-06:00"
 title: "How I Learned R"
-authors: []
+authors: ["mespe"]
 categories:
   -
 tags:

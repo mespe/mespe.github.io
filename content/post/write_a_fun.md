@@ -1,7 +1,7 @@
 ---
 date: "2020-05-22T11:07:58-06:00"
 title: "How I write an R function"
-authors: []
+authors: ["mespe"]
 categories:
   - R
 tags:

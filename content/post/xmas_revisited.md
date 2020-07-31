@@ -1,7 +1,7 @@
 ---
 date: "2019-12-22T09:47:01-07:00"
 title: "Xmas Functions, revisited"
-authors: []
+authors: ["mespe"]
 categories:
   - R
 tags:

@@ -1,6 +1,6 @@
 ---
 title: "Dynamic Docs in R (part 1)"
-authors: []
+authors: ["mespe"]
 categories:
   - R
   - data science

@@ -1,7 +1,7 @@
 ---
 date: "2019-08-19T10:03:30-06:00"
 title: "Future of R (per Hadley)"
-authors: []
+authors: ["mespe"]
 categories:
   - R
   - data science

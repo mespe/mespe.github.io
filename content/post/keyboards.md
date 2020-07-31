@@ -1,7 +1,7 @@
 ---
 date: "2017-12-20T20:37:46-08:00"
 title: "I blame Apple"
-authors: []
+authors: ["mespe"]
 categories:
   - computers
 tags:

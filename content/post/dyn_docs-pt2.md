@@ -1,7 +1,7 @@
 ---
 date: "2018-04-19T11:47:40-06:00"
 title: "Dynamic documents (part 2)"
-authors: []
+authors: ["mespe"]
 categories:
   - R
   - data science

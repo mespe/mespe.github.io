@@ -1,7 +1,7 @@
 ---
 date: "2020-05-15T12:18:07-06:00"
 title: "Doing things the 'hard' way"
-authors: []
+authors: ["mespe"]
 categories:
   - R
 tags:

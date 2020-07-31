@@ -1,7 +1,7 @@
 ---
 date: "2020-05-20T07:31:15-06:00"
 title: "Extract a number from a string with base R"
-authors: []
+authors: ["mespe"]
 categories:
   - R
 tags:
