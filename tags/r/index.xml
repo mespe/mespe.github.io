@@ -5,10 +5,21 @@
     <link>https://mespe.github.io/tags/r/</link>
     <description>Recent content in R on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 22 May 2020 11:07:58 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jul 2020 11:38:38 -0600</lastBuildDate>
     
 	<atom:link href="https://mespe.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Untidy Tuedsay: Cocktails</title>
+      <link>https://mespe.github.io/post/untidy_cocktails/</link>
+      <pubDate>Sun, 26 Jul 2020 11:38:38 -0600</pubDate>
+      
+      <guid>https://mespe.github.io/post/untidy_cocktails/</guid>
+      <description>So, one of the Tidy Tuesday challenges was brought to my attention recently due to a video of Hadley Wickam taking a swing at it.
+In the video, Hadley does what he calls a hacky fix to tackle the data having fractions in the measure column, e.g.
+1 1/2 oz Hadley does what many people appear to have done, which is to replace the fraction with the equivalent decimal using string replacement,</description>
+    </item>
     
     <item>
       <title>How I write an R function</title>
