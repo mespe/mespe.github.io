@@ -8,7 +8,7 @@ categories:
 tags:
   - data science
   - computers
-draft: true
+draft: false
 ---
 
 Way back in 2017, I built a cheap data science rig for $600. You can
