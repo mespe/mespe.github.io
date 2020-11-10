@@ -4,7 +4,47 @@
   
   <url>
     <loc>https://mespe.github.io/</loc>
-    <lastmod>2020-07-26T11:38:38-06:00</lastmod>
+    <lastmod>2020-11-10T14:27:08-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/</loc>
+    <lastmod>2020-11-10T14:27:08-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/tags/computers/</loc>
+    <lastmod>2020-11-10T14:27:08-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/computers/</loc>
+    <lastmod>2020-11-10T14:27:08-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/tags/data-science/</loc>
+    <lastmod>2020-11-10T14:27:08-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/categories/data-science/</loc>
+    <lastmod>2020-11-10T14:27:08-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/post/</loc>
+    <lastmod>2020-11-10T14:27:08-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/tags/</loc>
+    <lastmod>2020-11-10T14:27:08-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mespe.github.io/post/workstation_update/</loc>
+    <lastmod>2020-11-10T14:27:08-07:00</lastmod>
   </url>
   
   <url>
@@ -13,17 +53,7 @@
   </url>
   
   <url>
-    <loc>https://mespe.github.io/categories/</loc>
-    <lastmod>2020-07-26T11:38:38-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://mespe.github.io/authors/mespe/</loc>
-    <lastmod>2020-07-26T11:38:38-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/post/</loc>
     <lastmod>2020-07-26T11:38:38-06:00</lastmod>
   </url>
   
@@ -34,11 +64,6 @@
   
   <url>
     <loc>https://mespe.github.io/categories/r/</loc>
-    <lastmod>2020-07-26T11:38:38-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/tags/</loc>
     <lastmod>2020-07-26T11:38:38-06:00</lastmod>
   </url>
   
@@ -65,16 +90,6 @@
   <url>
     <loc>https://mespe.github.io/post/xmas_revisited/</loc>
     <lastmod>2019-12-22T09:47:01-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/tags/data-science/</loc>
-    <lastmod>2019-08-19T10:03:30-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/categories/data-science/</loc>
-    <lastmod>2019-08-19T10:03:30-06:00</lastmod>
   </url>
   
   <url>
@@ -135,16 +150,6 @@
   <url>
     <loc>https://mespe.github.io/post/dyn_docs-pt1/</loc>
     <lastmod>2018-03-05T11:14:04-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/tags/computers/</loc>
-    <lastmod>2017-12-20T20:37:46-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mespe.github.io/categories/computers/</loc>
-    <lastmod>2017-12-20T20:37:46-08:00</lastmod>
   </url>
   
   <url>

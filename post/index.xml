@@ -5,7 +5,18 @@
     <link>https://mespe.github.io/post/</link>
     <description>Recent content in Posts on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 26 Jul 2020 11:38:38 -0600</lastBuildDate><atom:link href="https://mespe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Nov 2020 14:27:08 -0700</lastBuildDate><atom:link href="https://mespe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Workstation Update</title>
+      <link>https://mespe.github.io/post/workstation_update/</link>
+      <pubDate>Tue, 10 Nov 2020 14:27:08 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/post/workstation_update/</guid>
+      <description>Way back in 2017, I built a cheap data science rig for $600. You can read about the build here. Since that post, I added a mid-tier NVIDIA GPU for machine learning, and some hard drives for more storage. Otherwise, it&amp;rsquo;s been pretty bullet-proof for the last 3 years.
+While it was a great solution for what needed at the time, eventually it&amp;rsquo;s shortcomings were increasingly obvious. Those were:
+  Efficiency (or lack there of): 16 cores of 2012-circa Xeon processors pulled roughly 200W on their own.</description>
+    </item>
+    
     <item>
       <title>Untidy Tuedsay: Cocktails</title>
       <link>https://mespe.github.io/post/untidy_cocktails/</link>
