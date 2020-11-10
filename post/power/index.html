@@ -11,7 +11,7 @@
 <meta property='og:site_name' content='Ten thousand words...'>
 <meta property='og:type' content='article'><meta property='article:section' content='post'><meta property='article:tag' content='R'><meta property='article:tag' content='agriculture'><meta property='article:published_time' content='2018-06-27T16:16:50-06:00'/><meta property='article:modified_time' content='2018-06-27T16:16:50-06:00'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.74.0" />
+<meta name="generator" content="Hugo 0.78.1" />
 
   <title>Retrospective Power Analysis • Ten thousand words...</title>
   <link rel='canonical' href='https://mespe.github.io/post/power/'>
@@ -317,7 +317,7 @@ We will use the fixed estimates for beta defined earlier.</p>
 ## FALSE  TRUE 
 ##   641   359
 </code></pre><p>It becomes appearant that this study did not have good chances of detecting an effect in this system. Hence, the conclusion of &ldquo;no difference&rdquo; is suspect.</p>
-<p>Put another way, the correct conclusion from these authors&rsquo; analysis is that the effect, if any, is smaller than their power to detect.</p>
+<p>Put another way, the correct conclusion from these authors' analysis is that the effect, if any, is smaller than their power to detect.</p>
 <h2 id="what-effect-size-can-they-reliably-detect">What effect size can they reliably detect?</h2>
 <p>The natural next question is how large of an effect can this study reliably detect?</p>
 <p>We can answer this using the same framework above.
@@ -340,7 +340,7 @@ ans <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">as.data.fra
      ylab <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;Power (%)&#34;</span>)
 <span style="color:#06b6ef">abline</span>(h <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">80</span>, lty <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">2</span>)
 </code></pre></div><p><img src="/img/unnamed-chunk-9-1.png" alt="The estimated power given a range of effect sizes."></p>
-<p>We can see that for this experiment to detect an effect with 80% power, the effect has to be approximately -2.0 Mg/ha, or 18% of yield &ndash; 3 times the estimated effect size from these authors&rsquo; previous work.</p>
+<p>We can see that for this experiment to detect an effect with 80% power, the effect has to be approximately -2.0 Mg/ha, or 18% of yield &ndash; 3 times the estimated effect size from these authors' previous work.</p>
 <p>Now, a &gt;10% drop in yield is sufficient to hurt a farmer&rsquo;s bottom line, but here the authors conclude no effect.
 Knowing that there could have been up to a 18% decrease in yield and this study would not have been likely to detect it, we should recommend caution applying these treatments.</p>
 <h1 id="conclusions">Conclusions</h1>
