@@ -5,7 +5,18 @@
     <link>https://mespe.github.io/categories/computers/</link>
     <description>Recent content in computers on Ten thousand words...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 10 Nov 2020 14:27:08 -0700</lastBuildDate><atom:link href="https://mespe.github.io/categories/computers/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Nov 2020 15:19:41 -0700</lastBuildDate><atom:link href="https://mespe.github.io/categories/computers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Workstation Update Pt. 2</title>
+      <link>https://mespe.github.io/post/workstation_update_pt2/</link>
+      <pubDate>Mon, 16 Nov 2020 15:19:41 -0700</pubDate>
+      
+      <guid>https://mespe.github.io/post/workstation_update_pt2/</guid>
+      <description>Previously, I discussed some of the reasons I was updating my computer, and what my goals for the rebuild would be - a smaller, quieter, more efficient, more powerful workstation.
+There are many different ways to get to that goal. Here, I am going to talk through how I determined what path to take.
+Processor This is probably the biggest determinate for the rest of the system, as it will dictate some of the other components.</description>
+    </item>
+    
     <item>
       <title>Workstation Update</title>
       <link>https://mespe.github.io/post/workstation_update/</link>
