@@ -1,0 +1,70 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="This is the last part of the series, and if you have not read the other two parts(pt. 1,pt. 2), it might be helpful to glance back to see how I got here.
+In the last part, I explained the thinking that led me to build my own workstation using reclaimed parts. Here is brief overview of what I did:
+Note: this is not intended to be a build guide. If you have no experience assembling a computer system, please find a beginner&rsquo;s guide for the basics."><meta name=theme-color content="#ffcd00"><meta property="og:title" content="Data science on the cheap - pt. 3 • Ten thousand words..."><meta property="og:description" content="This is the last part of the series, and if you have not read the other two parts(pt. 1,pt. 2), it might be helpful to glance back to see how I got here.
+In the last part, I explained the thinking that led me to build my own workstation using reclaimed parts. Here is brief overview of what I did:
+Note: this is not intended to be a build guide. If you have no experience assembling a computer system, please find a beginner&rsquo;s guide for the basics."><meta property="og:url" content="https://mespe.github.io/post/cheap3/"><meta property="og:site_name" content="Ten thousand words..."><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:tag" content="data science"><meta property="article:tag" content="computers"><meta property="article:published_time" content="2017-10-28T16:33:23-07:00"><meta property="article:modified_time" content="2017-10-28T16:33:23-07:00"><meta name=twitter:card content="summary"><meta name=generator content="Hugo 0.99.1"><title>Data science on the cheap - pt. 3 • Ten thousand words...</title><link rel=canonical href=https://mespe.github.io/post/cheap3/><link rel=icon href=/favicon.ico><link rel=stylesheet href=/assets/css/main.ab98e12b.css><link rel=stylesheet href=/css/custom.css><style>:root{--color-accent:#ffcd00}</style><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-101069222-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body class="page type-post has-sidebar"><div class=site><div id=sidebar class=sidebar><a class=screen-reader-text href=#main-menu>Skip to Main Menu</a><div class=container><section class="widget widget-about sep-after"><header><h2 class="title site-title"><a href=/>Ten thousand words...</a></h2><div class=desc>Thoughts on agriculture, data science, and academia</div></header></section><section class="widget widget-taxonomy_cloud sep-after"><header><h4 class="title widget-title">Tags</h4></header><div class="container list-container"><ul class="list taxonomy-cloud"><li><a href=/tags/agriculture/ style=font-size:1.25em>agriculture</a></li><li><a href=/tags/blogging/ style=font-size:1em>blogging</a></li><li><a href=/tags/computers/ style=font-size:1.4166666666666665em>computers</a></li><li><a href=/tags/data-science/ style=font-size:1.9166666666666665em>data science</a></li><li><a href=/tags/golang/ style=font-size:1em>Golang</a></li><li><a href=/tags/hugo/ style=font-size:1em>hugo</a></li><li><a href=/tags/personal/ style=font-size:1em>personal</a></li><li><a href=/tags/r/ style=font-size:2em>R</a></li><li><a href=/tags/research/ style=font-size:1.0833333333333333em>research</a></li><li><a href=/tags/stan/ style=font-size:1em>Stan</a></li><li><a href=/tags/stats/ style=font-size:1.0833333333333333em>stats</a></li></ul></div></section></div><div class=sidebar-overlay></div></div><div class=main><nav id=main-menu class="menu main-menu" aria-label="Main Menu"><div class=container><a class=screen-reader-text href=#content>Skip to Content</a>
+<button id=sidebar-toggler class=sidebar-toggler aria-controls=sidebar>
+<span class=screen-reader-text>Toggle Sidebar</span>
+<span class=open><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></span><span class=close><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></button><ul><li class=item><a href=/>Home</a></li><li class=item><a href=/post/>Blog</a></li><li class=item><a href=/about/>About me</a></li><li class=item><a href=/research/>Research</a></li><li class=item><a href=/consulting/>Consulting</a></li><li class=item><a href=https://github.com/mespe>Repos</a></li><li class=item><a href=/docs/espe_cv.pdf>CV</a></li></ul></div></nav><div class=header-widgets><div class=container></div></div><header id=header class="header site-header"><div class="container sep-after"><div class=header-info><p class="site-title title">Ten thousand words...</p><p class="desc site-desc">Thoughts on agriculture, data science, and academia</p></div></div></header><main id=content><article lang=en class=entry><header class="header entry-header"><div class="container sep-after"><div class=header-info><h1 class=title>Data science on the cheap - pt. 3</h1></div><div class=entry-meta><span class=posted-on><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class=screen-reader-text>Posted on</span>
+<time class=entry-date datetime=2017-10-28T16:33:23-07:00>2017, Oct 28</time></span>
+<span class=reading-time><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 15 15"/></svg>5 mins read</span></div></div></header><div class="container entry-content"><p>This is the last part of the series, and if you have not read the
+other two parts(<a href=/post/cheap_datasci/>pt. 1</a>,<a href=/post/cheap2/>pt. 2</a>),
+it might be helpful to glance back to see how I got here.</p><p>In the last part, I explained the thinking that led me to build my own
+workstation using reclaimed parts. Here is brief overview of what I
+did:</p><p><em>Note: this is not intended to be a build guide. If you have no
+experience assembling a computer system, please find a beginner&rsquo;s
+guide for the basics.</em></p><h1 id=components>Components</h1><p>Before you run off to EBay to source components, it is worth taking a
+moment to evaluate your expected workload, specifically to decide if
+it will be CPU, memory, or I/O intensive. In an (overly) simple breakdown:</p><ul><li><p>CPU: These operations benefit from faster calculations, and (to
+over simplify) benefit from higher clock speeds on the CPU. You
+want to look for faster GHz ratings on the CPU.</p></li><li><p>Memory: These operations involve moving or altering lots of data,
+and benefit from getting that data to and from the CPU
+efficiently. You want to look for larger cache (L3) and more
+memory bandwidth, more memory channels, etc.</p></li><li><p>I/O: These operations involve reading, writing, or moving data
+around on the disk. You want to look for a system that can mount
+several drives in RAID or over faster interfaces (e.g., PCIE).</p></li></ul><p>Again, there are tons of details in each of these, but taking a basic
+inventory can help you focus your parts search.</p><p>In my case, modeling with Stan is heavily influenced by memory
+bandwidth, but the models themselves do not typically use much memory
+total. Therefore, I looked for CPUs with large L3 cache, quad-channel
+memory, but was not terribly concerned about CPU clock speeds, core
+count, or storage.</p><h1 id=my-build>My build</h1><p>I focused on a dual socket build, using LGA 2011 Xeon parts. Right
+now, you can pick up some older CPUs off EBay for around $30 each,
+each with 25 MB of L3 cache. Used ECC RAM costs around $1/GB, so for
+around $100 you can easily get 32 cores, 32 GB RAM. Given the cost, I
+figure if one part dies, it can be replaced for a low sum.</p><p>However, the difficulty is in the rest of the build. Server parts are
+intended to be installed in servers, not workstations. Therefore,
+finding a case, motherboard, PSU ended up being much more of a pain. I
+found a dual socket LGA 2011 Intel workstation board for $200
+refurbished, a case that could fit the EAXT (extended ATX) motherboard
+for $80, and a power supply with the necessary connections to drive 2
+CPUs (Seasonic 650 Gold unit) for an additional $90. You read that
+right, almost all the other components cost as much as the CPU and
+RAM, which are typically what people focus on. Additional parts that
+were needed were CPU coolers and a SSD for the OS.</p><p>The total cost ended around $600.</p><h1 id=was-it-worth-it>Was it worth it?</h1><p>For this comparison, I have my daily-driver laptop (Lenovo T460s,
+i5-6200U, 20GB RAM) which I purchased for ~$1k vs. the Chromebook
+(Lenovo 11e) and workstation combo which cost $770.</p><h2 id=computing-power>Computing power</h2><p>Both the T460s and workstation are running Linux, hence UnixBench is
+the nature benchmark to compare them.</p><h3 id=single-core>Single core</h3><p>First, the laptop:</p><p>Not terrible. How did the $600 workstation with old parts do?</p><p>So, the laptop actually has better single core performance. This is
+not terribly surprising, since the laptop CPU is newer and has a
+higher clock.</p><h3 id=multicore>Multicore</h3><p>Again, first the laptop:</p><p>And now the workstation:</p><p>This is really where the workstation shines - notice that the
+benchmark is only running on 8 cores concurrently.</p><h2 id=benchmarks-vs-real-world-use>Benchmarks vs. real-world use</h2><p>The workstation crunches on large Stan models without even breaking a
+sweat, even across 16 cores. Due to the memory bandwidth, even simple
+models are faster on the workstation compared to the laptop. I want to
+try some other computations at it (crop models, etc.), and I want to
+throw some GPUs in it for Machine Learning (it has 4 PCIE slots!). Until then,
+I can confidentially say that it out-performs any other $600 system I
+have seen.</p><p><em>One (important) thing to consider - I am not accounting for
+energy use here. The electricity needed to run the workstation and
+cool the room it is in should be taken into consideration.</em></p><h1 id=so-what-is-the-verdict>So, what is the verdict?</h1><p>The Chromebook is surprisingly nice for day-to-day cruising the web,
+answering emails, etc. When it comes to writing code, it is OK once
+set up (though the setup is not always fun). It is not great for
+actually running analyses, but the workstation helps patch up that
+deficiency.</p><p>I think if I only had ~$800 to spend, I would lean towards the
+Chromebook + workstation set up. But the limitations of the Chromebook
+when it comes to actually compiling code and/or running an analysis
+can be frustrating. While things might change, Chromebooks just are
+not intended for development.</p><p>Therefore, given everything I have learned over the last 2 years: If I
+were starting all over today, I would pick up a used Thinkpad (a X230
+weighs approximately the same as the Chromebook, but with much
+more storage, processing power, etc.) and build a workstation for more
+intensive work.</p></div><footer class=entry-footer><div class="container sep-before"><div class=categories><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5A2 2 0 014 3H9l2 3h9a2 2 0 012 2z"/></svg><span class=screen-reader-text>Categories: </span><a class=category href=/categories/data-science/>data science</a></div><div class=tags><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2H12l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7" y2="7"/></svg><span class=screen-reader-text>Tags: </span><a class=tag href=/tags/data-science/>data science</a>, <a class=tag href=/tags/computers/>computers</a></div></div></footer></article><nav class=entry-nav><div class=container><div class="prev-entry sep-before"><a href=/post/cheap2/><span aria-hidden=true><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="20" y1="12" x2="4" y2="12"/><polyline points="10 18 4 12 10 6"/></svg>Previous</span>
+<span class=screen-reader-text>Previous post: </span>Data science on the cheap - pt. 2</a></div><div class="next-entry sep-before"><a href=/post/update_nov30_2017/><span class=screen-reader-text>Next post: </span>What I'm up to<span aria-hidden=true>Next<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span></a></div></div></nav></main><footer id=footer class=footer><div class="container sep-before"><div class=copyright><p>&copy; 2017-2022 Matt Espe</p></div></div></footer></div></div><script>window.__assets_js_src="/assets/js/"</script><script src=/assets/js/main.c3bcf2df.js></script><script src=/js/custom.js></script></body></html>

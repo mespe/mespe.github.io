@@ -1,0 +1,75 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="A couple of weeks ago, I taught a one-hour workshop on the basics of writing functions in R. Overall, it went as well as I would expect an hour introduction workshop to go, which is to say OK but not great. Why not great? It turns out teaching skills in workshops is really difficult. But why?
+I think it boils down to a couple of aspects of workshops:
+Workshops:
+ are too short teach to the lowest skill level in the room don&rsquo;t reflect how you actually learn these skill  1."><meta name=theme-color content="#ffcd00"><meta property="og:title" content="Why workshops are tough to teach • Matt Espe"><meta property="og:description" content="A couple of weeks ago, I taught a one-hour workshop on the basics of writing functions in R. Overall, it went as well as I would expect an hour introduction workshop to go, which is to say OK but not great. Why not great? It turns out teaching skills in workshops is really difficult. But why?
+I think it boils down to a couple of aspects of workshops:
+Workshops:
+ are too short teach to the lowest skill level in the room don&rsquo;t reflect how you actually learn these skill  1."><meta property="og:url" content="https://mespe.github.io/post/workshops/"><meta property="og:site_name" content="Ten thousand words..."><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:tag" content="data science"><meta property="article:tag" content="R"><meta property="article:published_time" content="2019-03-19T09:39:47-06:00"><meta property="article:modified_time" content="2019-03-19T09:39:47-06:00"><meta name=twitter:card content="summary"><meta name=generator content="Hugo 0.99.1"><title>Why workshops are tough to teach • Matt Espe</title><link rel=canonical href=https://mespe.github.io/post/workshops/><link rel=icon href=/favicon.ico><link rel=stylesheet href=/assets/css/main.ab98e12b.css><link rel=stylesheet href=/css/custom.css><style>:root{--color-accent:#ffcd00}</style><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-101069222-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body class="page type-post has-sidebar"><div class=site><div id=sidebar class=sidebar><a class=screen-reader-text href=#main-menu>Skip to Main Menu</a><div class=container><section class="widget widget-about sep-after"><header><h2 class="title site-title"><a href=/>Ten thousand words...</a></h2><div class=desc>Thoughts on agriculture, data science, and academia</div></header></section><section class="widget widget-taxonomy_cloud sep-after"><header><h4 class="title widget-title">Tags</h4></header><div class="container list-container"><ul class="list taxonomy-cloud"><li><a href=/tags/agriculture/ style=font-size:1.25em>agriculture</a></li><li><a href=/tags/blogging/ style=font-size:1em>blogging</a></li><li><a href=/tags/computers/ style=font-size:1.4166666666666665em>computers</a></li><li><a href=/tags/data-science/ style=font-size:1.9166666666666665em>data science</a></li><li><a href=/tags/golang/ style=font-size:1em>Golang</a></li><li><a href=/tags/hugo/ style=font-size:1em>hugo</a></li><li><a href=/tags/personal/ style=font-size:1em>personal</a></li><li><a href=/tags/r/ style=font-size:2em>R</a></li><li><a href=/tags/research/ style=font-size:1.0833333333333333em>research</a></li><li><a href=/tags/stan/ style=font-size:1em>Stan</a></li><li><a href=/tags/stats/ style=font-size:1.0833333333333333em>stats</a></li></ul></div></section></div><div class=sidebar-overlay></div></div><div class=main><nav id=main-menu class="menu main-menu" aria-label="Main Menu"><div class=container><a class=screen-reader-text href=#content>Skip to Content</a>
+<button id=sidebar-toggler class=sidebar-toggler aria-controls=sidebar>
+<span class=screen-reader-text>Toggle Sidebar</span>
+<span class=open><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></span><span class=close><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></button><ul><li class=item><a href=/>Home</a></li><li class=item><a href=/post/>Blog</a></li><li class=item><a href=/about/>About me</a></li><li class=item><a href=/research/>Research</a></li><li class=item><a href=/consulting/>Consulting</a></li><li class=item><a href=https://github.com/mespe>Repos</a></li><li class=item><a href=/docs/espe_cv.pdf>CV</a></li></ul></div></nav><div class=header-widgets><div class=container></div></div><header id=header class="header site-header"><div class="container sep-after"><div class=header-info><p class="site-title title">Ten thousand words...</p><p class="desc site-desc">Thoughts on agriculture, data science, and academia</p></div></div></header><main id=content><article lang=en class=entry><header class="header entry-header"><div class="container sep-after"><div class=header-info><h1 class=title>Why workshops are tough to teach</h1></div><div class=entry-meta><span class=posted-on><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class=screen-reader-text>Posted on</span>
+<time class=entry-date datetime=2019-03-19T09:39:47-06:00>2019, Mar 19</time></span>
+<span class=byline><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M21 21V20c0-2.76-4-5-9-5s-9 2.24-9 5v1"/><path d="M16 6.37A4 4 0 1112.63 3 4 4 0 0116 6.37z"/></svg><span class=screen-reader-text>by </span><a href=/authors/mespe>Matt Espe</a></span>
+<span class=reading-time><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 15 15"/></svg>5 mins read</span></div></div></header><div class="container entry-content"><p>A couple of weeks ago, I taught a one-hour workshop on the basics of writing
+functions in R. Overall, it went as well as I would expect an hour introduction
+workshop to go, which is to say OK but not great. Why not great? It
+turns out teaching skills in workshops is really difficult. But why?</p><p>I think it boils down to a couple of aspects of workshops:</p><p>Workshops:</p><ol><li>are too short</li><li>teach to the lowest skill level in the room</li><li>don&rsquo;t reflect how you actually learn these skill</li></ol><h1 id=1-workshops-are-too-short>1. Workshops are too short</h1><p>Ask around, and you will find that almost everyone loves the short
+format of workshops. Life is busy and time is precious. Asking for a four
+week commitment is a lot, but ask for one hour out of someone&rsquo;s
+afternoon easy.</p><p>However, what can you cover in an hour?</p><p>Turns out, not much. When I teach, I typically assume that you can
+drive home one minor idea or concept per hour of instruction. As for
+major themes or ideas, I figure you can convey 4-5 in a typical 3
+credit hour course. After talking to many other instructors and
+professors, I don&rsquo;t think I am alone in this assessment.</p><p>So, if we assume we can get a single minor concept across in an hour
+workshop, what is the issue? We know that we are not going to teach
+all of R, but giving an introduction to writing a function should not
+be an issue, right?</p><p>Well, the trouble comes in with #2&mldr;
+`</p><h1 id=2-workshops-teach-to-the-lowest-skill-level-in-the-room>2. Workshops teach to the lowest skill level in the room</h1><p>Let&rsquo;s say we are teaching the single skill of &ldquo;writing R functions&rdquo;
+during a workshop. It is a simple task, well within the criteria of
+&ldquo;one minor idea per hour&rdquo;.</p><p>But as we give the talk, it turns out there are a range of experiences
+in the room. It turns out some people have not really been introduced
+to functions at all, so we cannot teach how to write functions without
+giving a brief overview of what functions are. Some people have never
+been introduced to R&rsquo;s method for using and finding variables, so we
+need to also introduce that. Related to that, most people don&rsquo;t know
+about scoping, and get confused about how variables could be local to
+a function, or why global variables are a bad idea. Lazy evaluation?
+Debugging? The list goes on and on&mldr;</p><p>When I teach a class, I can start at the fundamentals. Once we get to
+writing functions, the students should be comfortable with the basics
+of the R language. The foundation has already been built, so adding to
+it is an easy task.</p><p>With workshops, all bets are off.</p><p>If you look at most workshop series (e.g. Software Carpentry
+workshops), they just don&rsquo;t bother to teach &ldquo;fundamental&rdquo;
+skills. <em>(Note, do not confuse &ldquo;fundamental&rdquo; with &ldquo;basic&rdquo; - fundamental
+skills are skill which form the foundation for deep understanding.)</em>
+But, the reason this becomes an issue is &mldr;</p><h1 id=3-workshops-do-not-reflect-how-you-actually-learn-a-skill>3. Workshops do not reflect how you actually learn a skill</h1><p>Find an expert in some data/software skill, and ask them how they
+became an expert. I would bet good money that none of them became an
+expert by attending workshops or reading a book. Why? Because to
+transition from novice to expert, you need to apply the skills to a
+non-trivial problem. You need to hammer away at something that is
+difficult, work through issues with the tool and your understanding of
+how it functions, and come out the other side with hands-on experience
+to be an expert. It is the reason why most companies give problem sets
+to new data science hires. Many people attend workshops, few know how
+to use the skills in practice.</p><p>But you cannot solve a difficult problem in a workshop. Doing so would
+require time that you just don&rsquo;t have. Instead, in a workshop, you are presented
+with a skill and you might get to see a toy problem or two, but you never
+actually apply the skill. It is extremely common for workshop
+participants to leave feeling good about &ldquo;learning&rdquo; a skill, only to
+be completely unable to apply it in practice.</p><p>So, what&rsquo;s wrong with that? Well, when you tackle a difficult issue,
+you need the fundamental understanding. You need to be able to reason
+about what the language is doing and why. Otherwise, you end up in the
+extremely common workflow of &ldquo;I have this script, and I will modify it
+with half-educated guesses until it appears to work&rdquo;. And yes, I have
+seen many many workshop attendants in this mode of working. It doesn&rsquo;t
+really work.</p><p>How do I know this? Because the only reason I see these people is that
+eventually these workshop &ldquo;orphans&rdquo; reach out to me for help, having
+exhausted the resources provided by the workshop.</p><h1 id=so-why-are-workshops-so-popular>So, why are workshops so popular?</h1><p>I have heard many reasons, including time constraints and ease of
+scheduling. But I think there might be a deeper issue at play.</p><p>Workshops have been created to optimize the wrong thing. Since it is
+probably impossible for a workshop to teach fundamental or deeper
+understanding, most workshops aim to produce two things: 1) capable
+beginners and 2) a sense of accomplishment. Most participants of
+workshops are happy at the end. They feel empowered. And there is
+nothing wrong with this, per se. But we also should not delude
+ourselves into thinking workshops will produce a cohort of skilled
+data scientists.</p></div><footer class=entry-footer><div class="container sep-before"><div class=categories><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5A2 2 0 014 3H9l2 3h9a2 2 0 012 2z"/></svg><span class=screen-reader-text>Categories: </span><a class=category href=/categories/data-science/>data science</a>, <a class=category href=/categories/r/>R</a></div><div class=tags><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2H12l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7" y2="7"/></svg><span class=screen-reader-text>Tags: </span><a class=tag href=/tags/data-science/>data science</a>, <a class=tag href=/tags/r/>R</a></div></div></footer></article><nav class=entry-nav><div class=container><div class="prev-entry sep-before"><a href=/post/r_best_practice/><span aria-hidden=true><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="20" y1="12" x2="4" y2="12"/><polyline points="10 18 4 12 10 6"/></svg>Previous</span>
+<span class=screen-reader-text>Previous post: </span>Good practices for working in R</a></div><div class="next-entry sep-before"><a href=/post/datasci_minimalism/><span class=screen-reader-text>Next post: </span>Data Science Minimalism<span aria-hidden=true>Next<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span></a></div></div></nav></main><footer id=footer class=footer><div class="container sep-before"><div class=copyright><p>&copy; 2017-2022 Matt Espe</p></div></div></footer></div></div><script>window.__assets_js_src="/assets/js/"</script><script src=/assets/js/main.c3bcf2df.js></script><script src=/js/custom.js></script></body></html>

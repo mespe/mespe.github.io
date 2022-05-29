@@ -1,0 +1,263 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="One of the things that I was fortunate to learn relatively early in my R career was how to write a function. Functions allow you to avoid duplicating code, and facilitate better readability, maintenance, and testing of your code.
+Over the years, how I write functions has changed. Due to an out-sized influence of one DTL, I now write my functions in a somewhat atypical style, which I thought might be worth showing."><meta name=theme-color content="#ffcd00"><meta property="og:title" content="How I write an R function • Matt Espe"><meta property="og:description" content="One of the things that I was fortunate to learn relatively early in my R career was how to write a function. Functions allow you to avoid duplicating code, and facilitate better readability, maintenance, and testing of your code.
+Over the years, how I write functions has changed. Due to an out-sized influence of one DTL, I now write my functions in a somewhat atypical style, which I thought might be worth showing."><meta property="og:url" content="https://mespe.github.io/post/write_a_fun/"><meta property="og:site_name" content="Ten thousand words..."><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:tag" content="R"><meta property="article:published_time" content="2020-05-22T11:07:58-06:00"><meta property="article:modified_time" content="2020-05-22T11:07:58-06:00"><meta name=twitter:card content="summary"><meta name=generator content="Hugo 0.99.1"><title>How I write an R function • Matt Espe</title><link rel=canonical href=https://mespe.github.io/post/write_a_fun/><link rel=icon href=/favicon.ico><link rel=stylesheet href=/assets/css/main.ab98e12b.css><link rel=stylesheet href=/css/custom.css><style>:root{--color-accent:#ffcd00}</style><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-101069222-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body class="page type-post has-sidebar"><div class=site><div id=sidebar class=sidebar><a class=screen-reader-text href=#main-menu>Skip to Main Menu</a><div class=container><section class="widget widget-about sep-after"><header><h2 class="title site-title"><a href=/>Ten thousand words...</a></h2><div class=desc>Thoughts on agriculture, data science, and academia</div></header></section><section class="widget widget-taxonomy_cloud sep-after"><header><h4 class="title widget-title">Tags</h4></header><div class="container list-container"><ul class="list taxonomy-cloud"><li><a href=/tags/agriculture/ style=font-size:1.25em>agriculture</a></li><li><a href=/tags/blogging/ style=font-size:1em>blogging</a></li><li><a href=/tags/computers/ style=font-size:1.4166666666666665em>computers</a></li><li><a href=/tags/data-science/ style=font-size:1.9166666666666665em>data science</a></li><li><a href=/tags/golang/ style=font-size:1em>Golang</a></li><li><a href=/tags/hugo/ style=font-size:1em>hugo</a></li><li><a href=/tags/personal/ style=font-size:1em>personal</a></li><li><a href=/tags/r/ style=font-size:2em>R</a></li><li><a href=/tags/research/ style=font-size:1.0833333333333333em>research</a></li><li><a href=/tags/stan/ style=font-size:1em>Stan</a></li><li><a href=/tags/stats/ style=font-size:1.0833333333333333em>stats</a></li></ul></div></section></div><div class=sidebar-overlay></div></div><div class=main><nav id=main-menu class="menu main-menu" aria-label="Main Menu"><div class=container><a class=screen-reader-text href=#content>Skip to Content</a>
+<button id=sidebar-toggler class=sidebar-toggler aria-controls=sidebar>
+<span class=screen-reader-text>Toggle Sidebar</span>
+<span class=open><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></span><span class=close><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></button><ul><li class=item><a href=/>Home</a></li><li class=item><a href=/post/>Blog</a></li><li class=item><a href=/about/>About me</a></li><li class=item><a href=/research/>Research</a></li><li class=item><a href=/consulting/>Consulting</a></li><li class=item><a href=https://github.com/mespe>Repos</a></li><li class=item><a href=/docs/espe_cv.pdf>CV</a></li></ul></div></nav><div class=header-widgets><div class=container></div></div><header id=header class="header site-header"><div class="container sep-after"><div class=header-info><p class="site-title title">Ten thousand words...</p><p class="desc site-desc">Thoughts on agriculture, data science, and academia</p></div></div></header><main id=content><article lang=en class=entry><header class="header entry-header"><div class="container sep-after"><div class=header-info><h1 class=title>How I write an R function</h1></div><div class=entry-meta><span class=posted-on><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class=screen-reader-text>Posted on</span>
+<time class=entry-date datetime=2020-05-22T11:07:58-06:00>2020, May 22</time></span>
+<span class=byline><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M21 21V20c0-2.76-4-5-9-5s-9 2.24-9 5v1"/><path d="M16 6.37A4 4 0 1112.63 3 4 4 0 0116 6.37z"/></svg><span class=screen-reader-text>by </span><a href=/authors/mespe>Matt Espe</a></span>
+<span class=reading-time><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 15 15"/></svg>10 mins read</span></div></div></header><div class="container entry-content"><p>One of the things that I was fortunate to learn relatively early in my
+R career was how to write a function. Functions allow you to avoid
+duplicating code, and facilitate better readability, maintenance, and
+testing of your code.</p><p>Over the years, how I write functions has changed. Due to an out-sized
+influence of one DTL, I now write my functions in a somewhat atypical
+style, which I thought might be worth showing.</p><h1 id=the-problem>The problem</h1><p>We have three CSV files which contain data we would like to bring into
+a data.frame. Each file is the output of a hydrodynamic model, and is
+arranged with each row representing a time, and then each column
+representing a different treatment, in this case distance from the
+center point.</p><p>Here is what the hydro data looks like:</p><pre tabindex=0><code>                  Time NEG600 NEG400 NEG200 NEG100 NEG50 NEG1 LC POS1 POS50
+1 22-Oct-2019 18:01:00      0      0      0      0     0    0  0    0     0
+2 22-Oct-2019 18:02:00      0      0      0      0     0    0  0    0     0
+3 22-Oct-2019 18:03:00      0      0      0      0     0    0  0    0     0
+4 22-Oct-2019 18:04:00      0      0      0      0     0    0  0    0     0
+5 22-Oct-2019 18:05:00      0      0      0      0     0    0  0    0     0
+6 22-Oct-2019 18:06:00      0      0      0      0     0    0  0    0     0
+  POS100 POS200 POS400 POS600 POS800
+1      0      0      0      0      0
+2      0      0      0      0      0
+3      0      0      0      0      0
+4      0      0      0      0      0
+5      0      0      0      0      0
+6      0      0      0      0      0
+</code></pre><p>Our experiment data.frame is arranged as a tidy data.frame, with each row
+representing a single observation at a given treatment at a given
+time.</p><p>Here is what some of the experiment data look like:</p><pre tabindex=0><code>          DateTimePDT Distance_m Experiment
+1 2019-10-22 19:30:00          1   tidal-01
+2 2019-10-22 19:30:00          1   tidal-01
+3 2019-10-22 19:30:00          1   tidal-01
+4 2019-10-22 22:05:00          1   tidal-01
+5 2019-10-22 22:05:00          1   tidal-01
+6 2019-10-22 22:05:00          1   tidal-01
+</code></pre><p>So, the goal is for each row of our experimental data.frame, find the
+corresponding cell of the hydro data. Then, we need to repeat for 3 more files.</p><h1 id=the-options>The options</h1><p>There are several options for how to do this.</p><ol><li><p>Perhaps the most straightforward: Convert the hydro data to a long
+or tidy format, identify &ldquo;key&rdquo; columns in both data sets, and then
+merge the two. This requires less thought on our part, because we
+will rely on <code>merge</code>/<code>join</code> to find the correct values and fill
+them in. A downside of this approach is it requires us to
+copy the data into a new data structure, which can be
+computationally and memory intensive, depending on how large each
+set is. In this case, the hydro data is 1799 x 15, so this is
+probably not a concern. Another downside is that we will need to
+create a new data.frame with the column for the merged data, verses
+being able to assign it to a vector which we can choose to assign
+into the data.frame or not. Sometimes we want to have the vector
+separate so we can test and check it, then assign it when we are
+ready.</p></li><li><p>Requiring more thought: For each row of the experimental
+data.frame, find the corresponding row and column of the hydro
+data. Then subset out the correct value from the hydro data. At
+first glance, this probably seems extremely inefficient. You can
+imagine something like</p></li></ol><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>ans <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>numeric</span>(<span style=color:#06b6ef>nrow</span>(df))
+</span></span><span style=display:flex><span><span style=color:#06b6ef>for</span>(n in <span style=color:#06b6ef>seq</span>(<span style=color:#06b6ef>nrow</span>(df))){
+</span></span><span style=display:flex><span>    r <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>which</span>(hydro<span style=color:#5bc4bf>$</span>Time <span style=color:#5bc4bf>==</span> df<span style=color:#5bc4bf>$</span>DateTimePDT[n])
+</span></span><span style=display:flex><span>    c <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>which</span>(<span style=color:#06b6ef>colnames</span>(hydro) <span style=color:#5bc4bf>==</span> df<span style=color:#5bc4bf>$</span>Distance[n])
+</span></span><span style=display:flex><span>    ans[n] <span style=color:#5bc4bf>=</span> hydro[r,c]
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>or to avoid the <code>for</code> loop,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span><span style=color:#06b6ef>sapply</span>(<span style=color:#06b6ef>seq</span>(<span style=color:#06b6ef>nrow</span>(df)), <span style=color:#06b6ef>function</span>(i) {
+</span></span><span style=display:flex><span>    r <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>which</span>(hydro<span style=color:#5bc4bf>$</span>Time <span style=color:#5bc4bf>==</span> df<span style=color:#5bc4bf>$</span>DateTimePDT[i])
+</span></span><span style=display:flex><span>    c <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>which</span>(<span style=color:#06b6ef>colnames</span>(hydro) <span style=color:#5bc4bf>==</span> df<span style=color:#5bc4bf>$</span>Distance[i])
+</span></span><span style=display:flex><span>    hydro[r,c]              
+</span></span><span style=display:flex><span>})
+</span></span></code></pre></div><p>Indeed, neither is particularly efficient. Thankfully, we can do this
+in a vectorized way.</p><p>I am going to use this second option, even though it seems less
+straightforward. This is because it is more flexible, which will
+become important later (spoilers).</p><h1 id=step-0-link-treatments-between-the-data-sets>Step 0: Link &ldquo;treatments&rdquo; between the data sets</h1><p>You might have noticed in either of the above solutions, I skated over an
+important detail - the column names of our hydro data do not match our
+distances in the experiment data. Here are the column names in the
+hydro data:</p><pre tabindex=0><code> [1] &#34;Time&#34;   &#34;NEG600&#34; &#34;NEG400&#34; &#34;NEG200&#34; &#34;NEG100&#34; &#34;NEG50&#34;  &#34;NEG1&#34;   &#34;LC&#34;    
+ [9] &#34;POS1&#34;   &#34;POS50&#34;  &#34;POS100&#34; &#34;POS200&#34; &#34;POS400&#34; &#34;POS600&#34; &#34;POS800&#34;
+</code></pre><p>and here are the distances in the experiment data.frame:</p><pre tabindex=0><code> [1]    1   50  100  200  400  600  800 -600 -400 -200 -100  -50   -1
+</code></pre><p>It seems that the hydro data uses &ldquo;NEG&rdquo; and &ldquo;POS&rdquo; rather than <code>-</code>.</p><p>So, before we do anything, we need to make these match. Thankfully,
+this is mostly straightforward. We need to drop the &ldquo;NEG&rdquo; and replace
+with <code>-</code>, and then drop the &ldquo;POS&rdquo; completely. We also need to figure
+out what to do with the &ldquo;LC&rdquo; column.</p><p>Here we have another choice - we can modify the column names in place,
+or we can create a lookup table which shows which column of the hydro
+data corresponds to each distance in the experimental
+data.frame. Renaming the columns seems the most straightforward, but I
+am going to make a lookup table. Why?</p><p>For one, this gives me an intermediate output to check. Second, I said
+we could vectorize the subsetting. You might imagine something like,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span><span style=color:#06b6ef>mapply</span>(<span style=color:#06b6ef>function</span>(r, c) {
+</span></span><span style=display:flex><span>    hydro[r,c]                  
+</span></span><span style=display:flex><span>},
+</span></span><span style=display:flex><span>r <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>match</span>(df<span style=color:#5bc4bf>$</span>DateTimePDT, hydro<span style=color:#5bc4bf>$</span>Time),
+</span></span><span style=display:flex><span>c <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>match</span>(df<span style=color:#5bc4bf>$</span>Distance, <span style=color:#06b6ef>colnames</span>(hydro)))
+</span></span></code></pre></div><p>However, this is still hammering away at <code>[.data.frame</code> by subsetting
+a single value at a time. There is a way to do vectorized subsetting
+by a vector of rows and a vector of columns. But we are getting ahead
+of ourselves.</p><p>We need a function that will take our hydro data, and return the
+corresponding value in the experiment data. Here, we assume &ldquo;LC&rdquo; is
+actually the center point, i.e. distance = 0. First, we deal with the
+column names,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>colnm_to_dist <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(x)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    x <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>gsub</span>(<span style=color:#48b685>&#34;POS&#34;</span>, <span style=color:#48b685>&#34;&#34;</span>, x)
+</span></span><span style=display:flex><span>    x <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>gsub</span>(<span style=color:#48b685>&#34;NEG&#34;</span>, <span style=color:#48b685>&#34;-&#34;</span>, x)
+</span></span><span style=display:flex><span>    x[x <span style=color:#5bc4bf>==</span> <span style=color:#48b685>&#34;LC&#34;</span>] <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>0</span>
+</span></span><span style=display:flex><span>    x
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Simple.</p><p>Actually&mldr; too simple. We hard-coded the relationship between
+&ldquo;POS/NEG&rdquo; and the sign. These data sets came from two different
+sources, and it is possible they had different interpretations of
+which side was <code>-</code>. And maybe &ldquo;LC&rdquo; is not the 0 point. We would like
+this to be more flexible.</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>colnm_to_dist <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(x,
+</span></span><span style=display:flex><span>                         subs <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>c</span>(POS <span style=color:#5bc4bf>=</span> <span style=color:#48b685>&#34;&#34;</span>,
+</span></span><span style=display:flex><span>                                  NEG <span style=color:#5bc4bf>=</span> <span style=color:#48b685>&#34;-&#34;</span>,
+</span></span><span style=display:flex><span>                                  LC <span style=color:#5bc4bf>=</span> <span style=color:#48b685>&#34;0&#34;</span>))
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    nm <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>names</span>(subs)
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>for</span>(i in <span style=color:#06b6ef>seq_along</span>(subs))
+</span></span><span style=display:flex><span>        x <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>gsub</span>(nm[i], subs[i], x)
+</span></span><span style=display:flex><span>    x
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>OK, perhaps overkill in this case - it&rsquo;s not clear changing the args
+is any more difficult than changing the function. But this does what
+we were hoping for.</p><h1 id=step-1-rows-and-columns>Step 1: Rows and Columns</h1><p>Now that we have this function, we can use it to get our column number
+in the hydro data for each row of the experiment data.</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>hydro_cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>colnm_to_dist</span>(hydro)
+</span></span><span style=display:flex><span>cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>match</span>(df<span style=color:#5bc4bf>$</span>Distance_m, hydro_cols)
+</span></span></code></pre></div><p>Next we need the rows,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>rows <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>match</span>(df<span style=color:#5bc4bf>$</span>DateTimePDT, hydro<span style=color:#5bc4bf>$</span>Time)
+</span></span></code></pre></div><h1 id=step-2-subsetting>Step 2: Subsetting</h1><p>So, we can use <code>mapply</code> to loop over these two, but that is not very
+efficient. Thankfully, we can do vectorized subsetting by a 2-column
+matrix, i.e. if we <code>cbind</code> our row and column values together, we can
+use this to do efficient vectorized subsetting.</p><p>So, we can pull out the values we are interested in just by doing,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>df<span style=color:#06b6ef>[cbind</span>(rows,cols)]
+</span></span></code></pre></div><h1 id=step-3-putting-it-all-together>Step 3: Putting it all together</h1><p>So, to put this all together into a single function,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>get_hydro <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(df, hydro)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    hydro_cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>colnm_to_dist</span>(<span style=color:#06b6ef>colnames</span>(hydro))
+</span></span><span style=display:flex><span>    cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>match</span>(df<span style=color:#5bc4bf>$</span>Distance_m, hydro_cols)
+</span></span><span style=display:flex><span>    rows <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>match</span>(df<span style=color:#5bc4bf>$</span>DateTimePDT, hydro<span style=color:#5bc4bf>$</span>Time)
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>as.numeric</span>(hydro<span style=color:#06b6ef>[cbind</span>(rows,cols)])
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Couple things of note - we need to convert the subset to numeric, but
+if you are not familiar with this method of subsetting, it might not
+be clear why. Subsetting by 2-column matrix is actually a method for
+matrices. This means that the hydro data.frame is being coerced to a
+matrix. Since it has the &ldquo;time&rdquo; column and a matrix needs to be of a
+single data type, the entire data.frame is converted to a character
+matrix. We can avoid this by dropping that column and only leaving the
+numeric columns, but then we need to compensate in our column index.</p><p>You also might have noticed that we have hard-coded some of the columns
+into our function. Again, any time we are hard-coding things, the
+function becomes less flexible.</p><p>So, there are some refinements that can be made.</p><h1 id=step-4-refining>Step 4: Refining</h1><p>So, taking the above, we can modify the function,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>get_hydro <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(df, hydro,
+</span></span><span style=display:flex><span>                     df_var <span style=color:#5bc4bf>=</span> <span style=color:#48b685>&#34;Distance_m&#34;</span>,
+</span></span><span style=display:flex><span>                     df_time <span style=color:#5bc4bf>=</span> <span style=color:#48b685>&#34;DateTimePDT&#34;</span>,
+</span></span><span style=display:flex><span>                     hydro_time <span style=color:#5bc4bf>=</span> <span style=color:#48b685>&#34;Time&#34;</span>)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    hydro_cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>colnm_to_dist</span>(<span style=color:#06b6ef>colnames</span>(hydro))
+</span></span><span style=display:flex><span>    i <span style=color:#5bc4bf>=</span> hydro_cols <span style=color:#5bc4bf>%in%</span> <span style=color:#06b6ef>unique</span>(df[[df_var]])
+</span></span><span style=display:flex><span>    cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>match</span>(df[[df_var]], hydro_cols[i])
+</span></span><span style=display:flex><span>    rows <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>match</span>(df[[df_time]], hydro[[hydro_time]])
+</span></span><span style=display:flex><span>    hydro[,i]<span style=color:#06b6ef>[cbind</span>(rows,cols)]
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>We are taking a few additional steps to find the &ldquo;Time&rdquo; column and
+then subset it out, but we should gain some speed by avoiding the
+coercion.</p><h1 id=step-5-compare>Step 5: Compare</h1><p>Lastly, lets compare the speed of the different approaches. Below you
+will find all the functions, including a merge approach.</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span><span style=color:#776e71># merge approach</span>
+</span></span><span style=display:flex><span>get_hydro_merge <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(df, hydro)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    hydro_cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>colnm_to_dist</span>(<span style=color:#06b6ef>colnames</span>(hydro))
+</span></span><span style=display:flex><span>    t_cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>grep</span>(<span style=color:#48b685>&#34;Time&#34;</span>, hydro_cols)
+</span></span><span style=display:flex><span>    hydro_long <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>data.frame</span>(DateTimePDT <span style=color:#5bc4bf>=</span> hydro[[t_cols]],
+</span></span><span style=display:flex><span>                            Value <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>unlist</span>(hydro[<span style=color:#5bc4bf>-</span>t_cols]),
+</span></span><span style=display:flex><span>                            Distance_m <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>rep</span>(hydro_cols[<span style=color:#5bc4bf>-</span>t_cols], each <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>nrow</span>(hydro)))
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>merge</span>(df, hydro_long, all.x <span style=color:#5bc4bf>=</span> <span style=color:#815ba4>TRUE</span>, all.y <span style=color:#5bc4bf>=</span> <span style=color:#815ba4>FALSE</span>)<span style=color:#5bc4bf>$</span>Value
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#776e71># first attempt</span>
+</span></span><span style=display:flex><span>get_hydro_orig <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(df, hydro)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    hydro_cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>colnm_to_dist</span>(<span style=color:#06b6ef>colnames</span>(hydro))
+</span></span><span style=display:flex><span>    cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>match</span>(df<span style=color:#5bc4bf>$</span>Distance_m, hydro_cols)
+</span></span><span style=display:flex><span>    rows <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>match</span>(df<span style=color:#5bc4bf>$</span>DateTimePDT, hydro<span style=color:#5bc4bf>$</span>Time)
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>as.numeric</span>(hydro<span style=color:#06b6ef>[cbind</span>(rows,cols)])
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#776e71># for loop</span>
+</span></span><span style=display:flex><span>get_hydro_for <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(df, hydro)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    hydro_cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>colnm_to_dist</span>(<span style=color:#06b6ef>colnames</span>(hydro))
+</span></span><span style=display:flex><span>    ans <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>numeric</span>(<span style=color:#06b6ef>nrow</span>(df))
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>for</span>(n in <span style=color:#06b6ef>seq</span>(<span style=color:#06b6ef>nrow</span>(df))){
+</span></span><span style=display:flex><span>        r <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>which</span>(hydro<span style=color:#5bc4bf>$</span>Time <span style=color:#5bc4bf>==</span> df<span style=color:#5bc4bf>$</span>DateTimePDT[n])
+</span></span><span style=display:flex><span>        c <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>which</span>(hydro_cols <span style=color:#5bc4bf>==</span> df<span style=color:#5bc4bf>$</span>Distance_m[n])
+</span></span><span style=display:flex><span>        ans[n] <span style=color:#5bc4bf>=</span> hydro[r,c]
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    ans
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#776e71># sapply</span>
+</span></span><span style=display:flex><span>get_hydro_sapply <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(df, hydro)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    hydro_cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>colnm_to_dist</span>(<span style=color:#06b6ef>colnames</span>(hydro))
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>sapply</span>(<span style=color:#06b6ef>seq</span>(<span style=color:#06b6ef>nrow</span>(df)), <span style=color:#06b6ef>function</span>(i) {
+</span></span><span style=display:flex><span>        r <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>which</span>(hydro<span style=color:#5bc4bf>$</span>Time <span style=color:#5bc4bf>==</span> df<span style=color:#5bc4bf>$</span>DateTimePDT[i])
+</span></span><span style=display:flex><span>        c <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>which</span>(hydro_cols <span style=color:#5bc4bf>==</span> df<span style=color:#5bc4bf>$</span>Distance_m[i])
+</span></span><span style=display:flex><span>        hydro[r,c]              
+</span></span><span style=display:flex><span>    })
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#776e71># mapply</span>
+</span></span><span style=display:flex><span>get_hydro_mapply <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(df, hydro)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    hydro_cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>colnm_to_dist</span>(<span style=color:#06b6ef>colnames</span>(hydro))
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>mapply</span>(<span style=color:#06b6ef>function</span>(r, c) {
+</span></span><span style=display:flex><span>        hydro[r,c]                  
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>    r <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>match</span>(df<span style=color:#5bc4bf>$</span>DateTimePDT, hydro<span style=color:#5bc4bf>$</span>Time),
+</span></span><span style=display:flex><span>    c <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>match</span>(df<span style=color:#5bc4bf>$</span>Distance_m, hydro_cols))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#776e71># final version</span>
+</span></span><span style=display:flex><span>get_hydro_optimized <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(df, hydro,
+</span></span><span style=display:flex><span>                     df_var <span style=color:#5bc4bf>=</span> <span style=color:#48b685>&#34;Distance_m&#34;</span>,
+</span></span><span style=display:flex><span>                     df_time <span style=color:#5bc4bf>=</span> <span style=color:#48b685>&#34;DateTimePDT&#34;</span>,
+</span></span><span style=display:flex><span>                     hydro_time <span style=color:#5bc4bf>=</span> <span style=color:#48b685>&#34;Time&#34;</span>)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    hydro_cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>colnm_to_dist</span>(<span style=color:#06b6ef>colnames</span>(hydro))
+</span></span><span style=display:flex><span>    i <span style=color:#5bc4bf>=</span> hydro_cols <span style=color:#5bc4bf>%in%</span> <span style=color:#06b6ef>unique</span>(df[[df_var]])
+</span></span><span style=display:flex><span>    cols <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>match</span>(df[[df_var]], hydro_cols[i])
+</span></span><span style=display:flex><span>    rows <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>match</span>(df[[df_time]], hydro[[hydro_time]])
+</span></span><span style=display:flex><span>    hydro[,i]<span style=color:#06b6ef>[cbind</span>(rows,cols)]
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>funs <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>list</span>(get_hydro_merge, get_hydro_orig, get_hydro_for,
+</span></span><span style=display:flex><span>            get_hydro_sapply, get_hydro_mapply, get_hydro_optimized)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>res <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>lapply</span>(funs, <span style=color:#06b6ef>function</span>(fn){
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>t</span>(<span style=color:#06b6ef>replicate</span>(<span style=color:#f99b15>100</span>, <span style=color:#06b6ef>system.time</span>(<span style=color:#06b6ef>fn</span>(tidal01, hydro))))
+</span></span><span style=display:flex><span>})
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>ans <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>structure</span>(<span style=color:#06b6ef>sapply</span>(res, <span style=color:#06b6ef>function</span>(x) <span style=color:#06b6ef>median</span>(x[,<span style=color:#f99b15>1</span>])),
+</span></span><span style=display:flex><span>          names <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>c</span>(<span style=color:#48b685>&#34;merge&#34;</span>, <span style=color:#48b685>&#34;original&#34;</span>, <span style=color:#48b685>&#34;for-loop&#34;</span>,
+</span></span><span style=display:flex><span>                    <span style=color:#48b685>&#34;sapply&#34;</span>, <span style=color:#48b685>&#34;mapply&#34;</span>, <span style=color:#48b685>&#34;avoid-coerce&#34;</span>))
+</span></span><span style=display:flex><span><span style=color:#06b6ef>sort</span>(ans, decreasing <span style=color:#5bc4bf>=</span> <span style=color:#815ba4>TRUE</span>)
+</span></span></code></pre></div><pre tabindex=0><code>    for-loop       sapply        merge       mapply     original avoid-coerce 
+      0.3295       0.3200       0.1000       0.0670       0.0350       0.0060 
+</code></pre><figure><img src=/img/fun_timing.png></figure><ul><li><p>Unsurprisingly, the <code>for</code>-loop is the slowest. This makes sense - it is
+not vectorized at all. But it also did not require much thought from
+us - it is the easiest conceptually. Depending on our experience with
+R, it might be the lowest effort in terms of development time.</p></li><li><p>The <code>sapply</code> version is only slightly faster than the <code>for</code>
+loop. Since our <code>for</code> loop is pre-allocating the results vector, we
+are probably not gaining much from <code>sapply</code>, while also increasing
+our overhead.</p></li><li><p>Next is the <code>merge</code> version - we get a 3x speedup vs. the <code>for</code>
+loop. This result actually not terrible. We get reasonable speed
+without having to think about the computations since <code>merge</code> is
+handling linking up the observations for us.</p></li><li><p>Next is the <code>mapply</code> version. Even though it is &ldquo;vectorized&rdquo;, <code>mapply</code>
+adds a lot of overhead, and the base computation is still not
+vectorized. Compared to code that is natively vectorized, this is slow.</p></li><li><p>In second place and an order of magnitude faster than the <code>for</code> loop
+is our first attempt.</p></li><li><p>Almost an order of magnitude faster than our original and
+over 50x faster than the <code>for</code> loop is the version that avoids the
+double coercion.</p></li></ul><h1 id=so-whats-the-point>So, what&rsquo;s the point?</h1><ol><li><p>Writing functions requires some iteration. The first version is
+rarely the best, and it requires some experimentation to get right.</p></li><li><p>Making a function flexible requires avoiding hard-coding variables,
+and allowing default values to be adjusted by the end user. While
+we did not explore the advantages of this, I will show later how
+valuable it can be.</p></li><li><p>Understanding how R is handling certain data structures can allow
+you to understand what computational methods tend to be more
+efficient.</p></li><li><p>Getting efficient R code requires seeking means to get natively
+vectorized code, and avoid implicit operations.</p></li></ol></div><footer class=entry-footer><div class="container sep-before"><div class=categories><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5A2 2 0 014 3H9l2 3h9a2 2 0 012 2z"/></svg><span class=screen-reader-text>Categories: </span><a class=category href=/categories/r/>R</a></div><div class=tags><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2H12l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7" y2="7"/></svg><span class=screen-reader-text>Tags: </span><a class=tag href=/tags/r/>R</a></div></div></footer></article><nav class=entry-nav><div class=container><div class="prev-entry sep-before"><a href=/post/num_extract/><span aria-hidden=true><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="20" y1="12" x2="4" y2="12"/><polyline points="10 18 4 12 10 6"/></svg>Previous</span>
+<span class=screen-reader-text>Previous post: </span>Extract a number from a string with base R</a></div><div class="next-entry sep-before"><a href=/post/untidy_cocktails/><span class=screen-reader-text>Next post: </span>Untidy Tuedsay: Cocktails<span aria-hidden=true>Next<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span></a></div></div></nav></main><footer id=footer class=footer><div class="container sep-before"><div class=copyright><p>&copy; 2017-2022 Matt Espe</p></div></div></footer></div></div><script>window.__assets_js_src="/assets/js/"</script><script src=/assets/js/main.c3bcf2df.js></script><script src=/js/custom.js></script></body></html>

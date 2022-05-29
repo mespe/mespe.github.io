@@ -1,0 +1,292 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Years ago, a friend asked me for help writing a function to do her family&rsquo;s Xmas gift exchange. You can see her post on a collection of functions for this here. The basic goal here is to have a function that randomizes the names in the hat, but with the restriction that close family members (spouses) cannot draw eachother. We want to simulate the process of pulling names out of a hat where you cannot draw yourself or your partner."><meta name=theme-color content="#ffcd00"><meta property="og:title" content="Xmas Functions, revisited • Matt Espe"><meta property="og:description" content="Years ago, a friend asked me for help writing a function to do her family&rsquo;s Xmas gift exchange. You can see her post on a collection of functions for this here. The basic goal here is to have a function that randomizes the names in the hat, but with the restriction that close family members (spouses) cannot draw eachother. We want to simulate the process of pulling names out of a hat where you cannot draw yourself or your partner."><meta property="og:url" content="https://mespe.github.io/post/xmas_revisited/"><meta property="og:site_name" content="Ten thousand words..."><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:tag" content="R"><meta property="article:published_time" content="2019-12-22T09:47:01-07:00"><meta property="article:modified_time" content="2019-12-22T09:47:01-07:00"><meta name=twitter:card content="summary"><meta name=generator content="Hugo 0.99.1"><title>Xmas Functions, revisited • Matt Espe</title><link rel=canonical href=https://mespe.github.io/post/xmas_revisited/><link rel=icon href=/favicon.ico><link rel=stylesheet href=/assets/css/main.ab98e12b.css><link rel=stylesheet href=/css/custom.css><style>:root{--color-accent:#ffcd00}</style><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-101069222-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body class="page type-post has-sidebar"><div class=site><div id=sidebar class=sidebar><a class=screen-reader-text href=#main-menu>Skip to Main Menu</a><div class=container><section class="widget widget-about sep-after"><header><h2 class="title site-title"><a href=/>Ten thousand words...</a></h2><div class=desc>Thoughts on agriculture, data science, and academia</div></header></section><section class="widget widget-taxonomy_cloud sep-after"><header><h4 class="title widget-title">Tags</h4></header><div class="container list-container"><ul class="list taxonomy-cloud"><li><a href=/tags/agriculture/ style=font-size:1.25em>agriculture</a></li><li><a href=/tags/blogging/ style=font-size:1em>blogging</a></li><li><a href=/tags/computers/ style=font-size:1.4166666666666665em>computers</a></li><li><a href=/tags/data-science/ style=font-size:1.9166666666666665em>data science</a></li><li><a href=/tags/golang/ style=font-size:1em>Golang</a></li><li><a href=/tags/hugo/ style=font-size:1em>hugo</a></li><li><a href=/tags/personal/ style=font-size:1em>personal</a></li><li><a href=/tags/r/ style=font-size:2em>R</a></li><li><a href=/tags/research/ style=font-size:1.0833333333333333em>research</a></li><li><a href=/tags/stan/ style=font-size:1em>Stan</a></li><li><a href=/tags/stats/ style=font-size:1.0833333333333333em>stats</a></li></ul></div></section></div><div class=sidebar-overlay></div></div><div class=main><nav id=main-menu class="menu main-menu" aria-label="Main Menu"><div class=container><a class=screen-reader-text href=#content>Skip to Content</a>
+<button id=sidebar-toggler class=sidebar-toggler aria-controls=sidebar>
+<span class=screen-reader-text>Toggle Sidebar</span>
+<span class=open><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></span><span class=close><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></button><ul><li class=item><a href=/>Home</a></li><li class=item><a href=/post/>Blog</a></li><li class=item><a href=/about/>About me</a></li><li class=item><a href=/research/>Research</a></li><li class=item><a href=/consulting/>Consulting</a></li><li class=item><a href=https://github.com/mespe>Repos</a></li><li class=item><a href=/docs/espe_cv.pdf>CV</a></li></ul></div></nav><div class=header-widgets><div class=container></div></div><header id=header class="header site-header"><div class="container sep-after"><div class=header-info><p class="site-title title">Ten thousand words...</p><p class="desc site-desc">Thoughts on agriculture, data science, and academia</p></div></div></header><main id=content><article lang=en class=entry><header class="header entry-header"><div class="container sep-after"><div class=header-info><h1 class=title>Xmas Functions, revisited</h1></div><div class=entry-meta><span class=posted-on><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class=screen-reader-text>Posted on</span>
+<time class=entry-date datetime=2019-12-22T09:47:01-07:00>2019, Dec 22</time></span>
+<span class=byline><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M21 21V20c0-2.76-4-5-9-5s-9 2.24-9 5v1"/><path d="M16 6.37A4 4 0 1112.63 3 4 4 0 0116 6.37z"/></svg><span class=screen-reader-text>by </span><a href=/authors/mespe>Matt Espe</a></span>
+<span class=reading-time><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 15 15"/></svg>11 mins read</span></div></div></header><div class="container entry-content"><p>Years ago, a friend asked me for help writing a function to do her
+family&rsquo;s Xmas gift exchange. You can see her post on a collection of
+functions for this
+<a href=https://myfanwy.github.io/Blog/2019/12/17/Christmas-Gifting-With-R.html>here</a>. The
+basic goal here is to have a function that randomizes the names in the
+hat, but with the restriction that close family members (spouses)
+cannot draw eachother. We want to simulate the process of pulling
+names out of a hat where you cannot draw yourself or your partner.</p><p>I literally wrote this two years ago, and very quickly. I did not
+expect it to be great. Looking at it now, after some time and experience, I
+can see many areas to improve it. And I would hate to have a sloppily
+written function be the last word from me.</p><h1 id=the-original-function>The original function</h1><p>Here is what I originally wrote:</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span><span style=color:#776e71># this function requires a column of NAs in the starting dataframe:</span>
+</span></span><span style=display:flex><span>pool <span style=color:#5bc4bf>&lt;-</span> <span style=color:#06b6ef>data.frame</span>(
+</span></span><span style=display:flex><span>    id <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>c</span>(<span style=color:#f99b15>1</span><span style=color:#5bc4bf>:</span><span style=color:#f99b15>7</span>),
+</span></span><span style=display:flex><span>    person <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>c</span>(<span style=color:#48b685>&#34;Cam&#34;</span>, <span style=color:#48b685>&#34;Mitchell&#34;</span>,
+</span></span><span style=display:flex><span>               <span style=color:#48b685>&#34;Jay&#34;</span>, <span style=color:#48b685>&#34;Gloria&#34;</span>,
+</span></span><span style=display:flex><span>               <span style=color:#48b685>&#34;Manny&#34;</span>,
+</span></span><span style=display:flex><span>               <span style=color:#48b685>&#34;Claire&#34;</span>, <span style=color:#48b685>&#34;Phil&#34;</span>),
+</span></span><span style=display:flex><span>    partner <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>c</span>(<span style=color:#f99b15>2</span>, <span style=color:#f99b15>1</span>, <span style=color:#f99b15>4</span>, <span style=color:#f99b15>3</span>, <span style=color:#f99b15>5</span>, <span style=color:#f99b15>7</span>, <span style=color:#f99b15>6</span>),
+</span></span><span style=display:flex><span>    id2 <span style=color:#5bc4bf>=</span> <span style=color:#815ba4>NA</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>xmas2 <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(pool_df) {
+</span></span><span style=display:flex><span>    <span style=color:#776e71># for 1:7, gift draw number is sampled from anyone BUT that person&#39;s spouse:</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>for </span>(i in <span style=color:#06b6ef>seq</span>(<span style=color:#06b6ef>nrow</span>(pool_df))) {
+</span></span><span style=display:flex><span>        pool_df<span style=color:#5bc4bf>$</span>id2[i] <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>sample</span>(<span style=color:#06b6ef>setdiff</span>(<span style=color:#06b6ef>seq</span>(<span style=color:#06b6ef>nrow</span>(pool_df)), <span style=color:#06b6ef>c</span>(pool_df<span style=color:#5bc4bf>$</span>partner[i], pool_df<span style=color:#5bc4bf>$</span>id2, i)),
+</span></span><span style=display:flex><span>                               <span style=color:#f99b15>1</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    pool_df<span style=color:#5bc4bf>$</span>p2 <span style=color:#5bc4bf>=</span> pool_df<span style=color:#5bc4bf>$</span>person[pool_df<span style=color:#5bc4bf>$</span>id2] <span style=color:#776e71># make a column of who each person drew (p2)</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    ok <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>all</span>(<span style=color:#5bc4bf>!</span><span style=color:#06b6ef>duplicated</span>(pool_df<span style=color:#5bc4bf>$</span>id2) <span style=color:#5bc4bf>&amp;</span>
+</span></span><span style=display:flex><span>                 pool_df<span style=color:#5bc4bf>$</span>partner <span style=color:#5bc4bf>!=</span> pool_df<span style=color:#5bc4bf>$</span>id2) <span style=color:#776e71># ok is a df where no one drew themselves and no one drew their spouse</span>
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>if </span>(<span style=color:#5bc4bf>!</span>ok)
+</span></span><span style=display:flex><span>        <span style=color:#776e71># if the conditions aren&#39;t met, return &#34;somthing went wrong&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#06b6ef>stop</span>(<span style=color:#48b685>&#34;No good - try again&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>return</span>(pool_df) <span style=color:#776e71># else, return the finished matches</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#06b6ef>xmas2</span>(pool_df <span style=color:#5bc4bf>=</span> pool) <span style=color:#776e71># call until you get a return</span>
+</span></span></code></pre></div><p>Yikes. This is tough to look at.</p><p>So, before we get to improving it, we should take a moment to catalog
+what is not great about it, as well as what might be OK.</p><h2 id=the-bad>The bad</h2><p><em>1. Formatting:</em> I find it very difficult to read the above
+code. Having the comments off the end of each line of code is messy,
+and the spacing is terrible.</p><p><em>2. Expectations for the input data structure:</em> The function expects very
+specific structure for the input data.frame, e.g. having an empty
+column to fill, expecting the &ldquo;spouses&rdquo; column to be indices, etc.</p><p><em>3. No flexibility in calling the function:</em> The function takes a
+single argument, the data.frame. The user can only modify behavior by
+modifying this data.frame.</p><p><em>4. Cannot make multiple restrictions for each person:</em> For example,
+to prevent someone from &ldquo;drawing&rdquo; any of the people in their immediate
+family rather than just your spouse, e.g. children or parents.</p><p><em>5. Forces the user to re-run on failure:</em> It would be better to keep
+running until there is a valid output, rather than forcing the user to
+re-run the function.</p><h2 id=the-good>The good</h2><p><em>1. It seemed to work:</em></p><p><em>2. <code>for</code> loop is probably appropriate for small lists:</em> If we wanted to
+do this with a large set of inputs, we might want to look at
+vectorizing the code, but for this it is fine.</p><h1 id=improving-the-xmas-function>Improving the xmas function</h1><p>First things first, we are going to get rid of the dependence on
+certain columns being present in the input data.frame. Let&rsquo;s do that by
+creating some variables. We will automatically populated these from
+the data.frame by default:</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>xmas <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(df, persons <span style=color:#5bc4bf>=</span> df<span style=color:#5bc4bf>$</span>persons, exclude <span style=color:#5bc4bf>=</span> df<span style=color:#5bc4bf>$</span>partner) {
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    recipient <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>rep</span>(<span style=color:#815ba4>NA</span>, <span style=color:#06b6ef>length</span>(persons)) 
+</span></span></code></pre></div><p>This might not be the long term solution, but it will work for the
+time being. It gets us away from needing there to be a column of a
+certain name in the original data.frame. The default option does
+expect certain columns, but the user can get around this, e.g.</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span><span style=color:#06b6ef>xmas</span>( , persons <span style=color:#5bc4bf>=</span> my_data<span style=color:#5bc4bf>$</span>a, exclude <span style=color:#5bc4bf>=</span> my_other_data<span style=color:#5bc4bf>$</span>b)
+</span></span></code></pre></div><p>Next, let&rsquo;s relax the data types that are acceptable for the
+function. For example, it would be nice if the <code>persons</code> and <code>exclude</code>
+(formally <code>partner</code>)
+could be either factors, characters, or integers. To do this, we need
+to change this line of code:</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>pool_df<span style=color:#5bc4bf>$</span>id2[i] <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>sample</span>(<span style=color:#06b6ef>setdiff</span>(<span style=color:#06b6ef>seq</span>(<span style=color:#06b6ef>nrow</span>(pool_df)), <span style=color:#06b6ef>c</span>(pool_df<span style=color:#5bc4bf>$</span>partner[i], pool_df<span style=color:#5bc4bf>$</span>id
+</span></span></code></pre></div><p>Right now, it expects that the <code>exclude</code> is an integer. We can replace
+it with:</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>recipient[i] <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>sample</span>(<span style=color:#06b6ef>setdiff</span>(persons[<span style=color:#5bc4bf>-</span>i], <span style=color:#06b6ef>c</span>(exclude[i], recipient)), <span style=color:#f99b15>1</span>) 
+</span></span></code></pre></div><p>This does two things - first, we exclude drawing ourselves with
+<code>persons[-i]</code>, and second we made the code work irrespective of the
+data type of <code>persons</code> and <code>exclude</code>. But it is not foolproof. So,
+what will screw this up? It will fail if the data types of these two
+are different from one another - so we should add in a test,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span><span style=color:#06b6ef>if</span>(<span style=color:#06b6ef>class</span>(persons) <span style=color:#5bc4bf>!=</span> <span style=color:#06b6ef>class</span>(exclude))
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>stop</span>(<span style=color:#48b685>&#34;Please provide the same data type for both &#39;persons&#39; and &#39;exclude&#39;&#34;</span>)
+</span></span></code></pre></div><p>We might even want to go a step further and tell the user what data
+types they provided,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span><span style=color:#06b6ef>stop</span>(<span style=color:#06b6ef>sprintf</span>(<span style=color:#48b685>&#34;Please provide the same data type for both &#39;persons&#39; and &#39;exclude&#39;\n &#39;persons&#39; is class %s, &#39;exclude is class %s&#34;</span>,
+</span></span><span style=display:flex><span>             <span style=color:#06b6ef>class</span>(persons), <span style=color:#06b6ef>class</span>(exclude)))
+</span></span></code></pre></div><p>OK, we have dealt with the &ldquo;bad&rdquo; 1-3 above, but now we want to think
+about how we would deal with multiple <code>excludes</code> per person. How would
+a user even specify a variable number of people
+to exclude for each <code>person</code>? Since we can have a variable number -
+some people will only have 1 or maybe 0 restrictions, while others
+might have 2 or more. The natural structure to store items of
+different lengths in R is a list. So maybe something like,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>exclude <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>list</span>(<span style=color:#48b685>&#34;Mitchell&#34;</span>, <span style=color:#48b685>&#34;Cam&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#06b6ef>c</span>(<span style=color:#48b685>&#34;Gloria&#34;</span>, <span style=color:#48b685>&#34;Manny&#34;</span>), <span style=color:#06b6ef>c</span>(<span style=color:#48b685>&#34;Jay&#34;</span>, <span style=color:#48b685>&#34;Manny&#34;</span>),
+</span></span><span style=display:flex><span>               <span style=color:#815ba4>NA</span>,
+</span></span><span style=display:flex><span>               <span style=color:#48b685>&#34;Phil&#34;</span>, <span style=color:#48b685>&#34;Claire&#34;</span>)
+</span></span></code></pre></div><p>So, how would we need to change the code to allow something like this?
+First, we need to index into the list when drawing from <code>exclude</code>,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>recipient[i] <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>sample</span>(<span style=color:#06b6ef>setdiff</span>(persons[<span style=color:#5bc4bf>-</span>i], <span style=color:#06b6ef>c</span>(exclude[[i]], recipient)), <span style=color:#f99b15>1</span>) 
+</span></span></code></pre></div><p>This will still work when we have a simple vector, since <code>[[</code> will
+still pull the correct element of a vector. But our error message will
+not work. So, we need to expand this to work when <code>excludes</code> is a
+list,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>    <span style=color:#06b6ef>if</span>(<span style=color:#5bc4bf>!</span><span style=color:#06b6ef>all</span>(<span style=color:#06b6ef>class</span>(<span style=color:#06b6ef>unlist</span>(exclude)) <span style=color:#5bc4bf>==</span> <span style=color:#06b6ef>class</span>(persons)))
+</span></span><span style=display:flex><span>        <span style=color:#06b6ef>stop</span>(<span style=color:#06b6ef>sprintf</span>(<span style=color:#48b685>&#34;Please provide the same data types for both &#39;persons&#39; and &#39;exclude&#39;\n &#39;persons&#39; is class %s, &#39;exclude&#39; is class %s&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#06b6ef>class</span>(persons), <span style=color:#06b6ef>unique</span>(<span style=color:#06b6ef>class</span>(<span style=color:#06b6ef>unlist</span>(exclude)))))
+</span></span></code></pre></div><p>It doesn&rsquo;t win any points for readability, but it will work.</p><p>Now, for the last bit - only returning a valid result, rather than
+having the user have to call the function again. To fix this, we need
+to know why the function was failing in the first place. Since we are
+using <code>setdiff</code>, we cannot select ourselves or anyone on the <code>exclude</code>
+for that person, so that is not a possible reason to fail. But we can
+end up in a situation where there are no valid selections for a
+person, i.e. the only &ldquo;names in the hat&rdquo; are their name or people on their
+exclude list. So, we need to handle that situation.</p><p>One way to handle it is as you would when actually drawing names from
+a hat - if you select your own name, you put that draw back and try
+again. But what if there is only one name in the hat? Then you would
+probably switch names with someone else. So, can we turn this in to an
+algorithm?</p><p>Rather than code two different behaviors, to re-draw and trade, we
+will code just one, to trade. This is because our code makes it
+impossible to draw ourselves. Therefore, we will only need to handle a single
+case - if the number of choices for a person is 0,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>choices <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>setdiff</span>(persons[<span style=color:#5bc4bf>-</span>i], <span style=color:#06b6ef>c</span>(exclude[[i]], recipient))
+</span></span><span style=display:flex><span><span style=color:#06b6ef>if</span>(<span style=color:#06b6ef>length</span>(choices) <span style=color:#5bc4bf>==</span> <span style=color:#f99b15>0</span>){
+</span></span><span style=display:flex><span>    <span style=color:#776e71>#trade code</span>
+</span></span><span style=display:flex><span>} else {
+</span></span><span style=display:flex><span>    recipient[i] <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>sample</span>(choices, <span style=color:#f99b15>1</span>)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Now, how would we trade? This gets a little tricky - we need to make
+sure the trade does not result in any invalid combinations. So, we
+would need to check that one of the remaining choices is valid for our
+trade. This might take a little effort to get right. Of course,
+this might not even be the right approach - it might be better to just
+restart the entire drawing process and keep trying until we get a
+valid set. What would that look like?</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>i <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>1</span>
+</span></span><span style=display:flex><span><span style=color:#06b6ef>while</span>(i <span style=color:#5bc4bf>&lt;</span> (<span style=color:#06b6ef>length</span>(persons) <span style=color:#5bc4bf>+</span> <span style=color:#f99b15>1</span>)){
+</span></span><span style=display:flex><span>    choices <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>setdiff</span>(persons[<span style=color:#5bc4bf>-</span>i], <span style=color:#06b6ef>c</span>(exclude[[i]], recipient))
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>if</span>(<span style=color:#06b6ef>length</span>(choices) <span style=color:#5bc4bf>==</span> <span style=color:#f99b15>0</span>){
+</span></span><span style=display:flex><span>        i <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>1</span>
+</span></span><span style=display:flex><span>        choices <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>setdiff</span>(persons[<span style=color:#5bc4bf>-</span>i], <span style=color:#06b6ef>c</span>(exclude[[i]], recipient))
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    recipient[i] <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>sample</span>(choices, <span style=color:#f99b15>1</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    i <span style=color:#5bc4bf>=</span> i <span style=color:#5bc4bf>+</span> <span style=color:#f99b15>1</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>This works, but there is now a risk of it being a infinite loop -
+i.e. if there are very few or no valid combos. So, we need some safeguard
+to keep it from running too long. We can add a <code>max_draw</code> parameter to
+get an upper limit on the number of times we try to find a valid set,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>xmas <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(df, persons <span style=color:#5bc4bf>=</span> df<span style=color:#5bc4bf>$</span>persons, exclude <span style=color:#5bc4bf>=</span> df<span style=color:#5bc4bf>$</span>partner,
+</span></span><span style=display:flex><span>                max_draws <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>1000</span>) {
+</span></span><span style=display:flex><span>    draw <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>while</span>(i <span style=color:#5bc4bf>&lt;</span> <span style=color:#06b6ef>length</span>(persons)){
+</span></span><span style=display:flex><span>        <span style=color:#06b6ef>if</span>(draw <span style=color:#5bc4bf>&gt;</span> max_draws)
+</span></span><span style=display:flex><span>            <span style=color:#06b6ef>stop</span>(<span style=color:#48b685>&#34;No valid combos found in &#34;</span>, draw, <span style=color:#48b685>&#34; attempts&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Putting it all together, our function looks like this:</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>xmas <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(df, persons <span style=color:#5bc4bf>=</span> df<span style=color:#5bc4bf>$</span>persons, exclude <span style=color:#5bc4bf>=</span> df<span style=color:#5bc4bf>$</span>partner,
+</span></span><span style=display:flex><span>                max_draws <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>1000</span>) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>if</span>(<span style=color:#5bc4bf>!</span><span style=color:#06b6ef>all</span>(<span style=color:#06b6ef>class</span>(<span style=color:#06b6ef>unlist</span>(exclude)) <span style=color:#5bc4bf>==</span> <span style=color:#06b6ef>class</span>(persons)))
+</span></span><span style=display:flex><span>        <span style=color:#06b6ef>stop</span>(<span style=color:#06b6ef>sprintf</span>(<span style=color:#48b685>&#34;Please provide the same data types for both &#39;persons&#39; and &#39;exclude&#39;\n &#39;persons&#39; is class %s, &#39;exclude&#39; is class %s&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#06b6ef>class</span>(persons), <span style=color:#06b6ef>unique</span>(<span style=color:#06b6ef>class</span>(<span style=color:#06b6ef>unlist</span>(exclude)))))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    recipient <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>rep</span>(<span style=color:#815ba4>NA</span>, <span style=color:#06b6ef>length</span>(persons)) 
+</span></span><span style=display:flex><span>    i <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>1</span>
+</span></span><span style=display:flex><span>    draw <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>while</span>(i <span style=color:#5bc4bf>&lt;</span> (<span style=color:#06b6ef>length</span>(persons) <span style=color:#5bc4bf>+</span> <span style=color:#f99b15>1</span>)){
+</span></span><span style=display:flex><span>        <span style=color:#06b6ef>if</span>(draw <span style=color:#5bc4bf>&gt;</span> max_draws)
+</span></span><span style=display:flex><span>            <span style=color:#06b6ef>stop</span>(<span style=color:#48b685>&#34;No valid combos found in &#34;</span>, draw, <span style=color:#48b685>&#34; attempts&#34;</span>)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        choices <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>setdiff</span>(persons[<span style=color:#5bc4bf>-</span>i], <span style=color:#06b6ef>c</span>(exclude[[i]], recipient))
+</span></span><span style=display:flex><span>        <span style=color:#06b6ef>if</span>(<span style=color:#06b6ef>length</span>(choices) <span style=color:#5bc4bf>==</span> <span style=color:#f99b15>0</span>){
+</span></span><span style=display:flex><span>            i <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>1</span>
+</span></span><span style=display:flex><span>            draw <span style=color:#5bc4bf>=</span> draw <span style=color:#5bc4bf>+</span> <span style=color:#f99b15>1</span>
+</span></span><span style=display:flex><span>            choices <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>setdiff</span>(persons[<span style=color:#5bc4bf>-</span>i], <span style=color:#06b6ef>c</span>(exclude[[i]], recipient))
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        recipient[i] <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>sample</span>(choices, <span style=color:#f99b15>1</span>)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        i <span style=color:#5bc4bf>=</span> i <span style=color:#5bc4bf>+</span> <span style=color:#f99b15>1</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>return</span>(recipient)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h1 id=testing-our-function>Testing our function</h1><p>We will grab the data.frames used by one of the other original
+functions to start,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>d <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>data.frame</span>(
+</span></span><span style=display:flex><span>    persons <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>c</span>(<span style=color:#48b685>&#34;Cam&#34;</span>, <span style=color:#48b685>&#34;Mitchell&#34;</span>, <span style=color:#48b685>&#34;Jay&#34;</span>,
+</span></span><span style=display:flex><span>                <span style=color:#48b685>&#34;Gloria&#34;</span>, <span style=color:#48b685>&#34;Manny&#34;</span>, <span style=color:#48b685>&#34;Claire&#34;</span>, <span style=color:#48b685>&#34;Phil&#34;</span>),
+</span></span><span style=display:flex><span>    partner <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>c</span>(<span style=color:#48b685>&#34;Mitchell&#34;</span>, <span style=color:#48b685>&#34;Cam&#34;</span>, <span style=color:#48b685>&#34;Gloria&#34;</span>,
+</span></span><span style=display:flex><span>                <span style=color:#48b685>&#34;Jay&#34;</span>, <span style=color:#815ba4>NA</span>, <span style=color:#48b685>&#34;Phil&#34;</span>, <span style=color:#48b685>&#34;Claire&#34;</span>),
+</span></span><span style=display:flex><span>  stringsAsFactors <span style=color:#5bc4bf>=</span> <span style=color:#815ba4>FALSE</span>)
+</span></span></code></pre></div><p>and use it as an input for our function,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span><span style=color:#06b6ef>replicate</span>(<span style=color:#f99b15>10</span>, <span style=color:#06b6ef>xmas</span>(d))
+</span></span></code></pre></div><pre tabindex=0><code>     [,1]       [,2]       [,3]       [,4]       [,5]       [,6]      
+[1,] &#34;Claire&#34;   &#34;Phil&#34;     &#34;Mitchell&#34; &#34;Mitchell&#34; &#34;Mitchell&#34; &#34;Gloria&#34;  
+[2,] &#34;Manny&#34;    &#34;Claire&#34;   &#34;Gloria&#34;   &#34;Jay&#34;      &#34;Claire&#34;   &#34;Claire&#34;  
+[3,] &#34;Gloria&#34;   &#34;Gloria&#34;   &#34;Manny&#34;    &#34;Cam&#34;      &#34;Gloria&#34;   &#34;Cam&#34;     
+[4,] &#34;Phil&#34;     &#34;Cam&#34;      &#34;Phil&#34;     &#34;Claire&#34;   &#34;Cam&#34;      &#34;Jay&#34;     
+[5,] &#34;Mitchell&#34; &#34;Mitchell&#34; &#34;Claire&#34;   &#34;Gloria&#34;   &#34;Phil&#34;     &#34;Phil&#34;    
+[6,] &#34;Jay&#34;      &#34;Jay&#34;      &#34;Jay&#34;      &#34;Phil&#34;     &#34;Jay&#34;      &#34;Mitchell&#34;
+[7,] &#34;Cam&#34;      &#34;Manny&#34;    &#34;Cam&#34;      &#34;Manny&#34;    &#34;Manny&#34;    &#34;Manny&#34;   
+     [,7]       [,8]       [,9]       [,10]     
+[1,] &#34;Phil&#34;     &#34;Phil&#34;     &#34;Mitchell&#34; &#34;Mitchell&#34;
+[2,] &#34;Gloria&#34;   &#34;Claire&#34;   &#34;Manny&#34;    &#34;Phil&#34;    
+[3,] &#34;Cam&#34;      &#34;Manny&#34;    &#34;Phil&#34;     &#34;Gloria&#34;  
+[4,] &#34;Claire&#34;   &#34;Jay&#34;      &#34;Claire&#34;   &#34;Jay&#34;     
+[5,] &#34;Jay&#34;      &#34;Gloria&#34;   &#34;Cam&#34;      &#34;Claire&#34;  
+[6,] &#34;Mitchell&#34; &#34;Cam&#34;      &#34;Gloria&#34;   &#34;Cam&#34;     
+[7,] &#34;Manny&#34;    &#34;Mitchell&#34; &#34;Jay&#34;      &#34;Manny&#34; 
+</code></pre><p>What about when we use a list?</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>exclude <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>list</span>(<span style=color:#48b685>&#34;Mitchell&#34;</span>, <span style=color:#48b685>&#34;Cam&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#06b6ef>c</span>(<span style=color:#48b685>&#34;Gloria&#34;</span>, <span style=color:#48b685>&#34;Manny&#34;</span>), <span style=color:#06b6ef>c</span>(<span style=color:#48b685>&#34;Jay&#34;</span>, <span style=color:#48b685>&#34;Manny&#34;</span>),
+</span></span><span style=display:flex><span>               <span style=color:#815ba4>NA</span>,
+</span></span><span style=display:flex><span>               <span style=color:#48b685>&#34;Phil&#34;</span>, <span style=color:#48b685>&#34;Claire&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#06b6ef>replicate</span>(<span style=color:#f99b15>10</span>, <span style=color:#06b6ef>xmas</span>(d, exclude <span style=color:#5bc4bf>=</span> exclude))
+</span></span></code></pre></div><pre tabindex=0><code>     [,1]       [,2]       [,3]       [,4]       [,5]       [,6]      
+[1,] &#34;Manny&#34;    &#34;Jay&#34;      &#34;Gloria&#34;   &#34;Phil&#34;     &#34;Claire&#34;   &#34;Gloria&#34;  
+[2,] &#34;Claire&#34;   &#34;Manny&#34;    &#34;Claire&#34;   &#34;Claire&#34;   &#34;Manny&#34;    &#34;Manny&#34;   
+[3,] &#34;Phil&#34;     &#34;Phil&#34;     &#34;Phil&#34;     &#34;Mitchell&#34; &#34;Mitchell&#34; &#34;Claire&#34;  
+[4,] &#34;Cam&#34;      &#34;Cam&#34;      &#34;Mitchell&#34; &#34;Cam&#34;      &#34;Phil&#34;     &#34;Mitchell&#34;
+[5,] &#34;Gloria&#34;   &#34;Claire&#34;   &#34;Cam&#34;      &#34;Jay&#34;      &#34;Gloria&#34;   &#34;Phil&#34;    
+[6,] &#34;Mitchell&#34; &#34;Gloria&#34;   &#34;Manny&#34;    &#34;Gloria&#34;   &#34;Cam&#34;      &#34;Jay&#34;     
+[7,] &#34;Jay&#34;      &#34;Mitchell&#34; &#34;Jay&#34;      &#34;Manny&#34;    &#34;Jay&#34;      &#34;Cam&#34;     
+     [,7]       [,8]       [,9]       [,10]     
+[1,] &#34;Phil&#34;     &#34;Phil&#34;     &#34;Jay&#34;      &#34;Manny&#34;   
+[2,] &#34;Gloria&#34;   &#34;Gloria&#34;   &#34;Phil&#34;     &#34;Claire&#34;  
+[3,] &#34;Claire&#34;   &#34;Claire&#34;   &#34;Claire&#34;   &#34;Phil&#34;    
+[4,] &#34;Mitchell&#34; &#34;Cam&#34;      &#34;Cam&#34;      &#34;Mitchell&#34;
+[5,] &#34;Cam&#34;      &#34;Jay&#34;      &#34;Mitchell&#34; &#34;Jay&#34;     
+[6,] &#34;Jay&#34;      &#34;Mitchell&#34; &#34;Gloria&#34;   &#34;Cam&#34;     
+[7,] &#34;Manny&#34;    &#34;Manny&#34;    &#34;Manny&#34;    &#34;Gloria&#34;  
+</code></pre><p>OK, it all seems to be working OK. Let&rsquo;s check our error messages,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span><span style=color:#06b6ef>xmas</span>(d, exclude <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>1</span><span style=color:#5bc4bf>:</span><span style=color:#f99b15>7</span>)
+</span></span></code></pre></div><pre tabindex=0><code>Error in xmas(d, exclude = 1:7) : 
+  Please provide the same data types for both &#39;persons&#39; and &#39;exclude&#39;
+ &#39;persons&#39; is class factor, &#39;exclude&#39; is class integer
+</code></pre><p>Now that we are thinking of it, it might be good to check for some
+other things, like if the <code>persons</code> and <code>exclude</code> are the same
+length. This was not a concern when we were pulling from a data.frame,
+since columns in a data.frame must be the same length. But when a
+list or elements from other objects are provided, we should check that
+they have the same length. Adding this code to the main function
+might make sense, but it will also make it longer and might hurt
+readability. We could instead make a new function to check the inputs,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>check_input <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(persons, exclude)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>if</span>(<span style=color:#5bc4bf>!</span><span style=color:#06b6ef>all</span>(<span style=color:#06b6ef>class</span>(<span style=color:#06b6ef>unlist</span>(exclude)) <span style=color:#5bc4bf>==</span> <span style=color:#06b6ef>class</span>(persons)))
+</span></span><span style=display:flex><span>        <span style=color:#06b6ef>stop</span>(<span style=color:#06b6ef>sprintf</span>(<span style=color:#48b685>&#34;Please provide the same data types for both &#39;persons&#39; and &#39;exclude&#39;\n &#39;persons&#39; is class %s, &#39;exclude&#39; is class %s&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#06b6ef>class</span>(persons), <span style=color:#06b6ef>unique</span>(<span style=color:#06b6ef>class</span>(<span style=color:#06b6ef>unlist</span>(exclude)))))
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>if</span>(<span style=color:#06b6ef>length</span>(persons) <span style=color:#5bc4bf>!=</span> <span style=color:#06b6ef>length</span>(exclude))
+</span></span><span style=display:flex><span>        <span style=color:#06b6ef>stop</span>(<span style=color:#48b685>&#34;Persons and exclude of different lengths&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>return</span>(<span style=color:#815ba4>NULL</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>   
+</span></span></code></pre></div><p>OK, so the final form of the <code>xmas</code> functions is</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>xmas <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(df, persons <span style=color:#5bc4bf>=</span> df<span style=color:#5bc4bf>$</span>persons, exclude <span style=color:#5bc4bf>=</span> df<span style=color:#5bc4bf>$</span>partner,
+</span></span><span style=display:flex><span>                max_draws <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>1000</span>) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>check_input</span>(persons, exclude)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    recipient <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>rep</span>(<span style=color:#815ba4>NA</span>, <span style=color:#06b6ef>length</span>(persons)) 
+</span></span><span style=display:flex><span>    i <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>1</span>
+</span></span><span style=display:flex><span>    draw <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>while</span>(i <span style=color:#5bc4bf>&lt;</span> (<span style=color:#06b6ef>length</span>(persons) <span style=color:#5bc4bf>+</span> <span style=color:#f99b15>1</span>)){
+</span></span><span style=display:flex><span>        <span style=color:#06b6ef>if</span>(draw <span style=color:#5bc4bf>&gt;</span> max_draws)
+</span></span><span style=display:flex><span>            <span style=color:#06b6ef>stop</span>(<span style=color:#48b685>&#34;No valid combos found in &#34;</span>, draw, <span style=color:#48b685>&#34; attempts&#34;</span>)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        choices <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>setdiff</span>(persons[<span style=color:#5bc4bf>-</span>i], <span style=color:#06b6ef>c</span>(exclude[[i]], recipient))
+</span></span><span style=display:flex><span>        <span style=color:#06b6ef>if</span>(<span style=color:#06b6ef>length</span>(choices) <span style=color:#5bc4bf>==</span> <span style=color:#f99b15>0</span>){
+</span></span><span style=display:flex><span>            i <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>1</span>
+</span></span><span style=display:flex><span>            draw <span style=color:#5bc4bf>=</span> draw <span style=color:#5bc4bf>+</span> <span style=color:#f99b15>1</span>
+</span></span><span style=display:flex><span>            choices <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>setdiff</span>(persons[<span style=color:#5bc4bf>-</span>i], <span style=color:#06b6ef>c</span>(exclude[[i]], recipient))
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        recipient[i] <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>sample</span>(choices, <span style=color:#f99b15>1</span>)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        i <span style=color:#5bc4bf>=</span> i <span style=color:#5bc4bf>+</span> <span style=color:#f99b15>1</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#06b6ef>return</span>(recipient)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>There is one big thing missing - documentation. All those
+comments were annoying before, but we should add something to document
+how the function works. How we do this might depend on how this gets
+used. If this is a one-off function, we can add a block comment,</p><div class=highlight><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span>xmas <span style=color:#5bc4bf>=</span> <span style=color:#06b6ef>function</span>(df, persons <span style=color:#5bc4bf>=</span> df<span style=color:#5bc4bf>$</span>persons, exclude <span style=color:#5bc4bf>=</span> df<span style=color:#5bc4bf>$</span>partner,
+</span></span><span style=display:flex><span>                max_draws <span style=color:#5bc4bf>=</span> <span style=color:#f99b15>1000</span>)
+</span></span><span style=display:flex><span>    <span style=color:#776e71># Takes a vector of gift givers (persons) and</span>
+</span></span><span style=display:flex><span>    <span style=color:#776e71># a vector or list of the people each should not draw (exclude)</span>
+</span></span><span style=display:flex><span>    <span style=color:#776e71># and returns a randomized recipient list, with one recipient</span>
+</span></span><span style=display:flex><span>    <span style=color:#776e71># per giver</span>
+</span></span><span style=display:flex><span>{
+</span></span></code></pre></div><p>However, if this function ends up in a package, we can add R
+documentation, either as roxygen2 or an R man page. Either way, we
+should add something.</p><h1 id=closing-thoughts>Closing thoughts</h1><p>Is this function perfect? Not even close - but it is much better. I am
+sure there are some clever things that can be done to make it more
+efficient.</p><p>I am looking forward to checking it out in another couple years to see
+how I could improve it.</p></div><footer class=entry-footer><div class="container sep-before"><div class=categories><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5A2 2 0 014 3H9l2 3h9a2 2 0 012 2z"/></svg><span class=screen-reader-text>Categories: </span><a class=category href=/categories/r/>R</a></div><div class=tags><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2H12l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7" y2="7"/></svg><span class=screen-reader-text>Tags: </span><a class=tag href=/tags/r/>R</a></div></div></footer></article><nav class=entry-nav><div class=container><div class="prev-entry sep-before"><a href=/post/future_of_r/><span aria-hidden=true><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="20" y1="12" x2="4" y2="12"/><polyline points="10 18 4 12 10 6"/></svg>Previous</span>
+<span class=screen-reader-text>Previous post: </span>Future of R (per Hadley)</a></div><div class="next-entry sep-before"><a href=/post/doing/><span class=screen-reader-text>Next post: </span>Doing things the 'hard' way<span aria-hidden=true>Next<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span></a></div></div></nav></main><footer id=footer class=footer><div class="container sep-before"><div class=copyright><p>&copy; 2017-2022 Matt Espe</p></div></div></footer></div></div><script>window.__assets_js_src="/assets/js/"</script><script src=/assets/js/main.c3bcf2df.js></script><script src=/js/custom.js></script></body></html>
