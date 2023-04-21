@@ -8,7 +8,7 @@ categories:
 tags:
   - personal
   - health
-draft: false
+draft: true
 ---
 
 After eight hours in the ED, I was sent home with no diagnostic

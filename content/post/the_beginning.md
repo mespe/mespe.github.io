@@ -8,7 +8,7 @@ categories:
 tags:
   - personal
   - health
-draft: false
+draft: true
 ---
 
 About two months ago, I had a horrible tummy ache. A no-good, very bad
